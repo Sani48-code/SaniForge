@@ -1,0 +1,64 @@
+---
+title: "n8n vs Zapier: What I Actually Use for Client Automation and Why"
+slug: "n8n-vs-zapier"
+excerpt: "I've built automations on both platforms for real clients. Here's the honest breakdown of pricing, flexibility, and when Zapier is still the smarter call."
+category: "Automation"
+date: "2026-06-22"
+coverTheme: "workflow-nodes"
+seoTitle: "n8n vs Zapier for Client Automation: A Practitioner's Take"
+seoDescription: "A working automation builder compares n8n and Zapier on pricing, flexibility, and real client workflows to help you pick the right tool."
+---
+
+I get asked some version of "which one should I use" almost every week, usually from another freelancer or a client who read a comparison article that clearly wasn't written by anyone who ships automations for a living. So here's the actual answer, with the tradeoffs I run into on real projects, not a feature checklist.
+
+## The Pricing Model Is the Real Difference, Not the Features
+
+Zapier prices per task — every single action in every run counts against your monthly quota. That's fine for a client running a couple hundred leads a month through a simple two-step zap. It becomes painful fast once you're chaining multiple apps, adding filters, or running anything with real volume. I've seen a client's Zapier bill nearly triple in a year purely from lead volume growth, with the workflow itself never changing.
+
+n8n, especially self-hosted, flips this entirely — you pay for server hosting (often $5-20/month on a small VPS) regardless of how many workflow executions you run. Their cloud plan also prices differently, by workflow executions rather than per task, which tends to be far more forgiving for complex multi-step automations.
+
+The practical rule I use: if a client's automation needs are simple and low-volume, Zapier's cost is a rounding error and not worth fighting over. Once volume climbs or the workflow gets complex, n8n almost always wins on cost within a few months.
+
+## Self-Hosting vs Cloud Changes Everything About Ownership
+
+This is the part most comparisons skip. With Zapier, the client is renting infrastructure they'll never see or control — if Zapier changes pricing, deprecates an integration, or has an outage, there's nothing to do but wait. With self-hosted n8n, the client (or agency) owns the actual workflow data and runtime. I've migrated clients off Zapier specifically because a critical integration got moved to a higher pricing tier overnight.
+
+The tradeoff is real, though: self-hosting means someone is responsible for updates, backups, and uptime. For a client with no technical staff, that's usually me maintaining it as part of an ongoing retainer — which is a fine model, but it's a conversation you need to have upfront, not after something breaks.
+
+## Flexibility and Custom Code Nodes
+
+Zapier's strength is also its ceiling: it's built for well-defined, common app-to-app connections, and its logic branching (paths, filters) covers a lot of ground without touching code. But the moment you need genuinely custom logic — a specific data transformation, a conditional that doesn't map cleanly to Zapier's filter UI, calling an API that doesn't have a native Zapier integration — you hit a wall.
+
+n8n has a built-in Code node (JavaScript or Python) sitting right inside the visual workflow, plus an HTTP Request node that can hit literally any API with full control over headers, auth, and payload shape. That's the difference between "this integration doesn't exist in the app directory, sorry" and "give me twenty minutes to wire it up manually." For custom client work, this alone tips most of my builds toward n8n.
+
+## Learning Curve Is a Real Cost, Not Just a Feature Gap
+
+I won't pretend n8n is as approachable as Zapier out of the gate. Zapier's UI is genuinely built for non-technical users to build their own simple zaps, and for a solo business owner who wants to tweak a workflow themselves without calling anyone, that matters. n8n's node-based canvas is more powerful but has a steeper ramp — expression syntax, data structure between nodes, and self-hosting setup all take real time to learn.
+
+This is where I'm honest with clients: if you want to be able to poke at your own automation without me, and it's simple enough that Zapier can handle it, use Zapier. If the workflow is complex enough to need someone technical anyway, that learning curve stops mattering because you weren't going to touch it yourself either way.
+
+## Three Real Workflows and Which Tool I'd Actually Use
+
+**Lead capture into CRM plus Slack notification.** A form submission needs to create a CRM contact and ping a sales Slack channel. This is squarely Zapier territory if the client's CRM has a solid native Zapier app and volume is under a few hundred leads a month — it's a two-step zap, reliable, and nobody needs to maintain infrastructure for it.
+
+**Syncing new Google Sheet rows into an email sequence.** Simple on paper, but I've built versions of this that need deduplication logic, conditional tagging based on a column value, and formatting cleanup before the email platform will accept the data. That conditional logic is where Zapier's filter/path system starts feeling cramped, and n8n's Code node lets me handle edge cases (blank rows, malformed emails, duplicate detection against existing subscribers) in a few lines instead of stacking five separate filter steps.
+
+**AI content-publishing pipeline posting to WordPress.** This is the clearest n8n win in my work. A pipeline that takes a content brief, calls an AI API for drafting, formats the output with proper HTML structure, and pushes it to WordPress via the REST API needs custom data transformation at nearly every step — parsing AI responses, handling formatting edge cases, structuring the WordPress payload correctly with categories and featured images. Zapier can technically chain these apps, but the transformation logic between steps is exactly what n8n's code nodes are built for, and running this at any real content volume would get expensive fast on Zapier's per-task pricing.
+
+## When Zapier Is Still the Right Call
+
+I don't want to make this sound like n8n wins every time — that's not honest. Zapier is still the better choice when:
+
+- The client wants to self-manage simple automations without any technical dependency
+- Volume is genuinely low and likely to stay that way
+- The integration needed is a common, well-supported native app connection
+- There's no appetite (or budget) for hosting/maintenance overhead
+- Speed to launch matters more than long-term cost — Zapier setups are often faster for simple cases
+
+I've talked clients out of a more "impressive" n8n build when a two-step Zapier automation solved their actual problem. Recommending the more complex tool because it's more capable, when the client doesn't need that capability, is a bad look and a worse long-term relationship.
+
+## How I Actually Decide
+
+My rough decision process on a new automation request: estimate monthly volume, count the number of conditional/transformation steps, and ask who needs to maintain this after launch. Low volume, simple logic, client wants to self-serve — Zapier. Higher volume, custom logic, or anything touching AI generation — n8n, usually self-hosted if the client is on a retainer.
+
+If you're trying to figure out which one fits your actual workflow instead of guessing from a feature comparison chart, book a free call or message me on WhatsApp — I'll tell you straight which tool fits your volume and budget, even if the answer isn't the flashier one.

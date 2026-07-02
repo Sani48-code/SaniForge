@@ -1,0 +1,41 @@
+---
+title: "AI Content Publishing Flow"
+slug: "ai-content-publishing-flow"
+tagline: "50+ Pages Auto-Published Without a Writer Touching WordPress"
+category: "Automation"
+industries:
+  - "eCommerce"
+  - "Content Publisher"
+  - "Local Directory"
+metrics:
+  - value: "50+"
+    label: "Pages Auto-Published"
+  - value: "0"
+    label: "Manual Writer Hours per Page"
+  - value: "~70%"
+    label: "Time Saved vs Manual Process"
+coverTheme: "publishing-pipeline"
+---
+
+## Challenge
+
+A local directory client needed to scale from a handful of hand-written location and service pages to 50+ pages covering every city and category combination they served. Their in-house process meant briefing a writer, waiting days for a draft, formatting it in WordPress, and manually checking on-page SEO basics before it ever went live. At that pace, covering their full service area would have taken months and tied up a writer full-time.
+
+They wanted the coverage without hiring another writer, and without sacrificing quality control — every page still needed a human sign-off before it touched the live site.
+
+## Approach
+
+I built an n8n workflow that handles the entire pipeline from a single input (city + service) to a publish-ready draft:
+
+- A trigger step pulls target keyword and location data from a Google Sheet queue.
+- An AI research node gathers local context (landmarks, service specifics, competitor angles) and passes it into a structured drafting prompt.
+- A formatting step converts the draft into clean HTML with proper heading hierarchy, internal links, and schema-ready metadata.
+- The finished draft is pushed to WordPress as a **draft post** via the REST API, tagged for review rather than published live.
+- A Slack notification alerts the QA reviewer with a direct edit link.
+- Once approved, a one-click action in n8n flips the post status to "publish" through the same API connection — no manual WordPress editing required.
+
+The workflow was built and tested over three weeks, with the first 10 pages used to tune the prompt structure before scaling to the full batch.
+
+## Result
+
+The client went from zero to 50+ published pages in under six weeks, with every page still passing through a human QA gate before going live. Manual writer hours per page dropped to zero — the only human touchpoint became a five-minute approve/reject decision. Compared to their prior manual workflow, the end-to-end time per page dropped by roughly 70%, and the client has since reused the same pipeline to keep expanding into new service areas without adding headcount.

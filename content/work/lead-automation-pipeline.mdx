@@ -1,0 +1,40 @@
+---
+title: "Lead Automation Pipeline"
+slug: "lead-automation-pipeline"
+tagline: "Saving 8 Hours a Week for a Growing Sales Team"
+category: "Automation"
+industries:
+  - "B2B Services"
+  - "Real Estate"
+  - "Agency"
+metrics:
+  - value: "8 hrs/week"
+    label: "Saved on Manual Follow-Up"
+  - value: "100%"
+    label: "Leads Logged Instantly"
+  - value: "0"
+    label: "Leads Lost to Manual Entry"
+coverTheme: "lead-flow-circuit"
+---
+
+## Challenge
+
+A growing B2B sales team was capturing leads from three different web forms across their site, but every lead had to be manually copy-pasted from an email notification into their CRM. With no consistent process, leads sat unassigned for hours, duplicate entries piled up, and at least a few leads a month were quietly lost when someone forgot to forward the notification email.
+
+The team estimated they were spending close to a full workday each week just moving lead data between inboxes, spreadsheets, and the CRM — time that could have gone toward actually following up.
+
+## Approach
+
+I designed and built an n8n workflow that replaced the entire manual chain with a single automated pipeline:
+
+- Webhook triggers capture form submissions the moment they're sent, instead of waiting on email notifications.
+- An enrichment step validates email and phone formatting, flags obvious spam/bot submissions, and appends company data where available.
+- Validated leads are pushed directly into the CRM via API, with source, campaign, and timestamp fields mapped automatically.
+- A duplicate-check node compares incoming leads against existing CRM records to prevent double entries.
+- A Slack integration posts a real-time alert to the sales channel with the lead's details and a direct CRM link, so reps can respond within minutes instead of hours.
+
+The build took about two weeks, including a testing phase where submissions were shadow-logged alongside the old manual process to confirm nothing was being missed before fully cutting over.
+
+## Result
+
+The sales team eliminated manual data entry entirely — every lead now lands in the CRM and Slack within seconds of submission. That freed up roughly 8 hours per week previously spent on copy-pasting and chasing down missed notifications. Response times to new leads dropped from hours to minutes, and the duplicate-check step has kept the CRM clean with zero leads lost to manual entry since launch.

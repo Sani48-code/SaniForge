@@ -1,0 +1,37 @@
+---
+title: "SaaS Landing Page Design"
+slug: "saas-landing-page-design"
+tagline: "2.4x Demo Booking Rate Increase"
+category: "Web Development"
+industries:
+  - "B2B SaaS"
+metrics:
+  - value: "2.4x"
+    label: "Demo Booking Rate"
+  - value: "1.2s"
+    label: "Load Time (from ~4s)"
+  - value: "+38%"
+    label: "Scroll-to-CTA Completion"
+coverTheme: "landing-page-blueprint"
+---
+
+## Challenge
+
+A B2B SaaS company had a landing page that looked polished but wasn't converting. The hero section led with a vague tagline instead of a clear value proposition, the page loaded in close to 4 seconds on mobile, and calls-to-action were scattered inconsistently throughout the page instead of building toward one clear next step. Analytics showed heavy drop-off before visitors ever reached the demo booking form.
+
+The client needed a rebuild that kept their brand identity but fixed the structural and performance problems actually costing them conversions.
+
+## Approach
+
+I rebuilt the page in Next.js with conversion and performance treated as equal priorities from the start:
+
+- Rewrote the hero to lead with a specific, benefit-driven headline and a single primary CTA, removing competing links above the fold.
+- Restructured the page flow around a clear hierarchy: problem framing, product proof, social proof (logos and a testimonial block), then a repeated, consistent CTA at every major scroll stop.
+- Rebuilt image handling with next/image and lazy loading, trimmed unused JavaScript, and moved to static generation for the page shell to cut load time.
+- Added scroll-depth and CTA-click tracking so the client could see exactly where visitors dropped off post-launch, not just guess.
+
+The rebuild took roughly three weeks from wireframe to launch, including one round of A/B testing on the hero headline before locking the final version.
+
+## Result
+
+Page load time dropped from around 4 seconds to 1.2 seconds on mobile, directly reducing early bounce. Scroll-to-CTA completion — the percentage of visitors who reached and engaged with a CTA — rose by 38%. Combined, the clearer structure and faster load pushed demo booking rate to 2.4x its previous baseline within the first month post-launch, giving the client a page they could confidently send paid traffic to.

@@ -1,0 +1,62 @@
+---
+title: "How I Built an AI Content Engine That Publishes SEO Pages Without a Writer"
+slug: "ai-content-engine-craftminion"
+excerpt: "Inside CraftMinion, the internal pipeline I built to research, draft, format, and publish location and service pages, plus why the human QA gate never got removed."
+category: "Automation"
+date: "2026-05-08"
+coverTheme: "ai-pipeline"
+seoTitle: "Building an AI Content Engine for SEO Pages: CraftMinion"
+seoDescription: "How an n8n and AI-powered pipeline called CraftMinion generates, formats, and publishes location and service pages with a human QA gate."
+---
+
+At GrowMinion we were spending most of our content hours on the same repetitive task: writing near-identical service and location pages for local business clients — same structure, same intent, different city or service name each time. That's exactly the kind of repetitive-but-not-trivial work I don't think a human should be doing manually in 2026, so I built CraftMinion to do the heavy lifting while keeping a human firmly in the loop for the part that actually matters.
+
+## Why This Needed to Be a Pipeline, Not a Prompt
+
+The naive version of "AI writes SEO pages" is a single prompt: "write a page about plumbing services in Austin." That produces generic, forgettable content that reads exactly like every other AI-generated page competing for the same keyword — which defeats the purpose. Google's own guidance is blunt about this: content produced primarily to manipulate rankings, regardless of how it was produced, gets treated as spam. The fix isn't avoiding AI, it's not treating a single generation as the finish line.
+
+So CraftMinion isn't one AI call, it's a multi-step pipeline built in n8n, where each stage does one job well and hands off a structured output to the next.
+
+## Stage One: Research and Outline
+
+Before any drafting happens, the pipeline gathers actual inputs specific to that page — the service details, the location's relevant context (service area, common local considerations), competitor pages currently ranking for the target keyword, and any client-specific differentiators pulled from an intake doc. This gets fed into an AI call whose only job is to produce a structured outline: H2/H3 headings, the key points each section needs to cover, and which local details need to appear where.
+
+This step is what keeps the output from being generic. A page about roof repair in a coastal city should mention wind and salt-air wear; a page about roof repair inland should mention hail or temperature swings instead. That distinction has to be baked in at the outline stage, or no amount of polishing the draft afterward fixes it.
+
+## Stage Two: Draft Generation
+
+With a specific outline in hand, a second AI call handles the actual drafting, section by section rather than as one giant prompt. Generating in sections keeps each part focused and reduces the tendency for long AI outputs to drift, repeat themselves, or lose the specific details injected at the outline stage. Each section gets the outline point, the local/service details, and a style guide fragment (tone, reading level, things to avoid — no fluff phrases, no "in today's fast-paced world" openers) as context.
+
+I also feed in a handful of real examples of how we want pages to sound, not as content to copy but as calibration for tone. This matters more than people expect — it's the difference between a page that sounds like a template with words swapped in and one that reads like someone who actually understands the trade wrote it.
+
+## Stage Three: On-Page SEO Formatting
+
+Once the draft exists, a separate formatting pass handles the mechanical SEO layer: title tag and meta description generation within character limits, heading hierarchy validation, internal link suggestions to related service/location pages already on the client's site, schema markup fields (LocalBusiness, Service, or FAQ schema depending on page type), and image alt text based on what the page actually describes.
+
+Separating this from drafting matters because asking one AI call to write compelling copy and simultaneously hit exact character-count constraints tends to produce worse results at both jobs. Splitting it into a dedicated formatting stage keeps the technical SEO requirements consistent and correct every time, regardless of how the draft turned out.
+
+## Stage Four: The Human QA Gate
+
+This is the stage that never got automated away, and I don't think it should be. Every page CraftMinion produces lands in a review queue before it touches the live site — a real person checks it for factual accuracy (AI models still confidently state wrong specifics about pricing, timelines, or process), local relevance (does this actually sound like it's about this city, or did the model default to generic phrasing), and brand voice fit.
+
+The honest tradeoff here: skipping this step would let us publish faster and cheaper. But the failure mode of unreviewed AI content isn't subtle — it's the page that says something factually wrong about a service, or that reads as obviously templated once you compare it against three sibling pages for other cities. Either of those costs more in credibility (and Google's quality signals) than the QA step costs in time. A reviewer typically spends five to ten minutes per page, which is a fraction of writing it from scratch, but it's the fraction that catches the mistakes that actually matter.
+
+## Stage Five: One-Click Publish via WordPress REST API
+
+Once a page passes QA, publishing is a single action — the pipeline pushes the formatted content, meta fields, and schema straight to WordPress through its REST API, sets the correct category and featured image, and schedules or publishes immediately based on the client's preference. What used to be a copy-paste-format-upload routine taking fifteen to twenty minutes per page is now a five-second API call once a human has approved the content.
+
+## The Real Tradeoffs Nobody Talks About Enough
+
+**Quality control is a continuous job, not a one-time setup.** AI models change behavior between versions, and a prompt that produced great output six months ago can drift. I review a sample of published pages periodically specifically to catch quality regression before it becomes a pattern across dozens of pages.
+
+**Avoiding the "genericness" problem takes deliberate design, not luck.** The research and outline stage exists specifically to fight this. Skip it and you get technically correct but interchangeable pages — the kind Google's helpful content systems are explicitly designed to deprioritize.
+
+**Volume without a review bottleneck is a trap.** It's tempting to remove the QA gate once you trust the pipeline, especially at scale. I'd argue that's exactly backwards — the more pages you're publishing, the more a single systemic mistake (a wrong fact, a tone-deaf phrase) compounds across your entire site instead of being contained to one page.
+
+## Where This Fits vs. Fully Manual Content
+
+CraftMinion isn't a replacement for deep, differentiated content like a founder's story, an original research piece, or a nuanced pillar page — that work benefits from a human writer who can bring a genuinely original angle. It's built specifically for the high-volume, structurally repetitive category of pages: service pages across multiple locations, seasonal variants, and similar templated-but-necessary SEO content that would otherwise eat a writer's entire week for marginal creative value.
+
+The honest framing I give clients: this tool lets a human focus their time on the fifteen percent of content that needs a real creative voice, while the other eighty-five percent of necessary-but-repetitive pages get produced faster, more consistently, and still reviewed by a person before it ever goes live.
+
+If you're curious whether a pipeline like this could handle your own site's location or service page sprawl, reach out and let's talk through what your specific content backlog actually looks like — a quick call is usually enough to tell whether it's a good fit.
