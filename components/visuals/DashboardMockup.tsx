@@ -13,19 +13,19 @@ const config: Record<
 > = {
   craftminion: {
     icon: <Sparkles size={16} />,
-    label: "CraftMinion — Content Engine",
+    label: "CraftMinion: Content Engine",
     accent: "#D4AF37",
     bars: [40, 70, 55, 90, 65, 80],
   },
   rankdominator: {
     icon: <MapPin size={16} />,
-    label: "RankDominator — GeoGrid",
+    label: "RankDominator: GeoGrid",
     accent: "#4A7FE8",
     bars: [60, 45, 80, 50, 95, 70],
   },
   growforge: {
     icon: <Scale size={16} />,
-    label: "GrowForge — Legal SEO",
+    label: "GrowForge: Legal SEO",
     accent: "#E8B84B",
     bars: [30, 55, 45, 75, 60, 85],
   },

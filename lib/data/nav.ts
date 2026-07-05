@@ -5,15 +5,16 @@ export type NavItem = {
 
 export const navItems: NavItem[] = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Skills", href: "/skills" },
-  { label: "Work", href: "/work" },
   { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "/contact" },
 ];
 
 export const footerLinks = {
-  pages: navItems,
+  pages: [
+    { label: "About", href: "/#about" },
+    { label: "Work", href: "/#work" },
+    { label: "Contact", href: "/#contact" },
+    { label: "Blog", href: "/blog" },
+  ] as NavItem[],
   services: [
     { label: "Web Development", href: "/skills#web-development" },
     { label: "SEO Copywriting", href: "/skills#seo-copywriting" },

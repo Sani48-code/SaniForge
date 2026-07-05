@@ -47,6 +47,10 @@ const config: Config = {
       animation: {
         "fade-up": "fadeUp 0.7s ease-out forwards",
         float: "float 6s ease-in-out infinite",
+        "drift-slow": "drift 14s ease-in-out infinite",
+        "drift-slower": "drift 22s ease-in-out infinite reverse",
+        "line-drift": "lineDrift 18s ease-in-out infinite",
+        marquee: "marquee 50s linear infinite",
       },
       keyframes: {
         fadeUp: {
@@ -56,6 +60,18 @@ const config: Config = {
         float: {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-12px)" },
+        },
+        drift: {
+          "0%, 100%": { transform: "translate(0, 0) scale(1)" },
+          "50%": { transform: "translate(30px, -20px) scale(1.08)" },
+        },
+        lineDrift: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(20px)" },
+        },
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
         },
       },
       maxWidth: {

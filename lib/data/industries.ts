@@ -1,49 +1,29 @@
-export type IndustryGroup = {
-  group: string;
+export type IndustryBadge = {
+  label: string;
   icon: string;
-  items: string[];
 };
 
-export const industryGroups: IndustryGroup[] = [
-  {
-    group: "Professional Services",
-    icon: "briefcase",
-    items: [
-      "Law Firm",
-      "Law Firm",
-      "Insurance Agency",
-      "Reverse Mortgage / Finance",
-      "General Business",
-    ],
-  },
-  {
-    group: "Health & Wellness",
-    icon: "heart-pulse",
-    items: ["Chiropractic", "Med Spa / Aesthetics", "Body Contouring"],
-  },
-  {
-    group: "Real Estate",
-    icon: "home",
-    items: ["Real Estate", "Real Estate"],
-  },
-  {
-    group: "Home & Local Services",
-    icon: "wrench",
-    items: [
-      "Restoration",
-      "Air Duct Cleaning",
-      "Appliance Repair",
-      "Painting",
-      "Koi Pond",
-      "Laundry",
-    ],
-  },
-  {
-    group: "Automotive & Industrial",
-    icon: "truck",
-    items: ["Auto / Trailer Hitch", "Parking Lot Striping", "Industrial / Manufacturing"],
-  },
+export const industryBadges: IndustryBadge[] = [
+  { label: "Insurance Agency", icon: "briefcase" },
+  { label: "Chiropractic Clinic", icon: "heart-pulse" },
+  { label: "Law Firm", icon: "scale" },
+  { label: "Law Firm", icon: "scale" },
+  { label: "Real Estate Agency", icon: "home" },
+  { label: "Real Estate Agency", icon: "home" },
+  { label: "Med Spa / Aesthetics", icon: "sparkles" },
+  { label: "Reverse Mortgage / Finance", icon: "landmark" },
+  { label: "Restoration Services", icon: "wrench" },
+  { label: "Industrial / Manufacturing", icon: "factory" },
+  { label: "Air Duct Cleaning", icon: "wind" },
+  { label: "Appliance Repair", icon: "wrench" },
+  { label: "Painting Services", icon: "paintbrush" },
+  { label: "Auto / Trailer Hitch Services", icon: "truck" },
+  { label: "Parking Lot Striping", icon: "parking-square" },
+  { label: "Koi Pond & Water Garden", icon: "waves" },
+  { label: "Laundry Services", icon: "washing-machine" },
+  { label: "Body Contouring Clinic", icon: "flower" },
+  { label: "General Business Services", icon: "briefcase" },
 ];
 
-// Stated total across all client engagements (grid above shows representative examples).
+// Stated total across all client engagements (banner above shows anonymized, representative industry types, no client names or logos).
 export const totalClientBusinesses = 21;

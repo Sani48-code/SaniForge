@@ -20,27 +20,27 @@ export default function SkillPillar({
         }`}
       >
         <FadeIn>
-          <span className="font-mono text-xs uppercase tracking-[0.2em] text-gold-light">
+          <span className="font-mono text-sm uppercase tracking-[0.2em] text-gold-light">
             0{index + 1}
           </span>
-          <h2 className="mt-4 font-display text-3xl text-ink sm:text-4xl text-balance">
+          <h2 className="mt-4 font-display text-4xl text-ink sm:text-5xl text-balance">
             {pillar.title}
           </h2>
-          <p className="mt-3 font-display text-lg italic text-blue-soft">{pillar.tagline}</p>
-          <p className="mt-5 max-w-lg text-base leading-relaxed text-ink-muted">
+          <p className="mt-3 font-display text-xl italic text-blue-soft">{pillar.tagline}</p>
+          <p className="mt-5 max-w-lg text-lg leading-relaxed text-ink-muted">
             {pillar.description}
           </p>
 
           <div className="mt-8">
             <GoldDivider className="mb-6 justify-start" />
-            <p className="mb-3 font-mono text-xs uppercase tracking-wider text-ink-faint">
+            <p className="mb-3 font-mono text-sm uppercase tracking-wider text-ink-faint">
               Tools
             </p>
             <div className="flex flex-wrap gap-2">
               {pillar.tools.map((tool) => (
                 <span
                   key={tool}
-                  className="rounded-full border border-navy-border px-3 py-1.5 font-mono text-xs text-ink-muted"
+                  className="rounded-full border border-navy-border px-3 py-1.5 font-mono text-sm text-ink-muted"
                 >
                   {tool}
                 </span>
@@ -51,7 +51,7 @@ export default function SkillPillar({
 
         <FadeIn delay={0.1}>
           <div className="rounded-2xl border border-navy-border bg-navy-panel/50 p-8">
-            <p className="mb-5 font-mono text-xs uppercase tracking-wider text-ink-faint">
+            <p className="mb-5 font-mono text-sm uppercase tracking-wider text-ink-faint">
               What this covers
             </p>
             <ul className="space-y-4">
@@ -60,7 +60,7 @@ export default function SkillPillar({
                   <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold/10 text-gold-light">
                     <Check size={12} />
                   </span>
-                  <span className="text-sm leading-relaxed text-ink-muted sm:text-base">
+                  <span className="text-base leading-relaxed text-ink-muted sm:text-lg">
                     {bullet}
                   </span>
                 </li>

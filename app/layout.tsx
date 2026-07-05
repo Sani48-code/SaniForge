@@ -50,6 +50,21 @@ export const metadata: Metadata = {
   },
 };
 
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: site.founder,
+  url: site.url,
+  jobTitle: "Web Developer, SEO Copywriter & Automation Engineer",
+  email: site.email,
+  sameAs: site.sameAs,
+  worksFor: {
+    "@type": "Organization",
+    name: "GrowMinion",
+    url: site.growminionUrl,
+  },
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -58,6 +73,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable}`}>
       <body className="bg-navy font-sans antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />

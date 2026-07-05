@@ -51,7 +51,7 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-6">
       <div>
-        <label htmlFor="name" className="mb-2 block text-sm text-ink-muted">
+        <label htmlFor="name" className="mb-2 block text-base text-ink-muted">
           Name
         </label>
         <input
@@ -66,7 +66,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="email" className="mb-2 block text-sm text-ink-muted">
+        <label htmlFor="email" className="mb-2 block text-base text-ink-muted">
           Email
         </label>
         <input
@@ -81,7 +81,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="projectType" className="mb-2 block text-sm text-ink-muted">
+        <label htmlFor="projectType" className="mb-2 block text-base text-ink-muted">
           Project Type
         </label>
         <select
@@ -98,7 +98,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="mb-2 block text-sm text-ink-muted">
+        <label htmlFor="message" className="mb-2 block text-base text-ink-muted">
           Message
         </label>
         <textarea
@@ -114,15 +114,15 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold-gradient px-6 py-3.5 text-sm font-medium text-navy-deep shadow-gold-glow transition-all hover:brightness-110 sm:w-auto"
+        className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold-gradient px-6 py-3.5 text-base font-medium text-navy-deep shadow-gold-glow transition-all hover:brightness-110 sm:w-auto"
       >
         Send Message <Send size={15} />
       </button>
 
       {sent && (
-        <p className="text-sm text-gold-light">
-          Your email client should now be open with the message pre-filled —
-          just hit send.
+        <p className="text-base text-gold-light">
+          Your email client should now be open with the message pre-filled.
+          Just hit send.
         </p>
       )}
     </form>

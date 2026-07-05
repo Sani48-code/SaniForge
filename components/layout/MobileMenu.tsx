@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Facebook, Linkedin, Menu, X } from "lucide-react";
 import { navItems } from "@/lib/data/nav";
 import { site } from "@/lib/data/site";
 import { cn } from "@/lib/utils";
@@ -31,7 +31,13 @@ export default function MobileMenu() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  onClick={() => setOpen(false)}
+                  onClick={(e) => {
+                    setOpen(false);
+                    if (item.href === "/" && pathname === "/") {
+                      e.preventDefault();
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }
+                  }}
                   className={cn(
                     "border-b border-navy-border py-4 font-display text-2xl transition-colors",
                     active ? "text-gold-light" : "text-ink hover:text-gold-light"
@@ -50,6 +56,26 @@ export default function MobileMenu() {
             >
               Book a Call
             </a>
+            <div className="mt-6 flex items-center gap-3">
+              <a
+                href={site.socials.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-navy-border text-ink-muted transition-colors hover:border-gold/40 hover:text-gold-light"
+              >
+                <Linkedin size={16} />
+              </a>
+              <a
+                href={site.socials.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-navy-border text-ink-muted transition-colors hover:border-gold/40 hover:text-gold-light"
+              >
+                <Facebook size={16} />
+              </a>
+            </div>
           </nav>
         </div>
       )}

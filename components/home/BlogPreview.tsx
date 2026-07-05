@@ -13,13 +13,13 @@ export default function BlogPreview() {
         <SectionHeading
           eyebrow="From the Blog"
           title="Practical notes on SEO, automation & web dev"
-          description="No fluff — just what actually works, written from doing the work."
+          description="No fluff, just what actually works, written from doing the work."
         />
 
         <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
           {posts.map((post, i) => (
             <FadeIn key={post.slug} delay={i * 0.1}>
-              <BlogCard post={post} />
+              <BlogCard post={post} sizes="(max-width: 768px) 100vw, 33vw" />
             </FadeIn>
           ))}
         </div>

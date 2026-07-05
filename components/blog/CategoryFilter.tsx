@@ -24,7 +24,7 @@ export default function CategoryFilter({ posts }: { posts: BlogPost[] }) {
             key={cat}
             onClick={() => setActive(cat)}
             className={cn(
-              "rounded-full border px-5 py-2 font-mono text-xs uppercase tracking-wider transition-colors",
+              "rounded-full border px-5 py-2 font-mono text-sm uppercase tracking-wider transition-colors",
               active === cat
                 ? "border-gold bg-gold/10 text-gold-light"
                 : "border-navy-border text-ink-muted hover:border-gold/30 hover:text-ink"

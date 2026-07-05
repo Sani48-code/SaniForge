@@ -11,7 +11,7 @@ export default function RelatedPosts({ posts }: { posts: BlogPost[] }) {
         <SectionHeading eyebrow="Keep Reading" title="Related posts" align="left" />
         <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
           {posts.map((post) => (
-            <BlogCard key={post.slug} post={post} />
+            <BlogCard key={post.slug} post={post} sizes="(max-width: 640px) 100vw, 50vw" />
           ))}
         </div>
       </div>

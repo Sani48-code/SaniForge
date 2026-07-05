@@ -1,0 +1,47 @@
+---
+title: "Why I Build Every Client Website With Modern, Fast Frameworks"
+slug: "why-modern-fast-frameworks-for-client-websites"
+excerpt: "Speed isn't a nice-to-have anymore. It's a ranking factor and a conversion factor at the same time. Here's why I default to Next.js over legacy page builders."
+category: "Web Development"
+date: "2026-06-20"
+image: "https://images.unsplash.com/photo-1754039985001-ccafee437736?auto=format&fit=crop&w=1600&q=70"
+seoTitle: "Why Modern Frameworks Beat Legacy Page Builders for Client Sites"
+seoDescription: "Why page speed and modern frameworks like Next.js matter for conversions and SEO, and what clients actually gain compared to legacy page-builder websites."
+---
+
+Every client website I build starts on a modern framework, usually Next.js, instead of a traditional page builder. That choice isn't about chasing the newest tooling for its own sake; it's because speed has quietly become one of the highest-leverage decisions in a website build, and most legacy platforms fight against it by default.
+
+## Speed Is Both an SEO Factor and a Conversion Factor
+
+These used to be treated as two separate conversations: "make it fast for Google" and "make it fast so people don't leave." They're actually the same conversation. Core Web Vitals, the metrics Google uses to measure real-world loading speed, interactivity, and visual stability, factor into search rankings directly. At the same time, every additional second of load time measurably increases the odds a visitor leaves before the page finishes loading, especially on mobile.
+
+A slow site doesn't just rank worse; it also converts worse among the visitors who do arrive, which means the cost of slowness gets paid twice.
+
+## Why Legacy Page Builders Fight Speed by Default
+
+Traditional website platforms built around themes and a stack of plugins tend to accumulate weight almost automatically. Every plugin adds its own JavaScript and CSS, often loaded on every page whether that plugin's functionality is used there or not. A typical page-builder site with a page builder plugin, an SEO plugin, a forms plugin, a caching plugin, and a security plugin can easily ship megabytes of code before a single word of actual content loads.
+
+It's absolutely possible to get a page-builder site fast with real, ongoing optimization work: caching layers, image compression, a CDN, and continuous plugin-conflict troubleshooting. But that's fighting the platform's natural tendency, not working with it. Left alone, these sites get slower over time as more plugins and content accumulate.
+
+## What Modern Frameworks Do Differently
+
+Frameworks like Next.js are built around rendering strategies specifically designed for speed: static generation for pages that don't change often, automatic code splitting so visitors only download the JavaScript a given page actually needs, and built-in image optimization that serves the right file size and format for each device automatically. None of that requires a plugin or an optimization pass after the fact. It's the framework's default behavior.
+
+The practical result is that a Next.js site is fast the day it launches, and stays fast as content gets added, because the architecture doesn't accumulate the same kind of bloat a plugin-based site does.
+
+## What This Actually Means for a Client
+
+None of this matters if it stays a technical detail nobody outside a developer cares about, so here's the translation into business terms:
+
+- **Faster load times measurably reduce bounce rate**: particularly on mobile, where a large share of local and service-business traffic lands.
+- **Core Web Vitals scores directly factor into Google's ranking algorithm**: so a faster site has a real, if modest, ranking advantage over an equally well-optimized slower one.
+- **Fewer moving parts means fewer things that break.** A framework-based site doesn't have the plugin-conflict failure mode where one update breaks a feature on the entire site.
+- **Lower long-term maintenance cost**: since there's no stack of plugin licenses to renew annually and no plugin update cycle to manage indefinitely.
+
+## When a Legacy Platform Still Makes Sense
+
+I won't pretend modern frameworks are the right call for every situation. If a business needs to edit content constantly without any developer involvement, and speed isn't a competitive factor in their market, a well-built platform with a content management layer can still be the more practical choice. The right answer depends on who's maintaining the site and how often the content changes, not platform loyalty in either direction.
+
+For most client work I take on, though, the business is competing in a market where an extra second of load time or a few ranking positions is worth real money, and that's where a modern framework earns its cost difference many times over.
+
+If you're not sure whether your current site's speed is actually costing you rankings or conversions, reach out and let's talk. A quick look at your Core Web Vitals is usually enough to tell.

@@ -5,33 +5,55 @@ tagline: "2.4x Demo Booking Rate Increase"
 category: "Web Development"
 industries:
   - "B2B SaaS"
+service: "Web Development / Landing Page Design"
+timeline: "3-week design and build"
+image: "https://images.unsplash.com/photo-1686061593213-98dad7c599b9?auto=format&fit=crop&w=1600&q=70"
 metrics:
   - value: "2.4x"
-    label: "Demo Booking Rate"
-  - value: "1.2s"
-    label: "Load Time (from ~4s)"
-  - value: "+38%"
-    label: "Scroll-to-CTA Completion"
-coverTheme: "landing-page-blueprint"
+    label: "Demo Booking Rate Increase"
+  - value: "+140%"
+    label: "Overall Page Conversion Rate"
+  - value: "-27 pts"
+    label: "Bounce Rate (from 68% to 41%)"
+chartType: "bar"
+chartLabel: "Demo bookings per week, before vs. after the relaunch"
+chartData:
+  - label: "Before"
+    value: 18
+  - label: "Wk 1"
+    value: 29
+  - label: "Wk 2"
+    value: 38
+  - label: "Wk 4"
+    value: 43
 ---
 
 ## Challenge
 
-A B2B SaaS company had a landing page that looked polished but wasn't converting. The hero section led with a vague tagline instead of a clear value proposition, the page loaded in close to 4 seconds on mobile, and calls-to-action were scattered inconsistently throughout the page instead of building toward one clear next step. Analytics showed heavy drop-off before visitors ever reached the demo booking form.
-
-The client needed a rebuild that kept their brand identity but fixed the structural and performance problems actually costing them conversions.
+[Client Name], an early-stage SaaS company, was driving real paid and organic traffic to a polished but underperforming homepage. Generic hero copy and stock photography buried the actual product, there were no screenshots above the fold, the primary CTA was a vague "Learn More," and the demo request form asked for a phone number and company size before anyone had a reason to trust the page.
 
 ## Approach
 
-I rebuilt the page in Next.js with conversion and performance treated as equal priorities from the start:
+- **Clarity-First Hero Section**: a specific, benefit-driven headline paired with a real product screenshot instead of stock imagery.
+- **Proof Stacked Early**: customer logos and a quantified result moved above the fold, next to the primary CTA.
+- **One Clear Action**: every button on the page changed to a single, consistent "Book a Demo" CTA.
+- **Frictionless Form**: the demo request form cut down to just name, work email, and company name.
 
-- Rewrote the hero to lead with a specific, benefit-driven headline and a single primary CTA, removing competing links above the fold.
-- Restructured the page flow around a clear hierarchy: problem framing, product proof, social proof (logos and a testimonial block), then a repeated, consistent CTA at every major scroll stop.
-- Rebuilt image handling with next/image and lazy loading, trimmed unused JavaScript, and moved to static generation for the page shell to cut load time.
-- Added scroll-depth and CTA-click tracking so the client could see exactly where visitors dropped off post-launch, not just guess.
+## Results
 
-The rebuild took roughly three weeks from wireframe to launch, including one round of A/B testing on the hero headline before locking the final version.
+| Metric | Before | After |
+| --- | --- | --- |
+| Demo booking rate | 1.8% | **4.3% (2.4x)** |
+| Overall page conversion rate | N/A | **+140%** |
+| Average time on page | 38s | **1m 12s (+89%)** |
+| Bounce rate | 68% | **41% (-27 pts)** |
 
-## Result
+> "We didn't change our traffic sources or our ad spend at all. We just fixed the page they were landing on. The demo calendar filled up almost immediately."
+>
+> **[Client Name / Title]**
 
-Page load time dropped from around 4 seconds to 1.2 seconds on mobile, directly reducing early bounce. Scroll-to-CTA completion — the percentage of visitors who reached and engaged with a CTA — rose by 38%. Combined, the clearer structure and faster load pushed demo booking rate to 2.4x its previous baseline within the first month post-launch, giving the client a page they could confidently send paid traffic to.
+## Key Takeaways
+
+- Show the product, not a metaphor for the product.
+- One CTA beats many. Competing calls to action dilute all of them.
+- Every form field costs you conversions; ask for the minimum needed to start the conversation.

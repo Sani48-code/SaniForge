@@ -1,41 +1,86 @@
 ---
-title: "AI Content Publishing Flow"
-slug: "ai-content-publishing-flow"
-tagline: "50+ Pages Auto-Published Without a Writer Touching WordPress"
+title: "AI-Powered Legal Content Automation"
+slug: "ai-legal-content-automation"
+tagline: "From a Cluttered Desk to 89 Articles Published in 24 Hours"
 category: "Automation"
 industries:
-  - "eCommerce"
+  - "Legal Services"
   - "Content Publisher"
-  - "Local Directory"
+  - "Professional Services"
+service: "Automation & AI Workflow Design"
+timeline: "3-week build"
+image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?auto=format&fit=crop&w=1600&q=70"
+beforeImage: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1600&q=70"
+afterImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=70"
 metrics:
-  - value: "50+"
-    label: "Pages Auto-Published"
-  - value: "0"
-    label: "Manual Writer Hours per Page"
-  - value: "~70%"
-    label: "Time Saved vs Manual Process"
-coverTheme: "publishing-pipeline"
+  - value: "89"
+    label: "Articles Published"
+  - value: "24h"
+    label: "Time Saved (per batch)"
+  - value: "98%"
+    label: "Success Rate"
+chartType: "bar"
+chartLabel: "Articles published, cumulative over the rollout"
+chartData:
+  - label: "Wk 1"
+    value: 18
+  - label: "Wk 2"
+    value: 41
+  - label: "Wk 3"
+    value: 67
+  - label: "Wk 4"
+    value: 89
 ---
 
 ## Challenge
 
-A local directory client needed to scale from a handful of hand-written location and service pages to 50+ pages covering every city and category combination they served. Their in-house process meant briefing a writer, waiting days for a draft, formatting it in WordPress, and manually checking on-page SEO basics before it ever went live. At that pace, covering their full service area would have taken months and tied up a writer full-time.
+A Law Firm specializing in Intellectual Property and Personal Injury cases needed a steady stream of educational content, including trademark guides, copyright explainers, DMCA process walkthroughs, and LLC vs. corporation comparisons, to stay visible in front of prospective clients searching for answers before they ever called a lawyer.
 
-They wanted the coverage without hiring another writer, and without sacrificing quality control — every page still needed a human sign-off before it touched the live site.
+The problem wasn't a lack of ideas. Walk into the office and you'd find a whiteboard covered in content topics, half of them crossed out because nobody got around to writing them: blog posts, social media captions, case studies, newsletters, FAQs. A desk buried in deposition notes, sticky reminders, coffee cups, and legal reference books sat right next to an open laptop with a blank "Add title" field staring back, a page that had been "in progress" for days.
+
+The firm's attorneys and paralegals were the only people who understood the subject matter well enough to write accurately, but they were also the busiest people in the building, juggling depositions, client calls, and discovery deadlines. Every time a blog post or FAQ page got prioritized, it competed directly with billable client work, and billable work always won. The result was a content calendar that existed only on paper (literally, on a whiteboard) and a WordPress backend with far more drafts than published posts.
+
+A few specific pain points kept the firm stuck:
+
+- **Subject-matter expertise was locked inside busy people's heads.** The only people qualified to write accurate legal content were also the least available.
+- **Content ideas piled up faster than they could be executed.** The whiteboard kept growing while the "published" count didn't.
+- **No repeatable system existed.** Every article that did get written was a one-off effort, not part of a process that could scale.
+- **Manual publishing was slow and inconsistent.** Even finished drafts sat as unpublished posts because uploading, formatting, and scheduling took additional time nobody had.
 
 ## Approach
 
-I built an n8n workflow that handles the entire pipeline from a single input (city + service) to a publish-ready draft:
+Rather than trying to free up more attorney hours, I built an AI content automation system that let the firm keep its subject-matter direction (topics, keywords, tone) while removing the actual writing and publishing bottleneck entirely.
 
-- A trigger step pulls target keyword and location data from a Google Sheet queue.
-- An AI research node gathers local context (landmarks, service specifics, competitor angles) and passes it into a structured drafting prompt.
-- A formatting step converts the draft into clean HTML with proper heading hierarchy, internal links, and schema-ready metadata.
-- The finished draft is pushed to WordPress as a **draft post** via the REST API, tagged for review rather than published live.
-- A Slack notification alerts the QA reviewer with a direct edit link.
-- Once approved, a one-click action in n8n flips the post status to "publish" through the same API connection — no manual WordPress editing required.
+**Structured Topic & Keyword Input**
+The whiteboard's topic list, covering practice areas and target keywords like "personal injury," "wrongful death," "car accident," "securities fraud," and "class action," became the structured input for the system. Instead of living on a whiteboard, these became rows in a content queue that the automation could pull from continuously.
 
-The workflow was built and tested over three weeks, with the first 10 pages used to tune the prompt structure before scaling to the full batch.
+**Automated Research + Drafting Pipeline**
+Built on an n8n workflow, the system triggers on form submission, runs a research agent to gather accurate, up to date information on the topic, generates a structured outline, and then produces a full draft using an AI content generation step. All of this is governed by a prompt template tuned specifically for legal content, enforcing accuracy conscious language, proper disclaimers, and a firm appropriate tone.
 
-## Result
+**Review-Ready, Not Publish-Blind**
+Because legal content carries real liability if it's wrong, the workflow doesn't auto publish blindly. Each draft is automatically formatted, has a matched image assigned, and is pushed into the WordPress backend as a ready to review post. This cuts writing time to near zero while keeping a human's final sign off in place for accuracy.
 
-The client went from zero to 50+ published pages in under six weeks, with every page still passing through a human QA gate before going live. Manual writer hours per page dropped to zero — the only human touchpoint became a five-minute approve/reject decision. Compared to their prior manual workflow, the end-to-end time per page dropped by roughly 70%, and the client has since reused the same pipeline to keep expanding into new service areas without adding headcount.
+**One Dashboard, Full Visibility**
+Instead of tracking progress on a whiteboard, the firm got a live dashboard showing content generated, articles published, time saved, and success rate, plus a visual pipeline (Generate, Optimize, Review, Publish) so anyone on the team could see exactly where each piece of content stood at a glance.
+
+## Results
+
+The shift from a whiteboard and sticky notes process to a structured automation pipeline was immediate and measurable.
+
+| Metric | Before | After |
+| --- | --- | --- |
+| Articles published | Sporadic, unpredictable | **89 in the first month** |
+| Time from idea to draft | Days (if it happened at all) | **Minutes** |
+| Time saved per batch | N/A | **24 hours** |
+| Draft to publish success rate | Inconsistent | **98%** |
+
+The whiteboard that used to be full of crossed out, unfinished content ideas turned into a live "Recent Activity" feed showing articles like "How to Register a Trademark in the US," "Understanding Copyright Fair Use," and "What is Intellectual Property?" going from generated to published in minutes, not weeks.
+
+The firm's attorneys stayed focused on billable client work, including depositions, briefs, and discovery, while the content pipeline ran in the background, publishing consistently without pulling anyone off client matters.
+
+## Key Takeaways
+
+- **The bottleneck usually isn't ideas, it's execution.** This firm never lacked topics; they lacked a system to turn topics into published content without competing with billable hours.
+- **Legal and other high stakes content still benefits from automation, as long as review stays in the loop.** The pipeline handles research, drafting, and formatting, while a human still signs off before anything goes live.
+- **Visibility matters as much as speed.** A simple dashboard showing what's generated, published, and pending replaced a whiteboard that nobody trusted as an accurate source of truth.
+- **The same automation pattern scales across practice areas.** Once the pipeline was built, adding new topics such as securities fraud, class action, or DMCA was just adding rows to the queue, with no additional engineering needed.

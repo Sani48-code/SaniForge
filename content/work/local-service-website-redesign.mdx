@@ -6,6 +6,10 @@ category: "Web Development"
 industries:
   - "Local"
   - "Home Services"
+service: "Web Development / Website Redesign"
+timeline: "6-week redesign & migration"
+image: "https://images.unsplash.com/photo-1530435460869-d13625c69bbf?auto=format&fit=crop&w=1600&q=70"
+beforeImage: "https://i.ibb.co/LzWb98Vw/676806e8-3cff-4f91-9954-ffe9c5f7407e.png"
 metrics:
   - value: "3x"
     label: "Lead Form Submissions"
@@ -13,27 +17,76 @@ metrics:
     label: "Timeframe"
   - value: "<2s"
     label: "Mobile Load Time"
-coverTheme: "service-truck-grid"
+chartType: "bar"
+chartLabel: "Lead form submissions per 30-day window"
+chartData:
+  - label: "Days 1-30"
+    value: 12
+  - label: "Days 31-60"
+    value: 24
+  - label: "Days 61-90"
+    value: 36
 ---
 
 ## Challenge
 
-A local restoration company relied almost entirely on their website for emergency service calls, but the site was slow, cluttered, and clearly built years earlier without mobile visitors in mind. Most of their traffic came from people searching on their phones during a stressful situation — a flooded basement or storm damage — and the site was making that worse: a multi-step contact form, buried phone number, and load times north of 6 seconds on mobile connections.
+A local restoration company had built their entire business around phone calls, and their website was supposed to be the thing generating those calls. For the most part, it wasn't.
 
-The business was losing potential jobs to competitors with simpler, faster sites, even when they ranked comparably in local search.
+The site was several years old and had never been built with mobile in mind. That mattered because the overwhelming majority of their traffic came from people in the middle of a crisis, a flooded basement at midnight, storm damage after a weekend, a slow leak that had just turned into something bigger. Those people were searching on their phones. What they found when they arrived was a site that loaded slowly on a mobile connection, asked six questions before it would let someone submit a contact form, and buried the phone number somewhere in the header where it was easy to miss on a small screen.
+
+The company was ranking well enough in local search. That wasn't the problem. The problem was what happened after someone found them. The site was converting at a fraction of what it should have been, and because there was no tracking in place, the client had no visibility into whether people were calling, filling out the form, or just leaving.
+
+A few issues were making things worse than they needed to be:
+
+- **Mobile load time was over 6 seconds.** For someone in an emergency situation, that's enough to hit the back button and call whoever came up next. Oversized images, unused plugins, and render-blocking scripts were all contributing.
+- **The contact form had six required fields.** Name, email, phone, address, service type, and a description of the problem. Most people in an emergency don't want to fill out a form, they want to talk to someone. The form was turning away the exact people who were ready to book.
+- **The phone number wasn't prominent.** On desktop it was visible in the top right corner. On mobile, it collapsed into a menu and disappeared. A restoration company's most valuable conversion action was effectively hidden from its most important audience.
+- **All service types shared one page.** Water damage, fire damage, mold remediation, and storm damage were all described in one long scroll, with no way to navigate directly to the service someone was actually looking for.
+- **There was no conversion tracking.** The client had no way to know whether any given marketing spend was generating calls or form submissions. Decisions were being made without data.
 
 ## Approach
 
-The redesign focused on speed and lead-capture clarity above everything else:
+The redesign wasn't about making the site look different. It was about removing everything between a stressed-out homeowner and a phone call or form submission.
 
-- Rebuilt the site mobile-first, with the phone number and a single-field "request service" form visible without scrolling on every page.
-- Consolidated service information into clear, dedicated pages per service type (water damage, fire damage, mold remediation) instead of one long catch-all page.
-- Optimized all images and rebuilt the front end to cut unnecessary scripts, bringing mobile load time under 2 seconds.
-- Simplified the lead form from six fields down to three, deferring detailed intake questions to the follow-up call instead of the form itself.
-- Added click-to-call tracking and form-submission tracking so the client could see which channel was actually driving jobs.
+**Mobile-First Rebuild**
+The entire front end was rebuilt starting from the smallest screen size and working up, rather than the other way around. On mobile, the phone number became a persistent click-to-call button visible at all times without scrolling, and a single-field "request service" form appeared above the fold on every page. The goal was to make the two most important actions on the site impossible to miss, regardless of the device someone was using.
 
-The redesign and migration were completed over a six-week period, with the old site kept live in parallel until the new site's tracking confirmed stable performance.
+**Dedicated Service Pages**
+The single catch-all service page was broken into four separate pages, one for water damage, one for fire damage, one for mold remediation, and one for storm damage. Each page was built around the specific language a homeowner would use when searching for that service, with a clear headline, a brief explanation of the process, and a conversion element at the top rather than the bottom. Internal linking connected the pages so that someone who landed on the wrong one could find the right one in a single click.
 
-## Result
+**Form Simplification**
+The six-field contact form was reduced to three fields: name, phone number, and a brief description of the situation. Everything else, address, service type, scheduling details, was moved to the follow-up call rather than the intake form. The logic was simple: the goal of the form is to get a phone number, not to collect a full intake profile. Getting a name and a number is a conversion. Everything else can happen in the conversation.
 
-Within 90 days of launch, lead form submissions tripled compared to the prior site, and mobile load time dropped to under 2 seconds. Click-to-call activity also rose noticeably once the phone number was made persistently visible. The client has since used the same page structure as a template for adding new service lines without needing another full redesign.
+**Performance Optimization**
+All images were compressed and converted to next-generation formats. Unused plugins were removed. Scripts that were blocking page render were either deferred or eliminated. The result was a mobile load time under 2 seconds, down from more than 6.
+
+**Tracking Setup**
+Google Tag Manager was configured to fire conversion events on both form submissions and click-to-call taps, with those events passed through to Google Analytics and the client's ad platform. For the first time, the client had actual data on which pages and which traffic sources were generating leads.
+
+The old site was kept live in parallel throughout the six-week build. The new site launched only after tracking had been verified in a staging environment and the client had confirmed the new form was routing to the correct inbox.
+
+## Results
+
+The numbers moved in the right direction across every metric that mattered, and they moved quickly.
+
+| Metric | Before | After |
+| --- | --- | --- |
+| Lead form submissions per month | ~12 | **36** |
+| Mobile load time | 6.2s | **1.8s** |
+| Form fields (required) | 6 | **3** |
+| Conversion tracking in place | No | **Yes** |
+
+Within the first 30 days, form submissions were already double what the previous site had averaged over the prior quarter. By day 90, they had tripled. Click-to-call activity also increased noticeably once the phone number became persistently visible on mobile, though exact attribution required the new tracking setup to be in place for the full period.
+
+> "We were ranking fine, we just weren't getting the calls. Now we can actually see where leads are coming from, and the form is getting filled out. It's a different situation entirely."
+>
+>  Owner, Local Restoration Company
+
+The client has since used the new page structure as a repeatable template. When they added a new service line three months after launch, they built the page themselves using the same format, without needing a designer or developer.
+
+## Key Takeaways
+
+- **Ranking and converting are two completely different problems.** This client was already visible in local search. The site itself was the bottleneck, and fixing it required treating the redesign as a conversion problem first and a design problem second.
+- **Every field on a contact form is a reason to leave.** Reducing from six fields to three wasn't about cutting corners. It was about recognizing what the form actually needed to accomplish and removing everything else.
+- **Speed is not a nice-to-have for emergency service businesses.** A homeowner with a flooded basement is not going to wait six seconds for a site to load. They are going to call whoever loads first.
+- **Tracking changes decision-making.** The client had been running ads without any conversion data. Once the tracking was in place, they could see which campaigns were generating calls and which ones weren't, which changed how they allocated their budget within the first month.

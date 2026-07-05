@@ -38,7 +38,7 @@ export const skillPillars: SkillPillar[] = [
     title: "SEO Copywriting",
     tagline: "Content built to rank, not just to read",
     description:
-      "Keyword-researched blogs, service pages, and briefs that have shipped for 20+ businesses across legal, real estate, healthcare, home services, and finance — many landing on Google's first page.",
+      "Keyword-researched blogs, service pages, and briefs that have shipped for 20+ businesses across legal, real estate, healthcare, home services, and finance, with many landing on Google's first page.",
     bullets: [
       "SEO-optimized blogs & articles",
       "Service page copywriting",

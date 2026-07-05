@@ -7,34 +7,61 @@ industries:
   - "B2B Services"
   - "Real Estate"
   - "Agency"
+service: "Automation & Workflow Design"
+timeline: "3-week build"
+image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=70"
 metrics:
   - value: "8 hrs/week"
-    label: "Saved on Manual Follow-Up"
-  - value: "100%"
-    label: "Leads Logged Instantly"
-  - value: "0"
-    label: "Leads Lost to Manual Entry"
-coverTheme: "lead-flow-circuit"
+    label: "Manual Work Eliminated"
+  - value: "<2 min"
+    label: "First-Response Time (from 6.5 hrs)"
+  - value: "19%"
+    label: "Lead-to-Meeting Conversion (from 11%)"
+chartType: "line"
+chartLabel: "Leads logged automatically within seconds, week over week"
+chartData:
+  - label: "Wk 1"
+    value: 20
+  - label: "Wk 2"
+    value: 55
+  - label: "Wk 3"
+    value: 80
+  - label: "Wk 4"
+    value: 95
+  - label: "Wk 5"
+    value: 100
+  - label: "Wk 6"
+    value: 100
 ---
 
 ## Challenge
 
-A growing B2B sales team was capturing leads from three different web forms across their site, but every lead had to be manually copy-pasted from an email notification into their CRM. With no consistent process, leads sat unassigned for hours, duplicate entries piled up, and at least a few leads a month were quietly lost when someone forgot to forward the notification email.
-
-The team estimated they were spending close to a full workday each week just moving lead data between inboxes, spreadsheets, and the CRM — time that could have gone toward actually following up.
+[Client Name]'s sales team manually copied leads from four-plus disconnected sources (web forms, an ad platform, a chat widget, and email) into their CRM, tagging and assigning each one by hand before sending a follow-up. That process cost over a full workday a week across the team, and leads were sometimes left untouched for 24 hours or more.
 
 ## Approach
 
-I designed and built an n8n workflow that replaced the entire manual chain with a single automated pipeline:
+I designed an automation pipeline that replaced the manual chain end to end:
 
-- Webhook triggers capture form submissions the moment they're sent, instead of waiting on email notifications.
-- An enrichment step validates email and phone formatting, flags obvious spam/bot submissions, and appends company data where available.
-- Validated leads are pushed directly into the CRM via API, with source, campaign, and timestamp fields mapped automatically.
-- A duplicate-check node compares incoming leads against existing CRM records to prevent double entries.
-- A Slack integration posts a real-time alert to the sales channel with the lead's details and a direct CRM link, so reps can respond within minutes instead of hours.
+- **Centralized Intake**: every lead source connected via webhook triggers into one automation hub.
+- **Automatic Enrichment & Deduplication**: incoming leads checked against existing CRM records, with firmographic data appended automatically.
+- **Smart Routing**: leads assigned by service type, territory, and current workload through a rules engine.
+- **Instant Follow-Up**: an automated, personalized confirmation email sent immediately, paired with a real-time notification to the assigned rep, cutting response time to under 2 minutes.
 
-The build took about two weeks, including a testing phase where submissions were shadow-logged alongside the old manual process to confirm nothing was being missed before fully cutting over.
+## Results
 
-## Result
+| Metric | Before | After |
+| --- | --- | --- |
+| Manual hours/week on lead entry | 8 hrs | **0 hrs** |
+| Average first-response time | 6.5 hrs | **2 min** |
+| Duplicate lead records | ~15%/mo | **&lt;1%/mo** |
+| Lead-to-meeting conversion rate | 11% | **19%** |
 
-The sales team eliminated manual data entry entirely — every lead now lands in the CRM and Slack within seconds of submission. That freed up roughly 8 hours per week previously spent on copy-pasting and chasing down missed notifications. Response times to new leads dropped from hours to minutes, and the duplicate-check step has kept the CRM clean with zero leads lost to manual entry since launch.
+> "Our team got 8 hours a week back. That's basically a whole extra day of selling time instead of data entry. And leads aren't slipping through the cracks anymore."
+>
+> **[Client Name / Title]**
+
+## Key Takeaways
+
+- Speed-to-lead is a direct revenue lever. The drop in response time nearly doubled the conversion rate.
+- Automation removes human error, not just human effort.
+- The best automations are invisible to the team's existing workflow. Reps didn't have to learn a new tool.

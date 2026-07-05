@@ -9,7 +9,7 @@ import { site } from "@/lib/data/site";
 export const metadata: Metadata = {
   title: "Skills",
   description:
-    "A deep dive into web development, SEO copywriting, and n8n automation — the three pillars behind SaniForge.",
+    "A deep dive into web development, SEO copywriting, and n8n automation: the three pillars behind SaniForge.",
 };
 
 export default function SkillsPage() {
@@ -18,15 +18,15 @@ export default function SkillsPage() {
       <section className="relative overflow-hidden bg-navy-radial py-20 sm:py-28">
         <div className="container-px mx-auto grid max-w-content grid-cols-1 items-center gap-14 lg:grid-cols-[1.1fr_0.9fr]">
           <FadeIn>
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-gold-light">
+            <p className="font-mono text-sm uppercase tracking-[0.2em] text-gold-light">
               Skills
             </p>
-            <h1 className="mt-4 font-display text-4xl font-medium leading-tight text-ink sm:text-5xl text-balance">
+            <h1 className="mt-4 font-display text-5xl font-medium leading-tight text-ink sm:text-6xl text-balance">
               Three disciplines,{" "}
               <em className="italic text-gold-light">one system</em>
             </h1>
-            <p className="mt-6 max-w-lg text-base leading-relaxed text-ink-muted sm:text-lg">
-              Web development, SEO copywriting, and n8n automation — deployed
+            <p className="mt-6 max-w-lg text-lg leading-relaxed text-ink-muted sm:text-xl">
+              Web development, SEO copywriting, and n8n automation, deployed
               together so your site, your content, and your workflows all
               move in the same direction.
             </p>

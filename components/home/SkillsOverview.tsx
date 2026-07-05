@@ -14,7 +14,7 @@ export default function SkillsOverview() {
         <SectionHeading
           eyebrow="What I Do"
           title="Three skills, one system"
-          description="Most agencies hand your project between three vendors. I build the site, write the content, and automate what's left — all under one roof."
+          description="Most agencies hand your project between three vendors. I build the site, write the content, and automate what's left, all under one roof."
         />
 
         <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -27,11 +27,11 @@ export default function SkillsOverview() {
                     <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-gold/30 bg-gold/5 text-gold-light">
                       <Icon size={22} />
                     </div>
-                    <h3 className="mt-6 font-display text-xl text-ink">{pillar.title}</h3>
-                    <p className="mt-3 text-sm leading-relaxed text-ink-muted">
+                    <h3 className="mt-6 font-display text-2xl text-ink">{pillar.title}</h3>
+                    <p className="mt-3 text-base leading-relaxed text-ink-muted">
                       {pillar.tagline}
                     </p>
-                    <div className="mt-6 flex items-center gap-1.5 text-sm font-medium text-gold-light opacity-0 transition-opacity group-hover:opacity-100">
+                    <div className="mt-6 flex items-center gap-1.5 text-base font-medium text-gold-light opacity-0 transition-opacity group-hover:opacity-100">
                       Learn more <ArrowUpRight size={14} />
                     </div>
                   </Card>

@@ -8,9 +8,9 @@ export default function SectionHeading({
   align = "center",
   className,
 }: {
-  eyebrow?: string;
+  eyebrow?: React.ReactNode;
   title: React.ReactNode;
-  description?: string;
+  description?: React.ReactNode;
   align?: "center" | "left";
   className?: string;
 }) {
@@ -23,15 +23,15 @@ export default function SectionHeading({
       )}
     >
       {eyebrow && (
-        <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-gold-light">
+        <p className="mb-4 font-mono text-sm uppercase tracking-[0.2em] text-gold-light">
           {eyebrow}
         </p>
       )}
-      <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-medium leading-tight text-ink text-balance">
+      <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-medium leading-tight text-ink text-balance">
         {title}
       </h2>
       {description && (
-        <p className="mt-5 text-ink-muted text-base sm:text-lg leading-relaxed">
+        <p className="mt-5 text-ink-muted text-lg sm:text-xl leading-relaxed">
           {description}
         </p>
       )}

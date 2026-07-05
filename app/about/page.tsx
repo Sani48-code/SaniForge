@@ -7,11 +7,12 @@ import FadeIn from "@/components/motion/FadeIn";
 import Timeline from "@/components/about/Timeline";
 import { aboutBio } from "@/lib/data/experience";
 import { site } from "@/lib/data/site";
+import { linkifyGrowMinion } from "@/lib/linkify-growminion";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Abdul Kalyum Sani — founder of SaniForge, web developer and automation engineer at GrowMinion.",
+    "Abdul Kalyum Sani, founder of SaniForge, and a Core Team Member & Web/Automation Engineer at GrowMinion.",
 };
 
 export default function AboutPage() {
@@ -21,10 +22,10 @@ export default function AboutPage() {
         <div className="container-px mx-auto grid max-w-content grid-cols-1 items-center gap-14 lg:grid-cols-[1fr_0.8fr]">
           <div>
             <FadeIn>
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-gold-light">
+              <p className="font-mono text-sm uppercase tracking-[0.2em] text-gold-light">
                 About Me
               </p>
-              <h1 className="mt-4 font-display text-4xl font-medium leading-tight text-ink sm:text-5xl text-balance">
+              <h1 className="mt-4 font-display text-5xl font-medium leading-tight text-ink sm:text-6xl text-balance">
                 Builder of <em className="italic text-gold-light">systems</em>,
                 not just deliverables
               </h1>
@@ -32,7 +33,9 @@ export default function AboutPage() {
             <div className="mt-8 space-y-5">
               {aboutBio.paragraphs.map((p, i) => (
                 <FadeIn key={i} delay={0.1 + i * 0.08}>
-                  <p className="text-base leading-relaxed text-ink-muted sm:text-lg">{p}</p>
+                  <p className="text-lg leading-relaxed text-ink-muted sm:text-xl">
+                    {linkifyGrowMinion(p)}
+                  </p>
                 </FadeIn>
               ))}
             </div>
@@ -91,14 +94,14 @@ export default function AboutPage() {
             </FadeIn>
             <FadeIn delay={0.1}>
               <GoldDivider className="mb-6 justify-start" />
-              <h2 className="font-display text-3xl text-ink text-balance">
+              <h2 className="font-display text-4xl text-ink text-balance">
                 One person, three disciplines
               </h2>
-              <p className="mt-5 text-base leading-relaxed text-ink-muted">
+              <p className="mt-5 text-lg leading-relaxed text-ink-muted">
                 Most projects need a developer, a copywriter, and someone to
                 automate the busywork in between. I combine all three, which
                 means fewer handoffs, faster shipping, and a system that
-                actually talks to itself — the content pipeline, the site,
+                actually talks to itself: the content pipeline, the site,
                 and the automation all built by the same person, for the
                 same goal.
               </p>

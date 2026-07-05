@@ -1,0 +1,54 @@
+---
+title: "Speed Matters: Why I Audit Every Website's Core Web Vitals"
+slug: "why-i-audit-every-websites-core-web-vitals"
+excerpt: "Core Web Vitals sound technical, but they measure something simple: does the page feel fast to a real person. Here's what they mean and how to actually improve them."
+category: "Web Development"
+date: "2026-07-04"
+image: "https://images.unsplash.com/photo-1633307057722-a4740ba0c5d0?auto=format&fit=crop&w=1600&q=70"
+seoTitle: "Core Web Vitals Explained: Why They Matter and How to Improve Them"
+seoDescription: "A plain-language explanation of Core Web Vitals, why they matter for SEO and user experience, and practical steps to improve LCP, INP, and CLS on any website."
+---
+
+Core Web Vitals sound like an internal Google metric nobody outside a developer needs to think about. In practice, they measure something every visitor to your site experiences directly: does the page feel fast, does it respond when I tap something, and does it hold still while I'm trying to read it. That's why I run a Core Web Vitals audit on every website I take on, new build or existing site, before deciding what actually needs fixing.
+
+## What Core Web Vitals Actually Measure
+
+There are three metrics Google treats as core to the user experience, and each one maps to a specific kind of frustration:
+
+- **Largest Contentful Paint (LCP)** measures how long it takes for the main content of a page, usually a hero image or headline, to become visible. This is the "how long am I staring at a blank screen" metric.
+- **Interaction to Next Paint (INP)** measures how quickly the page responds when someone actually interacts with it, tapping a button, opening a menu. This is the "why isn't anything happening when I tap this" metric.
+- **Cumulative Layout Shift (CLS)** measures how much the page's content unexpectedly moves around while it loads, the classic experience of trying to tap a button right as an ad or image loads above it and shifts everything down. This is the "why did I just tap the wrong thing" metric.
+
+Good scores, roughly: LCP under 2.5 seconds, INP under 200 milliseconds, and CLS under 0.1. None of these numbers matter in isolation. They matter because each one maps directly to a moment where a real visitor either stays engaged or gets frustrated and leaves.
+
+## Why This Matters for SEO, Not Just User Experience
+
+Google has stated plainly that Core Web Vitals are a ranking factor, though a lighter-weight one compared to relevance and content quality. That means two sites with similarly strong content can still separate in rankings based on which one loads and responds faster. It's rarely the single deciding factor, but in competitive niches where many pages are otherwise similarly optimized, it's often the difference that tips a ranking one way or the other.
+
+## Why This Matters for Conversions, Separately From SEO
+
+Even setting rankings aside entirely, the user experience impact stands on its own. Slower load times measurably increase the rate at which visitors leave before the page finishes loading, and that effect gets sharper on mobile, where a large share of local and service-business traffic arrives. A page that ranks well but loads slowly is still losing a meaningful share of the visitors it worked hard to earn.
+
+## What Actually Causes Poor Scores
+
+In the audits I run, the same handful of causes show up again and again:
+
+- **Unoptimized hero images**: a multi-megabyte image serving at full resolution on a phone screen is one of the single biggest LCP killers I see.
+- **Render-blocking scripts**: third-party marketing, chat, or analytics scripts loaded before the main content, delaying everything behind them.
+- **Excessive plugins or widgets**: particularly on page-builder platforms, each adding their own JavaScript that has to load and execute before the page becomes fully interactive.
+- **Images or ads without reserved space**: causing the page to jump as they load in, the most common cause of a poor CLS score.
+- **Web fonts loading late** and causing a visible text reflow once they arrive.
+
+## Practical Steps to Improve Each Metric
+
+**For LCP:** compress and properly size images before they ever reach the page, serve modern formats like WebP or AVIF, and make sure the hero image or content isn't waiting behind unrelated scripts to load.
+
+**For INP:** reduce the amount of JavaScript that has to run before the page becomes interactive, defer anything that isn't needed immediately (like below-the-fold widgets or non-critical tracking scripts), and avoid stacking too many third-party tools that each add their own processing overhead.
+
+**For CLS:** explicitly reserve space for images and embeds before they load, avoid inserting content above existing content after the page has already rendered, and load web fonts in a way that doesn't force a visible text swap.
+
+## Running Your Own Quick Check
+
+You don't need a developer to get a first read on your own site. Run your homepage and your most important service page through Google's PageSpeed Insights tool, look specifically at the mobile scores, not just desktop, and note which of the three metrics is actually failing rather than assuming the whole page is "slow." Fixing the right bottleneck matters more than generically trying to speed everything up at once.
+
+If your site's Core Web Vitals scores are in the red and you're not sure which fix will actually move the needle, reach out and let's talk. A quick audit is usually enough to tell you exactly where the time is going.

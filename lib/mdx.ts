@@ -14,7 +14,7 @@ export type BlogFrontmatter = {
   excerpt: string;
   category: BlogCategory;
   date: string;
-  coverTheme: string;
+  image: string;
   seoTitle: string;
   seoDescription: string;
 };
@@ -34,8 +34,13 @@ export type WorkFrontmatter = {
   tagline: string;
   category: WorkCategory;
   industries: string[];
+  service: string;
+  timeline: string;
+  image: string;
   metrics: Metric[];
-  coverTheme: string;
+  chartType: "bar" | "line";
+  chartLabel: string;
+  chartData: { label: string; value: number }[];
 };
 
 export type CaseStudy = WorkFrontmatter & {
