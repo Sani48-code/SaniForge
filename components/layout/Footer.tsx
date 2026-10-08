@@ -34,7 +34,7 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3">
               {footerLinks.pages.map((link) => (
-                <li key={link.href}>
+                <li key={link.label}>
                   <Link
                     href={link.href}
                     className="text-base text-ink-muted transition-colors hover:text-ink"
@@ -52,7 +52,7 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
-                <li key={link.href}>
+                <li key={link.label}>
                   <Link
                     href={link.href}
                     className="text-base text-ink-muted transition-colors hover:text-ink"

@@ -20,7 +20,7 @@ export default function SaaSProducts() {
   const selectedVariant = selectedIndex >= 0 ? variants[selectedIndex] : null;
 
   return (
-    <section className="bg-navy-panel/30 py-24 sm:py-32">
+    <section className="bg-gradient-to-br from-[#4A1A55] via-[#3A1443] to-[#260D2E] py-24 sm:py-32">
       <div className="container-px mx-auto max-w-content">
         <SectionHeading
           eyebrow={linkifyGrowMinion("Built at GrowMinion")}

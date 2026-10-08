@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { Code2, PenTool, Workflow, ArrowUpRight } from "lucide-react";
+import { Code2, PenTool, Workflow } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Card from "@/components/ui/Card";
 import FadeIn from "@/components/motion/FadeIn";
@@ -9,7 +8,7 @@ const icons = [Code2, PenTool, Workflow];
 
 export default function SkillsOverview() {
   return (
-    <section className="py-24 sm:py-32">
+    <section id="skills" className="scroll-mt-24 bg-gradient-to-br from-[#0B3B3D] via-[#0D4A4C] to-[#082B2E] py-24 sm:py-32">
       <div className="container-px mx-auto max-w-content">
         <SectionHeading
           eyebrow="What I Do"
@@ -22,7 +21,7 @@ export default function SkillsOverview() {
             const Icon = icons[i];
             return (
               <FadeIn key={pillar.id} delay={i * 0.1}>
-                <Link href={`/skills#${pillar.id}`}>
+                <div>
                   <Card className="h-full p-8">
                     <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-gold/30 bg-gold/5 text-gold-light">
                       <Icon size={22} />
@@ -31,11 +30,8 @@ export default function SkillsOverview() {
                     <p className="mt-3 text-base leading-relaxed text-ink-muted">
                       {pillar.tagline}
                     </p>
-                    <div className="mt-6 flex items-center gap-1.5 text-base font-medium text-gold-light opacity-0 transition-opacity group-hover:opacity-100">
-                      Learn more <ArrowUpRight size={14} />
-                    </div>
                   </Card>
-                </Link>
+                </div>
               </FadeIn>
             );
           })}

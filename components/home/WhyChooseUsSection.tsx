@@ -22,7 +22,7 @@ const icons: Record<string, LucideIcon> = {
 
 export default function WhyChooseUsSection() {
   return (
-    <section className="border-t border-navy-border py-24 sm:py-32">
+    <section className="bg-gradient-to-br from-[#2B1B66] via-[#231656] to-[#160E3B] py-24 sm:py-32">
       <div className="container-px mx-auto max-w-content">
         <FadeIn className="mx-auto max-w-2xl text-center">
           <p className="mb-4 font-mono text-sm uppercase tracking-[0.2em] text-gold-light">

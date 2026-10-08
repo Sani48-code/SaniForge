@@ -8,7 +8,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="scroll-mt-24 relative overflow-hidden border-t border-navy-border bg-navy-radial py-24 sm:py-32"
+      className="scroll-mt-24 relative overflow-hidden bg-gradient-to-br from-[#4F300F] via-[#3E250C] to-[#2A1807] py-24 sm:py-32"
     >
       <div className="container-px mx-auto grid max-w-content grid-cols-1 gap-16 lg:grid-cols-[0.9fr_1.1fr]">
         <div>

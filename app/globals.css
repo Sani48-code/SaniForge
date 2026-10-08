@@ -96,3 +96,12 @@ body {
 .mdx-content tr:last-child td {
   @apply border-b-0;
 }
+
+/* Hero "Trusted by" carousel: scrolls left to right; intentionally not paused by reduced-motion */
+@keyframes trusted-scroll {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+.trusted-marquee {
+  animation: trusted-scroll 35s linear infinite;
+}

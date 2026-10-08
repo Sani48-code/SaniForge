@@ -1,105 +1,101 @@
 import Image from "next/image";
-import SectionHeading from "@/components/ui/SectionHeading";
-import GoldDivider from "@/components/ui/GoldDivider";
-import Button from "@/components/ui/Button";
+import { Code2, GraduationCap, Briefcase, Workflow, Search } from "lucide-react";
 import FadeIn from "@/components/motion/FadeIn";
-import Timeline from "@/components/about/Timeline";
-import { aboutBio } from "@/lib/data/experience";
-import { site } from "@/lib/data/site";
 import { linkifyGrowMinion } from "@/lib/linkify-growminion";
+
+const highlights = [
+  { icon: Code2, title: "Full-Stack Dev", sub: "MERN Stack", tone: "from-blue-accent to-blue-soft" },
+  { icon: GraduationCap, title: "CSE Student", sub: "Strong Fundamentals", tone: "from-gold to-gold-soft" },
+  { icon: Briefcase, title: "Real-World Work", sub: "Shipped for US Clients", tone: "from-blue-accent to-gold" },
+  { icon: Workflow, title: "Automation", sub: "n8n Workflows", tone: "from-gold to-gold-light" },
+  { icon: Search, title: "SEO Strategy", sub: "Content & Growth", tone: "from-blue-soft to-blue-accent" },
+];
 
 export default function AboutSection() {
   return (
-    <section id="about" className="scroll-mt-24 border-t border-navy-border">
-      <div className="relative overflow-hidden bg-navy-radial py-20 sm:py-28">
-        <div className="container-px mx-auto grid max-w-content grid-cols-1 items-center gap-14 lg:grid-cols-[1fr_0.8fr]">
-          <div>
-            <FadeIn>
-              <p className="font-mono text-sm uppercase tracking-[0.2em] text-gold-light">
+    <section id="about" className="relative scroll-mt-24 overflow-hidden border-t border-gold/40 bg-gradient-to-br from-[#F2C94C] via-[#E3AE2F] to-[#C9962B] py-20 sm:py-28">
+      <div
+        className="pointer-events-none absolute -right-32 top-10 h-[480px] w-[480px] rounded-full bg-[#0B1A3D]/20 blur-3xl"
+        aria-hidden="true"
+      />
+      <div className="container-px relative mx-auto grid max-w-content grid-cols-1 items-center gap-16 lg:grid-cols-[1.05fr_0.95fr]">
+        {/* ---------- Text ---------- */}
+        <div>
+          <FadeIn>
+            <div className="flex items-center gap-3">
+              <span className="h-px w-10 bg-[#0B1A3D]" />
+              <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-[#0B1A3D]">
                 About Me
               </p>
-              <h2 className="mt-4 font-display text-5xl font-medium leading-tight text-ink sm:text-6xl text-balance">
-                Builder of <em className="italic text-gold-light">systems</em>,
-                not just deliverables
-              </h2>
-            </FadeIn>
-            <div className="mt-8 space-y-5">
-              {aboutBio.paragraphs.map((p, i) => (
-                <FadeIn key={i} delay={0.1 + i * 0.08}>
-                  <p className="text-base leading-relaxed text-ink-muted sm:text-lg">
-                    {linkifyGrowMinion(p)}
-                  </p>
-                </FadeIn>
-              ))}
             </div>
-            <FadeIn delay={0.4}>
-              <p className="mt-8 border-l-2 border-gold pl-5 font-display text-lg italic text-ink">
-                {aboutBio.closing}
-              </p>
-            </FadeIn>
-            <FadeIn delay={0.5}>
-              <div className="mt-10">
-                <Button href={site.bookCallLink} size="lg" external>
-                  Book a Call
-                </Button>
-              </div>
-            </FadeIn>
-          </div>
-
-          <FadeIn delay={0.2} className="relative mx-auto w-full max-w-sm">
-            <div className="absolute inset-0 -z-10 scale-110 rounded-[2rem] bg-blue-gold-glow blur-2xl" />
-            <div className="overflow-hidden rounded-[2rem] border border-gold/20 shadow-gold-glow">
-              <Image
-                src="/images/portrait-about.png"
-                alt="Abdul Kalyum Sani at his desk"
-                width={480}
-                height={600}
-                className="h-auto w-full object-cover"
-              />
-            </div>
+            <h2 className="mt-5 font-display text-4xl font-medium leading-tight text-[#0B1A3D] sm:text-5xl lg:text-6xl text-balance">
+              Engineer by degree,{" "}
+              <em className="bg-gradient-to-r from-[#0B2A8A] to-[#1E4FD8] bg-clip-text italic text-transparent">
+                builder
+              </em>{" "}
+              by practice
+            </h2>
           </FadeIn>
-        </div>
-      </div>
 
-      <div className="py-24 sm:py-32">
-        <div className="container-px mx-auto max-w-content">
-          <SectionHeading eyebrow="Experience" title="How I got here" />
-          <div className="mx-auto mt-16 max-w-2xl">
-            <Timeline />
+          <FadeIn delay={0.1}>
+            <p className="mt-6 max-w-xl text-base font-medium leading-relaxed text-[#1B2338] sm:text-lg [&_a]:!text-[#0B1A3D] [&_a]:!decoration-[#0B1A3D]/60">
+              {linkifyGrowMinion(
+                "I'm Abdul Kaiyum Sani, a CSE student and software engineer, and a core team member at GrowMinion. As a CSE student I know the fundamentals a software engineer needs: data structures, databases, networking and system design."
+              )}
+            </p>
+            <p className="mt-4 max-w-xl text-base font-medium leading-relaxed text-[#1B2338] sm:text-lg [&_a]:!text-[#0B1A3D] [&_a]:!decoration-[#0B1A3D]/60">
+              Beyond the classroom, I have real-world experience: shipping client websites, n8n automations and AI-powered SaaS products for businesses across the US.
+            </p>
+          </FadeIn>
+
+          <div className="mt-9 flex max-w-xl flex-wrap gap-3">
+            {highlights.map((h, i) => (
+              <FadeIn key={h.title} delay={0.15 + i * 0.06}>
+                <div className="flex items-center gap-3 rounded-2xl border border-navy-border bg-navy-panel/70 py-3 pl-3 pr-5 transition-colors hover:border-gold/40">
+                  <span className={`flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br ${h.tone} text-navy-deep`}>
+                    <h.icon size={18} strokeWidth={2.4} />
+                  </span>
+                  <div>
+                    <p className="text-sm font-semibold leading-tight text-ink">{h.title}</p>
+                    <p className="mt-0.5 text-xs text-ink-muted">{h.sub}</p>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
           </div>
         </div>
-      </div>
 
-      <div className="border-t border-navy-border py-24 sm:py-32">
-        <div className="container-px mx-auto max-w-4xl">
-          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-            <FadeIn>
-              <div className="overflow-hidden rounded-2xl border border-navy-border">
-                <Image
-                  src="/images/portrait-office.png"
-                  alt="Abdul Kalyum Sani in his office"
-                  width={520}
-                  height={650}
-                  className="h-auto w-full object-cover"
-                />
-              </div>
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <GoldDivider className="mb-6 justify-start" />
-              <h3 className="font-display text-4xl text-ink text-balance">
-                One person, three disciplines
-              </h3>
-              <p className="mt-5 text-base leading-relaxed text-ink-muted">
-                Most projects need a developer, a copywriter, and someone to
-                automate the busywork in between. I combine all three, which
-                means fewer handoffs, faster shipping, and a system that
-                actually talks to itself, the content pipeline, the site,
-                and the automation all built by the same person, for the
-                same goal.
+        {/* ---------- Image ---------- */}
+        <FadeIn delay={0.2} className="relative isolate mx-auto w-full max-w-xl">
+          <div className="relative">
+            <div className="absolute left-[60%] top-[10%] z-0 aspect-square h-[92%] -translate-x-1/2 rounded-full bg-gradient-to-br from-[#1E4FD8] via-[#12306F] to-[#0B1A3D] shadow-[0_0_60px_-10px_rgba(11,26,61,0.6)]" />
+            <Image
+              src="/images/about-cutout.png"
+              alt="Abdul Kaiyum Sani at his desk with a laptop"
+              width={1375}
+              height={931}
+              sizes="(min-width: 1024px) 560px, 95vw"
+              className="relative z-10 h-auto w-full drop-shadow-[0_20px_30px_rgba(0,0,0,0.35)]"
+            />
+          </div>
+
+          <div className="relative mx-auto mt-8 flex w-fit items-center gap-3 rounded-2xl border border-[#0B1A3D]/30 bg-[#0B1A3D] px-5 py-3 shadow-xl">
+            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-gold to-gold-light text-navy-deep">
+              <Code2 size={18} strokeWidth={2.6} />
+            </span>
+            <div>
+              <p className="text-sm font-semibold text-ink">Software Engineer</p>
+              <p className="mt-0.5 flex items-center gap-1.5 text-xs text-ink-muted">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                GrowMinion Core Team
               </p>
-            </FadeIn>
+            </div>
           </div>
-        </div>
+
+          <p className="absolute right-0 top-0 -rotate-6 font-display text-lg font-semibold italic leading-tight text-[#0B1A3D] sm:-right-2">
+            Learn → Build → Ship
+          </p>
+        </FadeIn>
       </div>
     </section>
   );

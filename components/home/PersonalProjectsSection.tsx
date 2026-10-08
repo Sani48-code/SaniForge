@@ -6,7 +6,7 @@ import { personalProjects } from "@/lib/data/personal-projects";
 
 export default function PersonalProjectsSection() {
   return (
-    <section className="border-t border-navy-border py-24 sm:py-32">
+    <section className="bg-gradient-to-br from-[#13492F] via-[#0F3B26] to-[#0A2818] py-24 sm:py-32">
       <div className="container-px mx-auto max-w-content">
         <FadeIn className="mx-auto max-w-2xl text-center">
           <p className="mb-4 font-mono text-sm uppercase tracking-[0.2em] text-gold-light">

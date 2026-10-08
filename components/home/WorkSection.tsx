@@ -18,7 +18,7 @@ export default function WorkSection() {
   }));
 
   return (
-    <section id="work" className="scroll-mt-24 py-24 sm:py-32">
+    <section id="work" className="scroll-mt-24 bg-gradient-to-br from-[#4D1832] via-[#3F1228] to-[#2A0C1B] py-24 sm:py-32">
       <div className="container-px mx-auto max-w-content">
         <SectionHeading
           eyebrow="Selected Work"

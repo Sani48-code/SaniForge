@@ -8,7 +8,7 @@ export default function BlogPreview() {
   const posts = getAllPosts().slice(0, 3);
 
   return (
-    <section className="py-24 sm:py-32">
+    <section className="bg-gradient-to-br from-[#10337A] via-[#0D2A66] to-[#081B45] py-24 sm:py-32">
       <div className="container-px mx-auto max-w-content">
         <SectionHeading
           eyebrow="From the Blog"
