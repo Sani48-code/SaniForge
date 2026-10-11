@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Linkedin, Menu, X, Phone, ArrowRight } from "lucide-react";
 import { navItems } from "@/lib/data/nav";
+import { services } from "@/lib/data/services";
 import { site } from "@/lib/data/site";
 import { cn } from "@/lib/utils";
 
@@ -47,6 +48,27 @@ export default function MobileMenu() {
                 </Link>
               );
             })}
+            <div className="border-b border-slate-100 py-4">
+              <Link
+                href="/services"
+                onClick={() => setOpen(false)}
+                className="font-display text-2xl font-bold text-slate-800 hover:text-blue-600"
+              >
+                Services
+              </Link>
+              <div className="mt-3 flex flex-col gap-2 pl-3">
+                {services.map((s) => (
+                  <Link
+                    key={s.slug}
+                    href={`/services/${s.slug}`}
+                    onClick={() => setOpen(false)}
+                    className="text-base font-medium text-slate-600 hover:text-blue-600"
+                  >
+                    {s.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
             <a
               href={site.bookCallLink}
               target="_blank"

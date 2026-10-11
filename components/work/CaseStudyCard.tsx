@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import Card from "@/components/ui/Card";
@@ -8,31 +9,34 @@ export default function CaseStudyCard({
   onSelect,
 }: {
   study: Pick<CaseStudy, "slug" | "title" | "tagline" | "category" | "image" | "industries" | "metrics">;
-  onSelect: () => void;
+  onSelect?: () => void;
 }) {
   return (
-    <button
-      type="button"
+    <Link
+      href={`/case-studies/${study.slug}`}
+      target="_blank"
+      rel="noopener noreferrer"
       onClick={onSelect}
-      className="group block w-full text-left"
-      aria-haspopup="dialog"
+      className="group block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
     >
-      <Card className="h-full overflow-hidden hover:-translate-y-1.5">
+      <Card className="h-full overflow-hidden hover:-translate-y-1.5 transition-all duration-300">
         <div className="relative aspect-[16/10] w-full">
           <Image
             src={study.image}
             alt={study.title}
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"
-            className="object-cover"
+            className="object-cover group-hover:scale-105 transition-transform duration-500"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/70 via-navy-deep/10 to-transparent" />
-          <span className="absolute left-5 top-5 rounded-full border border-gold/30 bg-navy-deep/90 px-3 py-1 font-mono text-xs uppercase tracking-wider text-gold-light backdrop-blur-sm">
+          <span className="absolute left-5 top-5 rounded-full border border-gold/30 bg-navy-deep/90 px-3 py-1 font-mono text-xs uppercase tracking-wider text-gold-light backdrop-blur-sm shadow-xs">
             {study.category}
           </span>
         </div>
         <div className="p-8">
-          <h3 className="font-display text-3xl text-ink">{study.title}</h3>
+          <h3 className="font-display text-3xl text-ink group-hover:text-gold-light transition-colors">
+            {study.title}
+          </h3>
           <p className="mt-2.5 text-lg leading-relaxed text-ink-muted">{study.tagline}</p>
           <div className="mt-5 flex flex-wrap gap-2">
             {study.industries.slice(0, 3).map((ind) => (
@@ -52,11 +56,11 @@ export default function CaseStudyCard({
               </div>
             ))}
           </div>
-          <div className="mt-6 flex items-center gap-1.5 text-base font-medium text-gold-light">
-            View Case Study <ArrowUpRight size={14} />
+          <div className="mt-6 flex items-center gap-1.5 text-base font-medium text-gold-light group-hover:text-gold transition-colors">
+            View Case Study <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </div>
         </div>
       </Card>
-    </button>
+    </Link>
   );
 }

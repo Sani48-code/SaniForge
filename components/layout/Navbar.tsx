@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { Linkedin, Phone, ArrowRight } from "lucide-react";
+import { Linkedin, Phone, ArrowRight, ChevronDown } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { navItems } from "@/lib/data/nav";
+import { services } from "@/lib/data/services";
 import { site } from "@/lib/data/site";
 import MobileMenu from "./MobileMenu";
 import { cn } from "@/lib/utils";
@@ -63,6 +64,35 @@ export default function Navbar() {
               </Link>
             );
           })}
+
+          {/* Services dropdown */}
+          <div className="group relative">
+            <Link
+              href="/services"
+              className={cn(
+                "relative inline-flex items-center gap-1 text-sm font-semibold transition-colors",
+                pathname.startsWith("/services")
+                  ? "text-blue-600"
+                  : "text-slate-600 hover:text-slate-900"
+              )}
+            >
+              Services
+              <ChevronDown size={14} className="transition-transform group-hover:rotate-180 group-focus-within:rotate-180" />
+            </Link>
+            <div className="invisible absolute left-1/2 top-full z-50 w-72 -translate-x-1/2 pt-4 opacity-0 transition-all group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+              <div className="rounded-2xl border border-slate-200 bg-white p-2 shadow-xl">
+                {services.map((s) => (
+                  <Link
+                    key={s.slug}
+                    href={`/services/${s.slug}`}
+                    className="block rounded-xl px-3 py-2.5 text-sm font-semibold text-slate-700 transition-colors hover:bg-blue-50 hover:text-blue-600"
+                  >
+                    {s.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
         </nav>
 
         {/* Right Actions: Github, LinkedIn, Book a Call */}

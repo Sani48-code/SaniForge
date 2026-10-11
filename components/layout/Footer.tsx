@@ -1,12 +1,22 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { Facebook, Linkedin, Mail, MessageCircle } from "lucide-react";
 import { footerLinks } from "@/lib/data/nav";
 import { site } from "@/lib/data/site";
 
+const LIGHT_ROUTES = ["/services", "/projects"];
+
 export default function Footer() {
+  const pathname = usePathname() ?? "";
+  const light = LIGHT_ROUTES.some((r) => pathname === r || pathname.startsWith(`${r}/`));
   return (
-    <footer className="border-t border-navy-border bg-navy-deep">
+    <footer
+      data-theme={light ? "light" : "dark"}
+      className={light ? "border-t border-[#DFE7F1] bg-[#EEF5FF]" : "border-t border-navy-border bg-navy-deep"}
+    >
       <div className="container-px mx-auto max-w-content py-16">
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
           <div>

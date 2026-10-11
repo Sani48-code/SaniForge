@@ -1,3 +1,5 @@
+import { services } from "./services";
+
 export type NavItem = {
   label: string;
   href: string;
@@ -15,9 +17,8 @@ export const footerLinks = {
     { label: "Projects", href: "/projects" },
     { label: "Blog", href: "/blog" },
   ] as NavItem[],
-  services: [
-    { label: "Web Development", href: "/#skills" },
-    { label: "SEO Copywriting", href: "/#skills" },
-    { label: "n8n Automation", href: "/#skills" },
-  ],
+  services: services.map((s) => ({
+    label: s.label,
+    href: `/services/${s.slug}`,
+  })) as NavItem[],
 };

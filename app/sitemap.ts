@@ -1,17 +1,23 @@
 import type { MetadataRoute } from "next";
-import { getAllPosts } from "@/lib/mdx";
+import { getAllPosts, getAllCaseStudies } from "@/lib/mdx";
+import { services } from "@/lib/data/services";
 import { site } from "@/lib/data/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/projects", "/blog"].map((route) => ({
+  const staticRoutes = ["", "/services", ...services.map((s) => `/services/${s.slug}`), "/projects", "/blog"].map((route) => ({
     url: `${site.url}${route}`,
     lastModified: new Date().toISOString(),
   }));
 
   const postRoutes = getAllPosts().map((post) => ({
     url: `${site.url}/blog/${post.slug}`,
-    lastModified: new Date(post.date).toISOString(),
+    lastModified: new Date(post.updated ?? post.date).toISOString(),
   }));
 
-  return [...staticRoutes, ...postRoutes];
+  const caseStudyRoutes = getAllCaseStudies().map((study) => ({
+    url: `${site.url}/case-studies/${study.slug}`,
+    lastModified: new Date().toISOString(),
+  }));
+
+  return [...staticRoutes, ...postRoutes, ...caseStudyRoutes];
 }

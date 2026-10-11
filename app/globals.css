@@ -45,9 +45,28 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-marquee {
+  .animate-marquee,
+  .animate-marquee-right,
+  .animate-marquee-right-slow {
     animation-play-state: paused;
   }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee-right {
+  animation: marquee-right 38s linear infinite;
+}
+
+.animate-marquee-right-slow {
+  animation: marquee-right 48s linear infinite;
 }
 
 .mdx-content > h2 {
@@ -105,3 +124,13 @@ body {
 .trusted-marquee {
   animation: trusted-scroll 35s linear infinite;
 }
+
+/* Light footer variant, used on the light-themed Services and Projects pages */
+footer[data-theme="light"] .text-ink { color: #142b46; }
+footer[data-theme="light"] .text-ink-muted,
+footer[data-theme="light"] .text-ink-faint { color: #64748b; }
+footer[data-theme="light"] .text-gold-light { color: #8a6100; }
+footer[data-theme="light"] .border-navy-border { border-color: #dfe7f1; }
+footer[data-theme="light"] .hover\:text-ink:hover { color: #142b46; }
+footer[data-theme="light"] .hover\:text-gold-light:hover { color: #8a6100; }
+footer[data-theme="light"] .hover\:border-gold\/40:hover { border-color: #e8b43a; }

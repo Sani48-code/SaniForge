@@ -1,39 +1,51 @@
 import type { Metadata } from "next";
-import FadeIn from "@/components/motion/FadeIn";
-import PersonalProjectsSection from "@/components/home/PersonalProjectsSection";
-import SaaSProducts from "@/components/home/SaaSProducts";
+import ProjectsHero from "@/components/projects/ProjectsHero";
+import CategoryCards from "@/components/projects/CategoryCards";
+import FeaturedSaas from "@/components/projects/FeaturedSaas";
+import ConceptProjects from "@/components/projects/ConceptProjects";
+import WritingSamples from "@/components/projects/WritingSamples";
+import ProcessTimeline from "@/components/projects/ProcessTimeline";
+import IndustriesGrid from "@/components/projects/IndustriesGrid";
+import WhyWorkWithMe from "@/components/projects/WhyWorkWithMe";
+import ProjectsCta from "@/components/projects/ProjectsCta";
+import { conceptProjects, featuredProjects, writingSamples } from "@/lib/data/projects-page";
+import { site } from "@/lib/data/site";
 
 export const metadata: Metadata = {
-  title: "Projects",
+  title: "Projects and Case Studies: SaaS, Web Apps and Content Writing",
   description:
-    "Websites, SaaS products and automations built by Abdul Kaiyum Sani, independently and with the GrowMinion team.",
+    "Selected work by Abdul Kalyum Sani: SaaS products built with Growminion, web application design concepts and content writing samples for med spa, real estate and insurance.",
+  alternates: { canonical: "/projects" },
 };
 
 export default function ProjectsPage() {
-  return (
-    <>
-      <section className="relative overflow-hidden bg-navy-radial py-20 sm:py-28">
-        <div className="container-px mx-auto max-w-2xl text-center">
-          <FadeIn>
-            <p className="font-mono text-sm uppercase tracking-[0.2em] text-gold-light">
-              Projects
-            </p>
-            <h1 className="mt-4 font-display text-5xl font-medium leading-tight text-ink sm:text-6xl text-balance">
-              Things I&apos;ve{" "}
-              <em className="bg-gradient-to-r from-blue-accent to-gold-light bg-clip-text italic text-transparent">
-                built &amp; shipped
-              </em>
-            </h1>
-            <p className="mt-6 text-lg leading-relaxed text-ink-muted sm:text-xl">
-              Independent websites and the SaaS products I&apos;ve helped build
-              with the GrowMinion team.
-            </p>
-          </FadeIn>
-        </div>
-      </section>
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Projects and case studies",
+    url: `${site.url}/projects`,
+    hasPart: [
+      ...featuredProjects.filter((p) => p.url).map((p) => ({ name: p.title, url: p.url })),
+      ...conceptProjects.map((p) => ({ name: p.title, url: p.url })),
+      ...writingSamples.map((p) => ({ name: p.title, url: p.url })),
+    ].map((p) => ({ "@type": "CreativeWork", ...p })),
+  };
 
-      <PersonalProjectsSection />
-      <SaaSProducts />
-    </>
+  return (
+    <div className="bg-white font-sans text-pf-slate">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <ProjectsHero />
+      <CategoryCards />
+      <FeaturedSaas />
+      <ConceptProjects />
+      <WritingSamples />
+      <ProcessTimeline />
+      <IndustriesGrid />
+      <WhyWorkWithMe />
+      <ProjectsCta />
+    </div>
   );
 }

@@ -5,10 +5,31 @@ const config: Config = {
     "./app/**/*.{ts,tsx,mdx}",
     "./components/**/*.{ts,tsx,mdx}",
     "./content/**/*.{mdx,md}",
+    "./lib/**/*.{ts,tsx}",
   ],
   theme: {
     extend: {
       colors: {
+        sv: {
+          blue: "#2563EB",
+          gold: "#E8B43A",
+          goldtext: "#8A6100",
+          palegold: "#FFF6DD",
+          soft: "#EEF5FF",
+          mint: "#E5F8F0",
+          lavender: "#F0EBFF",
+          navy: "#142B46",
+          slate: "#64748B",
+          border: "#DFE7F1",
+        },
+        pf: {
+          navy: "#102A43",
+          yellow: "#F4C542",
+          gold: "#C69C3B",
+          slate: "#334155",
+          gray: "#F7F8FA",
+          border: "#E5E7EB",
+        },
         navy: {
           DEFAULT: "#0A0E1A",
           deep: "#05070D",
