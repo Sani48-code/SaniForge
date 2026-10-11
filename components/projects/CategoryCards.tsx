@@ -28,7 +28,7 @@ export default function CategoryCards() {
                   href={c.href}
                   className="group block h-full rounded-xl border border-pf-border bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-pf-gold hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pf-yellow"
                 >
-                  <span className="flex h-11 w-11 items-center justify-center rounded-lg border border-pf-gold/40 text-pf-gold transition group-hover:bg-pf-yellow group-hover:text-pf-navy">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-lg border border-pf-gold/40 text-sv-goldtext transition group-hover:bg-pf-yellow group-hover:text-pf-navy">
                     <Icon size={22} strokeWidth={1.6} aria-hidden="true" />
                   </span>
                   <h3 className="mt-5 font-display text-lg font-bold text-pf-navy">{c.title}</h3>

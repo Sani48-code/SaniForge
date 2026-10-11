@@ -74,7 +74,7 @@ export default function ContactSection() {
               </span>
               <div>
                 <p className="text-base font-medium text-ink">Email</p>
-                <p className="text-sm text-ink-muted">{site.email}</p>
+                <p className="text-sm text-ink-muted">Send me an email</p>
               </div>
             </a>
             <a

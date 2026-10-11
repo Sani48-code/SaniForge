@@ -201,12 +201,7 @@ export default function ExperienceSection() {
                     {/* Related Photo thumbnail with clean uncluttered presentation */}
                     <div className="relative h-32 sm:h-36 lg:h-32 w-full overflow-hidden bg-slate-100">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={r.dateImage}
-                        alt={r.dateImageAlt}
-                        className="h-full w-full object-cover transition-transform duration-500 group-hover/date:scale-105"
-                        loading="lazy"
-                      />
+                      <Image src={r.dateImage} alt={r.dateImageAlt} width={1200} height={800} sizes="(max-width: 768px) 100vw, 600px" className="h-full w-full object-cover transition-transform duration-500 group-hover/date:scale-105" />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent" />
 
                       {/* Period Year overlay cleanly placed at bottom */}
@@ -227,11 +222,7 @@ export default function ExperienceSection() {
                       {r.logo ? (
                         <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-xl border border-slate-200 bg-white p-1.5 shadow-sm">
                           {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img
-                            src={r.logo}
-                            alt={`${r.org} logo`}
-                            className="h-full w-full object-contain rounded-lg"
-                          />
+                          <Image src={r.logo} alt={`${r.org} logo`} width={64} height={64} className="h-full w-full object-contain rounded-lg" />
                         </div>
                       ) : (
                         <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-emerald-500/30 bg-emerald-50 text-emerald-700 font-black shadow-xs">
@@ -283,12 +274,7 @@ export default function ExperienceSection() {
                   {/* 3. CONTEXTUAL WORKSPACE PHOTO CARD */}
                   <div className="relative h-44 sm:h-48 lg:h-40 xl:h-44 w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-md">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={r.image}
-                      alt={r.imageAlt}
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      loading="lazy"
-                    />
+                    <Image src={r.image} alt={r.imageAlt} width={1200} height={800} sizes="(max-width: 768px) 100vw, 600px" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
                     <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between text-[11px] font-medium text-white">
                       <span className="truncate drop-shadow-sm">{r.imageAlt}</span>
@@ -321,11 +307,7 @@ export default function ExperienceSection() {
 
             <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white/95 p-3 shadow-md self-start sm:self-auto backdrop-blur-sm">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/growminion-mark.png"
-                alt="GrowMinion brand"
-                className="h-10 w-10 rounded-xl object-contain border border-slate-100 shadow-sm"
-              />
+              <Image src="/images/growminion-mark.png" alt="GrowMinion brand" width={40} height={40} className="h-10 w-10 rounded-xl object-contain border border-slate-100 shadow-sm" />
               <div>
                 <p className="text-xs text-slate-500 font-medium">Company</p>
                 <p className="text-sm font-bold text-slate-900">GrowMinion</p>
@@ -343,12 +325,7 @@ export default function ExperienceSection() {
                 {/* Photo frame: Built to fit the full 16:10 / 16:9 landscape photo completely */}
                 <div className="relative aspect-[16/10.5] w-full overflow-hidden bg-slate-100">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={step.image}
-                    alt={step.alt}
-                    className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                    loading="lazy"
-                  />
+                  <Image src={step.image} alt={step.alt} width={1200} height={800} sizes="(max-width: 768px) 100vw, 600px" className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105" />
                 </div>
 
                 {/* Content description with crisp dark typography and step numbering */}
@@ -424,12 +401,7 @@ export default function ExperienceSection() {
                   >
                     <div className="relative h-20 w-full overflow-hidden rounded-xl bg-slate-900 mb-3">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={d.img}
-                        alt={d.title}
-                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                        loading="lazy"
-                      />
+                      <Image src={d.img} alt={d.title} width={1200} height={800} sizes="(max-width: 768px) 100vw, 600px" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
                       <div className="absolute inset-0 bg-slate-950/40" />
                     </div>
                     <p className={`text-sm font-bold text-white`}>

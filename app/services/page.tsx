@@ -1,33 +1,31 @@
+import { safeJsonLd } from "@/lib/json-ld";
 import type { Metadata } from "next";
 import ServicesHero from "@/components/services-page/ServicesHero";
-import ServiceCards from "@/components/services-page/ServiceCards";
-import FeaturedProducts from "@/components/services-page/FeaturedProducts";
-import AppsShowcase from "@/components/services-page/AppsShowcase";
-import ServiceSpotlights from "@/components/services-page/ServiceSpotlights";
+import ServicePanels from "@/components/services-page/ServicePanels";
+import WhyWorkWithMe from "@/components/services-page/WhyWorkWithMe";
+import { ProcessFive, TechCapabilities } from "@/components/services-page/ProcessAndTech";
 import {
-  WorkProcess,
-  IndustriesSupport,
-  ToolsGrid,
-  Principles,
+  JourneySection,
+  ProjectsBanner,
   ServicesFaq,
   ServicesCta,
   servicesFaqs,
-} from "@/components/services-page/LowerSections";
+} from "@/components/services-page/JourneyAndClosing";
 import { services } from "@/lib/data/services";
 import { site } from "@/lib/data/site";
 
 export const metadata: Metadata = {
-  title: "Services: Copywriting, Web Development, Automation and SaaS",
+  title: "Services: Web Development, Automation, SaaS, Copywriting and SEO Content",
   description:
-    "Copywriting, blog writing, full-stack web development, n8n automation, GoHighLevel lead generation and SaaS development from one specialist who writes, builds and automates.",
+    "Copywriting, blog writing, full-stack web development, n8n automation, GoHighLevel lead generation and SaaS development, built with an engineering mindset and a business-first approach.",
   alternates: { canonical: "/services" },
   openGraph: {
     title: "SaniForge Services: Digital Solutions That Help Businesses Grow",
     description:
-      "Copywriting, blog writing, full-stack web development, n8n automation, GHL lead generation and SaaS development.",
+      "Websites, SaaS platforms, automation workflows and SEO-driven content built with thoughtful engineering.",
     url: `${site.url}/services`,
     type: "website",
-    images: [{ url: "/images/projects/hero-visual-v2.png", width: 901, height: 940 }],
+    images: [{ url: "/images/mesani.jpeg", width: 1254, height: 1254 }],
   },
 };
 
@@ -56,20 +54,15 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div className="bg-white font-sans text-sv-navy">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+    <div data-light-page className="bg-white font-sans text-sv-navy">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }} />
       <ServicesHero />
-      <ServiceCards />
-      <FeaturedProducts />
-      <AppsShowcase />
-      <ServiceSpotlights />
-      <WorkProcess />
-      <IndustriesSupport />
-      <ToolsGrid />
-      <Principles />
+      <ServicePanels />
+      <WhyWorkWithMe />
+      <ProcessFive />
+      <TechCapabilities />
+      <JourneySection />
+      <ProjectsBanner />
       <ServicesFaq />
       <ServicesCta />
     </div>

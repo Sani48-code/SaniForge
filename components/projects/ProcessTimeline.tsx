@@ -18,19 +18,17 @@ export default function ProcessTimeline() {
           {processSteps.map((s, i) => {
             const Icon = icons[s.icon];
             return (
-              <Reveal key={s.title} delay={i * 0.08}>
-                <li className="relative flex gap-5 md:block md:text-center">
+              <Reveal as="li" key={s.title} delay={i * 0.08} className="relative flex gap-5 md:block md:text-center">
                   <span className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-pf-gold bg-white text-pf-navy md:mx-auto">
                     <Icon size={18} strokeWidth={1.7} aria-hidden="true" />
                   </span>
                   <div className="md:mt-5">
-                    <p className="font-mono text-sm font-semibold text-pf-gold">
+                    <p className="font-mono text-sm font-semibold text-sv-goldtext">
                       Step {String(i + 1).padStart(2, "0")}
                     </p>
                     <h3 className="mt-1 font-display text-xl font-bold text-pf-navy">{s.title}</h3>
                     <p className="mt-2 text-sm leading-relaxed text-pf-slate">{s.text}</p>
                   </div>
-                </li>
               </Reveal>
             );
           })}

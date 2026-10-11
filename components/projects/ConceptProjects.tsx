@@ -40,7 +40,7 @@ export default function ConceptProjects() {
                     href={p.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-5 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-pf-navy underline decoration-pf-yellow decoration-2 underline-offset-4 hover:text-pf-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pf-yellow"
+                    className="mt-5 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-pf-navy underline decoration-pf-yellow decoration-2 underline-offset-4 hover:text-sv-goldtext focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pf-yellow"
                   >
                     View Live Site <ArrowUpRight size={14} />
                   </a>

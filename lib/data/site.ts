@@ -5,7 +5,7 @@ export const site = {
   description:
     "I'm Abdul Kalyum Sani, a web developer, SEO content writer, and automation engineer at GrowMinion. I build fast websites, write content that ranks, and automate the repetitive work so businesses can scale faster.",
   url: "https://saniforge.com",
-  email: "abdulkaiyumsani48@gmail.com",
+  email: "contact.sani@proton.me",
   whatsappNumber: "8801745947359",
   get whatsappLink() {
     return `https://wa.me/${this.whatsappNumber}`;
@@ -23,7 +23,7 @@ export const site = {
     linkedin: "https://www.linkedin.com/in/sani48",
     facebook: "https://www.facebook.com/abdulkaiyum.sani.50",
     whatsapp: "https://wa.me/8801745947359",
-    email: "mailto:abdulkaiyumsani48@gmail.com",
+    email: "mailto:contact.sani@proton.me",
   },
   get sameAs() {
     return [this.socials.linkedin, this.socials.facebook, this.growminionUrl];

@@ -25,12 +25,12 @@ export default function WritingSamples() {
                     sizes="(max-width: 768px) 100vw, 400px"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <span className="absolute left-4 top-4 flex h-9 w-9 items-center justify-center rounded-lg bg-white/95 text-pf-gold shadow">
+                  <span className="absolute left-4 top-4 flex h-9 w-9 items-center justify-center rounded-lg bg-white/95 text-sv-goldtext shadow">
                     <FileText size={18} strokeWidth={1.6} aria-hidden="true" />
                   </span>
                 </div>
                 <div className="flex flex-1 flex-col p-7">
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-pf-gold">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-sv-goldtext">
                   {w.industry}
                 </p>
                 <h3 className="mt-2 font-display text-2xl font-bold text-pf-navy">{w.title}</h3>
@@ -47,7 +47,7 @@ export default function WritingSamples() {
                   href={w.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-6 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-pf-navy underline decoration-pf-yellow decoration-2 underline-offset-4 hover:text-pf-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pf-yellow"
+                  className="mt-6 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-pf-navy underline decoration-pf-yellow decoration-2 underline-offset-4 hover:text-sv-goldtext focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pf-yellow"
                 >
                   Read Writing Sample <ArrowUpRight size={14} />
                 </a>

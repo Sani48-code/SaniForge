@@ -128,9 +128,21 @@ body {
 /* Light footer variant, used on the light-themed Services and Projects pages */
 footer[data-theme="light"] .text-ink { color: #142b46; }
 footer[data-theme="light"] .text-ink-muted,
-footer[data-theme="light"] .text-ink-faint { color: #64748b; }
+footer[data-theme="light"] .text-ink-faint { color: #475569; }
 footer[data-theme="light"] .text-gold-light { color: #8a6100; }
 footer[data-theme="light"] .border-navy-border { border-color: #dfe7f1; }
 footer[data-theme="light"] .hover\:text-ink:hover { color: #142b46; }
 footer[data-theme="light"] .hover\:text-gold-light:hover { color: #8a6100; }
 footer[data-theme="light"] .hover\:border-gold\/40:hover { border-color: #e8b43a; }
+
+/* Pages with a light design must not show the dark site background (overscroll, gaps, short pages). */
+body:has([data-light-page]) {
+  background-color: #ffffff;
+}
+
+/* Safety net against accidental horizontal scroll on small screens. */
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}

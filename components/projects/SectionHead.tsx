@@ -14,7 +14,7 @@ export default function SectionHead({
   return (
     <Reveal className={align === "center" ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
       {eyebrow && (
-        <p className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-pf-gold">
+        <p className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-sv-goldtext">
           <span className="h-px w-6 bg-pf-gold" /> {eyebrow}
         </p>
       )}

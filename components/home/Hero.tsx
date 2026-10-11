@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, type ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -366,9 +367,13 @@ export default function Hero() {
 
             {/* 8. Dominant Portrait Cutout of Abdul Kaiyum Sani (Layer z-20) */}
             <div className="relative z-20 flex items-end justify-center lg:justify-end overflow-visible">
-              <img 
-                src="/images/heo-main.png" 
-                alt="Abdul Kaiyum Sani" 
+              <Image
+                src="/images/heo-main.png"
+                alt="Abdul Kaiyum Sani"
+                width={680}
+                height={884}
+                priority
+                sizes="(max-width: 1024px) 80vw, 620px"
                 className="relative z-20 h-[560px] sm:h-[640px] lg:h-[calc(100svh-120px)] lg:max-h-[800px] w-auto object-contain select-none pointer-events-none"
               />
             </div>

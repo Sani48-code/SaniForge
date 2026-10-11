@@ -19,7 +19,7 @@ export default function WhyWorkWithMe() {
             return (
               <Reveal key={c.title} delay={i * 0.06}>
                 <div className="h-full rounded-xl border border-pf-border bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-pf-gold hover:shadow-md">
-                  <Icon size={24} strokeWidth={1.6} className="text-pf-gold" aria-hidden="true" />
+                  <Icon size={24} strokeWidth={1.6} className="text-sv-goldtext" aria-hidden="true" />
                   <h3 className="mt-4 font-display text-lg font-bold text-pf-navy">{c.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-pf-slate">{c.text}</p>
                 </div>

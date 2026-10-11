@@ -1,27 +1,56 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
+/**
+ * Light scroll reveal: content is always visible and only slides up slightly when it enters the viewport.
+ * It uses IntersectionObserver and a CSS transition, so it ships no animation library, and it respects
+ * prefers-reduced-motion by skipping the movement entirely.
+ */
 export default function Reveal({
   children,
-  className,
+  className = "",
   delay = 0,
+  as: Tag = "div",
 }: {
   children: React.ReactNode;
   className?: string;
   delay?: number;
+  /** Render as a list item when the reveal wraps content inside a <ul> or <ol>. */
+  as?: "div" | "li";
 }) {
-  const reduce = useReducedMotion();
-  if (reduce) return <div className={className}>{children}</div>;
+  const ref = useRef<HTMLDivElement & HTMLLIElement>(null);
+  const [shown, setShown] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) {
+      setShown(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShown(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "0px 0px -60px 0px" }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.55, delay, ease: [0.22, 1, 0.36, 1] }}
+    <Tag
+      ref={ref}
+      className={`motion-safe:transition-transform motion-safe:duration-[600ms] motion-safe:ease-out ${
+        shown ? "translate-y-0" : "translate-y-4"
+      } ${className}`}
+      style={delay ? { transitionDelay: `${delay}s` } : undefined}
     >
       {children}
-    </motion.div>
+    </Tag>
   );
 }

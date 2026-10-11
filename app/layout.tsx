@@ -1,4 +1,5 @@
-import type { Metadata } from "next";
+import { safeJsonLd } from "@/lib/json-ld";
+import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
@@ -24,6 +25,12 @@ const mono = JetBrains_Mono({
   display: "swap",
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#ffffff",
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
@@ -44,9 +51,6 @@ export const metadata: Metadata = {
     title: site.title,
     description: site.description,
   },
-  icons: {
-    icon: "/images/logo.png",
-  },
 };
 
 const personJsonLd = {
@@ -55,7 +59,6 @@ const personJsonLd = {
   name: site.founder,
   url: site.url,
   jobTitle: "Web Developer, SEO Copywriter & Automation Engineer",
-  email: site.email,
   sameAs: site.sameAs,
   worksFor: {
     "@type": "Organization",
@@ -74,7 +77,7 @@ export default function RootLayout({
       <body className="bg-navy font-sans antialiased">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(personJsonLd) }}
         />
         <Navbar />
         <main className="min-h-screen">{children}</main>

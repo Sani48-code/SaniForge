@@ -24,7 +24,11 @@ import {
   Lightbulb,
 } from "lucide-react";
 import FadeIn from "@/components/motion/FadeIn";
-import ResultsChart from "@/components/work/ResultsChart";
+import dynamic from "next/dynamic";
+
+const ResultsChart = dynamic(() => import("@/components/work/ResultsChart"), {
+  loading: () => <div className="h-64 w-full animate-pulse rounded-2xl bg-slate-100" aria-hidden="true" />,
+});
 import ShareButton from "@/components/case-study/ShareButton";
 import CaseStudyBeforeAfter from "@/components/case-study/CaseStudyBeforeAfter";
 import { PdfDownloadButton, NewsletterCard } from "@/components/case-study/CaseStudyActions";
@@ -50,9 +54,11 @@ export async function generateMetadata({
 
   return {
     title: `${study.title} | Case Study`,
-    description: `${study.tagline} — A detailed ${study.service} case study by ${site.founder}.`,
+    description: `${study.tagline}. A detailed ${study.service} case study by ${site.founder}.`,
+    // /projects/[slug] renders the same page, so both URLs point search engines to this one.
+    alternates: { canonical: `/case-studies/${study.slug}` },
     openGraph: {
-      title: `${study.title} — Case Study | ${site.name}`,
+      title: `${study.title}: Case Study | ${site.name}`,
       description: study.tagline,
       images: [{ url: study.image, width: 1200, height: 630 }],
     },

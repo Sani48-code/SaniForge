@@ -50,7 +50,7 @@ export default function ProjectsHero() {
           <ul className="mt-10 grid grid-cols-2 gap-x-6 gap-y-5 sm:grid-cols-4">
             {strip.map(({ icon: Icon, a, b }) => (
               <li key={a} className="flex items-center gap-3">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-pf-yellow/20 text-pf-gold">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-pf-yellow/20 text-sv-goldtext">
                   <Icon size={22} strokeWidth={1.6} aria-hidden="true" />
                 </span>
                 <span className="text-sm leading-tight text-pf-slate">

@@ -6,7 +6,6 @@ import { site } from "@/lib/data/site";
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = ["", "/services", ...services.map((s) => `/services/${s.slug}`), "/projects", "/blog"].map((route) => ({
     url: `${site.url}${route}`,
-    lastModified: new Date().toISOString(),
   }));
 
   const postRoutes = getAllPosts().map((post) => ({
@@ -16,7 +15,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const caseStudyRoutes = getAllCaseStudies().map((study) => ({
     url: `${site.url}/case-studies/${study.slug}`,
-    lastModified: new Date().toISOString(),
   }));
 
   return [...staticRoutes, ...postRoutes, ...caseStudyRoutes];

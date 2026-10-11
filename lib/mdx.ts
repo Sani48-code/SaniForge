@@ -42,6 +42,7 @@ export type BlogFrontmatter = {
   tags?: string[];
   problem?: string;
   approach?: string;
+  lesson?: string;
   outcome?: string;
 };
 

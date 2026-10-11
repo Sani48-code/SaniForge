@@ -36,7 +36,7 @@ function Chip({ name }: { name: string }) {
         // eslint-disable-next-line @next/next/no-img-element
         <img src={src} alt="" width={16} height={16} />
       ) : Icon ? (
-        <Icon size={16} strokeWidth={1.8} className="text-pf-gold" aria-hidden="true" />
+        <Icon size={16} strokeWidth={1.8} className="text-sv-goldtext" aria-hidden="true" />
       ) : null}
       {name}
     </li>
@@ -54,7 +54,7 @@ export default function StackChips({ items }: { items: string[] }) {
     <div className="space-y-3">
       {groups.map((g) => (
         <div key={g.label}>
-          <p className="mb-1.5 text-[11px] font-semibold uppercase tracking-wider text-pf-gold">
+          <p className="mb-1.5 text-[11px] font-semibold uppercase tracking-wider text-sv-goldtext">
             {g.label}
           </p>
           <ul className="flex flex-wrap gap-2" aria-label={`${g.label} technologies`}>

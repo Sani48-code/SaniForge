@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-/** Cover image with a consistent branded fallback when a post has no image. */
+/** Cover image with a consistent light fallback when a post has no image. */
 export default function InsightCover({
   src,
   alt,
@@ -19,24 +19,13 @@ export default function InsightCover({
   if (!src) {
     return (
       <div
-        className={`flex h-full w-full items-center justify-center bg-gradient-to-br from-navy-panel to-navy-deep ${className}`}
+        className={`flex h-full w-full items-center justify-center bg-gradient-to-br from-sv-soft to-jn-pale ${className}`}
         role="img"
         aria-label={alt}
       >
-        <span className="font-mono text-xs uppercase tracking-[0.25em] text-gold-light/80">
-          {category}
-        </span>
+        <span className="text-xs font-bold uppercase tracking-[0.25em] text-sv-goldtext">{category}</span>
       </div>
     );
   }
-  return (
-    <Image
-      src={src}
-      alt={alt}
-      fill
-      sizes={sizes}
-      priority={priority}
-      className={`object-cover ${className}`}
-    />
-  );
+  return <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className={`object-cover ${className}`} />;
 }

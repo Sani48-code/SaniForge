@@ -10,6 +10,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        jn: { gold: "#E8B94F", pale: "#FFF2D2", body: "#53657A", alt: "#F1F6FF", blue: "#E5EFFF" },
         sv: {
           blue: "#2563EB",
           gold: "#E8B43A",
@@ -74,6 +75,10 @@ const config: Config = {
         marquee: "marquee 50s linear infinite",
       },
       keyframes: {
+        menuIn: {
+          "0%": { transform: "translateX(24px)", opacity: "0" },
+          "100%": { transform: "translateX(0)", opacity: "1" },
+        },
         fadeUp: {
           "0%": { opacity: "0", transform: "translateY(24px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },

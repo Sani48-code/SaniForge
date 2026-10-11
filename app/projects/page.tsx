@@ -1,3 +1,4 @@
+import { safeJsonLd } from "@/lib/json-ld";
 import type { Metadata } from "next";
 import ProjectsHero from "@/components/projects/ProjectsHero";
 import CategoryCards from "@/components/projects/CategoryCards";
@@ -32,10 +33,10 @@ export default function ProjectsPage() {
   };
 
   return (
-    <div className="bg-white font-sans text-pf-slate">
+    <div data-light-page className="bg-white font-sans text-pf-slate">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
       />
       <ProjectsHero />
       <CategoryCards />

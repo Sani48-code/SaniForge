@@ -1,3 +1,4 @@
+import { safeJsonLd } from "@/lib/json-ld";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -197,15 +198,15 @@ export default async function BlogPostPage({
   });
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 selection:bg-blue-100 selection:text-blue-900">
+    <div data-light-page className="min-h-screen bg-white text-slate-900 selection:bg-blue-100 selection:text-blue-900">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(articleJsonLd) }}
       />
       {/* Top Header / Breadcrumbs Bar */}
       <nav aria-label="Breadcrumb" className="border-b border-slate-200/80 bg-white/95 sticky top-[72px] z-40 backdrop-blur-md">
-        <div className="container-px mx-auto flex max-w-content items-center justify-between py-3.5">
-          <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-500">
+        <div className="container-px mx-auto flex max-w-content items-center justify-between gap-3 py-3.5">
+          <div className="flex min-w-0 items-center gap-2 text-xs sm:text-sm text-slate-500">
             <Link
               href="/blog"
               className="inline-flex items-center gap-1.5 font-medium text-slate-700 hover:text-blue-600 transition"
@@ -215,18 +216,18 @@ export default async function BlogPostPage({
             <ChevronRight size={14} className="text-slate-300" />
             <span className="hidden md:inline font-mono text-slate-400">{post.category}</span>
             <ChevronRight size={14} className="hidden md:inline text-slate-300" />
-            <span className="truncate max-w-[200px] sm:max-w-xs font-semibold text-slate-900">
+            <span className="min-w-0 truncate max-w-[120px] sm:max-w-xs font-semibold text-slate-900">
               {post.title}
             </span>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex shrink-0 items-center gap-3">
             <ShareButton title={post.title} />
             <a
               href={site.bookCallLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-full bg-blue-600 px-4 py-1.5 text-xs font-semibold text-white shadow-xs hover:bg-blue-700 transition"
+              className="hidden items-center gap-1.5 rounded-full bg-blue-600 px-4 py-1.5 text-xs font-semibold text-white shadow-xs transition hover:bg-blue-700 sm:inline-flex"
             >
               Book a Call <ArrowUpRight size={12} />
             </a>

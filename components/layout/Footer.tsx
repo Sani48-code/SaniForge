@@ -7,7 +7,7 @@ import { Facebook, Linkedin, Mail, MessageCircle } from "lucide-react";
 import { footerLinks } from "@/lib/data/nav";
 import { site } from "@/lib/data/site";
 
-const LIGHT_ROUTES = ["/services", "/projects"];
+const LIGHT_ROUTES = ["/services", "/projects", "/blog"];
 
 export default function Footer() {
   const pathname = usePathname() ?? "";

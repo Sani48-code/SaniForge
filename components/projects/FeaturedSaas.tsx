@@ -102,7 +102,7 @@ function FeaturedCard({ p, flip }: { p: FeaturedProject; flip: boolean }) {
 
       {/* Case study */}
       <div className="mt-8 rounded-xl bg-pf-gray p-5 sm:p-7">
-        <p className="mb-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-pf-gold">
+        <p className="mb-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-sv-goldtext">
           <span className="h-px w-6 bg-pf-gold" /> Case study
         </p>
         <div className="grid gap-4 md:grid-cols-3">
@@ -144,7 +144,7 @@ export default function FeaturedSaas() {
                 const Icon = benefitIcons[b.icon];
                 return (
                   <div key={b.title} className="rounded-xl border border-pf-border bg-white p-5">
-                    <Icon size={22} strokeWidth={1.6} className="text-pf-gold" aria-hidden="true" />
+                    <Icon size={22} strokeWidth={1.6} className="text-sv-goldtext" aria-hidden="true" />
                     <h4 className="mt-3 font-display text-base font-bold text-pf-navy">{b.title}</h4>
                     <p className="mt-1.5 text-sm leading-relaxed text-pf-slate">{b.text}</p>
                   </div>
