@@ -574,8 +574,6 @@ export default async function CaseStudyPage({
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
                 href={site.bookCallLink}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-[#0B63E5] px-8 py-4 text-base font-bold text-white shadow-md shadow-[#0B63E5]/25 hover:bg-[#0951bd] hover:-translate-y-0.5 transition-all"
               >
                 Book a Consultation <ArrowUpRight size={16} />

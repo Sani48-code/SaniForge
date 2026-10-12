@@ -50,8 +50,6 @@ export default function AuthorBio() {
         </a>
         <a
           href={site.bookCallLink}
-          target="_blank"
-          rel="noopener noreferrer"
           className="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-blue-600 px-4 py-2 text-xs font-semibold text-white shadow-xs hover:bg-blue-700 transition"
         >
           Consult <ArrowUpRight size={13} />

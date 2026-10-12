@@ -37,8 +37,6 @@ export function JournalCta() {
             </p>
             <a
               href={site.bookCallLink}
-              target="_blank"
-              rel="noopener noreferrer"
               className="mt-8 inline-flex items-center gap-2 rounded-xl bg-sv-blue px-8 py-4 text-lg font-semibold text-white shadow-lg shadow-blue-600/20 transition hover:-translate-y-0.5 hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-jn-gold"
             >
               <Phone size={18} aria-hidden="true" /> Let&apos;s Work Together

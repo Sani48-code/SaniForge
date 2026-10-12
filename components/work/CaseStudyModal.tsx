@@ -1,10 +1,12 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import Modal from "@/components/ui/Modal";
 import BeforeAfterCompare from "@/components/work/BeforeAfterCompare";
 import ResultsChart from "@/components/work/ResultsChart";
 import type { CaseStudy } from "@/lib/mdx";
+import { site } from "@/lib/data/site";
 
 type ModalStudy = CaseStudy & { contentNode: React.ReactNode };
 
@@ -15,13 +17,6 @@ export default function CaseStudyModal({
   study: ModalStudy | null;
   onClose: () => void;
 }) {
-  function handleGetInTouch() {
-    onClose();
-    window.setTimeout(() => {
-      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 150);
-  }
-
   return (
     <Modal open={!!study} onClose={onClose} labelledBy="case-study-modal-title">
       {study && (
@@ -82,12 +77,12 @@ export default function CaseStudyModal({
                 Want results like this for your business?
               </h3>
               <div className="mt-6">
-                <button
-                  onClick={handleGetInTouch}
+                <Link
+                  href={site.bookCallLink}
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-gold-gradient px-8 py-4 text-base font-medium text-navy-deep shadow-gold-glow transition-all duration-300 hover:brightness-110 hover:-translate-y-0.5"
                 >
                   Book a Call
-                </button>
+                </Link>
               </div>
             </div>
           </div>

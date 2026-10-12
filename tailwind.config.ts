@@ -20,7 +20,7 @@ const config: Config = {
           mint: "#E5F8F0",
           lavender: "#F0EBFF",
           navy: "#142B46",
-          slate: "#64748B",
+          slate: "#526379",
           border: "#DFE7F1",
         },
         pf: {
@@ -49,7 +49,7 @@ const config: Config = {
         ink: {
           DEFAULT: "#F5F5F0",
           muted: "#8A93A8",
-          faint: "#5B6478",
+          faint: "#7C8599",
         },
       },
       fontFamily: {

@@ -22,7 +22,7 @@ export default function ContactSection() {
             </h2>
             <p className="mt-6 max-w-md text-lg leading-relaxed text-ink-muted sm:text-xl">
               Ready to build something that works? Reach out directly or book
-              a free 15-minute call, no obligation.
+              a free 30-minute call, no obligation.
             </p>
           </FadeIn>
 
@@ -39,8 +39,6 @@ export default function ContactSection() {
           <FadeIn delay={0.25} className="mt-10 space-y-3">
             <a
               href={site.bookCallLink}
-              target="_blank"
-              rel="noopener noreferrer"
               className="flex items-center gap-3 rounded-xl border border-navy-border bg-navy-panel/50 p-4 transition-colors hover:border-gold/40"
             >
               <span className="flex h-10 w-10 items-center justify-center rounded-full bg-gold/10 text-gold-light">
@@ -48,7 +46,7 @@ export default function ContactSection() {
               </span>
               <div>
                 <p className="text-base font-medium text-ink">Book a Free Call</p>
-                <p className="text-sm text-ink-muted">15 minutes, no obligation</p>
+                <p className="text-sm text-ink-muted">30 minutes, no obligation</p>
               </div>
             </a>
             <a

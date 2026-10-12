@@ -18,8 +18,6 @@ export default function ProjectsCta() {
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
               <a
                 href={site.bookCallLink}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-lg bg-pf-yellow px-7 py-3.5 text-base font-semibold text-pf-navy transition hover:brightness-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
                 Start a Project

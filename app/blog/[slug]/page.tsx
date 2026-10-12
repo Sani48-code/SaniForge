@@ -214,7 +214,7 @@ export default async function BlogPostPage({
               <ArrowLeft size={14} /> Back to Blog
             </Link>
             <ChevronRight size={14} className="text-slate-300" />
-            <span className="hidden md:inline font-mono text-slate-400">{post.category}</span>
+            <span className="hidden md:inline font-mono text-slate-500">{post.category}</span>
             <ChevronRight size={14} className="hidden md:inline text-slate-300" />
             <span className="min-w-0 truncate max-w-[120px] sm:max-w-xs font-semibold text-slate-900">
               {post.title}
@@ -225,8 +225,6 @@ export default async function BlogPostPage({
             <ShareButton title={post.title} />
             <a
               href={site.bookCallLink}
-              target="_blank"
-              rel="noopener noreferrer"
               className="hidden items-center gap-1.5 rounded-full bg-blue-600 px-4 py-1.5 text-xs font-semibold text-white shadow-xs transition hover:bg-blue-700 sm:inline-flex"
             >
               Book a Call <ArrowUpRight size={12} />
@@ -265,7 +263,7 @@ export default async function BlogPostPage({
             {/* Quick Metadata Info Strip */}
             <div className="mt-10 grid grid-cols-2 gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-xs sm:grid-cols-4 sm:p-6">
               <div className="border-r border-slate-100 pr-4 last:border-0">
-                <div className="flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-slate-400">
+                <div className="flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-slate-500">
                   <User size={13} className="text-blue-600" /> Author
                 </div>
                 <div className="mt-1 font-semibold text-slate-900 text-sm sm:text-base">
@@ -274,7 +272,7 @@ export default async function BlogPostPage({
               </div>
 
               <div className="border-r border-slate-100 pr-4 last:border-0">
-                <div className="flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-slate-400">
+                <div className="flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-slate-500">
                   <Calendar size={13} className="text-blue-600" /> Published
                 </div>
                 <div className="mt-1 font-semibold text-slate-900 text-sm sm:text-base">
@@ -288,7 +286,7 @@ export default async function BlogPostPage({
               </div>
 
               <div className="border-r border-slate-100 pr-4 last:border-0">
-                <div className="flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-slate-400">
+                <div className="flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-slate-500">
                   <Clock size={13} className="text-blue-600" /> Read Time
                 </div>
                 <div className="mt-1 font-semibold text-slate-900 text-sm sm:text-base">
@@ -297,7 +295,7 @@ export default async function BlogPostPage({
               </div>
 
               <div>
-                <div className="flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-slate-400">
+                <div className="flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-slate-500">
                   <CheckCircle2 size={13} className="text-emerald-600" /> Verified Content
                 </div>
                 <div className="mt-1 font-semibold text-emerald-700 text-sm sm:text-base">
@@ -379,11 +377,9 @@ export default async function BlogPostPage({
               <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
                   href={site.bookCallLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-8 py-4 text-base font-semibold text-white shadow-md shadow-blue-600/20 hover:bg-blue-700 hover:-translate-y-0.5 transition-all"
                 >
-                  Book a Free 15-Minute Call <ArrowUpRight size={16} />
+                  Book a Free 30-Minute Call <ArrowUpRight size={16} />
                 </a>
                 <a
                   href={`mailto:${site.email}?subject=Inquiry%20from%20Blog:%20${encodeURIComponent(post.title)}`}
@@ -425,11 +421,9 @@ export default async function BlogPostPage({
                 </p>
                 <a
                   href={site.bookCallLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-slate-900 py-2.5 text-xs font-semibold text-white hover:bg-slate-800 transition"
                 >
-                  Schedule 15-Min Strategy Call <ArrowUpRight size={13} />
+                  Schedule 30-Min Strategy Call <ArrowUpRight size={13} />
                 </a>
               </div>
 

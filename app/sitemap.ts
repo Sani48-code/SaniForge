@@ -4,7 +4,7 @@ import { services } from "@/lib/data/services";
 import { site } from "@/lib/data/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/services", ...services.map((s) => `/services/${s.slug}`), "/projects", "/blog"].map((route) => ({
+  const staticRoutes = ["", "/services", ...services.map((s) => `/services/${s.slug}`), "/book-a-call", "/projects", "/blog"].map((route) => ({
     url: `${site.url}${route}`,
   }));
 

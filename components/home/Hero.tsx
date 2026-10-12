@@ -232,8 +232,6 @@ export default function Hero() {
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <a
                 href={site.bookCallLink}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="group inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-7 py-3.5 text-sm sm:text-base font-semibold text-white shadow-lg shadow-blue-500/25 transition-all duration-200 hover:bg-blue-700 hover:shadow-blue-500/40 hover:-translate-y-0.5 active:translate-y-0"
               >
                 Let&apos;s Work Together
@@ -433,12 +431,10 @@ export default function Hero() {
                 </p>
                 <a
                   href={site.bookCallLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-5 py-2.5 text-xs sm:text-sm font-semibold text-white shadow hover:bg-blue-700 transition-colors"
                 >
                   <CalendarCheck className="h-4 w-4" />
-                  Book a Free 15-Min Call
+                  Book a Free 30-Min Call
                 </a>
               </div>
             </motion.div>

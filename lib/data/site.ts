@@ -10,11 +10,8 @@ export const site = {
   get whatsappLink() {
     return `https://wa.me/${this.whatsappNumber}`;
   },
-  get bookCallLink() {
-    return `https://wa.me/${this.whatsappNumber}?text=${encodeURIComponent(
-      "Hi Abdul, I'd like to book a free 15-min call to talk about a project."
-    )}`;
-  },
+  bookCallLink: "/book-a-call",
+  calendlyUrl: "https://calendly.com/nextgenitware/30min",
   get mailtoLink() {
     return `mailto:${this.email}`;
   },

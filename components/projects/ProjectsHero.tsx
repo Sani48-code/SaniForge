@@ -40,8 +40,6 @@ export default function ProjectsHero() {
             </a>
             <Link
               href={site.bookCallLink}
-              target="_blank"
-              rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-lg border-2 border-pf-navy bg-white px-8 py-4 text-base font-semibold text-pf-navy transition hover:border-pf-yellow hover:bg-pf-yellow/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pf-yellow"
             >
               Let&apos;s Work Together

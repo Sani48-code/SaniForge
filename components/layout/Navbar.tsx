@@ -124,8 +124,6 @@ export default function Navbar() {
           {/* Book a Call Button with Phone icon and arrow */}
           <a
             href={site.bookCallLink}
-            target="_blank"
-            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-blue-500/25 transition-all hover:bg-blue-700 hover:shadow-blue-500/35 hover:-translate-y-0.5"
           >
             <Phone size={14} className="fill-white" />

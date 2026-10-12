@@ -157,8 +157,6 @@ export default function MobileMenu() {
         <div className="mt-auto space-y-4 px-4 pt-2">
           <a
             href={site.bookCallLink}
-            target="_blank"
-            rel="noopener noreferrer"
             className="flex min-h-[52px] items-center justify-center gap-2 rounded-full bg-blue-600 px-6 text-base font-semibold text-white shadow-lg shadow-blue-500/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
           >
             <Phone size={16} aria-hidden="true" /> Book a Call <ArrowRight size={16} aria-hidden="true" />
