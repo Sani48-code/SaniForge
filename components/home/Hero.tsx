@@ -395,7 +395,7 @@ export default function Hero() {
               exit={{ scale: 0.94, opacity: 0, y: 16 }}
               transition={{ duration: 0.25 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-2xl overflow-hidden rounded-2xl border border-slate-100 bg-white p-6 shadow-2xl"
+              className="relative w-full max-w-3xl overflow-hidden rounded-2xl border border-slate-100 bg-white p-6 shadow-2xl"
             >
               <div className="flex items-center justify-between border-b border-slate-100 pb-4">
                 <div>
@@ -415,14 +415,18 @@ export default function Hero() {
                 </button>
               </div>
 
-              <div className="mt-5 aspect-video w-full overflow-hidden rounded-xl bg-slate-900 flex flex-col items-center justify-center text-center p-6 text-white relative">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-blue-600/90 text-white shadow-xl shadow-blue-500/30">
-                  <Play className="h-7 w-7 fill-white ml-1" />
-                </div>
-                <h4 className="mt-4 text-lg font-bold">Introduction &amp; Case Study Walkthrough</h4>
-                <p className="mt-1 text-sm text-slate-300 max-w-md">
-                  Building scalable digital experiences, SEO content pipelines, and automated business workflows.
-                </p>
+              <div className="mt-5 aspect-video w-full overflow-hidden rounded-xl bg-black shadow-lg ring-1 ring-slate-900/10">
+                <video
+                  src="/video/intro-main.mp4"
+                  className="h-full w-full object-contain"
+                  controls
+                  autoPlay
+                  playsInline
+                  preload="metadata"
+                  controlsList="nodownload"
+                >
+                  Your browser does not support the video tag.
+                </video>
               </div>
 
               <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
