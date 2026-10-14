@@ -86,13 +86,9 @@ export default function ServiceLandingPage({
 
       {/* 1. Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-white via-sv-soft to-jn-pale/70 py-14 sm:py-20">
-        <div className="container-px mx-auto grid max-w-[1240px] items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="container-px mx-auto grid max-w-[1680px] items-center gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-10">
           <Reveal>
-            <nav aria-label="Breadcrumb" className="text-sm text-jn-body">
-              <Link href="/" className="hover:text-sv-blue">Home</Link> / <Link href="/services" className="hover:text-sv-blue">Services</Link>
-            </nav>
-            <p className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-sv-goldtext">{hero.eyebrow}</p>
-            <h1 className="mt-4 font-display text-4xl font-extrabold leading-[1.08] tracking-tight text-sv-navy sm:text-5xl xl:text-6xl text-balance">
+            <h1 className="font-display text-4xl font-extrabold leading-[1.08] tracking-tight text-sv-navy sm:text-5xl xl:text-6xl text-balance">
               {hero.titleLead}{" "}
               <span className="relative text-sv-blue">
                 {hero.titleAccent}
@@ -119,25 +115,8 @@ export default function ServiceLandingPage({
             </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="relative mx-auto max-w-[540px] pb-6">
-              <span aria-hidden="true" className="absolute -left-4 -top-4 h-32 w-32 rounded-full bg-jn-gold/50" />
-              <div className="relative overflow-hidden rounded-3xl border-4 border-white bg-white shadow-2xl shadow-slate-400/40">
-                <Img img={images.hero} sizes="(max-width: 1024px) 90vw, 520px" priority />
-              </div>
-              {images.subExample ? (
-                <div className="absolute -bottom-1 -left-3 w-[56%] sm:-left-8">
-                  {images.subExample === "gsc" ? <SearchConsoleExample /> : <PipelineExample />}
-                </div>
-              ) : (
-                images.sub && (
-                  <div className="absolute -bottom-1 -left-3 w-[44%] overflow-hidden rounded-2xl border-4 border-white shadow-xl sm:-left-8">
-                    <Img img={images.sub} sizes="220px" />
-                  </div>
-                )
-              )}
-              <div className="absolute -right-2 top-5 flex items-center gap-1.5 rounded-xl bg-white px-3 py-2 text-xs font-bold text-sv-navy shadow-lg ring-1 ring-sv-border sm:-right-5 sm:text-sm">
-                <ShieldCheck size={15} className="text-sv-blue" aria-hidden="true" /> {label}
-              </div>
+            <div className="overflow-hidden rounded-3xl border-4 border-white bg-white shadow-2xl shadow-slate-400/40">
+              <Img img={images.hero} sizes="(max-width: 1024px) 94vw, 1000px" priority />
             </div>
           </Reveal>
         </div>

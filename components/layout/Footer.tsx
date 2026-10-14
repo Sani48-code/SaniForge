@@ -21,16 +21,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <Link href="/" className="flex items-center gap-3">
-              <Image
-                src="/images/logo.png"
-                alt="SaniForge logo"
-                width={36}
-                height={36}
-                className="h-9 w-9 object-contain"
-              />
-              <span className="font-display text-lg font-semibold text-ink">
-                Sani<span className="text-gold-light">Forge</span>
-              </span>
+              <Image src="/images/saniforge-logo-full.png" alt="SaniForge" width={1887} height={537} className="h-12 w-auto" />
+
             </Link>
             <p className="mt-4 max-w-xs text-base leading-relaxed text-ink-muted">
               Websites, words & automated systems for businesses that want to

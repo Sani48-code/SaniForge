@@ -28,11 +28,12 @@ export default function ContactSection() {
 
           <FadeIn delay={0.15} className="relative mt-10 max-w-xs overflow-hidden rounded-2xl border border-gold/20 shadow-gold-glow">
             <Image
-              src="/images/portrait-suit-1.png"
+              src="/images/portrait-contact.png"
               alt="Abdul Kalyum Sani"
-              width={420}
-              height={520}
-              className="h-auto w-full object-cover"
+              width={1024}
+              height={1536}
+              sizes="320px"
+              className="aspect-[4/5] h-auto w-full object-cover object-top"
             />
           </FadeIn>
 

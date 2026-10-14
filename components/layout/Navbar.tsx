@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Linkedin, Phone, ArrowRight, ChevronDown } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { navItems } from "@/lib/data/nav";
@@ -24,15 +25,7 @@ export default function Navbar() {
       <div className="container-px mx-auto flex h-[72px] max-w-[1240px] items-center justify-between">
         {/* Brand Logo matching screenshot */}
         <Link href="/" onClick={handleHomeClick} className="flex shrink-0 items-center gap-2.5">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 text-white shadow-md shadow-blue-500/20">
-            {/* Spark lightning icon like screenshot */}
-            <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24">
-              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-            </svg>
-          </div>
-          <span className="font-display text-xl font-bold tracking-tight text-slate-900">
-            SaniForge
-          </span>
+          <Image src="/images/saniforge-logo-full.png" alt="SaniForge" width={1887} height={537} priority className="h-11 w-auto" />
         </Link>
 
         {/* Center Nav Links */}

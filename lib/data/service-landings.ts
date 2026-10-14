@@ -78,8 +78,7 @@ export const landings: Record<ServiceSlug, ServiceLanding> = {
       proofs: ["SEO copywriting since 2023", "Content shipped for 20+ businesses", "Keyword research behind every page", "Written to match your voice and offer"],
     },
     images: {
-      hero: photo("copy-hero", "Hands writing in a notebook on a desk with a laptop video call", 934),
-      subExample: "gsc",
+      hero: shot("/images/services/copywriting.png", "Copywriting service: SEO content, website copy and ad copy", 1774, 887),
       side: photo("copy-side", "A woman working on a laptop at a bright desk with flowers", 951),
     },
     usps: [
@@ -136,8 +135,7 @@ export const landings: Record<ServiceSlug, ServiceLanding> = {
       proofs: ["SEO copywriting since 2023", "Content shipped for 20+ businesses", "Keyword, intent and entity planning", "Every article ends with a clear next step"],
     },
     images: {
-      hero: photo("blog-hero", "A tablet showing marketing notes next to glasses and a plant", 915),
-      sub: photo("blog-sub", "A hand writing notes beside printed charts", 927),
+      hero: shot("/images/services/blog-writing.png", "Blog writing service: SEO-friendly, well-researched blog posts", 1919, 820),
       side: photo("blog-side", "Printed reports with colorful charts on a wooden desk", 927),
     },
     usps: bw.usps.map((u) => ({ title: u.title, text: u.text })),
@@ -180,8 +178,7 @@ export const landings: Record<ServiceSlug, ServiceLanding> = {
       proofs: ["Real products built with the Growminion team", "Frontend, backend and database in one pair of hands", "Mobile first, structured for SEO", "Code you own, with clear handover"],
     },
     images: {
-      hero: photo("web-hero", "A laptop showing code on a cafe table with a coffee", 935),
-      sub: photo("web-sub", "A developer at a desk with a monitor and laptop", 933),
+      hero: shot("/images/services/web-development.png", "Full stack web development with React, Next.js and Node.js", 1916, 821),
       side: photo("web-side", "Code on a dark editor screen", 753),
     },
     usps: [
@@ -245,8 +242,7 @@ export const landings: Record<ServiceSlug, ServiceLanding> = {
       proofs: ["Automation work as an engineer at Growminion", "Lead capture, CRM and content pipelines built", "Workflows with error handling and alerts", "Documented so your team can maintain them"],
     },
     images: {
-      hero: photo("n8n-hero", "A woman working at dual monitors showing code", 934),
-      sub: photo("n8n-sub", "Developer screens with code and a pair of glasses", 1050),
+      hero: shot("/images/services/n8n-automation.png", "n8n workflow automation connecting your apps", 1915, 821),
       side: photo("n8n-side", "A futuristic interface on a computer screen", 933),
     },
     usps: [
@@ -310,8 +306,7 @@ export const landings: Record<ServiceSlug, ServiceLanding> = {
       proofs: ["Copywriter and automation engineer in one", "Follow-up messages written for you", "Connects with your website, forms and n8n", "Clear pipelines your team can follow"],
     },
     images: {
-      hero: photo("ghl-hero", "Two people shaking hands after agreeing a deal", 933),
-      subExample: "pipeline",
+      hero: shot("/images/services/lead-generation-ghl.png", "GoHighLevel lead generation and CRM automation", 1916, 821),
       side: photo("ghl-side", "A team reviewing charts and documents around a table", 787),
     },
     usps: [
@@ -374,8 +369,7 @@ export const landings: Record<ServiceSlug, ServiceLanding> = {
       proofs: ["Helped build 3 SaaS products at Growminion", "TypeScript, React, Node.js and SQL", "Frontend, backend and database in one team", "Code and documentation handed to you"],
     },
     images: {
-      hero: photo("saas-hero", "A team collaborating around a table with laptops", 934),
-      sub: photo("saas-sub", "Hands typing code on a laptop", 927),
+      hero: shot("/images/services/saas-development.png", "SaaS development: modern web apps built with AI", 1672, 941),
       side: photo("saas-side", "A team planning a product around a table with papers", 1050),
     },
     usps: [
