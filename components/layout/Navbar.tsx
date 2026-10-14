@@ -25,7 +25,7 @@ export default function Navbar() {
       <div className="container-px mx-auto flex h-[72px] max-w-[1240px] items-center justify-between">
         {/* Brand Logo matching screenshot */}
         <Link href="/" onClick={handleHomeClick} className="flex shrink-0 items-center gap-2.5">
-          <Image src="/images/saniforge-logo-full.png" alt="SaniForge" width={1887} height={537} priority className="h-11 w-auto" />
+          <Image src="/images/saniforge-logo-full.png" alt="SaniForge" width={900} height={256} priority className="h-11 w-auto" />
         </Link>
 
         {/* Center Nav Links */}

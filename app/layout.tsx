@@ -4,6 +4,7 @@ import { Plus_Jakarta_Sans, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import MotionProvider from "@/components/motion/MotionProvider";
 import { site } from "@/lib/data/site";
 
 const display = Plus_Jakarta_Sans({
@@ -79,9 +80,17 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: safeJsonLd(personJsonLd) }}
         />
-        <Navbar />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-slate-900 focus:shadow-lg"
+        >
+          Skip to main content
+        </a>
+        <MotionProvider>
+          <Navbar />
+          <main id="main" className="min-h-screen">{children}</main>
+          <Footer />
+        </MotionProvider>
       </body>
     </html>
   );
