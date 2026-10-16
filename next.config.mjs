@@ -72,6 +72,12 @@ const nextConfig = {
       "/case-studies/[slug]/twitter-image": ["./assets/**/*", "./content/work/**/*"],
       "/projects/[slug]/opengraph-image": ["./assets/**/*", "./content/work/**/*"],
       "/projects/[slug]/twitter-image": ["./assets/**/*", "./content/work/**/*"],
+      "/n8n-developer/opengraph-image": ["./assets/**/*"],
+      "/n8n-developer/twitter-image": ["./assets/**/*"],
+      "/full-stack-developer/opengraph-image": ["./assets/**/*"],
+      "/full-stack-developer/twitter-image": ["./assets/**/*"],
+      "/growth-engineer/opengraph-image": ["./assets/**/*"],
+      "/growth-engineer/twitter-image": ["./assets/**/*"],
     },
   },
   async redirects() {

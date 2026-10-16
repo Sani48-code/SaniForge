@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getAllPosts, getAllCaseStudies } from "@/lib/mdx";
 import { services } from "@/lib/data/services";
+import { keywordPageList } from "@/lib/data/keyword-pages";
 import { SITE_URL, STATIC_CONTENT_UPDATED } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -19,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     page("", newest(latestPost, staticUpdated), "weekly", 1),
+    ...keywordPageList.map((k) => page(`/${k.slug}`, staticUpdated, "monthly", 0.9)),
     page("/services", staticUpdated, "monthly", 0.8),
     ...services.map((s) => page(`/services/${s.slug}`, staticUpdated, "monthly", 0.8)),
     page("/blog", newest(latestPost, staticUpdated), "weekly", 0.7),

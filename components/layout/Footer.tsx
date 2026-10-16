@@ -7,7 +7,7 @@ import { Facebook, Linkedin, Mail, MessageCircle } from "lucide-react";
 import { footerLinks } from "@/lib/data/nav";
 import { site } from "@/lib/data/site";
 
-const LIGHT_ROUTES = ["/services", "/projects", "/blog"];
+const LIGHT_ROUTES = ["/services", "/projects", "/blog", "/n8n-developer", "/full-stack-developer", "/growth-engineer"];
 
 export default function Footer() {
   const pathname = usePathname() ?? "";
@@ -18,7 +18,7 @@ export default function Footer() {
       className={light ? "border-t border-[#DFE7F1] bg-[#EEF5FF]" : "border-t border-navy-border bg-navy-deep"}
     >
       <div className="container-px mx-auto max-w-content py-16">
-        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-5">
           <div>
             <Link href="/" className="flex items-center gap-3">
               <Image src="/images/saniforge-logo-full.png" alt="SaniForge" width={900} height={256} className="h-12 w-auto" />
@@ -36,6 +36,24 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3">
               {footerLinks.pages.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-base text-ink-muted transition-colors hover:text-ink"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="mb-4 font-mono text-sm uppercase tracking-wider text-gold-light">
+              Hire Me
+            </h3>
+            <ul className="space-y-3">
+              {footerLinks.hire.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}

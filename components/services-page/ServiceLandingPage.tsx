@@ -9,6 +9,7 @@ import FaqLight from "./FaqLight";
 import { PipelineExample, SearchConsoleExample } from "./ExampleVisuals";
 import { sharedConsult, type LandingImage, type ServiceLanding } from "@/lib/data/service-landings";
 import { site } from "@/lib/data/site";
+import type { ServiceSlug } from "@/lib/data/services";
 
 type Offer = { title: string; text: string; points?: string[] };
 type Faq = { q: string; a: string };
@@ -32,6 +33,15 @@ function Cta({ label = "Book a Call" }: { label?: string }) {
   );
 }
 
+const roleLinks: Partial<Record<ServiceSlug, { lead: string; href: string; text: string }>> = {
+  "n8n-automation": { lead: "Want to hire an n8n developer directly?", href: "/n8n-developer", text: "How I work as an n8n developer for law firms and local businesses" },
+  "lead-generation-ghl": { lead: "Need custom routing beyond GoHighLevel?", href: "/n8n-developer", text: "See my n8n developer work for lead routing and CRM automation" },
+  "web-development": { lead: "Hiring for the whole stack?", href: "/full-stack-developer", text: "Work with a full-stack developer: stack, process and results" },
+  "saas-development": { lead: "Building a product end to end?", href: "/full-stack-developer", text: "Work with a full-stack developer who has shipped SaaS" },
+  copywriting: { lead: "Copy is one part of the funnel.", href: "/growth-engineer", text: "How I work as a growth engineer across content, conversion and automation" },
+  "blog-writing": { lead: "Content works best with the rest of the funnel.", href: "/growth-engineer", text: "See how a growth engineer connects SEO content to booked calls" },
+};
+
 export default function ServiceLandingPage({
   landing,
   label,
@@ -48,6 +58,7 @@ export default function ServiceLandingPage({
   const { hero, images } = landing;
 
   const path = `/services/${landing.slug}`;
+  const roleLink = roleLinks[landing.slug];
   const jsonLd = [
     serviceSchema({
       name: label,
@@ -103,6 +114,18 @@ export default function ServiceLandingPage({
           </Reveal>
         </div>
       </section>
+
+      {/* Role page link: service pages target service keywords; the role pages target "hire me" keywords. */}
+      {roleLink && (
+        <div className="border-y border-sv-border bg-sv-palegold/60">
+          <p className="container-px mx-auto max-w-[1240px] py-4 text-center text-sm text-sv-navy sm:text-base">
+            {roleLink.lead}{" "}
+            <Link href={roleLink.href} className="font-semibold text-sv-blue underline underline-offset-4 hover:text-sv-navy">
+              {roleLink.text}
+            </Link>
+          </p>
+        </div>
+      )}
 
       {/* 2. USPs */}
       <section className="bg-white py-20 sm:py-24">

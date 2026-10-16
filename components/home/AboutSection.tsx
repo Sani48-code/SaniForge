@@ -1,14 +1,15 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Code2, GraduationCap, Briefcase, Workflow, Search } from "lucide-react";
 import FadeIn from "@/components/motion/FadeIn";
 import { linkifyGrowMinion } from "@/lib/linkify-growminion";
 
 const highlights = [
-  { icon: Code2, title: "Full-Stack Dev", sub: "MERN Stack", tone: "from-blue-accent to-blue-soft" },
+  { icon: Code2, title: "Full-Stack Dev", sub: "MERN Stack", tone: "from-blue-accent to-blue-soft", href: "/full-stack-developer" },
   { icon: GraduationCap, title: "CSE Student", sub: "Strong Fundamentals", tone: "from-gold to-gold-soft" },
   { icon: Briefcase, title: "Real-World Work", sub: "Shipped for US Clients", tone: "from-blue-accent to-gold" },
-  { icon: Workflow, title: "n8n Developer", sub: "Custom Workflows", tone: "from-gold to-gold-light" },
-  { icon: Search, title: "Growth Engineer", sub: "SEO & Lead Gen", tone: "from-blue-soft to-blue-accent" },
+  { icon: Workflow, title: "n8n Developer", sub: "Custom Workflows", tone: "from-gold to-gold-light", href: "/n8n-developer" },
+  { icon: Search, title: "Growth Engineer", sub: "SEO & Lead Gen", tone: "from-blue-soft to-blue-accent", href: "/growth-engineer" },
 ];
 
 export default function AboutSection() {
@@ -51,15 +52,28 @@ export default function AboutSection() {
           <div className="mt-9 flex max-w-xl flex-wrap gap-3">
             {highlights.map((h, i) => (
               <FadeIn key={h.title} delay={0.15 + i * 0.06}>
-                <div className="flex items-center gap-3 rounded-2xl border border-navy-border bg-navy-panel/70 py-3 pl-3 pr-5 transition-colors hover:border-gold/40">
-                  <span className={`flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br ${h.tone} text-navy-deep`}>
-                    <h.icon size={18} strokeWidth={2.4} />
-                  </span>
-                  <div>
-                    <p className="text-sm font-semibold leading-tight text-ink">{h.title}</p>
-                    <p className="mt-0.5 text-xs text-ink-muted">{h.sub}</p>
-                  </div>
-                </div>
+                {(() => {
+                  const chip = (
+                    <>
+                      <span className={`flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br ${h.tone} text-navy-deep`}>
+                        <h.icon size={18} strokeWidth={2.4} aria-hidden="true" />
+                      </span>
+                      <div>
+                        <p className="text-sm font-semibold leading-tight text-ink">{h.title}</p>
+                        <p className="mt-0.5 text-xs text-ink-muted">{h.sub}</p>
+                      </div>
+                    </>
+                  );
+                  const cls = "flex items-center gap-3 rounded-2xl border border-navy-border bg-navy-panel/70 py-3 pl-3 pr-5 transition-colors hover:border-gold/40";
+                  // Role chips link to the matching "hire me" page.
+                  return h.href ? (
+                    <Link href={h.href} className={cls}>
+                      {chip}
+                    </Link>
+                  ) : (
+                    <div className={cls}>{chip}</div>
+                  );
+                })()}
               </FadeIn>
             ))}
           </div>
