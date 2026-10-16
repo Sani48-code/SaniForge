@@ -45,6 +45,9 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .animate-bob {
+    animation: none;
+  }
   .animate-marquee,
   .animate-marquee-right,
   .animate-marquee-right-slow {

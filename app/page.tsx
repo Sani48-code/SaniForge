@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { site } from "@/lib/data/site";
 import { buildMetadata } from "@/lib/seo";
 import Hero from "@/components/home/Hero";
+import ShortVersion from "@/components/home/ShortVersion";
 import AboutSection from "@/components/home/AboutSection";
 import ExperienceSection from "@/components/home/ExperienceSection";
 import WhyChooseUsSection from "@/components/home/WhyChooseUsSection";
@@ -23,6 +24,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <ShortVersion />
       <AboutSection />
       <ExperienceSection />
       <WhyChooseUsSection />

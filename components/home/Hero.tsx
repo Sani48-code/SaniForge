@@ -1,18 +1,17 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState, type ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
   Play,
-  Zap,
   BarChart3,
   Users,
   Filter,
   Workflow,
   Github,
-  FileEdit,
   X,
   CalendarCheck,
 } from "lucide-react";
@@ -141,17 +140,27 @@ const techBadges: TechBadge[] = [
   },
 ];
 
+const proofStrip: { value: string; label: string; href?: string }[] = [
+  { value: "<2 min", label: "lead response (from 6.5 hrs)", href: "/case-studies/lead-automation-pipeline" },
+  { value: "3x", label: "form submissions in 90 days", href: "/case-studies/local-service-website-redesign" },
+  { value: "480 → 2,100", label: "organic visits/month", href: "/case-studies/law-firm-service-pages" },
+  // TODO(owner): the brief says "21+ US client engagements"; the site only backs "20+ businesses served"
+  // (lib/data/stats.ts). Confirm the real figure, then update both places. See MANUAL_STEPS.md.
+  { value: "20+", label: "businesses served across the US" },
+];
+
 type TrustedItem =
-  | { kind: "logo"; name: string; src: string; className: string; label?: string }
+  | { kind: "logo"; name: string; src: string; width: number; height: number; className: string; label?: string }
   | { kind: "seo"; name: string; path: string };
 
+// width/height are the files' intrinsic sizes so the browser reserves space (no layout shift).
 const trustedItems: TrustedItem[] = [
-  { kind: "logo", name: "Substance Law", src: "/images/trusted/substance-law.webp", className: "h-8 w-auto" },
+  { kind: "logo", name: "Substance Law", src: "/images/trusted/substance-law.webp", width: 245, height: 79, className: "h-8 w-auto" },
   { kind: "seo", name: "Law Firm SEO", path: "M12 3v18M5 7h14M5 7l-3 7a3 3 0 006 0L5 7zm14 0l-3 7a3 3 0 006 0l-3-7z" },
-  { kind: "logo", name: "Ohio Roof Masters", src: "/images/trusted/ohio-roof.webp", className: "h-11 w-auto" },
-  { kind: "logo", name: "Maana Law", src: "/images/trusted/maana-law.png", className: "h-7 w-7", label: "Maana Law" },
+  { kind: "logo", name: "Ohio Roof Masters", src: "/images/trusted/ohio-roof.webp", width: 79, height: 113, className: "h-11 w-auto" },
+  { kind: "logo", name: "Maana Law", src: "/images/trusted/maana-law.png", width: 28, height: 28, className: "h-7 w-7", label: "Maana Law" },
   { kind: "seo", name: "Roofing SEO", path: "M2 12l10-9 10 9M5 10v10h14V10" },
-  { kind: "logo", name: "Growminion", src: "/images/trusted/growminion-mark.png", className: "h-8 w-8", label: "Growminion" },
+  { kind: "logo", name: "Growminion", src: "/images/trusted/growminion-mark.png", width: 256, height: 256, className: "h-8 w-8", label: "Growminion" },
   { kind: "seo", name: "Local SEO", path: "M12 21s-7-6.5-7-12a7 7 0 0114 0c0 5.5-7 12-7 12zm0-9a3 3 0 100-6 3 3 0 000 6z" },
 ];
 
@@ -166,8 +175,16 @@ function TrustedLogos() {
         >
           {t.kind === "logo" ? (
             <>
-              <img src={t.src} alt={t.label ? "" : t.name} className={`${t.className} object-contain`} />
-              {t.label && <span className="whitespace-nowrap">{t.label}</span>}
+              <Image
+                src={t.src}
+                alt={`${t.name} logo`}
+                width={t.width}
+                height={t.height}
+                sizes="96px"
+                className={`${t.className} object-contain`}
+              />
+              {/* The logo's alt already names the client, so the visible label is decorative for screen readers. */}
+              {t.label && <span aria-hidden="true" className="whitespace-nowrap">{t.label}</span>}
             </>
           ) : (
             <>
@@ -202,45 +219,44 @@ export default function Hero() {
         <div className="grid grid-cols-1 items-end gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16 xl:gap-24">
           {/* ================= LEFT COLUMN ================= */}
           <div className="relative z-10 flex flex-col pt-2 pb-16 lg:pb-24 lg:pr-4 xl:-ml-6">
-            {/* Greeting badge */}
+            {/* Eyebrow: name and roles (reads as one sentence for screen readers and search) */}
             <div className="flex items-center gap-2">
-              <span className="text-xl sm:text-2xl animate-bounce">👋</span>
-              <div>
-                <p className="text-xs sm:text-sm font-medium text-slate-500">Hi, I&apos;m</p>
-                <p className="text-base sm:text-lg font-bold tracking-tight text-slate-900">
-                  Abdul Kaiyum Sani
-                </p>
-                <p className="text-[11px] sm:text-xs font-semibold text-blue-600">
+              <span className="text-xl sm:text-2xl animate-bounce" aria-hidden="true">👋</span>
+              <p className="text-xs sm:text-sm font-medium text-slate-500">
+                Hi, I&apos;m{" "}
+                <span className="block text-base sm:text-lg font-bold tracking-tight text-slate-900">
+                  Abdul Kaiyum Sani<span className="sr-only">:</span>
+                </span>
+                <span className="block text-[11px] sm:text-xs font-semibold text-blue-700">
                   n8n Developer · Full-Stack Dev · Growth Engineer
-                </p>
-              </div>
+                </span>
+              </p>
             </div>
 
             {/* Main Headline */}
-            <h1 className="mt-5 font-display text-4xl sm:text-5xl lg:text-[56px] xl:text-[60px] font-extrabold tracking-tight text-slate-900 leading-[1.12]">
-              n8n Developer &amp;
-              <br />
-              <span className="text-[#F59E0B]">Growth Engineer</span>
-              <br />
-              for US Businesses
+            <h1 className="mt-5 font-display text-[32px] sm:text-5xl lg:text-[50px] xl:text-[54px] font-extrabold tracking-tight text-slate-900 leading-[1.12] text-balance">
+              I Build Websites &amp; <span className="text-[#F59E0B]">Automations</span> That Turn Visitors Into Booked Calls
             </h1>
 
             {/* Subtitle */}
             <p className="mt-5 max-w-xl text-base sm:text-lg leading-relaxed text-slate-600 font-normal">
-              I&apos;m a full-stack developer who builds fast websites, writes SEO content
-              that ranks and automates lead follow-up with n8n, so law firms, local
-              businesses and agencies book more calls with less busywork.
+              I&apos;m a full-stack developer and growth engineer at{" "}
+              <a href={site.growminionUrl} target="_blank" rel="noopener noreferrer" className="font-semibold text-slate-800 underline decoration-slate-300 underline-offset-4 hover:decoration-blue-500">
+                GrowMinion
+              </a>
+              . I build fast websites, write SEO content that ranks, and automate lead follow-up with n8n, so
+              law firms and local businesses across the US get more calls with less busywork.
             </p>
 
             {/* Dual CTAs */}
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a
+              <Link
                 href={site.bookCallLink}
                 className="group inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-7 py-3.5 text-sm sm:text-base font-semibold text-white shadow-lg shadow-blue-500/25 transition-all duration-200 hover:bg-blue-700 hover:shadow-blue-500/40 hover:-translate-y-0.5 active:translate-y-0"
               >
-                Let&apos;s Work Together
+                Book a Free 30-Min Audit
                 <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
-              </a>
+              </Link>
 
               <button
                 type="button"
@@ -254,53 +270,30 @@ export default function Hero() {
               </button>
             </div>
 
-            {/* Core Capability Feature Chips (row of 3) */}
-            <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-slate-200/90 border-t border-slate-200/80 pt-8 max-w-xl">
-              {/* Chip 1 */}
-              <div className="flex items-center gap-3 pr-4 py-2.5 sm:py-0">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-blue-50 font-mono text-base font-bold text-blue-600">
-                  &lt;/&gt;
-                </span>
-                <div>
-                  <h3 className="text-xs sm:text-sm font-bold text-slate-900 leading-tight">
-                    Full-Stack Dev
-                  </h3>
-                  <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5 font-medium">
-                    Fast &amp; Scalable
-                  </p>
-                </div>
-              </div>
-
-              {/* Chip 2 */}
-              <div className="flex items-center gap-3 sm:px-4 py-2.5 sm:py-0">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
-                  <FileEdit className="h-4 w-4" />
-                </span>
-                <div>
-                  <h3 className="text-xs sm:text-sm font-bold text-slate-900 leading-tight">
-                    SEO Content Writing
-                  </h3>
-                  <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5 font-medium">
-                    Rank Higher
-                  </p>
-                </div>
-              </div>
-
-              {/* Chip 3 */}
-              <div className="flex items-center gap-3 sm:pl-4 py-2.5 sm:py-0">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
-                  <Zap className="h-4 w-4 fill-blue-600/20" />
-                </span>
-                <div>
-                  <h3 className="text-xs sm:text-sm font-bold text-slate-900 leading-tight">
-                    n8n Automation
-                  </h3>
-                  <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5 font-medium">
-                    Faster Follow-Up
-                  </p>
-                </div>
-              </div>
-            </div>
+            {/* Proof strip: every figure comes from a published case study (or the site's stats). */}
+            <ul aria-label="Results from client work" className="mt-10 grid max-w-xl grid-cols-2 gap-x-6 gap-y-5 border-t border-slate-200/80 pt-8">
+              {proofStrip.map((item) => {
+                const inner = (
+                  <>
+                    <span className="block font-display text-xl sm:text-2xl font-extrabold tracking-tight text-slate-900">
+                      {item.value}
+                    </span>
+                    <span className="mt-0.5 block text-xs sm:text-sm leading-snug text-slate-600">{item.label}</span>
+                  </>
+                );
+                return (
+                  <li key={item.label}>
+                    {item.href ? (
+                      <Link href={item.href} className="group block rounded-lg hover:[&>span:first-child]:text-blue-700">
+                        {inner}
+                      </Link>
+                    ) : (
+                      inner
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
 
             {/* Trusted By / Tech Logo Strip */}
             <div className="mt-10 max-w-xl">
@@ -342,15 +335,15 @@ export default function Hero() {
 
             {/* 3. Floating tech-stack logo badges (Layer z-30) */}
             {techBadges.map((t, i) => (
-              <motion.div
+              <div
                 key={t.name}
                 title={t.name}
-                animate={{ y: [0, -7, 0] }}
-                transition={{ duration: 4 + (i % 4) * 0.5, repeat: Infinity, ease: "easeInOut", delay: i * 0.25 }}
-                className={`absolute z-30 h-12 w-12 sm:h-[52px] sm:w-[52px] items-center justify-center rounded-2xl border border-slate-100 bg-white/95 shadow-xl shadow-slate-200/80 backdrop-blur-md ${t.pos}`}
+                aria-hidden="true"
+                style={{ animationDuration: `${4 + (i % 4) * 0.5}s`, animationDelay: `${i * 0.25}s` }}
+                className={`absolute z-30 h-12 w-12 sm:h-[52px] sm:w-[52px] items-center justify-center rounded-2xl border border-slate-100 bg-white/95 shadow-xl shadow-slate-200/80 animate-bob ${t.pos}`}
               >
                 {t.icon}
-              </motion.div>
+              </div>
             ))}
 
             {/* 7. Grounded Coffee Mug Accent (Bottom Right, Layer z-30) */}
@@ -375,7 +368,7 @@ export default function Hero() {
                 width={680}
                 height={884}
                 priority
-                sizes="(max-width: 1024px) 80vw, 620px"
+                sizes="(max-width: 640px) 440px, (max-width: 1024px) 500px, 620px"
                 className="relative z-20 h-[560px] sm:h-[640px] lg:h-[calc(100svh-120px)] lg:max-h-[800px] w-auto object-contain select-none pointer-events-none"
               />
             </div>
@@ -413,6 +406,7 @@ export default function Hero() {
                 <button
                   type="button"
                   onClick={() => setVideoOpen(false)}
+                  aria-label="Close intro video"
                   className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-slate-600 transition-colors hover:bg-slate-200"
                 >
                   <X className="h-4 w-4" />
