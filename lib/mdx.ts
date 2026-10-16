@@ -58,9 +58,9 @@ export type BlogFrontmatter = {
 export type PostSummary = Omit<BlogPost, "content">;
 
 export function toSummary(post: BlogPost): PostSummary {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { content, ...rest } = post;
-  return rest;
+  const rest: Partial<BlogPost> = { ...post };
+  delete rest.content;
+  return rest as PostSummary;
 }
 
 export type BlogPost = Omit<BlogFrontmatter, "category"> & {
