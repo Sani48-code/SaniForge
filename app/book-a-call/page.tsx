@@ -1,21 +1,17 @@
 import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import { CheckCircle2, Clock, MessagesSquare, Target } from "lucide-react";
 import BookingFlow from "@/components/booking/BookingFlow";
 import { site } from "@/lib/data/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "Book a Free 30-Minute Call",
   description:
-    "Book a 30-minute discovery call to discuss your goals, project requirements, and the best way to move forward.",
-  alternates: { canonical: "/book-a-call" },
-  openGraph: {
-    title: "Book a Discovery Call | SaniForge",
-    description: "A 30-minute call to discuss your goals, requirements and next steps.",
-    url: `${site.url}/book-a-call`,
-    type: "website",
-    images: [{ url: "/images/portrait-suit-1.png", width: 1024, height: 1024 }],
-  },
-};
+    "Book a free 30-minute call with Abdul Kaiyum Sani to discuss your website, SEO content or n8n automation goals and the best way to move forward.",
+  path: "/book-a-call",
+  socialTitle: "Book a Discovery Call | SaniForge",
+  socialDescription: "A 30-minute call to discuss your goals, requirements and next steps.",
+});
 
 const expectations = [
   { icon: Target, text: "We clarify your goals and what success looks like." },

@@ -61,6 +61,18 @@ const nextConfig = {
   },
   experimental: {
     optimizePackageImports: ["lucide-react", "framer-motion"],
+    // Generated share images read vendored fonts and /public images from disk; make sure
+    // those files ship with the serverless functions that may regenerate them at runtime.
+    outputFileTracingIncludes: {
+      "/opengraph-image": ["./assets/**/*"],
+      "/twitter-image": ["./assets/**/*"],
+      "/blog/[slug]/opengraph-image": ["./assets/**/*", "./content/blog/**/*", "./public/images/blog/**/*"],
+      "/blog/[slug]/twitter-image": ["./assets/**/*", "./content/blog/**/*", "./public/images/blog/**/*"],
+      "/case-studies/[slug]/opengraph-image": ["./assets/**/*", "./content/work/**/*"],
+      "/case-studies/[slug]/twitter-image": ["./assets/**/*", "./content/work/**/*"],
+      "/projects/[slug]/opengraph-image": ["./assets/**/*", "./content/work/**/*"],
+      "/projects/[slug]/twitter-image": ["./assets/**/*", "./content/work/**/*"],
+    },
   },
   async redirects() {
     if (!customDomain) return [];

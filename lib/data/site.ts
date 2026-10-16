@@ -4,9 +4,9 @@ export const site = {
   name: SITE_NAME,
   founder: AUTHOR_NAME,
   authorRole: AUTHOR_ROLE,
-  title: "n8n Developer, Full Stack Dev & Growth Engineer | SaniForge",
+  title: "Abdul Kaiyum Sani | n8n Developer, Full Stack Dev & Growth Engineer",
   description:
-    "Abdul Kaiyum Sani is an n8n developer, full-stack dev and growth engineer. Fast websites, SEO content and automations for US law firms and local businesses.",
+    "Abdul Kaiyum Sani: n8n developer, full-stack dev and growth engineer. Fast websites, SEO content and automation for US law firms and local businesses.",
   // Canonical origin; see lib/site.ts.
   url: SITE_URL,
   email: "contact.sani@proton.me",

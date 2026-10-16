@@ -1,5 +1,6 @@
 import { safeJsonLd } from "@/lib/json-ld";
 import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import ProjectsHero from "@/components/projects/ProjectsHero";
 import CategoryCards from "@/components/projects/CategoryCards";
 import FeaturedSaas from "@/components/projects/FeaturedSaas";
@@ -12,12 +13,12 @@ import ProjectsCta from "@/components/projects/ProjectsCta";
 import { conceptProjects, featuredProjects, writingSamples } from "@/lib/data/projects-page";
 import { site } from "@/lib/data/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "Projects & Case Studies: SaaS, Web Apps, Content",
   description:
     "Selected work by Abdul Kaiyum Sani: SaaS products built with Growminion, web app concepts and content samples for med spa, real estate and insurance.",
-  alternates: { canonical: "/projects" },
-};
+  path: "/projects",
+});
 
 export default function ProjectsPage() {
   const jsonLd = {

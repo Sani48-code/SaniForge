@@ -64,7 +64,7 @@ export default function ProjectsHero() {
           <div className="relative mx-auto w-full max-w-[640px]">
             <Image
               src="/images/projects/hero-visual-v2.png"
-              alt="Sani with arms crossed beside a project overview dashboard"
+              alt="Abdul Kaiyum Sani with arms crossed beside a project overview dashboard"
               width={901}
               height={940}
               priority

@@ -38,6 +38,7 @@ import {
   getRelatedCaseStudies,
 } from "@/lib/mdx";
 import { site } from "@/lib/data/site";
+import { buildMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
   return getAllCaseStudies().map((study) => ({ slug: study.slug }));
@@ -52,17 +53,17 @@ export async function generateMetadata({
   const study = getCaseStudyBySlug(resolvedParams.slug);
   if (!study) return {};
 
-  return {
+  // /projects/[slug] renders the same page, so both URLs point search engines to /case-studies/<slug>.
+  return buildMetadata({
     title: `${study.title} | Case Study`,
     description: `${study.tagline}. A detailed ${study.service} case study by ${site.founder}.`,
-    // /projects/[slug] renders the same page, so both URLs point search engines to this one.
-    alternates: { canonical: `/case-studies/${study.slug}` },
-    openGraph: {
-      title: `${study.title}: Case Study | ${site.name}`,
-      description: study.tagline,
-      images: [{ url: study.image, width: 1200, height: 630 }],
-    },
-  };
+    path: `/case-studies/${study.slug}`,
+    socialTitle: `${study.title}: Case Study | ${site.name}`,
+    socialDescription: study.tagline,
+    type: "article",
+    // Share image comes from app/case-studies/[slug]/opengraph-image.tsx.
+    image: null,
+  });
 }
 
 const caseStudyMdxComponents = {

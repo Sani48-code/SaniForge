@@ -1,5 +1,6 @@
 import { safeJsonLd } from "@/lib/json-ld";
 import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import ServicesHero from "@/components/services-page/ServicesHero";
 import ServicePanels from "@/components/services-page/ServicePanels";
 import WhyWorkWithMe from "@/components/services-page/WhyWorkWithMe";
@@ -14,20 +15,15 @@ import {
 import { services } from "@/lib/data/services";
 import { site } from "@/lib/data/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "Full Stack Dev & n8n Automation Services",
   description:
     "Full-stack development, n8n automation, GoHighLevel lead generation, SaaS, copywriting and SEO content from one growth engineer, built for US businesses.",
-  alternates: { canonical: "/services" },
-  openGraph: {
-    title: "SaniForge Services: Digital Solutions That Help Businesses Grow",
-    description:
-      "Websites, SaaS platforms, automation workflows and SEO-driven content built with thoughtful engineering.",
-    url: `${site.url}/services`,
-    type: "website",
-    images: [{ url: "/images/mesani.jpeg", width: 1254, height: 1254 }],
-  },
-};
+  path: "/services",
+  socialTitle: "SaniForge Services: Digital Solutions That Help Businesses Grow",
+  socialDescription:
+    "Websites, SaaS platforms, automation workflows and SEO-driven content built with thoughtful engineering.",
+});
 
 export default function ServicesPage() {
   const jsonLd = [

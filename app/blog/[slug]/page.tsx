@@ -24,6 +24,7 @@ import ShareButton from "@/components/case-study/ShareButton";
 import { blogMdxComponents } from "@/components/mdx";
 import { getAllPosts, getPostBySlug, getRelatedPosts, getAdjacentPosts, extractHeadings } from "@/lib/mdx";
 import { site } from "@/lib/data/site";
+import { buildMetadata } from "@/lib/seo";
 
 // Posts scheduled for the future or added after the build are rendered on demand and cached.
 export const revalidate = 300;
@@ -40,35 +41,28 @@ export async function generateMetadata({
   const resolvedParams = await Promise.resolve(params);
   const post = getPostBySlug(resolvedParams.slug);
   if (!post) return {};
-  const ogTitle = post.ogTitle ?? post.seoTitle;
-  const ogDescription = post.ogDescription ?? post.seoDescription;
-  const ogImage = post.ogImage ?? post.image;
+  // Keep titles inside Google's ~60 character display limit: add the brand only when it fits.
+  const fitsBrand = post.seoTitle.length <= 48;
   return {
-    // Keep titles inside Google's ~60 character display limit: add the brand only when it fits.
-    title: { absolute: post.seoTitle.length <= 48 ? `${post.seoTitle} | ${site.name}` : post.seoTitle },
-    description: post.seoDescription,
-    alternates: { canonical: `/blog/${post.slug}` },
-    keywords: [...(post.keywords ?? []), ...(post.tags ?? [])],
-    authors: [{ name: site.founder, url: site.url }],
-    openGraph: {
+    ...buildMetadata({
+      title: post.seoTitle,
+      absoluteTitle: !fitsBrand,
+      description: post.seoDescription,
+      path: `/blog/${post.slug}`,
+      socialTitle: post.ogTitle ?? post.seoTitle,
+      socialDescription: post.ogDescription ?? post.seoDescription,
       type: "article",
-      title: ogTitle,
-      description: ogDescription,
-      url: `${site.url}/blog/${post.slug}`,
-      siteName: site.name,
-      publishedTime: post.date,
-      modifiedTime: post.updated ?? post.date,
-      authors: [site.founder],
-      section: post.category,
-      tags: post.tags,
-      images: [{ url: ogImage, width: 1200, height: 630, alt: post.imageAlt ?? post.title }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: ogTitle,
-      description: ogDescription,
-      images: [ogImage],
-    },
+      // ./opengraph-image.tsx renders the share image (the post's ogImage when it has one).
+      image: null,
+      keywords: [...(post.keywords ?? []), ...(post.tags ?? [])],
+      article: {
+        publishedTime: post.date,
+        modifiedTime: post.updated ?? post.date,
+        section: post.category,
+        tags: post.tags,
+      },
+    }),
+    authors: [{ name: site.founder, url: site.url }],
   };
 }
 

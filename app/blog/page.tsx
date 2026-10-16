@@ -1,5 +1,6 @@
 import { safeJsonLd } from "@/lib/json-ld";
 import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import JournalHero from "@/components/journal/JournalHero";
 import StartHere from "@/components/journal/StartHere";
 import InsightExplorer from "@/components/journal/InsightExplorer";
@@ -12,20 +13,15 @@ import { site } from "@/lib/data/site";
 // Re-evaluate periodically so scheduled posts go live once their date passes.
 export const revalidate = 300;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "Blog: Web Dev, n8n Automation and SEO Lessons",
   description:
     "Notes from building websites, SaaS tools, automation workflows and SEO systems. Lessons, technical decisions and practical solutions from Abdul Kaiyum Sani.",
-  alternates: { canonical: "/blog" },
-  openGraph: {
-    title: "The SaniForge Journal",
-    description:
-      "Real experience and practical insights from building websites, SaaS tools, automation workflows and SEO systems.",
-    url: `${site.url}/blog`,
-    type: "website",
-    images: [{ url: "/images/blog/lead-generation-pipeline-2026-og.jpg", width: 1200, height: 630 }],
-  },
-};
+  path: "/blog",
+  socialTitle: "The SaniForge Journal",
+  socialDescription:
+    "Real experience and practical insights from building websites, SaaS tools, automation workflows and SEO systems.",
+});
 
 export default function BlogPage() {
   const posts = getAllPosts();

@@ -56,13 +56,15 @@ export const metadata: Metadata = {
   ...(process.env.GOOGLE_SITE_VERIFICATION
     ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } }
     : {}),
+  // Defaults only; pages override these through buildMetadata (lib/seo.ts).
+  // The share image comes from app/opengraph-image.tsx.
   openGraph: {
     title: site.title,
     description: site.description,
     url: site.url,
     siteName: site.name,
+    locale: "en_US",
     type: "website",
-    images: [{ url: "/images/portrait-suit-1.png", width: 1024, height: 1024 }],
   },
   twitter: {
     card: "summary_large_image",
