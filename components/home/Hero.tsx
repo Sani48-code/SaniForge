@@ -210,22 +210,26 @@ export default function Hero() {
                 <p className="text-base sm:text-lg font-bold tracking-tight text-slate-900">
                   Abdul Kaiyum Sani
                 </p>
+                <p className="text-[11px] sm:text-xs font-semibold text-blue-600">
+                  n8n Developer · Full-Stack Dev · Growth Engineer
+                </p>
               </div>
             </div>
 
             {/* Main Headline */}
             <h1 className="mt-5 font-display text-4xl sm:text-5xl lg:text-[56px] xl:text-[60px] font-extrabold tracking-tight text-slate-900 leading-[1.12]">
-              I Build Websites,
+              n8n Developer &amp;
               <br />
-              <span className="text-[#F59E0B]">Automations &amp;</span>
+              <span className="text-[#F59E0B]">Growth Engineer</span>
               <br />
-              Digital Solutions
+              for US Businesses
             </h1>
 
             {/* Subtitle */}
             <p className="mt-5 max-w-xl text-base sm:text-lg leading-relaxed text-slate-600 font-normal">
-              I create fast, modern websites and smart automations to help businesses
-              grow, save time and work smarter.
+              I&apos;m a full-stack developer who builds fast websites, writes SEO content
+              that ranks and automates lead follow-up with n8n, so law firms, local
+              businesses and agencies book more calls with less busywork.
             </p>
 
             {/* Dual CTAs */}
@@ -259,10 +263,10 @@ export default function Hero() {
                 </span>
                 <div>
                   <h3 className="text-xs sm:text-sm font-bold text-slate-900 leading-tight">
-                    Web Development
+                    Full-Stack Dev
                   </h3>
                   <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5 font-medium">
-                    Modern &amp; Scalable
+                    Fast &amp; Scalable
                   </p>
                 </div>
               </div>
@@ -289,10 +293,10 @@ export default function Hero() {
                 </span>
                 <div>
                   <h3 className="text-xs sm:text-sm font-bold text-slate-900 leading-tight">
-                    N8N Automation
+                    n8n Automation
                   </h3>
                   <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5 font-medium">
-                    Save Time
+                    Faster Follow-Up
                   </p>
                 </div>
               </div>
@@ -367,7 +371,7 @@ export default function Hero() {
             <div className="relative z-20 flex items-end justify-center lg:justify-end overflow-visible">
               <Image
                 src="/images/heo-main.png"
-                alt="Abdul Kaiyum Sani"
+                alt="Abdul Kaiyum Sani, n8n developer and full-stack dev"
                 width={680}
                 height={884}
                 priority
@@ -403,7 +407,7 @@ export default function Hero() {
                     Meet Abdul Kaiyum Sani
                   </h3>
                   <p className="text-xs text-slate-500 mt-0.5">
-                    Web Development, SEO Copywriting &amp; Automation
+                    n8n Developer, Full-Stack Dev &amp; Growth Engineer
                   </p>
                 </div>
                 <button

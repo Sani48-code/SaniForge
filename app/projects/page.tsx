@@ -13,9 +13,9 @@ import { conceptProjects, featuredProjects, writingSamples } from "@/lib/data/pr
 import { site } from "@/lib/data/site";
 
 export const metadata: Metadata = {
-  title: "Projects and Case Studies: SaaS, Web Apps and Content Writing",
+  title: "Projects & Case Studies: SaaS, Web Apps, Content",
   description:
-    "Selected work by Abdul Kalyum Sani: SaaS products built with Growminion, web application design concepts and content writing samples for med spa, real estate and insurance.",
+    "Selected work by Abdul Kaiyum Sani: SaaS products built with Growminion, web app concepts and content samples for med spa, real estate and insurance.",
   alternates: { canonical: "/projects" },
 };
 

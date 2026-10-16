@@ -4,7 +4,7 @@ import BookingFlow from "@/components/booking/BookingFlow";
 import { site } from "@/lib/data/site";
 
 export const metadata: Metadata = {
-  title: "Book a Call",
+  title: "Book a Free 30-Minute Call",
   description:
     "Book a 30-minute discovery call to discuss your goals, project requirements, and the best way to move forward.",
   alternates: { canonical: "/book-a-call" },
@@ -13,6 +13,7 @@ export const metadata: Metadata = {
     description: "A 30-minute call to discuss your goals, requirements and next steps.",
     url: `${site.url}/book-a-call`,
     type: "website",
+    images: [{ url: "/images/portrait-suit-1.png", width: 1024, height: 1024 }],
   },
 };
 

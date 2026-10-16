@@ -39,6 +39,19 @@ export const metadata: Metadata = {
     template: `%s | ${site.name}`,
   },
   description: site.description,
+  applicationName: site.name,
+  authors: [{ name: site.founder, url: site.url }],
+  creator: site.founder,
+  keywords: ["n8n developer", "full stack dev", "full-stack developer", "growth engineer", "n8n automation", "GoHighLevel", "SEO copywriting"],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
+  },
+  // Set GOOGLE_SITE_VERIFICATION to the Search Console HTML-tag token to verify ownership.
+  ...(process.env.GOOGLE_SITE_VERIFICATION
+    ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } }
+    : {}),
   openGraph: {
     title: site.title,
     description: site.description,
@@ -59,7 +72,8 @@ const personJsonLd = {
   "@type": "Person",
   name: site.founder,
   url: site.url,
-  jobTitle: "Web Developer, SEO Copywriter & Automation Engineer",
+  jobTitle: site.authorRole,
+  knowsAbout: ["n8n", "Workflow Automation", "Full-Stack Development", "Growth Engineering", "Technical SEO", "GoHighLevel"],
   sameAs: site.sameAs,
   worksFor: {
     "@type": "Organization",

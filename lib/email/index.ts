@@ -54,8 +54,8 @@ export async function sendLeadEmails(lead: LeadInput): Promise<{ sent: boolean }
       to: lead.email,
       replyTo: notifyTo,
       subject: "Thanks for reaching out to SaniForge",
-      text: `Hi ${first},\n\nThanks for sharing your project details. I have received them and will reply personally soon.\n\nIf you have not already, you can pick a time for a 30-minute discovery call here: ${site.calendlyUrl}\n(You will receive a separate confirmation from Calendly once you book.)\n\nAbdul Kalyum Sani, SaniForge`,
-      html: `<p>Hi ${esc(first)},</p><p>Thanks for sharing your project details. I have received them and will reply personally soon.</p><p>If you have not already, you can pick a time for a 30-minute discovery call <a href="${site.calendlyUrl}">here</a>. You will receive a separate confirmation from Calendly once you book.</p><p>Abdul Kalyum Sani, SaniForge</p>`,
+      text: `Hi ${first},\n\nThanks for sharing your project details. I have received them and will reply personally soon.\n\nIf you have not already, you can pick a time for a 30-minute discovery call here: ${site.calendlyUrl}\n(You will receive a separate confirmation from Calendly once you book.)\n\nAbdul Kaiyum Sani, SaniForge`,
+      html: `<p>Hi ${esc(first)},</p><p>Thanks for sharing your project details. I have received them and will reply personally soon.</p><p>If you have not already, you can pick a time for a 30-minute discovery call <a href="${site.calendlyUrl}">here</a>. You will receive a separate confirmation from Calendly once you book.</p><p>Abdul Kaiyum Sani, SaniForge</p>`,
     }),
     send({
       to: notifyTo,

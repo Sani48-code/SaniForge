@@ -40,21 +40,34 @@ export async function generateMetadata({
   const resolvedParams = await Promise.resolve(params);
   const post = getPostBySlug(resolvedParams.slug);
   if (!post) return {};
+  const ogTitle = post.ogTitle ?? post.seoTitle;
+  const ogDescription = post.ogDescription ?? post.seoDescription;
+  const ogImage = post.ogImage ?? post.image;
   return {
-    title: `${post.seoTitle} | SaniForge Blog`,
+    // Keep titles inside Google's ~60 character display limit: add the brand only when it fits.
+    title: { absolute: post.seoTitle.length <= 48 ? `${post.seoTitle} | ${site.name}` : post.seoTitle },
     description: post.seoDescription,
     alternates: { canonical: `/blog/${post.slug}` },
-    keywords: post.tags,
+    keywords: [...(post.keywords ?? []), ...(post.tags ?? [])],
+    authors: [{ name: site.founder, url: site.url }],
     openGraph: {
       type: "article",
-      title: post.seoTitle,
-      description: post.seoDescription,
+      title: ogTitle,
+      description: ogDescription,
       url: `${site.url}/blog/${post.slug}`,
+      siteName: site.name,
       publishedTime: post.date,
       modifiedTime: post.updated ?? post.date,
       authors: [site.founder],
+      section: post.category,
       tags: post.tags,
-      images: [{ url: post.image, width: 1200, height: 630 }],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: post.imageAlt ?? post.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: ogTitle,
+      description: ogDescription,
+      images: [ogImage],
     },
   };
 }
@@ -130,14 +143,15 @@ const blogLightMdxComponents = {
       {...props}
     />
   ),
-  a: (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
-    <a
-      className="text-blue-600 font-semibold underline underline-offset-4 decoration-blue-300 hover:text-blue-800 hover:decoration-blue-600 transition"
-      target="_blank"
-      rel="noopener noreferrer"
-      {...props}
-    />
-  ),
+  // Internal links stay in the same tab (and pass link equity normally); external links open a new tab.
+  a: ({ href = "", ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
+    const className =
+      "text-blue-600 font-semibold underline underline-offset-4 decoration-blue-300 hover:text-blue-800 hover:decoration-blue-600 transition";
+    if (href.startsWith("/") || href.startsWith("#")) {
+      return <Link href={href} className={className} {...props} />;
+    }
+    return <a href={href} className={className} target="_blank" rel="noopener noreferrer" {...props} />;
+  },
   code: (props: React.HTMLAttributes<HTMLElement>) => (
     <code
       className="rounded bg-slate-100 px-2 py-0.5 font-mono text-sm font-medium text-slate-800 border border-slate-200"
@@ -177,19 +191,43 @@ export default async function BlogPostPage({
   const headings = extractHeadings(post.content);
   const related = getRelatedPosts(post);
   const { newer, older } = getAdjacentPosts(post);
+  const postUrl = `${site.url}/blog/${post.slug}`;
+  const absolute = (src: string) => (src.startsWith("http") ? src : `${site.url}${src}`);
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    headline: post.title,
+    headline: post.title.replace(/[“”"]/g, ""),
     description: post.seoDescription,
-    image: post.image,
+    image: [absolute(post.image), ...(post.ogImage ? [absolute(post.ogImage)] : [])],
     datePublished: post.date,
     dateModified: post.updated ?? post.date,
-    author: { "@type": "Person", name: site.founder, url: site.url },
-    publisher: { "@type": "Person", name: site.founder },
-    mainEntityOfPage: `${site.url}/blog/${post.slug}`,
+    author: {
+      "@type": "Person",
+      name: site.founder,
+      jobTitle: site.authorRole,
+      url: site.url,
+      sameAs: site.sameAs,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: site.name,
+      url: site.url,
+      logo: { "@type": "ImageObject", url: `${site.url}/images/saniforge-mark.png` },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": postUrl },
+    url: postUrl,
+    inLanguage: "en",
     articleSection: post.category,
-    keywords: post.tags?.join(", "),
+    keywords: [...(post.keywords ?? []), ...(post.tags ?? [])].join(", "),
+  };
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${site.url}/blog` },
+      { "@type": "ListItem", position: 3, name: post.title, item: postUrl },
+    ],
   };
   const date = new Date(post.date).toLocaleDateString("en-US", {
     year: "numeric",
@@ -202,6 +240,10 @@ export default async function BlogPostPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: safeJsonLd(articleJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(breadcrumbJsonLd) }}
       />
       {/* Top Header / Breadcrumbs Bar */}
       <nav aria-label="Breadcrumb" className="border-b border-slate-200/80 bg-white/95 sticky top-[72px] z-40 backdrop-blur-md">
@@ -268,6 +310,7 @@ export default async function BlogPostPage({
                 </div>
                 <div className="mt-1 font-semibold text-slate-900 text-sm sm:text-base">
                   {site.founder}
+                  <span className="block text-xs font-normal text-slate-500">{site.authorRole}</span>
                 </div>
               </div>
 
@@ -308,7 +351,7 @@ export default async function BlogPostPage({
             <div className="relative mt-10 aspect-[16/9] w-full overflow-hidden rounded-3xl border border-slate-200/90 shadow-xl shadow-slate-200/60">
               <Image
                 src={post.image}
-                alt={post.title}
+                alt={post.imageAlt ?? post.title}
                 fill
                 priority
                 sizes="(max-width: 1280px) 100vw, 1280px"
@@ -332,6 +375,22 @@ export default async function BlogPostPage({
                   {post.outcome && (<div><dt className="font-mono text-xs font-bold uppercase tracking-wider text-blue-700">Outcome</dt><dd>{post.outcome}</dd></div>)}
                 </dl>
               </aside>
+            )}
+            {headings.length > 2 && (
+              // On small screens the sidebar stacks below the article, so offer the contents up front.
+              <details className="group mb-10 rounded-2xl border border-slate-200 bg-slate-50/70 p-5 lg:hidden">
+                <summary className="flex cursor-pointer list-none items-center justify-between font-mono text-xs font-bold uppercase tracking-wider text-slate-600">
+                  In this article
+                  <ChevronRight size={16} className="transition-transform group-open:rotate-90" />
+                </summary>
+                <ol className="mt-4 space-y-2.5 border-l border-slate-200 pl-4 text-[15px]">
+                  {headings.map((h) => (
+                    <li key={h.id}>
+                      <a href={`#${h.id}`} className="text-slate-700 hover:text-blue-600">{h.text}</a>
+                    </li>
+                  ))}
+                </ol>
+              </details>
             )}
             <div className="blog-article-content">
               <MDXRemote
@@ -397,8 +456,10 @@ export default async function BlogPostPage({
           {/* Sticky Sidebar */}
           <aside className="space-y-6">
             <div className="lg:sticky lg:top-36 space-y-6">
-              {/* Table of Contents */}
-              <TableOfContents headings={headings} />
+              {/* Table of Contents (mobile gets the collapsible version above the article) */}
+              <div className="hidden lg:block">
+                <TableOfContents headings={headings} />
+              </div>
 
               {/* Author Quick Card */}
               <div className="rounded-2xl border border-slate-200 bg-slate-50/70 p-6 shadow-xs">
@@ -413,7 +474,7 @@ export default async function BlogPostPage({
                   </div>
                   <div>
                     <h5 className="font-bold text-slate-900">{site.founder}</h5>
-                    <p className="text-xs text-slate-500">Systems &amp; Web Engineer</p>
+                    <p className="text-xs text-slate-500">n8n Developer &amp; Growth Engineer</p>
                   </div>
                 </div>
                 <p className="mt-3 text-xs leading-relaxed text-slate-600">

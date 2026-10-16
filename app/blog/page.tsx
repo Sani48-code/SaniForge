@@ -13,9 +13,9 @@ import { site } from "@/lib/data/site";
 export const revalidate = 300;
 
 export const metadata: Metadata = {
-  title: "The SaniForge Journal: Web Development, Automation and SEO Lessons",
+  title: "Blog: Web Dev, n8n Automation and SEO Lessons",
   description:
-    "Notes from building websites, SaaS tools, automation workflows and SEO systems. Lessons, technical decisions and practical solutions from Abdul Kalyum Sani.",
+    "Notes from building websites, SaaS tools, automation workflows and SEO systems. Lessons, technical decisions and practical solutions from Abdul Kaiyum Sani.",
   alternates: { canonical: "/blog" },
   openGraph: {
     title: "The SaniForge Journal",
@@ -23,6 +23,7 @@ export const metadata: Metadata = {
       "Real experience and practical insights from building websites, SaaS tools, automation workflows and SEO systems.",
     url: `${site.url}/blog`,
     type: "website",
+    images: [{ url: "/images/blog/lead-generation-pipeline-2026-og.jpg", width: 1200, height: 630 }],
   },
 };
 

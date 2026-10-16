@@ -197,10 +197,10 @@ export const services: Service[] = [
   },
   {
     slug: "web-development",
-    label: "Web Development (Full-Stack)",
-    description: "Fast, modern full-stack websites and web apps built with Next.js.",
+    label: "Full-Stack Development",
+    description: "Fast websites and web apps from a full-stack dev who builds the interface, API and database.",
     icon: "code",
-    seoTitle: "Full-Stack Web Development with Next.js and React",
+    seoTitle: "Full Stack Dev for Websites and Web Apps (Next.js and React)",
     seoDescription:
       "Custom full-stack web development: fast Next.js websites, booking systems, dashboards and web apps built for speed, SEO and easy maintenance.",
     badge: "Full-Stack Development",
@@ -274,10 +274,10 @@ export const services: Service[] = [
   },
   {
     slug: "n8n-automation",
-    label: "Automation with n8n",
-    description: "Custom workflows that connect your tools and remove repetitive work.",
+    label: "n8n Automation",
+    description: "An n8n developer who builds custom workflows that connect your tools and remove repetitive work.",
     icon: "workflow",
-    seoTitle: "n8n Automation Expert: Workflows That Save Hours",
+    seoTitle: "n8n Developer: Custom Workflows That Save Hours",
     seoDescription:
       "Custom n8n workflow automation for lead handling, content pipelines, reporting and CRM syncing. Stop doing repetitive tasks by hand and let your tools talk to each other.",
     badge: "n8n Automation Service",
@@ -352,7 +352,7 @@ export const services: Service[] = [
   {
     slug: "lead-generation-ghl",
     label: "Lead Gen with GHL",
-    description: "GoHighLevel funnels, CRM pipelines and follow-up automations.",
+    description: "Growth engineering in GoHighLevel: funnels, CRM pipelines and follow-up automations.",
     icon: "target",
     seoTitle: "GoHighLevel (GHL) Lead Generation Setup and Automation",
     seoDescription:
@@ -429,7 +429,7 @@ export const services: Service[] = [
   {
     slug: "saas-development",
     label: "SaaS Development",
-    description: "From MVP to launch: auth, billing, dashboards and scalable backends.",
+    description: "Full-stack SaaS from MVP to launch: auth, billing, dashboards and scalable backends.",
     icon: "layers",
     seoTitle: "SaaS Development: From MVP to Launch",
     seoDescription:

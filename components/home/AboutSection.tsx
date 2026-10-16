@@ -7,8 +7,8 @@ const highlights = [
   { icon: Code2, title: "Full-Stack Dev", sub: "MERN Stack", tone: "from-blue-accent to-blue-soft" },
   { icon: GraduationCap, title: "CSE Student", sub: "Strong Fundamentals", tone: "from-gold to-gold-soft" },
   { icon: Briefcase, title: "Real-World Work", sub: "Shipped for US Clients", tone: "from-blue-accent to-gold" },
-  { icon: Workflow, title: "Automation", sub: "n8n Workflows", tone: "from-gold to-gold-light" },
-  { icon: Search, title: "SEO Strategy", sub: "Content & Growth", tone: "from-blue-soft to-blue-accent" },
+  { icon: Workflow, title: "n8n Developer", sub: "Custom Workflows", tone: "from-gold to-gold-light" },
+  { icon: Search, title: "Growth Engineer", sub: "SEO & Lead Gen", tone: "from-blue-soft to-blue-accent" },
 ];
 
 export default function AboutSection() {
@@ -40,11 +40,11 @@ export default function AboutSection() {
           <FadeIn delay={0.1}>
             <p className="mt-6 max-w-xl text-base font-medium leading-relaxed text-[#1B2338] sm:text-lg [&_a]:!text-[#0B1A3D] [&_a]:!decoration-[#0B1A3D]/60">
               {linkifyGrowMinion(
-                "I'm Abdul Kaiyum Sani, a CSE student and software engineer, and a core team member at GrowMinion. As a CSE student I know the fundamentals a software engineer needs: data structures, databases, networking and system design."
+                "I'm Abdul Kaiyum Sani, a full-stack developer, n8n developer and growth engineer on the core team at GrowMinion. I'm also a CSE student, so the fundamentals are solid: data structures, databases, networking and system design."
               )}
             </p>
             <p className="mt-4 max-w-xl text-base font-medium leading-relaxed text-[#1B2338] sm:text-lg [&_a]:!text-[#0B1A3D] [&_a]:!decoration-[#0B1A3D]/60">
-              Beyond the classroom, I have real-world experience: shipping client websites, n8n automations and AI-powered SaaS products for businesses across the US.
+              Beyond the classroom, I ship client websites, n8n automations and AI-powered SaaS products for businesses across the US. As a growth engineer, I tie every build to a number you care about: rankings, leads or booked calls.
             </p>
           </FadeIn>
 

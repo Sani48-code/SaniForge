@@ -15,9 +15,9 @@ import { services } from "@/lib/data/services";
 import { site } from "@/lib/data/site";
 
 export const metadata: Metadata = {
-  title: "Services: Web Development, Automation, SaaS, Copywriting and SEO Content",
+  title: "Full Stack Dev & n8n Automation Services",
   description:
-    "Copywriting, blog writing, full-stack web development, n8n automation, GoHighLevel lead generation and SaaS development, built with an engineering mindset and a business-first approach.",
+    "Full-stack development, n8n automation, GoHighLevel lead generation, SaaS, copywriting and SEO content from one growth engineer, built for US businesses.",
   alternates: { canonical: "/services" },
   openGraph: {
     title: "SaniForge Services: Digital Solutions That Help Businesses Grow",

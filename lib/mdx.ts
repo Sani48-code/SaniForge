@@ -36,6 +36,14 @@ export type BlogFrontmatter = {
   image: string;
   seoTitle: string;
   seoDescription: string;
+  /** Alt text for the cover image; falls back to the title. */
+  imageAlt?: string;
+  /** Social share overrides; default to image, seoTitle and seoDescription. */
+  ogImage?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  /** Target search phrases, emitted in JSON-LD and the keywords meta tag. */
+  keywords?: string[];
   status?: "published" | "draft";
   featured?: boolean;
   updated?: string;
