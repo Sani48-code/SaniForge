@@ -1,5 +1,15 @@
 const isProd = process.env.NODE_ENV === "production";
 
+// Only the production deployment may be indexed (mirrors IS_INDEXABLE in lib/site.ts).
+// Vercel preview and development deployments get a site-wide X-Robots-Tag: noindex.
+const isIndexable = process.env.VERCEL_ENV ? process.env.VERCEL_ENV === "production" : true;
+
+// Custom domain migration (see DOMAIN_MIGRATION.md). Leave CUSTOM_DOMAIN unset until the domain is live.
+// When set (e.g. CUSTOM_DOMAIN=saniforge.com), every request that reaches the old vercel.app host is
+// permanently (301) redirected to the same path on the custom domain.
+const customDomain = process.env.CUSTOM_DOMAIN?.replace(/^https?:\/\//, "").replace(/\/+$/, "");
+const legacyHost = process.env.LEGACY_HOST || "saniforge.vercel.app";
+
 // Content Security Policy. Next.js needs inline scripts and styles for hydration and JSON-LD,
 // so 'unsafe-inline' stays; everything else is limited to this site and https images.
 const csp = [
@@ -39,6 +49,8 @@ const nextConfig = {
   poweredByHeader: false,
   compress: true,
   reactStrictMode: true,
+  // One URL per page: /about, never /about/. Next.js 308-redirects the trailing-slash variant.
+  trailingSlash: false,
   images: {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 60 * 60 * 24 * 30,
@@ -50,9 +62,28 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ["lucide-react", "framer-motion"],
   },
+  async redirects() {
+    if (!customDomain) return [];
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: legacyHost }],
+        destination: `https://${customDomain}/:path*`,
+        statusCode: 301,
+      },
+    ];
+  },
   async headers() {
     return [
       { source: "/:path*", headers: securityHeaders },
+      ...(isIndexable
+        ? []
+        : [{ source: "/:path*", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }] }]),
+      {
+        // Internal CMS template kept in /public; not a real page.
+        source: "/case-study-template.html",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+      },
       {
         // Static files in /public: cache for a week and revalidate, so renamed or replaced files still update.
         source: "/(images|icons)/:path*",

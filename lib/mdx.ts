@@ -88,6 +88,8 @@ export type WorkFrontmatter = {
   chartType: "bar" | "line";
   chartLabel: string;
   chartData: { label: string; value: number }[];
+  /** Optional YYYY-MM-DD of the last edit; used for sitemap lastModified and Article dateModified. */
+  updated?: string;
 };
 
 export type CaseStudy = WorkFrontmatter & {

@@ -6,6 +6,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import MotionProvider from "@/components/motion/MotionProvider";
 import { site } from "@/lib/data/site";
+import { IS_INDEXABLE } from "@/lib/site";
 
 const display = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -43,11 +44,14 @@ export const metadata: Metadata = {
   authors: [{ name: site.founder, url: site.url }],
   creator: site.founder,
   keywords: ["n8n developer", "full stack dev", "full-stack developer", "growth engineer", "n8n automation", "GoHighLevel", "SEO copywriting"],
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
-  },
+  // Preview deployments are never indexed (see lib/site.ts and next.config.mjs).
+  robots: IS_INDEXABLE
+    ? {
+        index: true,
+        follow: true,
+        googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
+      }
+    : { index: false, follow: false },
   // Set GOOGLE_SITE_VERIFICATION to the Search Console HTML-tag token to verify ownership.
   ...(process.env.GOOGLE_SITE_VERIFICATION
     ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } }
