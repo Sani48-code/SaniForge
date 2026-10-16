@@ -1,4 +1,5 @@
-import { safeJsonLd } from "@/lib/json-ld";
+import JsonLd from "@/components/seo/JsonLd";
+import { breadcrumbSchema } from "@/lib/schema";
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
 import ServicesHero from "@/components/services-page/ServicesHero";
@@ -51,7 +52,7 @@ export default function ServicesPage() {
 
   return (
     <div data-light-page className="bg-white font-sans text-sv-navy">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }} />
+      <JsonLd data={[...jsonLd, breadcrumbSchema([{ name: "Services", path: "/services" }])]} />
       <ServicesHero />
       <ServicePanels />
       <WhyWorkWithMe />

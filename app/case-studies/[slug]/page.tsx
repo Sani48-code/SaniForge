@@ -39,6 +39,8 @@ import {
 } from "@/lib/mdx";
 import { site } from "@/lib/data/site";
 import { buildMetadata } from "@/lib/seo";
+import JsonLd from "@/components/seo/JsonLd";
+import { articleSchema, breadcrumbSchema } from "@/lib/schema";
 
 export function generateStaticParams() {
   return getAllCaseStudies().map((study) => ({ slug: study.slug }));
@@ -162,9 +164,27 @@ export default async function CaseStudyPage({
   }
 
   const relatedStudies = getRelatedCaseStudies(study, 2);
+  const path = `/case-studies/${study.slug}`;
+  const jsonLd = [
+    articleSchema({
+      type: "Article",
+      headline: `${study.title}: ${study.tagline}`,
+      description: study.tagline,
+      path,
+      images: [`${path}/opengraph-image`, study.image],
+      dateModified: study.updated,
+      section: study.category,
+      keywords: [study.service, ...study.industries],
+    }),
+    breadcrumbSchema([
+      { name: "Projects", path: "/projects" },
+      { name: study.title, path },
+    ]),
+  ];
 
   return (
     <div className="min-h-screen bg-white text-[#0F172A] selection:bg-blue-100 selection:text-blue-900">
+      <JsonLd data={jsonLd} />
       {/* 2. Hero Section: Starts immediately with H1, no breadcrumbs */}
       <header className="relative bg-gradient-to-b from-[#F8FAFC] via-white to-white border-b border-slate-100 pt-10 pb-14 sm:pt-14 sm:pb-20">
         <div className="container-px mx-auto max-w-content">

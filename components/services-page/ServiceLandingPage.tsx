@@ -1,4 +1,5 @@
-import { safeJsonLd } from "@/lib/json-ld";
+import JsonLd from "@/components/seo/JsonLd";
+import { serviceSchema, faqSchema, breadcrumbSchema } from "@/lib/schema";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Check, Mail, Phone, ShieldCheck, Target, Code2, Sparkles, Layers } from "lucide-react";
@@ -46,43 +47,24 @@ export default function ServiceLandingPage({
 }) {
   const { hero, images } = landing;
 
+  const path = `/services/${landing.slug}`;
   const jsonLd = [
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
+    serviceSchema({
       name: label,
       description: landing.seo.description,
-      url: `${site.url}/services/${landing.slug}`,
-      provider: { "@type": "Person", name: site.founder, url: site.url },
-      areaServed: "Worldwide",
-      hasOfferCatalog: {
-        "@type": "OfferCatalog",
-        name: `${label} services`,
-        itemListElement: offers.map((o) => ({
-          "@type": "Offer",
-          itemOffered: { "@type": "Service", name: o.title, description: o.text },
-        })),
-      },
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: site.url },
-        { "@type": "ListItem", position: 2, name: "Services", item: `${site.url}/services` },
-        { "@type": "ListItem", position: 3, name: label, item: `${site.url}/services/${landing.slug}` },
-      ],
-    },
+      path,
+      offers: offers.map((o) => ({ name: o.title, description: o.text })),
+    }),
+    faqSchema(faqs),
+    breadcrumbSchema([
+      { name: "Services", path: "/services" },
+      { name: label, path },
+    ]),
   ];
 
   return (
     <div data-light-page className="bg-white font-sans text-sv-navy">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }} />
+      <JsonLd data={jsonLd} />
 
       {/* 1. Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-white via-sv-soft to-jn-pale/70 py-14 sm:py-20">

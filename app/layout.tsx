@@ -1,4 +1,3 @@
-import { safeJsonLd } from "@/lib/json-ld";
 import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
@@ -7,6 +6,8 @@ import Footer from "@/components/layout/Footer";
 import MotionProvider from "@/components/motion/MotionProvider";
 import { site } from "@/lib/data/site";
 import { IS_INDEXABLE } from "@/lib/site";
+import JsonLd from "@/components/seo/JsonLd";
+import { personSchema, websiteSchema, professionalServiceSchema } from "@/lib/schema";
 
 const display = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -73,21 +74,6 @@ export const metadata: Metadata = {
   },
 };
 
-const personJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: site.founder,
-  url: site.url,
-  jobTitle: site.authorRole,
-  knowsAbout: ["n8n", "Workflow Automation", "Full-Stack Development", "Growth Engineering", "Technical SEO", "GoHighLevel"],
-  sameAs: site.sameAs,
-  worksFor: {
-    "@type": "Organization",
-    name: "GrowMinion",
-    url: site.growminionUrl,
-  },
-};
-
 export default function RootLayout({
   children,
 }: {
@@ -96,10 +82,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable}`}>
       <body className="bg-navy font-sans antialiased">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: safeJsonLd(personJsonLd) }}
-        />
+        <JsonLd data={[personSchema(), websiteSchema(), professionalServiceSchema()]} />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-slate-900 focus:shadow-lg"

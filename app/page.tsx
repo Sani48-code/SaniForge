@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { safeJsonLd } from "@/lib/json-ld";
 import { site } from "@/lib/data/site";
 import { buildMetadata } from "@/lib/seo";
 import Hero from "@/components/home/Hero";
@@ -20,20 +19,9 @@ export const metadata: Metadata = buildMetadata({
   image: null,
 });
 
-const websiteJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: site.name,
-  url: site.url,
-  description: site.description,
-  inLanguage: "en",
-  publisher: { "@type": "Person", name: site.founder, url: site.url },
-};
-
 export default function HomePage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(websiteJsonLd) }} />
       <Hero />
       <AboutSection />
       <ExperienceSection />

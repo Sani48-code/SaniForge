@@ -1,4 +1,5 @@
-import { safeJsonLd } from "@/lib/json-ld";
+import JsonLd from "@/components/seo/JsonLd";
+import { breadcrumbSchema } from "@/lib/schema";
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
 import ProjectsHero from "@/components/projects/ProjectsHero";
@@ -35,10 +36,7 @@ export default function ProjectsPage() {
 
   return (
     <div data-light-page className="bg-white font-sans text-pf-slate">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
-      />
+      <JsonLd data={[jsonLd, breadcrumbSchema([{ name: "Projects", path: "/projects" }])]} />
       <ProjectsHero />
       <CategoryCards />
       <FeaturedSaas />

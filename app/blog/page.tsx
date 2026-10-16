@@ -1,4 +1,5 @@
-import { safeJsonLd } from "@/lib/json-ld";
+import JsonLd from "@/components/seo/JsonLd";
+import { breadcrumbSchema, PERSON_ID } from "@/lib/schema";
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
 import JournalHero from "@/components/journal/JournalHero";
@@ -33,7 +34,8 @@ export default function BlogPage() {
     "@type": "Blog",
     name: "The SaniForge Journal",
     url: `${site.url}/blog`,
-    author: { "@type": "Person", name: site.founder, url: site.url },
+    author: { "@id": PERSON_ID },
+    publisher: { "@id": PERSON_ID },
     blogPost: posts.slice(0, 10).map((p) => ({
       "@type": "BlogPosting",
       headline: p.title,
@@ -44,7 +46,7 @@ export default function BlogPage() {
 
   return (
     <div data-light-page className="bg-white font-sans text-sv-navy">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }} />
+      <JsonLd data={[jsonLd, breadcrumbSchema([{ name: "Blog", path: "/blog" }])]} />
       <JournalHero latest={summaries[0]} />
       {featured && <StartHere post={toSummary(featured)} />}
       {summaries.length === 0 ? (

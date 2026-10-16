@@ -1,4 +1,5 @@
-import { safeJsonLd } from "@/lib/json-ld";
+import JsonLd from "@/components/seo/JsonLd";
+import { articleSchema, breadcrumbSchema } from "@/lib/schema";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -185,44 +186,23 @@ export default async function BlogPostPage({
   const headings = extractHeadings(post.content);
   const related = getRelatedPosts(post);
   const { newer, older } = getAdjacentPosts(post);
-  const postUrl = `${site.url}/blog/${post.slug}`;
-  const absolute = (src: string) => (src.startsWith("http") ? src : `${site.url}${src}`);
-  const articleJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: post.title.replace(/[“”"]/g, ""),
-    description: post.seoDescription,
-    image: [absolute(post.image), ...(post.ogImage ? [absolute(post.ogImage)] : [])],
-    datePublished: post.date,
-    dateModified: post.updated ?? post.date,
-    author: {
-      "@type": "Person",
-      name: site.founder,
-      jobTitle: site.authorRole,
-      url: site.url,
-      sameAs: site.sameAs,
-    },
-    publisher: {
-      "@type": "Organization",
-      name: site.name,
-      url: site.url,
-      logo: { "@type": "ImageObject", url: `${site.url}/images/saniforge-mark.png` },
-    },
-    mainEntityOfPage: { "@type": "WebPage", "@id": postUrl },
-    url: postUrl,
-    inLanguage: "en",
-    articleSection: post.category,
-    keywords: [...(post.keywords ?? []), ...(post.tags ?? [])].join(", "),
-  };
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: site.url },
-      { "@type": "ListItem", position: 2, name: "Blog", item: `${site.url}/blog` },
-      { "@type": "ListItem", position: 3, name: post.title, item: postUrl },
-    ],
-  };
+  const jsonLd = [
+    articleSchema({
+      type: "BlogPosting",
+      headline: post.title,
+      description: post.seoDescription,
+      path: `/blog/${post.slug}`,
+      images: [post.image, ...(post.ogImage ? [post.ogImage] : [])],
+      datePublished: post.date,
+      dateModified: post.updated ?? post.date,
+      section: post.category,
+      keywords: [...(post.keywords ?? []), ...(post.tags ?? [])],
+    }),
+    breadcrumbSchema([
+      { name: "Blog", path: "/blog" },
+      { name: post.title, path: `/blog/${post.slug}` },
+    ]),
+  ];
   const date = new Date(post.date).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
@@ -231,14 +211,7 @@ export default async function BlogPostPage({
 
   return (
     <div data-light-page className="min-h-screen bg-white text-slate-900 selection:bg-blue-100 selection:text-blue-900">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: safeJsonLd(articleJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: safeJsonLd(breadcrumbJsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
       {/* Top Header / Breadcrumbs Bar */}
       <nav aria-label="Breadcrumb" className="border-b border-slate-200/80 bg-white/95 sticky top-[72px] z-40 backdrop-blur-md">
         <div className="container-px mx-auto flex max-w-content items-center justify-between gap-3 py-3.5">

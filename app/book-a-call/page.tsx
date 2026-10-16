@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
 import { CheckCircle2, Clock, MessagesSquare, Target } from "lucide-react";
 import BookingFlow from "@/components/booking/BookingFlow";
+import JsonLd from "@/components/seo/JsonLd";
+import { breadcrumbSchema } from "@/lib/schema";
 import { site } from "@/lib/data/site";
 
 export const metadata: Metadata = buildMetadata({
@@ -22,6 +24,7 @@ const expectations = [
 export default function BookACallPage() {
   return (
     <div data-light-page className="bg-white font-sans text-sv-navy">
+      <JsonLd data={breadcrumbSchema([{ name: "Book a Call", path: "/book-a-call" }])} />
       <section className="bg-gradient-to-br from-white via-sv-soft to-jn-pale/70 py-14 sm:py-20">
         <div className="container-px mx-auto max-w-[1100px]">
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-sv-goldtext">Book a Call</p>
