@@ -365,6 +365,8 @@ export default async function BlogPostPage({
                 components={blogLightMdxComponents}
                 options={{
                   mdxOptions: {
+                    // Plain .md drafts are parsed as Markdown so stray "<" or "{" never break the build.
+                    format: post.format,
                     remarkPlugins: [remarkGfm],
                     rehypePlugins: [rehypeSlug],
                   },
