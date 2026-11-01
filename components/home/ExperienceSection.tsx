@@ -134,7 +134,7 @@ export default function ExperienceSection() {
       {/* 1. Exact Triangular Geometric Mesh Background from Reference */}
       <div
         className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-90 mix-blend-multiply"
-        style={{ backgroundImage: `url('/images/experience/geometric-mesh-bg.png')` }}
+        style={{ backgroundImage: `url('/images/experience/geometric-mesh-bg.webp')` }}
         aria-hidden="true"
       />
 

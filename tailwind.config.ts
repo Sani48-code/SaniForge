@@ -69,6 +69,8 @@ const config: Config = {
       animation: {
         "fade-up": "fadeUp 0.7s ease-out forwards",
         float: "float 6s ease-in-out infinite",
+        // Hero tech badges: compositor-only transform, replaces per-badge framer-motion loops.
+        bob: "bob 4s ease-in-out infinite",
         "drift-slow": "drift 14s ease-in-out infinite",
         "drift-slower": "drift 22s ease-in-out infinite reverse",
         "line-drift": "lineDrift 18s ease-in-out infinite",
@@ -86,6 +88,10 @@ const config: Config = {
         float: {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-12px)" },
+        },
+        bob: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-7px)" },
         },
         drift: {
           "0%, 100%": { transform: "translate(0, 0) scale(1)" },

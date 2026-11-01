@@ -1,4 +1,5 @@
-import { safeJsonLd } from "@/lib/json-ld";
+import JsonLd from "@/components/seo/JsonLd";
+import { articleSchema, breadcrumbSchema } from "@/lib/schema";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -24,6 +25,7 @@ import ShareButton from "@/components/case-study/ShareButton";
 import { blogMdxComponents } from "@/components/mdx";
 import { getAllPosts, getPostBySlug, getRelatedPosts, getAdjacentPosts, extractHeadings } from "@/lib/mdx";
 import { site } from "@/lib/data/site";
+import { buildMetadata } from "@/lib/seo";
 
 // Posts scheduled for the future or added after the build are rendered on demand and cached.
 export const revalidate = 300;
@@ -40,22 +42,28 @@ export async function generateMetadata({
   const resolvedParams = await Promise.resolve(params);
   const post = getPostBySlug(resolvedParams.slug);
   if (!post) return {};
+  // Keep titles inside Google's ~60 character display limit: add the brand only when it fits.
+  const fitsBrand = post.seoTitle.length <= 48;
   return {
-    title: `${post.seoTitle} | SaniForge Blog`,
-    description: post.seoDescription,
-    alternates: { canonical: `/blog/${post.slug}` },
-    keywords: post.tags,
-    openGraph: {
-      type: "article",
+    ...buildMetadata({
       title: post.seoTitle,
+      absoluteTitle: !fitsBrand,
       description: post.seoDescription,
-      url: `${site.url}/blog/${post.slug}`,
-      publishedTime: post.date,
-      modifiedTime: post.updated ?? post.date,
-      authors: [site.founder],
-      tags: post.tags,
-      images: [{ url: post.image, width: 1200, height: 630 }],
-    },
+      path: `/blog/${post.slug}`,
+      socialTitle: post.ogTitle ?? post.seoTitle,
+      socialDescription: post.ogDescription ?? post.seoDescription,
+      type: "article",
+      // ./opengraph-image.tsx renders the share image (the post's ogImage when it has one).
+      image: null,
+      keywords: [...(post.keywords ?? []), ...(post.tags ?? [])],
+      article: {
+        publishedTime: post.date,
+        modifiedTime: post.updated ?? post.date,
+        section: post.category,
+        tags: post.tags,
+      },
+    }),
+    authors: [{ name: site.founder, url: site.url }],
   };
 }
 
@@ -130,14 +138,15 @@ const blogLightMdxComponents = {
       {...props}
     />
   ),
-  a: (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
-    <a
-      className="text-blue-600 font-semibold underline underline-offset-4 decoration-blue-300 hover:text-blue-800 hover:decoration-blue-600 transition"
-      target="_blank"
-      rel="noopener noreferrer"
-      {...props}
-    />
-  ),
+  // Internal links stay in the same tab (and pass link equity normally); external links open a new tab.
+  a: ({ href = "", ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
+    const className =
+      "text-blue-600 font-semibold underline underline-offset-4 decoration-blue-300 hover:text-blue-800 hover:decoration-blue-600 transition";
+    if (href.startsWith("/") || href.startsWith("#")) {
+      return <Link href={href} className={className} {...props} />;
+    }
+    return <a href={href} className={className} target="_blank" rel="noopener noreferrer" {...props} />;
+  },
   code: (props: React.HTMLAttributes<HTMLElement>) => (
     <code
       className="rounded bg-slate-100 px-2 py-0.5 font-mono text-sm font-medium text-slate-800 border border-slate-200"
@@ -177,20 +186,23 @@ export default async function BlogPostPage({
   const headings = extractHeadings(post.content);
   const related = getRelatedPosts(post);
   const { newer, older } = getAdjacentPosts(post);
-  const articleJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: post.title,
-    description: post.seoDescription,
-    image: post.image,
-    datePublished: post.date,
-    dateModified: post.updated ?? post.date,
-    author: { "@type": "Person", name: site.founder, url: site.url },
-    publisher: { "@type": "Person", name: site.founder },
-    mainEntityOfPage: `${site.url}/blog/${post.slug}`,
-    articleSection: post.category,
-    keywords: post.tags?.join(", "),
-  };
+  const jsonLd = [
+    articleSchema({
+      type: "BlogPosting",
+      headline: post.title,
+      description: post.seoDescription,
+      path: `/blog/${post.slug}`,
+      images: [post.image, ...(post.ogImage ? [post.ogImage] : [])],
+      datePublished: post.date,
+      dateModified: post.updated ?? post.date,
+      section: post.category,
+      keywords: [...(post.keywords ?? []), ...(post.tags ?? [])],
+    }),
+    breadcrumbSchema([
+      { name: "Blog", path: "/blog" },
+      { name: post.title, path: `/blog/${post.slug}` },
+    ]),
+  ];
   const date = new Date(post.date).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
@@ -199,10 +211,7 @@ export default async function BlogPostPage({
 
   return (
     <div data-light-page className="min-h-screen bg-white text-slate-900 selection:bg-blue-100 selection:text-blue-900">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: safeJsonLd(articleJsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
       {/* Top Header / Breadcrumbs Bar */}
       <nav aria-label="Breadcrumb" className="border-b border-slate-200/80 bg-white/95 sticky top-[72px] z-40 backdrop-blur-md">
         <div className="container-px mx-auto flex max-w-content items-center justify-between gap-3 py-3.5">
@@ -268,6 +277,7 @@ export default async function BlogPostPage({
                 </div>
                 <div className="mt-1 font-semibold text-slate-900 text-sm sm:text-base">
                   {site.founder}
+                  <span className="block text-xs font-normal text-slate-500">{site.authorRole}</span>
                 </div>
               </div>
 
@@ -308,7 +318,7 @@ export default async function BlogPostPage({
             <div className="relative mt-10 aspect-[16/9] w-full overflow-hidden rounded-3xl border border-slate-200/90 shadow-xl shadow-slate-200/60">
               <Image
                 src={post.image}
-                alt={post.title}
+                alt={post.imageAlt ?? post.title}
                 fill
                 priority
                 sizes="(max-width: 1280px) 100vw, 1280px"
@@ -333,12 +343,30 @@ export default async function BlogPostPage({
                 </dl>
               </aside>
             )}
+            {headings.length > 2 && (
+              // On small screens the sidebar stacks below the article, so offer the contents up front.
+              <details className="group mb-10 rounded-2xl border border-slate-200 bg-slate-50/70 p-5 lg:hidden">
+                <summary className="flex cursor-pointer list-none items-center justify-between font-mono text-xs font-bold uppercase tracking-wider text-slate-600">
+                  In this article
+                  <ChevronRight size={16} className="transition-transform group-open:rotate-90" />
+                </summary>
+                <ol className="mt-4 space-y-2.5 border-l border-slate-200 pl-4 text-[15px]">
+                  {headings.map((h) => (
+                    <li key={h.id}>
+                      <a href={`#${h.id}`} className="text-slate-700 hover:text-blue-600">{h.text}</a>
+                    </li>
+                  ))}
+                </ol>
+              </details>
+            )}
             <div className="blog-article-content">
               <MDXRemote
                 source={post.content}
                 components={blogLightMdxComponents}
                 options={{
                   mdxOptions: {
+                    // Plain .md drafts are parsed as Markdown so stray "<" or "{" never break the build.
+                    format: post.format,
                     remarkPlugins: [remarkGfm],
                     rehypePlugins: [rehypeSlug],
                   },
@@ -397,8 +425,10 @@ export default async function BlogPostPage({
           {/* Sticky Sidebar */}
           <aside className="space-y-6">
             <div className="lg:sticky lg:top-36 space-y-6">
-              {/* Table of Contents */}
-              <TableOfContents headings={headings} />
+              {/* Table of Contents (mobile gets the collapsible version above the article) */}
+              <div className="hidden lg:block">
+                <TableOfContents headings={headings} />
+              </div>
 
               {/* Author Quick Card */}
               <div className="rounded-2xl border border-slate-200 bg-slate-50/70 p-6 shadow-xs">
@@ -413,7 +443,7 @@ export default async function BlogPostPage({
                   </div>
                   <div>
                     <h5 className="font-bold text-slate-900">{site.founder}</h5>
-                    <p className="text-xs text-slate-500">Systems &amp; Web Engineer</p>
+                    <p className="text-xs text-slate-500">n8n Developer &amp; Growth Engineer</p>
                   </div>
                 </div>
                 <p className="mt-3 text-xs leading-relaxed text-slate-600">

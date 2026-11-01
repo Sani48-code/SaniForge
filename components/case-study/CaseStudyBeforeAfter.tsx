@@ -13,9 +13,9 @@ export default function CaseStudyBeforeAfter({ study }: { study: CaseStudy }) {
           <span className="font-mono text-xs font-bold uppercase tracking-wider text-blue-600">
             Transformation Overview
           </span>
-          <h3 className="mt-1 font-display text-2xl font-bold text-slate-900">
+          <h2 className="mt-1 font-display text-2xl font-bold text-slate-900">
             Before &amp; After Implementation
-          </h3>
+          </h2>
         </div>
       </div>
 

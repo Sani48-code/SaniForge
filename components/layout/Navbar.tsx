@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Linkedin, Phone, ArrowRight, ChevronDown } from "lucide-react";
@@ -71,18 +72,49 @@ export default function Navbar() {
             >
               Services
               <ChevronDown size={14} className="transition-transform group-hover:rotate-180 group-focus-within:rotate-180" />
+              {pathname.startsWith("/services") && (
+                <span className="absolute -bottom-2 left-0 right-0 h-[2px] rounded-full bg-blue-600" />
+              )}
             </Link>
-            <div className="invisible absolute left-1/2 top-full z-50 w-72 -translate-x-1/2 pt-4 opacity-0 transition-all group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-              <div className="rounded-2xl border border-slate-200 bg-white p-2 shadow-xl">
-                {services.map((s) => (
-                  <Link
-                    key={s.slug}
-                    href={`/services/${s.slug}`}
-                    className="block rounded-xl px-3 py-2.5 text-sm font-semibold text-slate-700 transition-colors hover:bg-blue-50 hover:text-blue-600"
-                  >
-                    {s.label}
-                  </Link>
-                ))}
+            <div className="invisible absolute left-1/2 top-full z-50 w-80 -translate-x-1/2 pt-4 opacity-0 transition-all group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+              <div className="rounded-2xl border border-slate-200 bg-white p-2 shadow-2xl ring-1 ring-slate-900/5">
+                {/* All services link at top */}
+                <Link
+                  href="/services"
+                  className="mb-1 flex items-center gap-2 rounded-xl px-3 py-2 text-xs font-bold uppercase tracking-wider text-blue-600 transition-colors hover:bg-blue-50"
+                >
+                  All Services →
+                </Link>
+                <div className="my-1 border-t border-slate-100" />
+                {services.map((s) => {
+                  const icons: Record<string, React.ReactNode> = {
+                    pen: <span className="text-base">✍️</span>,
+                    file: <span className="text-base">📝</span>,
+                    code: <span className="text-base">💻</span>,
+                    workflow: <span className="text-base">⚙️</span>,
+                    target: <span className="text-base">🎯</span>,
+                    layers: <span className="text-base">🚀</span>,
+                  };
+                  const isActive = pathname === `/services/${s.slug}`;
+                  return (
+                    <Link
+                      key={s.slug}
+                      href={`/services/${s.slug}`}
+                      className={cn(
+                        "flex items-start gap-3 rounded-xl px-3 py-2.5 transition-colors",
+                        isActive
+                          ? "bg-blue-50 text-blue-700"
+                          : "text-slate-700 hover:bg-slate-50 hover:text-slate-900"
+                      )}
+                    >
+                      <span className="mt-0.5 flex-shrink-0 leading-none">{icons[s.icon]}</span>
+                      <span>
+                        <span className="block text-sm font-semibold leading-tight">{s.label}</span>
+                        <span className="mt-0.5 block text-xs text-slate-500 leading-snug line-clamp-1">{s.description}</span>
+                      </span>
+                    </Link>
+                  );
+                })}
               </div>
             </div>
           </div>

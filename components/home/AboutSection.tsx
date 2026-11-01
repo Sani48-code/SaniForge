@@ -1,14 +1,15 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Code2, GraduationCap, Briefcase, Workflow, Search } from "lucide-react";
 import FadeIn from "@/components/motion/FadeIn";
 import { linkifyGrowMinion } from "@/lib/linkify-growminion";
 
 const highlights = [
-  { icon: Code2, title: "Full-Stack Dev", sub: "MERN Stack", tone: "from-blue-accent to-blue-soft" },
+  { icon: Code2, title: "Full-Stack Dev", sub: "MERN Stack", tone: "from-blue-accent to-blue-soft", href: "/full-stack-developer" },
   { icon: GraduationCap, title: "CSE Student", sub: "Strong Fundamentals", tone: "from-gold to-gold-soft" },
   { icon: Briefcase, title: "Real-World Work", sub: "Shipped for US Clients", tone: "from-blue-accent to-gold" },
-  { icon: Workflow, title: "Automation", sub: "n8n Workflows", tone: "from-gold to-gold-light" },
-  { icon: Search, title: "SEO Strategy", sub: "Content & Growth", tone: "from-blue-soft to-blue-accent" },
+  { icon: Workflow, title: "n8n Developer", sub: "Custom Workflows", tone: "from-gold to-gold-light", href: "/n8n-developer" },
+  { icon: Search, title: "Growth Engineer", sub: "SEO & Lead Gen", tone: "from-blue-soft to-blue-accent", href: "/growth-engineer" },
 ];
 
 export default function AboutSection() {
@@ -40,26 +41,39 @@ export default function AboutSection() {
           <FadeIn delay={0.1}>
             <p className="mt-6 max-w-xl text-base font-medium leading-relaxed text-[#1B2338] sm:text-lg [&_a]:!text-[#0B1A3D] [&_a]:!decoration-[#0B1A3D]/60">
               {linkifyGrowMinion(
-                "I'm Abdul Kaiyum Sani, a CSE student and software engineer, and a core team member at GrowMinion. As a CSE student I know the fundamentals a software engineer needs: data structures, databases, networking and system design."
+                "I'm Abdul Kaiyum Sani, a full-stack developer, n8n developer and growth engineer on the core team at GrowMinion. I'm also a CSE student, so the fundamentals are solid: data structures, databases, networking and system design."
               )}
             </p>
             <p className="mt-4 max-w-xl text-base font-medium leading-relaxed text-[#1B2338] sm:text-lg [&_a]:!text-[#0B1A3D] [&_a]:!decoration-[#0B1A3D]/60">
-              Beyond the classroom, I have real-world experience: shipping client websites, n8n automations and AI-powered SaaS products for businesses across the US.
+              Beyond the classroom, I ship client websites, n8n automations and AI-powered SaaS products for businesses across the US. As a growth engineer, I tie every build to a number you care about: rankings, leads or booked calls.
             </p>
           </FadeIn>
 
           <div className="mt-9 flex max-w-xl flex-wrap gap-3">
             {highlights.map((h, i) => (
               <FadeIn key={h.title} delay={0.15 + i * 0.06}>
-                <div className="flex items-center gap-3 rounded-2xl border border-navy-border bg-navy-panel/70 py-3 pl-3 pr-5 transition-colors hover:border-gold/40">
-                  <span className={`flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br ${h.tone} text-navy-deep`}>
-                    <h.icon size={18} strokeWidth={2.4} />
-                  </span>
-                  <div>
-                    <p className="text-sm font-semibold leading-tight text-ink">{h.title}</p>
-                    <p className="mt-0.5 text-xs text-ink-muted">{h.sub}</p>
-                  </div>
-                </div>
+                {(() => {
+                  const chip = (
+                    <>
+                      <span className={`flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br ${h.tone} text-navy-deep`}>
+                        <h.icon size={18} strokeWidth={2.4} aria-hidden="true" />
+                      </span>
+                      <div>
+                        <p className="text-sm font-semibold leading-tight text-ink">{h.title}</p>
+                        <p className="mt-0.5 text-xs text-ink-muted">{h.sub}</p>
+                      </div>
+                    </>
+                  );
+                  const cls = "flex items-center gap-3 rounded-2xl border border-navy-border bg-navy-panel/70 py-3 pl-3 pr-5 transition-colors hover:border-gold/40";
+                  // Role chips link to the matching "hire me" page.
+                  return h.href ? (
+                    <Link href={h.href} className={cls}>
+                      {chip}
+                    </Link>
+                  ) : (
+                    <div className={cls}>{chip}</div>
+                  );
+                })()}
               </FadeIn>
             ))}
           </div>

@@ -1,5 +1,15 @@
 const isProd = process.env.NODE_ENV === "production";
 
+// Only the production deployment may be indexed (mirrors IS_INDEXABLE in lib/site.ts).
+// Vercel preview and development deployments get a site-wide X-Robots-Tag: noindex.
+const isIndexable = process.env.VERCEL_ENV ? process.env.VERCEL_ENV === "production" : true;
+
+// Custom domain (see DOMAIN_MIGRATION.md). Defaults to the live domain, www.saniforge.space.
+// Every request that reaches the old vercel.app host is
+// permanently (301) redirected to the same path on the custom domain.
+const customDomain = (process.env.CUSTOM_DOMAIN || "www.saniforge.space").replace(/^https?:\/\//, "").replace(/\/+$/, "");
+const legacyHost = process.env.LEGACY_HOST || "saniforge.vercel.app";
+
 // Content Security Policy. Next.js needs inline scripts and styles for hydration and JSON-LD,
 // so 'unsafe-inline' stays; everything else is limited to this site and https images.
 const csp = [
@@ -39,6 +49,8 @@ const nextConfig = {
   poweredByHeader: false,
   compress: true,
   reactStrictMode: true,
+  // One URL per page: /about, never /about/. Next.js 308-redirects the trailing-slash variant.
+  trailingSlash: false,
   images: {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 60 * 60 * 24 * 30,
@@ -49,21 +61,47 @@ const nextConfig = {
   },
   experimental: {
     optimizePackageImports: ["lucide-react", "framer-motion"],
+    // Generated share images read vendored fonts and /public images from disk; make sure
+    // those files ship with the serverless functions that may regenerate them at runtime.
+    outputFileTracingIncludes: {
+      "/opengraph-image": ["./assets/**/*"],
+      "/twitter-image": ["./assets/**/*"],
+      "/blog/[slug]/opengraph-image": ["./assets/**/*", "./content/blog/**/*", "./public/images/blog/**/*"],
+      "/blog/[slug]/twitter-image": ["./assets/**/*", "./content/blog/**/*", "./public/images/blog/**/*"],
+      "/case-studies/[slug]/opengraph-image": ["./assets/**/*", "./content/work/**/*"],
+      "/case-studies/[slug]/twitter-image": ["./assets/**/*", "./content/work/**/*"],
+      "/projects/[slug]/opengraph-image": ["./assets/**/*", "./content/work/**/*"],
+      "/projects/[slug]/twitter-image": ["./assets/**/*", "./content/work/**/*"],
+      "/n8n-developer/opengraph-image": ["./assets/**/*"],
+      "/n8n-developer/twitter-image": ["./assets/**/*"],
+      "/full-stack-developer/opengraph-image": ["./assets/**/*"],
+      "/full-stack-developer/twitter-image": ["./assets/**/*"],
+      "/growth-engineer/opengraph-image": ["./assets/**/*"],
+      "/growth-engineer/twitter-image": ["./assets/**/*"],
+    },
   },
   async redirects() {
-    // The old vercel.app host serves the same pages; send it to the live domain so Google sees one site.
+    if (!customDomain) return [];
     return [
       {
         source: "/:path*",
-        has: [{ type: "host", value: "saniforge.vercel.app" }],
-        destination: "https://www.saniforge.space/:path*",
-        permanent: true,
+        has: [{ type: "host", value: legacyHost }],
+        destination: `https://${customDomain}/:path*`,
+        statusCode: 301,
       },
     ];
   },
   async headers() {
     return [
       { source: "/:path*", headers: securityHeaders },
+      ...(isIndexable
+        ? []
+        : [{ source: "/:path*", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }] }]),
+      {
+        // Internal CMS template kept in /public; not a real page.
+        source: "/case-study-template.html",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+      },
       {
         // Static files in /public: cache for a week and revalidate, so renamed or replaced files still update.
         source: "/(images|icons)/:path*",

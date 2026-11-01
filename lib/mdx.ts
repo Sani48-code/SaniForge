@@ -36,6 +36,14 @@ export type BlogFrontmatter = {
   image: string;
   seoTitle: string;
   seoDescription: string;
+  /** Alt text for the cover image; falls back to the title. */
+  imageAlt?: string;
+  /** Social share overrides; default to image, seoTitle and seoDescription. */
+  ogImage?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  /** Target search phrases, emitted in JSON-LD and the keywords meta tag. */
+  keywords?: string[];
   status?: "published" | "draft";
   featured?: boolean;
   updated?: string;
@@ -50,15 +58,17 @@ export type BlogFrontmatter = {
 export type PostSummary = Omit<BlogPost, "content">;
 
 export function toSummary(post: BlogPost): PostSummary {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { content, ...rest } = post;
-  return rest;
+  const rest: Partial<BlogPost> = { ...post };
+  delete rest.content;
+  return rest as PostSummary;
 }
 
 export type BlogPost = Omit<BlogFrontmatter, "category"> & {
   category: BlogCategory;
   content: string;
   readTime: string;
+  /** "mdx" for .mdx files (JSX components allowed), "md" for plain Markdown drafts. */
+  format: "mdx" | "md";
 };
 
 export type WorkCategory = "Automation" | "Copywriting" | "Web Development";
@@ -80,6 +90,8 @@ export type WorkFrontmatter = {
   chartType: "bar" | "line";
   chartLabel: string;
   chartData: { label: string; value: number }[];
+  /** Optional YYYY-MM-DD of the last edit; used for sitemap lastModified and Article dateModified. */
+  updated?: string;
 };
 
 export type CaseStudy = WorkFrontmatter & {
@@ -97,6 +109,58 @@ function getMdxFiles(dir: string): string[] {
   return fs.readdirSync(dir).filter((file) => file.endsWith(".mdx"));
 }
 
+/** Blog posts may be .mdx or plain .md (README.md is documentation, not a post). */
+function getPostFiles(dir: string): string[] {
+  if (!fs.existsSync(dir)) return [];
+  return fs.readdirSync(dir).filter((f) => (f.endsWith(".mdx") || f.endsWith(".md")) && f.toLowerCase() !== "readme.md");
+}
+
+/** YAML turns unquoted dates into Date objects; normalize to YYYY-MM-DD. */
+function toDateString(v: unknown): string | undefined {
+  if (v instanceof Date) return v.toISOString().slice(0, 10);
+  return typeof v === "string" ? v : undefined;
+}
+
+/**
+ * Plain .md drafts use a different frontmatter vocabulary (meta_title, description, og_*, modified,
+ * primary_keyword...). Map it onto BlogFrontmatter so .md and .mdx posts render the same way.
+ */
+function normalizeFrontmatter(data: Record<string, unknown>): Partial<BlogFrontmatter> {
+  const str = (k: string) => (typeof data[k] === "string" ? (data[k] as string) : undefined);
+  const list = (k: string) => (Array.isArray(data[k]) ? (data[k] as string[]) : undefined);
+  const keywords = [str("primary_keyword"), ...(list("secondary_keywords") ?? [])].filter(Boolean) as string[];
+  return {
+    ...(data as Partial<BlogFrontmatter>),
+    date: toDateString(data.date),
+    updated: toDateString(data.updated) ?? toDateString(data.modified),
+    excerpt: str("excerpt") ?? str("description"),
+    seoTitle: str("seoTitle") ?? str("meta_title") ?? str("title"),
+    seoDescription: str("seoDescription") ?? str("description"),
+    ogTitle: str("ogTitle") ?? str("og_title"),
+    ogDescription: str("ogDescription") ?? str("og_description"),
+    ogImage: str("ogImage") ?? str("og_image"),
+    image: str("image") ?? str("og_image"),
+    imageAlt: str("imageAlt") ?? str("image_alt"),
+    keywords: list("keywords") ?? (keywords.length ? keywords : undefined),
+  };
+}
+
+/**
+ * Remove what the page template already renders or what must never be published:
+ * a leading "# Title", a leading italic byline, a leading cover image, and everything from
+ * "## Developer Notes" on.
+ */
+function cleanMarkdownBody(content: string): string {
+  let body = content.replace(/\r\n/g, "\n");
+  const notes = body.search(/^##\s+Developer Notes\b.*$/m);
+  if (notes !== -1) body = body.slice(0, notes).replace(/\n-{3,}\s*$/, "\n");
+  body = body.replace(/^\s*#\s+.+\n+/, "");
+  body = body.replace(/^\s*\*By\s.+\*\s*\n+/, "");
+  // A leading image is the cover, which the template already shows as the hero.
+  body = body.replace(/^\s*!\[[^\]]*\]\([^)]*\)\s*\n+/, "");
+  return body.trimEnd() + "\n";
+}
+
 function isPublic(data: Partial<BlogFrontmatter>): boolean {
   if (!data.title || !data.slug || !data.date) return false;
   if (data.status === "draft") return false;
@@ -107,24 +171,28 @@ function isPublic(data: Partial<BlogFrontmatter>): boolean {
 
 /** All publicly visible posts, newest first. Drafts and scheduled posts are excluded. */
 export function getAllPosts(): BlogPost[] {
-  const files = getMdxFiles(BLOG_DIR);
+  const files = getPostFiles(BLOG_DIR);
   const posts: BlogPost[] = [];
   for (const file of files) {
     const raw = fs.readFileSync(path.join(BLOG_DIR, file), "utf-8");
-    const { data, content } = matter(raw);
-    const fm = data as BlogFrontmatter;
+    const { data, content: rawContent } = matter(raw);
+    const fm = normalizeFrontmatter(data) as BlogFrontmatter;
     if (!isPublic(fm)) continue;
+    const format = file.endsWith(".mdx") ? "mdx" : "md";
+    const content = cleanMarkdownBody(rawContent);
     posts.push({
       ...fm,
       category: normalizeCategory(fm.category),
       tags: fm.tags ?? [],
       content,
       readTime: readingTime(content),
+      format,
     });
   }
+  // When the same slug exists as .mdx and .md, the .mdx version (components, inline images) wins.
   const seen = new Set<string>();
   return posts
-    .sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0))
+    .sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : a.format === b.format ? 0 : a.format === "mdx" ? -1 : 1))
     .filter((p) => (seen.has(p.slug) ? false : (seen.add(p.slug), true)));
 }
 

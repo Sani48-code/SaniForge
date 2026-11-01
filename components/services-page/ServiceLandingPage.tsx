@@ -1,4 +1,5 @@
-import { safeJsonLd } from "@/lib/json-ld";
+import JsonLd from "@/components/seo/JsonLd";
+import { serviceSchema, faqSchema, breadcrumbSchema } from "@/lib/schema";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Check, Mail, Phone, ShieldCheck, Target, Code2, Sparkles, Layers } from "lucide-react";
@@ -8,6 +9,7 @@ import FaqLight from "./FaqLight";
 import { PipelineExample, SearchConsoleExample } from "./ExampleVisuals";
 import { sharedConsult, type LandingImage, type ServiceLanding } from "@/lib/data/service-landings";
 import { site } from "@/lib/data/site";
+import type { ServiceSlug } from "@/lib/data/services";
 
 type Offer = { title: string; text: string; points?: string[] };
 type Faq = { q: string; a: string };
@@ -31,6 +33,15 @@ function Cta({ label = "Book a Call" }: { label?: string }) {
   );
 }
 
+const roleLinks: Partial<Record<ServiceSlug, { lead: string; href: string; text: string }>> = {
+  "n8n-automation": { lead: "Want to hire an n8n developer directly?", href: "/n8n-developer", text: "How I work as an n8n developer for law firms and local businesses" },
+  "lead-generation-ghl": { lead: "Need custom routing beyond GoHighLevel?", href: "/n8n-developer", text: "See my n8n developer work for lead routing and CRM automation" },
+  "web-development": { lead: "Hiring for the whole stack?", href: "/full-stack-developer", text: "Work with a full-stack developer: stack, process and results" },
+  "saas-development": { lead: "Building a product end to end?", href: "/full-stack-developer", text: "Work with a full-stack developer who has shipped SaaS" },
+  copywriting: { lead: "Copy is one part of the funnel.", href: "/growth-engineer", text: "How I work as a growth engineer across content, conversion and automation" },
+  "blog-writing": { lead: "Content works best with the rest of the funnel.", href: "/growth-engineer", text: "See how a growth engineer connects SEO content to booked calls" },
+};
+
 export default function ServiceLandingPage({
   landing,
   label,
@@ -46,43 +57,25 @@ export default function ServiceLandingPage({
 }) {
   const { hero, images } = landing;
 
+  const path = `/services/${landing.slug}`;
+  const roleLink = roleLinks[landing.slug];
   const jsonLd = [
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
+    serviceSchema({
       name: label,
       description: landing.seo.description,
-      url: `${site.url}/services/${landing.slug}`,
-      provider: { "@type": "Person", name: site.founder, url: site.url },
-      areaServed: "Worldwide",
-      hasOfferCatalog: {
-        "@type": "OfferCatalog",
-        name: `${label} services`,
-        itemListElement: offers.map((o) => ({
-          "@type": "Offer",
-          itemOffered: { "@type": "Service", name: o.title, description: o.text },
-        })),
-      },
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: site.url },
-        { "@type": "ListItem", position: 2, name: "Services", item: `${site.url}/services` },
-        { "@type": "ListItem", position: 3, name: label, item: `${site.url}/services/${landing.slug}` },
-      ],
-    },
+      path,
+      offers: offers.map((o) => ({ name: o.title, description: o.text })),
+    }),
+    faqSchema(faqs),
+    breadcrumbSchema([
+      { name: "Services", path: "/services" },
+      { name: label, path },
+    ]),
   ];
 
   return (
     <div data-light-page className="bg-white font-sans text-sv-navy">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }} />
+      <JsonLd data={jsonLd} />
 
       {/* 1. Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-white via-sv-soft to-jn-pale/70 py-14 sm:py-20">
@@ -121,6 +114,18 @@ export default function ServiceLandingPage({
           </Reveal>
         </div>
       </section>
+
+      {/* Role page link: service pages target service keywords; the role pages target "hire me" keywords. */}
+      {roleLink && (
+        <div className="border-y border-sv-border bg-sv-palegold/60">
+          <p className="container-px mx-auto max-w-[1240px] py-4 text-center text-sm text-sv-navy sm:text-base">
+            {roleLink.lead}{" "}
+            <Link href={roleLink.href} className="font-semibold text-sv-blue underline underline-offset-4 hover:text-sv-navy">
+              {roleLink.text}
+            </Link>
+          </p>
+        </div>
+      )}
 
       {/* 2. USPs */}
       <section className="bg-white py-20 sm:py-24">

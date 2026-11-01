@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Search, Map, Hammer, FlaskConical, Rocket, PenLine, Workflow, Code2, Server } from "lucide-react";
 import Reveal from "@/components/projects/Reveal";
 import Heading from "./Heading";
@@ -108,8 +109,8 @@ export function TechCapabilities() {
                   {g.items.map((t) => (
                     <li key={t} className="inline-flex items-center gap-2 rounded-lg border border-sv-border bg-white px-3 py-1.5 text-sm font-semibold text-sv-navy">
                       {brand[t] && (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img src={brand[t]} alt="" width={16} height={16} />
+                        // Decorative brand mark next to the visible name; SVGs are served as-is (unoptimized).
+                        <Image src={brand[t]} alt="" width={16} height={16} unoptimized />
                       )}
                       {t}
                     </li>

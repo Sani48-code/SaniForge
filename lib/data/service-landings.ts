@@ -48,6 +48,14 @@ export const MEDSPA = sample("Med spa content", "Writing sample", "https://docs.
 export const REALESTATE = sample("Real estate content", "Writing sample", "https://docs.google.com/document/d/1a5r45mWlLQLTEfqBmPorJDEKYdalR2w7_D5xUxZWSIQ/edit", "/images/projects/realestate.jpg", "A laptop showing a property map");
 export const INSURANCE = sample("Insurance agency content", "Writing sample", "https://docs.google.com/document/d/1nft-8dYQSUjO2vOlDqCuxC3CnYOhbVNJZhrF73ZQTwM/edit", "/images/projects/insurance.jpg", "A person signing an insurance document");
 
+const LEAD_GEN_2026: ProofItem = {
+  title: "Why traditional lead generation is “dead” in 2026",
+  tag: "Article",
+  text: "The speed-to-lead framework behind n8n lead routing.",
+  href: "/blog/why-traditional-lead-generation-is-dead-2026",
+  image: { src: "/images/blog/lead-generation-pipeline-2026.webp", alt: "Diagram of a modern automated lead pipeline from website form to instant response", w: 1600, h: 900 },
+};
+
 const productProof = (title: string, text: string, img: string, alt: string, href: string): ProofItem => ({
   title, text, tag: "Product I helped build", href, external: true, image: { src: img, alt, w: 1672, h: 941 },
 });
@@ -166,16 +174,16 @@ export const landings: Record<ServiceSlug, ServiceLanding> = {
   "web-development": {
     slug: "web-development",
     seo: {
-      title: "Full-Stack Web Development for Business",
-      description: "Fast, maintainable websites and web apps built end to end: interface, API and database. React, Node.js and SQL, with SEO structure from day one.",
+      title: "Full Stack Dev for Business Websites & Web Apps",
+      description: "Hire a full-stack developer who builds fast, maintainable websites and web apps end to end: interface, API and database, with SEO structure from day one.",
     },
     hero: {
-      eyebrow: "Full-Stack Web Development",
+      eyebrow: "Full-Stack Dev Service",
       titleLead: "Websites and Web Apps That Are Fast, Clear and",
       titleAccent: "Built to Grow",
       titleTail: "",
       pain: "Slow template sites and spreadsheet-and-email processes cost businesses time and customers. I build the whole thing, from the interface to the API and database, so it works well today and stays easy to change tomorrow.",
-      proofs: ["Real products built with the Growminion team", "Frontend, backend and database in one pair of hands", "Mobile first, structured for SEO", "Code you own, with clear handover"],
+      proofs: ["Real products built with the Growminion team", "One full-stack dev: frontend, backend and database", "Mobile first, structured for SEO", "Code you own, with clear handover"],
     },
     images: {
       hero: shot("/images/services/web-development.png", "Full stack web development with React, Next.js and Node.js", 1916, 821),
@@ -230,16 +238,16 @@ export const landings: Record<ServiceSlug, ServiceLanding> = {
   "n8n-automation": {
     slug: "n8n-automation",
     seo: {
-      title: "n8n Automation for Business Workflows",
-      description: "Custom n8n workflows that connect your tools, capture leads and remove repetitive manual work, with error handling and clear documentation.",
+      title: "n8n Developer for Business Workflow Automation",
+      description: "Hire an n8n developer to build custom workflows that connect your tools, capture leads and remove repetitive manual work, with error handling and clear docs.",
     },
     hero: {
-      eyebrow: "n8n Automation Service",
+      eyebrow: "Hire an n8n Developer",
       titleLead: "n8n Automation That Gives Your Team Their",
       titleAccent: "Hours Back",
       titleTail: "",
       pain: "Teams lose hours every week to copy-paste work: moving leads between tools, forwarding forms, building reports by hand. I build reliable n8n workflows that do this for you, and tell you when something needs a person.",
-      proofs: ["Automation work as an engineer at Growminion", "Lead capture, CRM and content pipelines built", "Workflows with error handling and alerts", "Documented so your team can maintain them"],
+      proofs: ["n8n developer and automation engineer at Growminion", "Lead capture, CRM and content pipelines built", "Workflows with error handling and alerts", "Documented so your team can maintain them"],
     },
     images: {
       hero: shot("/images/services/n8n-automation.png", "n8n workflow automation connecting your apps", 1915, 821),
@@ -277,7 +285,7 @@ export const landings: Record<ServiceSlug, ServiceLanding> = {
     proofText: "Real articles and a product that automates a content workflow.",
     proof: [
       { title: "How I use n8n to automate repetitive business tasks", tag: "Article", text: "Four real workflows and how to start.", href: "/blog/automate-repetitive-business-tasks-with-n8n", image: { src: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=70", alt: "A close-up of a circuit board", w: 900, h: 600 } },
-      { title: "Building a lead capture automation in under an hour", tag: "Article", text: "A simple form to notification workflow.", href: "/blog/build-lead-capture-automation-under-an-hour", image: { src: "https://images.unsplash.com/photo-1524635962361-d7f8ae9c79b1?auto=format&fit=crop&w=900&q=70", alt: "A dark code editor interface", w: 900, h: 600 } },
+      LEAD_GEN_2026,
       productProof("AI content engine", "A tool that writes location pages and publishes to WordPress.", "/images/projects/saas-content.png", "An AI content engine platform", "https://seo.growminion.ca/"),
     ],
     profiles: ["Agencies drowning in manual reporting", "Sales teams that follow up on leads too slowly", "Founders who want to scale without hiring early", "Content teams with a repeatable publishing process"],
@@ -294,16 +302,16 @@ export const landings: Record<ServiceSlug, ServiceLanding> = {
   "lead-generation-ghl": {
     slug: "lead-generation-ghl",
     seo: {
-      title: "GoHighLevel Lead Generation Setup",
-      description: "GoHighLevel funnels, CRM pipelines and follow-up automations that reply to leads quickly and keep them moving until they book, set up and written for you.",
+      title: "GoHighLevel Lead Generation by a Growth Engineer",
+      description: "A growth engineer sets up your GoHighLevel funnels, CRM pipelines and follow-up automations so every lead gets a fast reply and keeps moving until they book.",
     },
     hero: {
-      eyebrow: "GoHighLevel Service",
+      eyebrow: "GoHighLevel Growth Engineering",
       titleLead: "A GoHighLevel Lead System That Follows Up",
       titleAccent: "Before Competitors Do",
       titleTail: "",
       pain: "Most leads are lost because nobody replies fast enough or follows up consistently. I set up GoHighLevel so every enquiry gets a quick response, lands in the right pipeline stage and is nurtured until it books or buys.",
-      proofs: ["Copywriter and automation engineer in one", "Follow-up messages written for you", "Connects with your website, forms and n8n", "Clear pipelines your team can follow"],
+      proofs: ["Growth engineer: copy, setup and automation in one", "Follow-up messages written for you", "Connects with your website, forms and n8n", "Clear pipelines your team can follow"],
     },
     images: {
       hero: shot("/images/services/lead-generation-ghl.png", "GoHighLevel lead generation and CRM automation", 1916, 821),
@@ -342,6 +350,7 @@ export const landings: Record<ServiceSlug, ServiceLanding> = {
     proof: [
       { title: "Building a lead capture automation in under an hour", tag: "Article", text: "A simple form to notification workflow.", href: "/blog/build-lead-capture-automation-under-an-hour", image: { src: "https://images.unsplash.com/photo-1524635962361-d7f8ae9c79b1?auto=format&fit=crop&w=900&q=70", alt: "A dark code editor interface", w: 900, h: 600 } },
       { title: "How to write service pages that convert", tag: "Article", text: "The page structure that moves visitors to act.", href: "/blog/how-to-write-service-pages-that-convert", image: { src: "https://images.unsplash.com/photo-1643148636630-0b0fb138fc74?auto=format&fit=crop&w=900&q=70", alt: "A hand writing in a notebook", w: 900, h: 600 } },
+      LEAD_GEN_2026,
     ],
     profiles: ["Clinics and med spas that depend on bookings", "Home service companies with missed calls", "Law firms and agents who follow up manually", "Agencies that need GHL set up properly for clients"],
     startingPoints: [
@@ -358,7 +367,7 @@ export const landings: Record<ServiceSlug, ServiceLanding> = {
     slug: "saas-development",
     seo: {
       title: "SaaS Development from MVP to Launch",
-      description: "Custom SaaS products built in code: auth, dashboards, billing, APIs and a SQL backend. From an engineer who helped build three SaaS products at Growminion.",
+      description: "SaaS built in code by a full-stack dev: auth, dashboards, billing, APIs and a SQL backend, by an engineer who helped build 3 SaaS products at Growminion."
     },
     hero: {
       eyebrow: "SaaS Development",

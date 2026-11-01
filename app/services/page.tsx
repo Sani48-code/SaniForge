@@ -1,5 +1,7 @@
-import { safeJsonLd } from "@/lib/json-ld";
+import JsonLd from "@/components/seo/JsonLd";
+import { breadcrumbSchema } from "@/lib/schema";
 import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import ServicesHero from "@/components/services-page/ServicesHero";
 import ServicePanels from "@/components/services-page/ServicePanels";
 import WhyWorkWithMe from "@/components/services-page/WhyWorkWithMe";
@@ -14,20 +16,15 @@ import {
 import { services } from "@/lib/data/services";
 import { site } from "@/lib/data/site";
 
-export const metadata: Metadata = {
-  title: "Services: Web Development, Automation, SaaS, Copywriting and SEO Content",
+export const metadata: Metadata = buildMetadata({
+  title: "Full Stack Dev & n8n Automation Services",
   description:
-    "Copywriting, blog writing, full-stack web development, n8n automation, GoHighLevel lead generation and SaaS development, built with an engineering mindset and a business-first approach.",
-  alternates: { canonical: "/services" },
-  openGraph: {
-    title: "SaniForge Services: Digital Solutions That Help Businesses Grow",
-    description:
-      "Websites, SaaS platforms, automation workflows and SEO-driven content built with thoughtful engineering.",
-    url: `${site.url}/services`,
-    type: "website",
-    images: [{ url: "/images/mesani.jpeg", width: 1254, height: 1254 }],
-  },
-};
+    "Full-stack development, n8n automation, GoHighLevel lead generation, SaaS, copywriting and SEO content from one growth engineer, built for US businesses.",
+  path: "/services",
+  socialTitle: "SaniForge Services: Digital Solutions That Help Businesses Grow",
+  socialDescription:
+    "Websites, SaaS platforms, automation workflows and SEO-driven content built with thoughtful engineering.",
+});
 
 export default function ServicesPage() {
   const jsonLd = [
@@ -55,7 +52,7 @@ export default function ServicesPage() {
 
   return (
     <div data-light-page className="bg-white font-sans text-sv-navy">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }} />
+      <JsonLd data={[...jsonLd, breadcrumbSchema([{ name: "Services", path: "/services" }])]} />
       <ServicesHero />
       <ServicePanels />
       <WhyWorkWithMe />

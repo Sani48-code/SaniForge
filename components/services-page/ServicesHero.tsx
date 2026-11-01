@@ -71,7 +71,7 @@ export default function ServicesHero() {
             <div className="relative overflow-hidden rounded-[2.5rem] border-4 border-white bg-white shadow-2xl shadow-slate-400/40">
               <Image
                 src="/images/mesani.jpeg"
-                alt="Portrait of Sani in a dark blazer and turtleneck against an orange wall"
+                alt="Portrait of Abdul Kaiyum Sani in a dark blazer and turtleneck against an orange wall"
                 width={1254}
                 height={1254}
                 priority

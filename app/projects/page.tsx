@@ -1,5 +1,7 @@
-import { safeJsonLd } from "@/lib/json-ld";
+import JsonLd from "@/components/seo/JsonLd";
+import { breadcrumbSchema } from "@/lib/schema";
 import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import ProjectsHero from "@/components/projects/ProjectsHero";
 import CategoryCards from "@/components/projects/CategoryCards";
 import FeaturedSaas from "@/components/projects/FeaturedSaas";
@@ -12,12 +14,12 @@ import ProjectsCta from "@/components/projects/ProjectsCta";
 import { conceptProjects, featuredProjects, writingSamples } from "@/lib/data/projects-page";
 import { site } from "@/lib/data/site";
 
-export const metadata: Metadata = {
-  title: "Projects and Case Studies: SaaS, Web Apps and Content Writing",
+export const metadata: Metadata = buildMetadata({
+  title: "Projects & Case Studies: SaaS, Web Apps, Content",
   description:
-    "Selected work by Abdul Kalyum Sani: SaaS products built with Growminion, web application design concepts and content writing samples for med spa, real estate and insurance.",
-  alternates: { canonical: "/projects" },
-};
+    "Selected work by Abdul Kaiyum Sani: SaaS products built with Growminion, web app concepts and content samples for med spa, real estate and insurance.",
+  path: "/projects",
+});
 
 export default function ProjectsPage() {
   const jsonLd = {
@@ -34,10 +36,7 @@ export default function ProjectsPage() {
 
   return (
     <div data-light-page className="bg-white font-sans text-pf-slate">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
-      />
+      <JsonLd data={[jsonLd, breadcrumbSchema([{ name: "Projects", path: "/projects" }])]} />
       <ProjectsHero />
       <CategoryCards />
       <FeaturedSaas />

@@ -1,5 +1,7 @@
-import { safeJsonLd } from "@/lib/json-ld";
+import JsonLd from "@/components/seo/JsonLd";
+import { breadcrumbSchema, PERSON_ID } from "@/lib/schema";
 import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import JournalHero from "@/components/journal/JournalHero";
 import StartHere from "@/components/journal/StartHere";
 import InsightExplorer from "@/components/journal/InsightExplorer";
@@ -12,19 +14,15 @@ import { site } from "@/lib/data/site";
 // Re-evaluate periodically so scheduled posts go live once their date passes.
 export const revalidate = 300;
 
-export const metadata: Metadata = {
-  title: "The SaniForge Journal: Web Development, Automation and SEO Lessons",
+export const metadata: Metadata = buildMetadata({
+  title: "Blog: Web Dev, n8n Automation and SEO Lessons",
   description:
-    "Notes from building websites, SaaS tools, automation workflows and SEO systems. Lessons, technical decisions and practical solutions from Abdul Kalyum Sani.",
-  alternates: { canonical: "/blog" },
-  openGraph: {
-    title: "The SaniForge Journal",
-    description:
-      "Real experience and practical insights from building websites, SaaS tools, automation workflows and SEO systems.",
-    url: `${site.url}/blog`,
-    type: "website",
-  },
-};
+    "Notes from building websites, SaaS tools, automation workflows and SEO systems. Lessons, technical decisions and practical solutions from Abdul Kaiyum Sani.",
+  path: "/blog",
+  socialTitle: "The SaniForge Journal",
+  socialDescription:
+    "Real experience and practical insights from building websites, SaaS tools, automation workflows and SEO systems.",
+});
 
 export default function BlogPage() {
   const posts = getAllPosts();
@@ -36,7 +34,8 @@ export default function BlogPage() {
     "@type": "Blog",
     name: "The SaniForge Journal",
     url: `${site.url}/blog`,
-    author: { "@type": "Person", name: site.founder, url: site.url },
+    author: { "@id": PERSON_ID },
+    publisher: { "@id": PERSON_ID },
     blogPost: posts.slice(0, 10).map((p) => ({
       "@type": "BlogPosting",
       headline: p.title,
@@ -47,7 +46,7 @@ export default function BlogPage() {
 
   return (
     <div data-light-page className="bg-white font-sans text-sv-navy">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }} />
+      <JsonLd data={[jsonLd, breadcrumbSchema([{ name: "Blog", path: "/blog" }])]} />
       <JournalHero latest={summaries[0]} />
       {featured && <StartHere post={toSummary(featured)} />}
       {summaries.length === 0 ? (

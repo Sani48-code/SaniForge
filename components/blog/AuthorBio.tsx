@@ -19,12 +19,12 @@ export default function AuthorBio() {
         <div className="flex flex-wrap items-center gap-2">
           <h4 className="font-display text-xl font-bold text-slate-900">{site.founder}</h4>
           <span className="rounded-full bg-blue-100 px-2.5 py-0.5 font-mono text-[11px] font-semibold text-blue-700">
-            Author &amp; Systems Engineer
+            n8n Developer &amp; Growth Engineer
           </span>
         </div>
         <p className="mt-2 text-sm leading-relaxed text-slate-600">
           {linkifyGrowMinion(
-            "Founder of SaniForge and Web/Automation Engineer at GrowMinion. Building scalable web architectures, high-ranking SEO content clusters, and reliable business automation pipelines."
+            "Founder of SaniForge and a full-stack developer on the GrowMinion core team. I build fast websites, SEO content that ranks and n8n automations for US law firms and local businesses."
           )}
         </p>
       </div>

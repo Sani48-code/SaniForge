@@ -4,7 +4,7 @@ import ServiceLandingPage from "@/components/services-page/ServiceLandingPage";
 import { getLanding } from "@/lib/data/service-landings";
 import { getService, services } from "@/lib/data/services";
 import { bw } from "@/lib/data/blog-writing-page";
-import { site } from "@/lib/data/site";
+import { buildMetadata } from "@/lib/seo";
 
 type Params = { slug: string };
 
@@ -17,18 +17,12 @@ export async function generateMetadata({ params }: { params: Params | Promise<Pa
   const landing = getLanding(slug);
   if (!landing) return {};
   const image = landing.images.hero;
-  return {
+  return buildMetadata({
     title: landing.seo.title,
     description: landing.seo.description,
-    alternates: { canonical: `/services/${slug}` },
-    openGraph: {
-      type: "website",
-      title: landing.seo.title,
-      description: landing.seo.description,
-      url: `${site.url}/services/${slug}`,
-      images: [{ url: image.src, width: image.w, height: image.h }],
-    },
-  };
+    path: `/services/${slug}`,
+    image: { url: image.src, width: image.w, height: image.h, alt: image.alt },
+  });
 }
 
 export default async function ServicePage({ params }: { params: Params | Promise<Params> }) {
