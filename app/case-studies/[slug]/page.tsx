@@ -282,9 +282,9 @@ export default async function CaseStudyPage({
               <div className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-rose-700">
                 <AlertCircle size={15} /> The Core Challenge
               </div>
-              <h3 className="mt-3 font-display text-2xl sm:text-3xl font-extrabold text-[#0F172A]">
+              <h2 className="mt-3 font-display text-2xl sm:text-3xl font-extrabold text-[#0F172A]">
                 The Bottleneck Holding The Business Back
-              </h3>
+              </h2>
               <p className="mt-4 text-base sm:text-lg leading-relaxed text-slate-700">
                 Before this engagement, manual dependencies, disconnected workflows, and slow operational turnaround created severe bottlenecks. Key personnel spent hours on repetitive low-leverage tasks rather than billable strategy and client acquisition.
               </p>
@@ -310,9 +310,9 @@ export default async function CaseStudyPage({
               <div className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-[#0B63E5]">
                 <Lightbulb size={15} /> Strategic Execution
               </div>
-              <h3 className="mt-3 font-display text-2xl sm:text-3xl font-extrabold text-[#0F172A]">
+              <h2 className="mt-3 font-display text-2xl sm:text-3xl font-extrabold text-[#0F172A]">
                 Our Architectural Approach
-              </h3>
+              </h2>
               <p className="mt-4 text-base sm:text-lg leading-relaxed text-slate-700">
                 Rather than patching broken legacy systems, we re-architected the end-to-end workflow from first principles to ensure bulletproof reliability and automatic scaling under production load.
               </p>
@@ -372,9 +372,9 @@ export default async function CaseStudyPage({
                 <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#0B63E5]">
                   Comprehensive Comparison
                 </span>
-                <h3 className="mt-1 font-display text-2xl sm:text-3xl font-extrabold text-[#0F172A]">
+                <h2 className="mt-1 font-display text-2xl sm:text-3xl font-extrabold text-[#0F172A]">
                   Results &amp; Impact Analysis
-                </h3>
+                </h2>
               </div>
 
               <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
@@ -586,9 +586,9 @@ export default async function CaseStudyPage({
             <span className="inline-flex items-center gap-1.5 rounded-full bg-[#0B63E5]/10 px-3.5 py-1 font-mono text-xs uppercase tracking-wider font-bold text-[#0B63E5] border border-[#0B63E5]/20">
               <Sparkles size={12} /> Ready To Scale?
             </span>
-            <h3 className="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] text-balance">
+            <h2 className="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] text-balance">
               Want results like this for your business?
-            </h3>
+            </h2>
             <p className="mt-4 mx-auto max-w-2xl text-base sm:text-lg text-slate-600 leading-relaxed text-balance">
               Let&apos;s diagnose your current bottlenecks, map out your highest-leverage opportunities, and build an automated system that drives measurable ROI.
             </p>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Database, Webhook, MapPin, Sparkles, Cloud, Radio, FolderOpen } from "lucide-react";
 
 const brand: Record<string, string> = {
@@ -33,8 +34,8 @@ function Chip({ name }: { name: string }) {
   return (
     <li className="inline-flex items-center gap-2 rounded-lg border border-pf-border bg-white px-3 py-1.5 text-xs font-semibold text-pf-navy">
       {src ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src={src} alt="" width={16} height={16} />
+        // Decorative brand mark next to the visible name; SVGs are served as-is (unoptimized).
+        <Image src={src} alt="" width={16} height={16} unoptimized />
       ) : Icon ? (
         <Icon size={16} strokeWidth={1.8} className="text-sv-goldtext" aria-hidden="true" />
       ) : null}
