@@ -50,6 +50,17 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ["lucide-react", "framer-motion"],
   },
+  async redirects() {
+    // The old vercel.app host serves the same pages; send it to the live domain so Google sees one site.
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "saniforge.vercel.app" }],
+        destination: "https://www.saniforge.space/:path*",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       { source: "/:path*", headers: securityHeaders },

@@ -4,7 +4,7 @@ export const site = {
   title: "SaniForge: Web Development, SEO Copywriting & n8n Automation",
   description:
     "I'm Abdul Kalyum Sani, a web developer, SEO content writer, and automation engineer at GrowMinion. I build fast websites, write content that ranks, and automate the repetitive work so businesses can scale faster.",
-  url: "https://saniforge.com",
+  url: "https://www.saniforge.space",
   email: "contact.sani@proton.me",
   whatsappNumber: "8801745947359",
   get whatsappLink() {

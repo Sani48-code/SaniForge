@@ -76,7 +76,7 @@ export default function WhyChooseUsSection() {
             </a>
 
             <a
-              href="https://saniforge.com"
+              href="https://www.saniforge.space"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 transition-colors hover:text-white"
@@ -84,7 +84,7 @@ export default function WhyChooseUsSection() {
               <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/10 text-white">
                 <Globe className="h-3 w-3" />
               </span>
-              <span>@saniforge.com</span>
+              <span>saniforge.space</span>
             </a>
           </div>
         </FadeIn>
