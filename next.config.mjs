@@ -4,10 +4,10 @@ const isProd = process.env.NODE_ENV === "production";
 // Vercel preview and development deployments get a site-wide X-Robots-Tag: noindex.
 const isIndexable = process.env.VERCEL_ENV ? process.env.VERCEL_ENV === "production" : true;
 
-// Custom domain migration (see DOMAIN_MIGRATION.md). Leave CUSTOM_DOMAIN unset until the domain is live.
-// When set (e.g. CUSTOM_DOMAIN=saniforge.com), every request that reaches the old vercel.app host is
+// Custom domain (see DOMAIN_MIGRATION.md). Defaults to the live domain, www.saniforge.space.
+// Every request that reaches the old vercel.app host is
 // permanently (301) redirected to the same path on the custom domain.
-const customDomain = process.env.CUSTOM_DOMAIN?.replace(/^https?:\/\//, "").replace(/\/+$/, "");
+const customDomain = (process.env.CUSTOM_DOMAIN || "www.saniforge.space").replace(/^https?:\/\//, "").replace(/\/+$/, "");
 const legacyHost = process.env.LEGACY_HOST || "saniforge.vercel.app";
 
 // Content Security Policy. Next.js needs inline scripts and styles for hydration and JSON-LD,

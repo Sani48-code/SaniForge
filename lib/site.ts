@@ -6,7 +6,7 @@
  * set NEXT_PUBLIC_SITE_URL in Vercel and redeploy. See DOMAIN_MIGRATION.md.
  */
 
-const DEFAULT_SITE_URL = "https://saniforge.vercel.app";
+const DEFAULT_SITE_URL = "https://www.saniforge.space";
 
 // `||` rather than `??` so an empty NEXT_PUBLIC_SITE_URL= line in an env file falls back too.
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || DEFAULT_SITE_URL).replace(/\/+$/, "");
