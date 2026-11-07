@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/data/site";
 import { buildMetadata } from "@/lib/seo";
+import JsonLd from "@/components/seo/JsonLd";
+import { websiteSchema, organizationSchema, profilePageSchema } from "@/lib/schema";
 import Hero from "@/components/home/Hero";
 import ShortVersion from "@/components/home/ShortVersion";
 import AboutSection from "@/components/home/AboutSection";
@@ -23,6 +25,8 @@ export const metadata: Metadata = buildMetadata({
 export default function HomePage() {
   return (
     <>
+      {/* WebSite + Organization drive the site name and logo Google shows; server-rendered. */}
+      <JsonLd data={[websiteSchema(), organizationSchema(), profilePageSchema()]} />
       <Hero />
       <ShortVersion />
       <AboutSection />

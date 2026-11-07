@@ -7,7 +7,7 @@ import MotionProvider from "@/components/motion/MotionProvider";
 import { site } from "@/lib/data/site";
 import { IS_INDEXABLE } from "@/lib/site";
 import JsonLd from "@/components/seo/JsonLd";
-import { personSchema, websiteSchema, professionalServiceSchema } from "@/lib/schema";
+import { personSchema, professionalServiceSchema } from "@/lib/schema";
 
 const display = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -82,7 +82,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable}`}>
       <body className="bg-navy font-sans antialiased">
-        <JsonLd data={[personSchema(), websiteSchema(), professionalServiceSchema()]} />
+        {/* WebSite and Organization are rendered on the homepage only (app/page.tsx). */}
+        <JsonLd data={[personSchema(), professionalServiceSchema()]} />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-slate-900 focus:shadow-lg"
