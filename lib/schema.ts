@@ -100,6 +100,15 @@ export function professionalServiceSchema(): Json {
     logo: LOGO_URL,
     image: absoluteUrl("/opengraph-image"),
     email: "contact.sani@proton.me",
+    telephone: "+8801745947359",
+    priceRange: "$400 - $1,500",
+    // Remote business: locality and region only, no street address.
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Rajshahi",
+      addressRegion: "Rajshahi Division",
+      addressCountry: "BD",
+    },
     founder: { "@id": PERSON_ID },
     areaServed: AREA_SERVED,
     sameAs: Object.values(SOCIAL_LINKS),
