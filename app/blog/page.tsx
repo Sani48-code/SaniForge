@@ -1,5 +1,6 @@
 import JsonLd from "@/components/seo/JsonLd";
 import { breadcrumbSchema, PERSON_ID } from "@/lib/schema";
+import { toSchemaDateTime } from "@/lib/site";
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
 import JournalHero from "@/components/journal/JournalHero";
@@ -40,7 +41,7 @@ export default function BlogPage() {
       "@type": "BlogPosting",
       headline: p.title,
       url: `${site.url}/blog/${p.slug}`,
-      datePublished: p.date,
+      datePublished: toSchemaDateTime(p.date),
     })),
   };
 

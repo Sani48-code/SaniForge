@@ -27,6 +27,23 @@ export const SOCIAL_LINKS = {
  */
 export const STATIC_CONTENT_UPDATED = "2026-10-16";
 
+/** Timezone used when a content date has no time of its own (Asia/Dhaka, no DST). */
+export const SITE_TZ_OFFSET = "+06:00";
+
+/**
+ * Normalise a content date for schema.org, which expects a full ISO 8601 datetime with timezone.
+ * "2026-10-16" -> "2026-10-16T00:00:00+06:00"; "2026-10-16T09:30" -> "2026-10-16T09:30:00+06:00";
+ * values that already carry a timezone (Z or ±hh:mm) pass through unchanged.
+ */
+export function toSchemaDateTime(value: string): string {
+  const v = value.trim();
+  if (/^\d{4}-\d{2}-\d{2}$/.test(v)) return `${v}T00:00:00${SITE_TZ_OFFSET}`;
+  if (/(Z|[+-]\d{2}:?\d{2})$/.test(v)) return v;
+  const m = v.match(/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2})(:\d{2}(\.\d+)?)?$/);
+  if (m) return `${m[1]}${m[2] ?? ":00"}${SITE_TZ_OFFSET}`;
+  return v;
+}
+
 /**
  * Only the production deployment may be indexed. Vercel sets VERCEL_ENV to
  * "production", "preview" or "development"; when it is absent (local `next start`,

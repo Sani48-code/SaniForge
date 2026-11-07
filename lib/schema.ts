@@ -4,7 +4,7 @@
  *
  * Rules: only facts already published on the site. No Review or AggregateRating markup.
  */
-import { SITE_URL, SITE_NAME, AUTHOR_NAME, AUTHOR_ROLE, SOCIAL_LINKS, STATIC_CONTENT_UPDATED, absoluteUrl } from "@/lib/site";
+import { SITE_URL, SITE_NAME, AUTHOR_NAME, AUTHOR_ROLE, SOCIAL_LINKS, STATIC_CONTENT_UPDATED, absoluteUrl, toSchemaDateTime } from "@/lib/site";
 import { services } from "@/lib/data/services";
 
 export const PERSON_ID = `${SITE_URL}/#person`;
@@ -117,7 +117,7 @@ export function profilePageSchema(): Json {
     url: SITE_URL,
     name: `${AUTHOR_NAME} | ${AUTHOR_ROLE}`,
     inLanguage: "en",
-    dateModified: STATIC_CONTENT_UPDATED,
+    dateModified: toSchemaDateTime(STATIC_CONTENT_UPDATED),
     isPartOf: { "@id": WEBSITE_ID },
     mainEntity: { "@id": PERSON_ID },
     about: { "@id": PERSON_ID },
@@ -162,8 +162,8 @@ export function articleSchema({ type, headline, description, path, images, dateP
     headline: headline.replace(/[“”"]/g, "").slice(0, 110),
     description,
     image: images.map(absoluteUrl),
-    ...(datePublished ? { datePublished } : {}),
-    ...(dateModified ?? datePublished ? { dateModified: dateModified ?? datePublished } : {}),
+    ...(datePublished ? { datePublished: toSchemaDateTime(datePublished) } : {}),
+    ...(dateModified ?? datePublished ? { dateModified: toSchemaDateTime((dateModified ?? datePublished)!) } : {}),
     author: { "@type": "Person", "@id": PERSON_ID, name: AUTHOR_NAME, url: SITE_URL },
     publisher: {
       "@type": "Organization",
