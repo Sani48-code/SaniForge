@@ -107,6 +107,7 @@ export function professionalServiceSchema(): Json {
       "@type": "PostalAddress",
       addressLocality: "Rajshahi",
       addressRegion: "Rajshahi Division",
+      postalCode: "6000",
       addressCountry: "BD",
     },
     founder: { "@id": PERSON_ID },
