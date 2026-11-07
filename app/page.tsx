@@ -4,7 +4,6 @@ import { buildMetadata } from "@/lib/seo";
 import JsonLd from "@/components/seo/JsonLd";
 import { websiteSchema, organizationSchema, profilePageSchema } from "@/lib/schema";
 import Hero from "@/components/home/Hero";
-import ShortVersion from "@/components/home/ShortVersion";
 import AboutSection from "@/components/home/AboutSection";
 import ExperienceSection from "@/components/home/ExperienceSection";
 import WhyChooseUsSection from "@/components/home/WhyChooseUsSection";
@@ -28,7 +27,6 @@ export default function HomePage() {
       {/* WebSite + Organization drive the site name and logo Google shows; server-rendered. */}
       <JsonLd data={[websiteSchema(), organizationSchema(), profilePageSchema()]} />
       <Hero />
-      <ShortVersion />
       <AboutSection />
       <ExperienceSection />
       <WhyChooseUsSection />
