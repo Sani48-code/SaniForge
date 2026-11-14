@@ -5,6 +5,14 @@ import { CalendarCheck, CheckCircle2, ExternalLink, Loader2, Send } from "lucide
 import { site } from "@/lib/data/site";
 import { BUDGETS, SERVICES, type LeadErrors } from "@/lib/leads/schema";
 
+/** Sends an event to Google Tag Manager. No personal data (name, email) goes in here. */
+function trackEvent(event: string, params: Record<string, unknown> = {}) {
+  if (typeof window === "undefined") return;
+  const w = window as unknown as { dataLayer?: unknown[] };
+  w.dataLayer = w.dataLayer || [];
+  w.dataLayer.push({ event, ...params });
+}
+
 type FormState = {
   fullName: string;
   email: string;
@@ -74,7 +82,17 @@ function CalendlyEmbed({ name, email }: { name?: string; email?: string }) {
     if (email) params.set("email", email);
     setSrc(`${site.calendlyUrl}?${params.toString()}`);
     const t = window.setTimeout(() => setSlow(true), 10000);
-    return () => window.clearTimeout(t);
+    // Calendly posts a message to the parent page when a call is booked.
+    const onMessage = (e: MessageEvent) => {
+      if (e.origin !== "https://calendly.com") return;
+      const data = e.data as { event?: string } | null;
+      if (data?.event === "calendly.event_scheduled") trackEvent("book_call");
+    };
+    window.addEventListener("message", onMessage);
+    return () => {
+      window.clearTimeout(t);
+      window.removeEventListener("message", onMessage);
+    };
   }, [name, email]);
 
   return (
@@ -151,6 +169,7 @@ export default function BookingFlow() {
       });
       const data = await res.json().catch(() => ({}));
       if (res.ok) {
+        trackEvent("generate_lead", { lead_service: form.service, lead_budget: form.budget || undefined });
         setSaved(true);
         setStatus("idle");
         setStep("schedule");

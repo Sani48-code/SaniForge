@@ -1,7 +1,7 @@
 import Script from "next/script";
 
 // Google Tag Manager container. Override with NEXT_PUBLIC_GTM_ID in Vercel if it ever changes.
-export const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "GTM-KVVJDLWV";
+export const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "GTM-WD33B8P7";
 
 /** Loads GTM after the page becomes interactive so it doesn't block rendering. */
 export function GoogleTagManager() {
