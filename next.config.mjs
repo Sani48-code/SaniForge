@@ -14,13 +14,14 @@ const legacyHost = process.env.LEGACY_HOST || "saniforge.vercel.app";
 // so 'unsafe-inline' stays; everything else is limited to this site and https images.
 const csp = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${isProd ? "" : " 'unsafe-eval'"}`,
-  "style-src 'self' 'unsafe-inline'",
+  // Google Tag Manager and the Google tags it loads (GA4, Ads) need their hosts allowed here.
+  `script-src 'self' 'unsafe-inline'${isProd ? "" : " 'unsafe-eval'"} https://www.googletagmanager.com https://*.googletagmanager.com https://*.google-analytics.com https://*.googleadservices.com https://googleads.g.doubleclick.net`,
+  "style-src 'self' 'unsafe-inline' https://www.googletagmanager.com",
   "img-src 'self' data: blob: https:",
   "font-src 'self' data:",
-  "connect-src 'self' https://*.supabase.co wss://*.supabase.co",
+  "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.g.doubleclick.net https://*.google.com https://pagead2.googlesyndication.com",
   "media-src 'self'",
-  "frame-src https://calendly.com",
+  "frame-src https://calendly.com https://www.googletagmanager.com https://td.doubleclick.net",
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",
@@ -81,8 +82,15 @@ const nextConfig = {
     },
   },
   async redirects() {
-    if (!customDomain) return [];
+    // Common guesses for the contact page all lead to the booking page.
+    const contactRedirects = ["/contact", "/contact-us", "/hire-me"].map((source) => ({
+      source,
+      destination: "/book-a-call",
+      permanent: true,
+    }));
+    if (!customDomain) return contactRedirects;
     return [
+      ...contactRedirects,
       {
         source: "/:path*",
         has: [{ type: "host", value: legacyHost }],

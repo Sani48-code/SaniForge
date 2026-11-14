@@ -8,6 +8,7 @@ import { site } from "@/lib/data/site";
 import { IS_INDEXABLE } from "@/lib/site";
 import JsonLd from "@/components/seo/JsonLd";
 import { personSchema, professionalServiceSchema } from "@/lib/schema";
+import { GoogleTagManager, GoogleTagManagerNoScript } from "@/components/analytics/GoogleTagManager";
 
 const display = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -82,6 +83,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable}`}>
       <body className="bg-navy font-sans antialiased">
+        {/* Tracking runs on the production deployment only, so previews don't pollute analytics. */}
+        {IS_INDEXABLE && <GoogleTagManagerNoScript />}
+        {IS_INDEXABLE && <GoogleTagManager />}
         {/* WebSite and Organization are rendered on the homepage only (app/page.tsx). */}
         <JsonLd data={[personSchema(), professionalServiceSchema()]} />
         <a
