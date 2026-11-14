@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
 import { Plus_Jakarta_Sans, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
@@ -83,18 +82,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable}`}>
       <body className="bg-navy font-sans antialiased">
-        {/* Google Tag Manager */}
-        <Script
-          src="https://www.googletagmanager.com/gtm.js?id=GTM-KVVJDLWV"
-          strategy="afterInteractive"
-        />
-        <Script id="gtm-datalayer" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-          `}
-        </Script>
         {/* WebSite and Organization are rendered on the homepage only (app/page.tsx). */}
         <JsonLd data={[personSchema(), professionalServiceSchema()]} />
         <a
