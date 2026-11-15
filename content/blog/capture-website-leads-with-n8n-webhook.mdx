@@ -1,0 +1,110 @@
+---
+title: "How to Capture Website Leads With an n8n Webhook (Step by Step)"
+slug: "capture-website-leads-with-n8n-webhook"
+excerpt: "A practical n8n webhook tutorial: send your website form straight into a workflow that validates the lead, logs it, alerts you and replies in seconds."
+category: "Automation"
+date: "2026-11-15"
+image: "/images/blog/capture-website-leads-with-n8n-webhook.webp"
+seoTitle: "n8n Webhook Tutorial: Capture Website Leads Step by Step"
+seoDescription: "Step-by-step n8n webhook tutorial: post your website form to n8n, validate the lead, log it in your CRM, alert your team and auto-reply in seconds."
+tags: ["n8n", "automation", "lead generation", "webhooks"]
+keywords: ["n8n webhook tutorial", "n8n webhook", "n8n lead capture", "website form to n8n"]
+problem: "Website form submissions sit in an inbox instead of reaching the right person immediately."
+approach: "Post the form directly to an n8n Webhook node, then validate, log, notify and auto-reply in one workflow."
+---
+
+In [Building a Lead Capture Automation in Under an Hour](/blog/build-lead-capture-automation-under-an-hour) I walked through the shape of a lead capture workflow in any tool. This post is the hands-on version for n8n: how to send a website form straight into an n8n Webhook node and turn every submission into a logged, routed and acknowledged lead.
+
+## What You Will Build
+
+One n8n workflow with six steps:
+
+1. **Webhook node** receives the form submission.
+2. **Validation** drops spam and incomplete entries.
+3. **CRM or sheet node** stores the lead permanently.
+4. **Notification** alerts a real person in Slack, email or SMS.
+5. **Auto-reply** confirms to the visitor that you got their message.
+6. **Wait and escalate** nudges someone if nobody has responded.
+
+This is the same pattern behind the [lead automation pipeline case study](/case-studies/lead-automation-pipeline), where first-response time dropped from 6.5 hours to under 2 minutes.
+
+## Step 1: Add the Webhook Node
+
+Create a new workflow and add a **Webhook** node as the trigger. Set:
+
+- **HTTP Method:** `POST`
+- **Path:** something readable, such as `website-lead`
+- **Respond:** "Immediately" is fine to start. Switch to "Using 'Respond to Webhook' Node" later if you want the form to show a custom success or error message.
+
+n8n gives every Webhook node two URLs. The **Test URL** only listens while you click "Listen for test event" in the editor. The **Production URL** only works once the workflow is activated. Most "my webhook does nothing" problems come from mixing these up. See the [official Webhook node docs](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.webhook/) for the full option list.
+
+For security, turn on **Header Auth** under Authentication and send a shared secret from your server, so random requests to the URL are rejected.
+
+## Step 2: Post Your Form to the Webhook
+
+The safest setup sends the form to your own backend first, which then forwards it to n8n. That keeps the webhook URL and secret out of the browser. On a Next.js site, an API route does this in a few lines:
+
+```ts
+// app/api/leads/route.ts (simplified)
+export async function POST(req: Request) {
+  const lead = await req.json();
+
+  const res = await fetch(process.env.N8N_LEAD_WEBHOOK_URL!, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Webhook-Secret": process.env.N8N_WEBHOOK_SECRET!,
+    },
+    body: JSON.stringify({ ...lead, source: "website", receivedAt: new Date().toISOString() }),
+  });
+
+  return Response.json({ ok: res.ok }, { status: res.ok ? 200 : 502 });
+}
+```
+
+If you use a page builder instead, look for a "webhook" or "send to URL" option on the form and paste the Production URL there.
+
+Submit a test entry while the editor is listening. You should see the fields appear in the Webhook node output under `body`.
+
+## Step 3: Validate Before Anything Else Happens
+
+Add an **If** node (or a **Filter** node) right after the webhook. Check that:
+
+- the email field is present and looks like an email,
+- required fields such as name and message are not empty,
+- a hidden honeypot field is empty (bots fill it, people never see it).
+
+Send failures to a **No Operation** node or a separate "rejected" log, so junk never reaches your CRM or your phone.
+
+## Step 4: Log the Lead Somewhere Permanent
+
+Next, store the lead. Use the native node for your CRM (HubSpot, Pipedrive, GoHighLevel and others), Airtable, or a **Google Sheets** "Append row" node to start. Map the fields once and include the source page and timestamp so you can report on where leads come from later.
+
+Log first, notify second. If a later step fails, the lead is still saved.
+
+## Step 5: Alert a Real Person
+
+Add a **Slack**, **Gmail** or **Twilio** node that sends the essentials: name, service requested, a one-line summary and a link to the CRM record. Keep it short enough to read on a lock screen. Speed matters more than formatting here.
+
+## Step 6: Reply to the Visitor Automatically
+
+Use an email node to send an acknowledgment within seconds: thank them, say when they will hear back, and include a booking link if you offer calls. This one message removes the "did my form even go through?" doubt that makes people submit to three competitors at once.
+
+## Step 7: Wait, Then Escalate
+
+Add a **Wait** node (for example 30 minutes), then check the CRM record's status. If nobody has marked it contacted, send a second alert to a backup person. This is the step most DIY setups skip, and it is the one that stops leads from going cold over a busy afternoon.
+
+## Turn On Error Handling
+
+Create a small **error workflow** that starts with an **Error Trigger** node and messages you when any run fails, then select it in the main workflow's settings. Without it, a changed CRM API key can silently drop leads for days.
+
+## Common Mistakes
+
+- Testing with the Test URL, then forgetting to activate the workflow and switch the form to the Production URL.
+- Putting the webhook URL directly in browser JavaScript with no authentication.
+- Notifying before logging, so a failed step loses the lead.
+- No error workflow, so failures go unnoticed.
+
+## Want It Built for You?
+
+If you would rather have this set up properly, with error handling, documentation and your CRM wired in, you can [hire an n8n developer](/n8n-developer) or see what is included in [n8n automation services](/services/n8n-automation). For the bigger picture of why fast lead handling matters, read [why traditional lead generation is dead in 2026](/blog/why-traditional-lead-generation-is-dead-2026).
