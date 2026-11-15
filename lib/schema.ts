@@ -81,6 +81,7 @@ export function organizationSchema(): Json {
     "@type": "Organization",
     "@id": ORGANIZATION_ID,
     name: SITE_NAME,
+    alternateName: "Sani Forge",
     url: HOME_URL,
     logo: { "@type": "ImageObject", url: LOGO_URL, width: 512, height: 512 },
     founder: { "@type": "Person", "@id": PERSON_ID, name: AUTHOR_NAME },

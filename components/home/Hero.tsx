@@ -240,7 +240,7 @@ export default function Hero() {
 
             {/* Subtitle */}
             <p className="mt-5 max-w-xl text-base sm:text-lg leading-relaxed text-slate-600 font-normal">
-              I&apos;m a full-stack developer and growth engineer at{" "}
+              Welcome to <strong className="font-semibold text-slate-800">SaniForge</strong>, my portfolio. I&apos;m a full-stack developer and growth engineer at{" "}
               <a href={site.growminionUrl} target="_blank" rel="noopener noreferrer" className="font-semibold text-slate-800 underline decoration-slate-300 underline-offset-4 hover:decoration-blue-500">
                 GrowMinion
               </a>

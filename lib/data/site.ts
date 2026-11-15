@@ -7,7 +7,7 @@ export const site = {
   // Homepage title. Leads with the brand so Google associates the site name with "SaniForge".
   title: "SaniForge | Abdul Kaiyum Sani: n8n, Full Stack & Growth Engineer",
   description:
-    "Abdul Kaiyum Sani: n8n developer, full-stack dev and growth engineer. Fast websites, SEO content and automation for US law firms and local businesses.",
+    "SaniForge: portfolio of Abdul Kaiyum Sani, n8n developer, full-stack dev and growth engineer. Fast websites, SEO content and automation for US businesses.",
   // Canonical origin; see lib/site.ts.
   url: SITE_URL,
   email: "contact.sani@proton.me",
