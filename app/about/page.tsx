@@ -34,7 +34,7 @@ function aboutPageSchema() {
       "@type": "Organization",
       "@id": ORGANIZATION_ID,
       name: SITE_NAME,
-      alternateName: ["Sani Forge", "Saniforge", "saniforge.space"],
+      alternateName: ["Sani Forge"],
       url: `${SITE_URL}/`,
       foundingDate: "2023",
       founder: { "@id": PERSON_ID, name: AUTHOR_NAME },

@@ -64,7 +64,7 @@ export function websiteSchema(): Json {
     "@type": "WebSite",
     "@id": WEBSITE_ID,
     name: SITE_NAME,
-    alternateName: ["Sani Forge", "Saniforge", "saniforge.space"],
+    alternateName: ["Sani Forge"],
     url: HOME_URL,
     inLanguage: "en",
     description:
@@ -81,7 +81,7 @@ export function organizationSchema(): Json {
     "@type": "Organization",
     "@id": ORGANIZATION_ID,
     name: SITE_NAME,
-    alternateName: ["Sani Forge", "Saniforge", "saniforge.space"],
+    alternateName: ["Sani Forge"],
     url: HOME_URL,
     foundingDate: "2023",
     logo: { "@type": "ImageObject", url: LOGO_URL, width: 512, height: 512 },
