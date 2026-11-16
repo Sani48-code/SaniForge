@@ -21,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     page("", newest(latestPost, staticUpdated), "weekly", 1),
     ...keywordPageList.map((k) => page(`/${k.slug}`, staticUpdated, "monthly", 0.9)),
+    page("/about", new Date("2026-11-16"), "monthly", 0.8),
     page("/services", staticUpdated, "monthly", 0.8),
     ...services.map((s) => page(`/services/${s.slug}`, staticUpdated, "monthly", 0.8)),
     page("/blog", newest(latestPost, staticUpdated), "weekly", 0.7),

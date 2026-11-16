@@ -9,6 +9,7 @@ export const navItems: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "Projects", href: "/projects" },
   { label: "Blog", href: "/blog" },
+  { label: "About", href: "/about" },
 ];
 
 /** Personal "hire me" landing pages (see lib/data/keyword-pages.ts). */
@@ -21,6 +22,7 @@ export const hireLinks: NavItem[] = [
 export const footerLinks = {
   pages: [
     { label: "Home", href: "/" },
+    { label: "About SaniForge", href: "/about" },
     { label: "Services", href: "/services" },
     { label: "Projects", href: "/projects" },
     { label: "Blog", href: "/blog" },

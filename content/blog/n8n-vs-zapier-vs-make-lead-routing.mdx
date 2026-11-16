@@ -1,0 +1,120 @@
+---
+title: "n8n vs Zapier vs Make for Lead Routing: Which One Fits Your Business?"
+slug: "n8n-vs-zapier-vs-make-lead-routing"
+excerpt: "An honest comparison of n8n, Zapier and Make for routing website leads: how each one bills, where each one breaks, and which to pick for your situation."
+category: "Automation"
+date: "2026-11-16"
+image: "/images/blog/n8n-vs-zapier-vs-make-lead-routing.webp"
+imageAlt: "Comparison graphic of n8n, Zapier and Make for lead routing workflows"
+seoTitle: "n8n vs Zapier vs Make for Lead Routing: Which to Choose"
+seoDescription: "n8n vs Zapier vs Make for lead routing: how each bills, where each breaks, and which fits a small business, an agency or a high-volume pipeline."
+tags: ["n8n", "zapier", "make", "automation", "lead generation"]
+keywords: ["n8n vs zapier", "n8n vs make", "zapier vs make vs n8n", "best tool for lead routing", "n8n lead routing"]
+problem: "Business owners pick an automation tool on brand recognition, then hit cost or logic limits once lead volume grows."
+approach: "Compare the three tools on the things that matter for lead routing: billing unit, branching, error handling, hosting and who maintains it."
+---
+
+Every week someone asks me the same question: "Should I stay on Zapier, or move my lead flow to n8n or Make?" The honest answer is that all three can route a website lead to the right person in seconds. They differ in **how they bill you, how much logic they handle comfortably, and who has to maintain them**.
+
+This post compares n8n, Zapier and Make specifically for lead routing: a form comes in, gets checked, lands in a CRM, alerts a person and triggers a follow-up. If you want to see that workflow built step by step, read the [n8n webhook lead capture tutorial](/blog/capture-website-leads-with-n8n-webhook) first.
+
+## Key Takeaways
+
+- **Zapier** is the fastest to set up and has the biggest app library. It gets expensive when one lead runs through many steps, because it bills per step.
+- **Make** gives you a visual canvas with strong branching at a lower cost per step. Complex scenarios can become hard to read.
+- **n8n** bills per whole workflow run (or nothing, if you self-host), allows custom code and handles complex branching and error handling well. It asks more of whoever builds it.
+- For a simple two-step "form to email" flow, any of them is fine. The choice matters once you add validation, routing rules, retries and follow-ups.
+
+## Quick Comparison
+
+| | Zapier | Make | n8n |
+|---|---|---|---|
+| **What you pay for** | Each action step that runs (a "task") | Each module that runs (operations, now billed as credits) | Each full workflow run (an "execution"); self-hosted is free to run |
+| **Setup speed** | Fastest | Fast | Moderate |
+| **Branching and routing rules** | Paths and filters, fine for a few branches | Routers and filters on a visual canvas | If, Switch and Merge nodes, plus code when needed |
+| **Custom code** | Limited code steps | Limited, with add-ons | JavaScript and Python Code nodes built in |
+| **Error handling** | Basic alerts and replays | Error handlers per module | Error workflows, retries per node |
+| **Self-hosting** | No | No | Yes (Community Edition) |
+| **Best fit** | Simple flows, non-technical owners | Visual builders with moderate logic | High volume, complex logic, data control |
+
+Plans and prices change often, so check each tool's pricing page before you commit. The billing unit is what stays the same, and it is what decides your bill.
+
+## Why the Billing Unit Matters for Lead Routing
+
+A realistic lead workflow is not two steps. It usually looks like this:
+
+1. Receive the form submission.
+2. Validate it and drop spam.
+3. Look up or create the contact in the CRM.
+4. Route by service or location to the right person.
+5. Send an alert.
+6. Send the visitor an auto-reply.
+7. Wait, check status, escalate if nobody responded.
+
+On **Zapier**, most of those actions count as a separate task, so one lead can use six or more tasks. On **Make**, each module that runs uses at least one operation, including the trigger. On **n8n**, the whole run counts as **one execution**, however many nodes it passes through.
+
+At 20 leads a month, none of this matters. At a few thousand runs a month, or when the same workflow also enriches data or calls an AI step, the gap becomes the biggest line in your automation budget. That is the most common reason teams move from Zapier to Make or n8n.
+
+## Zapier: When It Is the Right Answer
+
+Zapier is the right choice more often than automation developers like to admit.
+
+**Pick Zapier if:**
+
+- the flow is simple (form to CRM to email),
+- volume is low,
+- the person maintaining it is not technical,
+- you need an obscure app that only Zapier connects to.
+
+**Where it strains:** long multi-step lead flows at volume, complex routing rules spread across many paths, and situations where you want the data to stay on your own servers.
+
+## Make: The Visual Middle Ground
+
+Make shows the whole scenario as a canvas of connected modules, which makes branching easy to see. Routers can send a lead down different paths by service, budget or location, and per-module error handlers let you decide what happens when one step fails.
+
+**Pick Make if:**
+
+- you want more logic than Zapier comfortably handles,
+- you like building visually,
+- you want a lower cost per step without hosting anything yourself.
+
+**Where it strains:** very large scenarios get crowded and hard to debug, and AI or advanced modules can use more credits than standard steps, so model your real usage.
+
+## n8n: When You Need Control
+
+n8n is open source. You can use n8n Cloud or self-host the Community Edition on your own server, which means your lead data never has to pass through a third-party automation platform. That matters for law firms and anyone handling sensitive enquiries.
+
+For lead routing specifically, n8n's strengths are:
+
+- **One execution per lead**, whatever the number of steps.
+- **Switch nodes** for clean routing by service, state or budget.
+- **Code nodes** for the odd rule no visual builder handles, like normalizing phone numbers or scoring a lead.
+- **Error workflows** that alert you the moment any run fails, so a changed API key does not silently drop leads for a week.
+
+**Where it strains:** someone has to own it. Self-hosting means updates, backups and monitoring. The editor is friendly, but complex workflows still need a developer's habits: naming, documentation and testing.
+
+This is the setup behind the [lead automation pipeline case study](/case-studies/lead-automation-pipeline), where first-response time dropped from 6.5 hours to under 2 minutes.
+
+## Which One Should You Pick?
+
+| Your situation | Best starting point |
+|---|---|
+| Solo business, under a few hundred leads a month, simple flow | Zapier |
+| You want routing rules and a visual builder, but no hosting | Make |
+| High lead volume, many steps per lead, or AI enrichment | n8n |
+| Sensitive data (legal, health, finance) | n8n, self-hosted |
+| Agency running flows for many clients | n8n or Make |
+| No one technical on the team and no budget for help | Zapier |
+
+If you are already on Zapier and it works, you do not need to migrate for the sake of it. Move when the bill or the logic limits start to hurt, and plan the move one workflow at a time.
+
+## Migration Tips If You Switch
+
+- **Map every trigger and field first.** List each Zap or scenario, what triggers it and which fields it uses.
+- **Run old and new in parallel** for a week, logging both, before switching the form over.
+- **Add error handling on day one.** It is the step most DIY builds skip.
+- **Document the workflow** so the next person can change a routing rule without guessing.
+
+## When to Hire Help
+
+If your lead flow touches a CRM, routing rules, follow-ups and AI steps, it is worth having it built properly once. You can [hire an n8n developer](/n8n-developer) to design and document it, or see what is included in [n8n automation services](/services/n8n-automation). For the bigger picture on why response speed decides who wins the lead, read [why traditional lead generation is dead in 2026](/blog/why-traditional-lead-generation-is-dead-2026), and for the tool-agnostic version of the workflow, see [how to build a lead capture automation in under an hour](/blog/build-lead-capture-automation-under-an-hour).
