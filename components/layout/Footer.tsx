@@ -50,7 +50,7 @@ export default function Footer() {
 
           <div>
             <h3 className="mb-4 font-mono text-sm uppercase tracking-wider text-gold-light">
-              Hire Me
+              Hire Us
             </h3>
             <ul className="space-y-3">
               {footerLinks.hire.map((link) => (

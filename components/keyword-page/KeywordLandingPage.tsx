@@ -98,7 +98,7 @@ export default function KeywordLandingPage({ page }: { page: KeywordPage }) {
         </div>
       </section>
 
-      {/* 2. What I do */}
+      {/* 2. What we do */}
       <section className="bg-white py-20 sm:py-24">
         <div className="container-px mx-auto max-w-[1240px]">
           <Heading title={page.what.title} text={page.what.intro} />

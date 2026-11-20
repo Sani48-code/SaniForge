@@ -59,9 +59,9 @@ export default function InsightExplorer({ posts }: { posts: PostSummary[] }) {
               <span className="h-0.5 w-8 rounded bg-jn-gold" /> Browse by topic
             </p>
             <h2 id="topics-title" className="mt-3 font-display text-3xl font-extrabold text-sv-navy sm:text-4xl lg:text-5xl">
-              Explore What I&apos;m Learning and Building
+              Explore What We&apos;re Learning and Building
             </h2>
-            <p className="mt-3 text-lg text-jn-body">Practical notes across the areas I work in every day.</p>
+            <p className="mt-3 text-lg text-jn-body">Practical notes across the areas we work in every day.</p>
           </Reveal>
           <div
             role="group"

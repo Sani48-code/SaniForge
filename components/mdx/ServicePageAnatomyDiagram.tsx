@@ -9,7 +9,7 @@ const sections = [
 ];
 
 export default function ServicePageAnatomyDiagram({
-  caption = "The section order that shows up on every high-converting service page I build.",
+  caption = "The section order that shows up on every high-converting service page we build.",
 }: {
   caption?: string;
 }) {

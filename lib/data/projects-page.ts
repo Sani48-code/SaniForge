@@ -61,7 +61,7 @@ export const featuredProjects: FeaturedProject[] = [
       "A local rank tracking platform that scans Google results block by block on a map grid, so an agency can see where a business ranks in every part of its service area.",
     challenge:
       "A single average ranking hides the truth: a business can rank first near its office and vanish a few blocks away. Paid GeoGrid tools solve this, but charge per scan, per location or per seat, which gets expensive for an agency with many clients.",
-    role: "Web and automation engineer on the Growminion team. I helped design and build the product end to end, across the interface, the backend and the database.",
+    role: "Our founder, as web and automation engineer on the Growminion team, helped design and build the product end to end, across the interface, the backend and the database.",
     solution: [
       "GeoGrid scans on a configurable grid (for example 7 by 7 pins)",
       "Target business profile with address and phone, plus a movable scan center",
@@ -97,7 +97,7 @@ export const featuredProjects: FeaturedProject[] = [
       "An AI content tool that analyzes competitors, writes location and service pages in a consistent brand voice and publishes them straight to WordPress.",
     challenge:
       "Local SEO needs dozens of unique location and service pages. Writing them by hand is slow, and generic paid AI tools produce off-brand copy and charge by volume.",
-    role: "Web and automation engineer on the Growminion team. I helped design and build the product end to end, across the interface, the backend, the database and the publishing integration.",
+    role: "Our founder, as web and automation engineer on the Growminion team, helped design and build the product end to end, across the interface, the backend, the database and the publishing integration.",
     solution: [
       "Competitor analysis that feeds each page brief",
       "Page generation from structured location and service data",
@@ -133,7 +133,7 @@ export const featuredProjects: FeaturedProject[] = [
       "An all-in-one HR and team operations system covering people, attendance, leave, projects, meetings, timesheets, recruitment, onboarding and performance in one dashboard.",
     challenge:
       "Growing teams end up with HR in one tool, time tracking in another and chat in a third. Paid suites charge per employee and still leave gaps for how the agency actually works.",
-    role: "Web and automation engineer on the Growminion team. I helped design and build the product end to end, across the interface, the backend and the database.",
+    role: "Our founder, as web and automation engineer on the Growminion team, helped design and build the product end to end, across the interface, the backend and the database.",
     solution: [
       "Dashboard with attendance, on-time projects, hours logged and leave balance",
       "Employees, attendance, leave and timesheets",

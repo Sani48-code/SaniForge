@@ -52,11 +52,11 @@ export const services: Service[] = [
     badge: "Copywriting Service",
     headline: "Copywriting That Turns Visitors Into Booked Calls",
     intro:
-      "Most business websites explain what the company does but never give a reason to act. I research your buyers, study what your competitors say and write clear, specific copy that earns trust and makes the next step obvious. Every page is written to convert and to rank.",
+      "Most business websites explain what the company does but never give a reason to act. We research your buyers, study what your competitors say and write clear, specific copy that earns trust and makes the next step obvious. Every page is written to convert and to rank.",
     problem:
       "Most websites say what the company does but never give a visitor a reason to act, so traffic leaks away.",
     approach:
-      "I research your buyers and competitors first, then write one clear message per page with a single next step, and test headlines against real search intent.",
+      "We research your buyers and competitors first, then write one clear message per page with a single next step, and test headlines against real search intent.",
     offers: [
       {
         title: "Website Copywriting",
@@ -106,12 +106,12 @@ export const services: Service[] = [
     tools: ["ChatGPT", "Claude", "Surfer SEO", "Ahrefs", "Grammarly", "Notion"],
     idealFor: ["Med spas and clinics", "Law firms", "Real estate teams", "Insurance agencies", "Local service businesses"],
     faqs: [
-      { q: "How long does a website copy project take?", a: "A typical 5 page website takes 7 to 10 business days from kickoff to final delivery. Larger sites or ones with heavy research take longer, and I confirm the timeline before we start." },
-      { q: "Do you write for my industry?", a: "I have written for med spa, real estate and insurance brands, and I research each niche, its regulations and its customers before writing a single line. For regulated fields I flag claims that need legal review." },
+      { q: "How long does a website copy project take?", a: "A typical 5 page website takes 7 to 10 business days from kickoff to final delivery. Larger sites or ones with heavy research take longer, and we confirm the timeline before we start." },
+      { q: "Do you write for our industry?", a: "We have written for med spa, real estate and insurance brands, and we research each niche, its regulations and its customers before writing a single line. For regulated fields we flag claims that need legal review." },
       { q: "Is the copy SEO friendly?", a: "Yes. Every page is written around a primary keyword and its related search intent, with proper headings, meta titles and descriptions. It reads naturally and is never stuffed." },
       { q: "How many revisions are included?", a: "Two full rounds of revisions are included in every project. Most clients are happy after the first, because the draft is built from your own customer language." },
-      { q: "What do you need from me to start?", a: "Your current site or materials, your top competitors, a description of your ideal customer and any reviews or testimonials. If you do not have all of it, I fill the gaps through research and a short call." },
-      { q: "Can you also publish the copy on my website?", a: "Yes. I can deliver in Google Docs, or place it directly into WordPress, Webflow or a custom Next.js site as part of a web development project." },
+      { q: "What do you need from us to start?", a: "Your current site or materials, your top competitors, a description of your ideal customer and any reviews or testimonials. If you do not have all of it, we fill the gaps through research and a short call." },
+      { q: "Can you also publish the copy on our website?", a: "Yes. We can deliver in Google Docs, or place it directly into WordPress, Webflow or a custom Next.js site as part of a web development project." },
     ],
     proof: [
       { label: "Med spa copy sample", url: "https://docs.google.com/document/d/1MNRrdGx6PLKwYlErmXwvSSwrT4tvw6KvT03J_tOQGPc/edit?tab=t.b74zrc6h5sx" },
@@ -129,7 +129,7 @@ export const services: Service[] = [
     badge: "Blog Writing Service",
     headline: "SEO Blog Writing That Brings In Buyers, Not Just Traffic",
     intro:
-      "A blog only pays off when each post targets a real search, answers it better than the pages already ranking and leads the reader toward your service. I plan, write and optimize articles around a keyword map, so every post has a job to do for your business.",
+      "A blog only pays off when each post targets a real search, answers it better than the pages already ranking and leads the reader toward your service. We plan, write and optimize articles around a keyword map, so every post has a job to do for your business.",
     problem:
       "Blogs fail when posts chase topics nobody searches for or repeat what already ranks.",
     approach:
@@ -168,7 +168,7 @@ export const services: Service[] = [
     ],
     process: [
       { title: "Keyword map", text: "We choose topics that match your services and your buyer's real questions." },
-      { title: "Brief", text: "I analyze the top results and define the angle that will beat them." },
+      { title: "Brief", text: "We analyze the top results and define the angle that will beat them." },
       { title: "Write", text: "Draft, fact check and optimize with clean, scannable formatting." },
       { title: "Publish and track", text: "Posts go live and we watch rankings and clicks to guide the next batch." },
     ],
@@ -183,12 +183,12 @@ export const services: Service[] = [
     tools: ["Ahrefs", "Surfer SEO", "Grammarly", "Notion", "WordPress"],
     idealFor: ["Agencies that need a reliable writer", "Local businesses building topical authority", "Founders who want a content engine", "Legal and healthcare brands"],
     faqs: [
-      { q: "Do you use AI to write the posts?", a: "I use AI tools for research, outlines and checking coverage, but every article is written, edited and fact checked by a human. That keeps the voice natural and the facts accurate." },
+      { q: "Do you use AI to write the posts?", a: "We use AI tools for research, outlines and checking coverage, but every article is written, edited and fact checked by a human. That keeps the voice natural and the facts accurate." },
       { q: "How many posts per month can you deliver?", a: "Most clients start with 4 to 8 posts a month. We can scale up once rankings and leads show the strategy is working." },
       { q: "How long before blog posts rank?", a: "For a newer site, expect early movement in 2 to 4 months and compounding results after 6 months. Timing depends on competition, site authority and how consistently you publish." },
-      { q: "Can you match our existing tone?", a: "Yes. I review your top pages and past posts first, then write to match. A short voice guide keeps everything consistent as we scale." },
-      { q: "Will the posts include images and internal links?", a: "Yes. I add internal links to your service and related pages, suggest image placement and write alt text. I can also source or brief images on request." },
-      { q: "Do you write for regulated industries?", a: "Yes, including legal, health and insurance. I cite reliable sources, avoid unsupported claims and flag anything your compliance team should review." },
+      { q: "Can you match our existing tone?", a: "Yes. We review your top pages and past posts first, then write to match. A short voice guide keeps everything consistent as we scale." },
+      { q: "Will the posts include images and internal links?", a: "Yes. We add internal links to your service and related pages, suggest image placement and write alt text. We can also source or brief images on request." },
+      { q: "Do you write for regulated industries?", a: "Yes, including legal, health and insurance. We cite reliable sources, avoid unsupported claims and flag anything your compliance team should review." },
     ],
     proof: [
       { label: "Insurance agency content sample", url: "https://docs.google.com/document/d/1nft-8dYQSUjO2vOlDqCuxC3CnYOhbVNJZhrF73ZQTwM/edit?tab=t.bj8cjrmoivhb" },
@@ -206,11 +206,11 @@ export const services: Service[] = [
     badge: "Full-Stack Development",
     headline: "Fast Websites and Web Apps Built to Grow With You",
     intro:
-      "I design and build the whole stack, from the interface your visitors see to the database and API behind it. Every build is mobile first, tuned for Core Web Vitals and structured so search engines and future developers can understand it.",
+      "We design and build the whole stack, from the interface your visitors see to the database and API behind it. Every build is mobile first, tuned for Core Web Vitals and structured so search engines and future developers can understand it.",
     problem:
       "Slow template sites and spreadsheets-and-email processes hold businesses back as they grow.",
     approach:
-      "I build the full stack myself, from interface to API and database, mobile first and structured for SEO, shipping weekly on a preview link.",
+      "We build the full stack ourselves, from interface to API and database, mobile first and structured for SEO, shipping weekly on a preview link.",
     offers: [
       {
         title: "Business Websites",
@@ -260,12 +260,12 @@ export const services: Service[] = [
     tools: ["React", "Next.js", "TypeScript", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
     idealFor: ["Businesses replacing a slow template site", "Startups that need an MVP", "Clinics and service firms needing online booking", "Agencies that need a dev partner"],
     faqs: [
-      { q: "Can I see examples of your work?", a: "Yes. The projects page has live demos including a doctor appointment system, a library management app, a social friend manager and a tile store." },
-      { q: "Will my site be good for SEO?", a: "Yes. I build with server rendering, structured data, clean URLs and fast load times, so pages are easy for Google to crawl and rank. On-page copy and SEO can be handled in the same project." },
+      { q: "Can we see examples of your work?", a: "Yes. The projects page has live demos including a doctor appointment system, a library management app, a social friend manager and a tile store." },
+      { q: "Will our site be good for SEO?", a: "Yes. We build with server rendering, structured data, clean URLs and fast load times, so pages are easy for Google to crawl and rank. On-page copy and SEO can be handled in the same project." },
       { q: "How long does a website take?", a: "A focused business site usually takes 2 to 4 weeks. Web apps with accounts, dashboards and integrations take longer, and you get a clear timeline after scoping." },
-      { q: "Do you build in WordPress?", a: "My focus is custom Next.js and full-stack builds. I can still connect your site to WordPress as a headless content source if your team wants to keep editing there." },
-      { q: "Who owns the code and the hosting?", a: "You do. I hand over the full source code, set up hosting under your own account and document how everything works." },
-      { q: "Do you offer support after launch?", a: "Yes. I offer a short free bug fix window after launch and optional monthly maintenance for updates, monitoring and small improvements." },
+      { q: "Do you build in WordPress?", a: "Our focus is custom Next.js and full-stack builds. We can still connect your site to WordPress as a headless content source if your team wants to keep editing there." },
+      { q: "Who owns the code and the hosting?", a: "You do. We hand over the full source code, set up hosting under your own account and document how everything works." },
+      { q: "Do you offer support after launch?", a: "Yes. We offer a short free bug fix window after launch and optional monthly maintenance for updates, monitoring and small improvements." },
     ],
     proof: [
       { label: "DocAppoint", url: "https://docappoint-client-final.vercel.app/" },
@@ -283,11 +283,11 @@ export const services: Service[] = [
     badge: "n8n Automation Service",
     headline: "n8n Automation That Gives Your Team Their Hours Back",
     intro:
-      "If a task is repeated every day, it can usually be automated. I build reliable n8n workflows that move data between your apps, trigger actions at the right moment and alert you only when something needs a human decision.",
+      "If a task is repeated every day, it can usually be automated. We build reliable n8n workflows that move data between your apps, trigger actions at the right moment and alert you only when something needs a human decision.",
     problem:
       "Teams lose hours every week to copy-paste work: moving leads, forwarding forms, building reports.",
     approach:
-      "I map the manual steps, then build n8n workflows with error handling that connect your tools and alert a human only when needed.",
+      "We map the manual steps, then build n8n workflows with error handling that connect your tools and alert a human only when needed.",
     offers: [
       {
         title: "Lead Capture and Routing",
@@ -322,7 +322,7 @@ export const services: Service[] = [
     ],
     process: [
       { title: "Audit", text: "We map the manual tasks that cost you the most time." },
-      { title: "Design", text: "I draw the workflow, define triggers and agree on edge cases." },
+      { title: "Design", text: "We draw the workflow, define triggers and agree on edge cases." },
       { title: "Build and test", text: "Workflows are built and tested with real data in a safe environment." },
       { title: "Document", text: "You get a short guide and a recorded walkthrough." },
     ],
@@ -338,10 +338,10 @@ export const services: Service[] = [
     idealFor: ["Agencies drowning in manual reporting", "Sales teams with slow lead follow up", "Founders who want to scale without hiring", "Content teams with repeatable pipelines"],
     faqs: [
       { q: "Why n8n instead of Zapier or Make?", a: "n8n is more flexible, supports custom code and can be self hosted. That keeps costs low at higher volumes and your data under your control." },
-      { q: "Can you work with my existing tools?", a: "If a tool has an API or a webhook, it can almost always be connected. If it has neither, we look for an export, an email trigger or another workaround." },
-      { q: "What happens if a workflow breaks?", a: "Every workflow includes error handling, retries and alerts. I also offer a monitoring plan where I watch runs and fix issues before they affect your business." },
-      { q: "Do I need to host n8n myself?", a: "Not necessarily. I can use n8n Cloud or set up a self hosted instance on a small server, and I will recommend the option that fits your volume and budget." },
-      { q: "Can you add AI to my workflows?", a: "Yes. I use OpenAI and Claude APIs for classification, summaries, drafting and data extraction, always with a review step where accuracy matters." },
+      { q: "Can you work with our existing tools?", a: "If a tool has an API or a webhook, it can almost always be connected. If it has neither, we look for an export, an email trigger or another workaround." },
+      { q: "What happens if a workflow breaks?", a: "Every workflow includes error handling, retries and alerts. We also offer a monitoring plan where we watch runs and fix issues before they affect your business." },
+      { q: "Do we need to host n8n ourselves?", a: "Not necessarily. We can use n8n Cloud or set up a self hosted instance on a small server, and we will recommend the option that fits your volume and budget." },
+      { q: "Can you add AI to our workflows?", a: "Yes. We use OpenAI and Claude APIs for classification, summaries, drafting and data extraction, always with a review step where accuracy matters." },
       { q: "How long does an automation take to build?", a: "Simple workflows take a few days. Multi-step systems with several integrations usually take 1 to 3 weeks, including testing and documentation." },
     ],
     proof: [
@@ -360,11 +360,11 @@ export const services: Service[] = [
     badge: "GoHighLevel Service",
     headline: "GoHighLevel Lead Generation That Follows Up Before Your Competitor Does",
     intro:
-      "Most leads are lost because nobody replies fast enough. I set up GoHighLevel so every enquiry gets an instant response, lands in the right pipeline stage and is nurtured automatically until it books or buys.",
+      "Most leads are lost because nobody replies fast enough. We set up GoHighLevel so every enquiry gets an instant response, lands in the right pipeline stage and is nurtured automatically until it books or buys.",
     problem:
       "Leads go cold because replies are slow and follow-up depends on someone remembering.",
     approach:
-      "I set up GoHighLevel pipelines, instant replies and automated follow-up sequences, and write the messages so they sound human.",
+      "We set up GoHighLevel pipelines, instant replies and automated follow-up sequences, and write the messages so they sound human.",
     offers: [
       {
         title: "Funnels and Landing Pages",
@@ -414,12 +414,12 @@ export const services: Service[] = [
     tools: ["GoHighLevel", "n8n", "Webhooks", "Google Sheets"],
     idealFor: ["Med spas and clinics", "Home service companies", "Law firms", "Real estate agents", "Marketing agencies reselling GHL"],
     faqs: [
-      { q: "Do I need my own GoHighLevel account?", a: "Yes, or I can set up a sub account under your agency account. I guide you through whichever option suits your business." },
-      { q: "Can you connect GHL to my website?", a: "Yes. Forms, chat widgets and tracking can be embedded on any site, including custom Next.js builds and WordPress." },
-      { q: "Will you write the follow up messages?", a: "Yes. As a copywriter, I write every SMS and email sequence so it sounds human, follows the rules and converts." },
+      { q: "Do we need our own GoHighLevel account?", a: "Yes, or we can set up a sub account under your agency account. We guide you through whichever option suits your business." },
+      { q: "Can you connect GHL to our website?", a: "Yes. Forms, chat widgets and tracking can be embedded on any site, including custom Next.js builds and WordPress." },
+      { q: "Will you write the follow up messages?", a: "Yes. As copywriters, we write every SMS and email sequence so it sounds human, follows the rules and converts." },
       { q: "What is missed call text back?", a: "When a call goes unanswered, GHL instantly texts the caller and starts a conversation. It is one of the simplest ways to stop losing local leads." },
-      { q: "How fast can my system go live?", a: "A core setup with pipeline, forms, booking and follow ups usually goes live within 1 to 2 weeks, depending on how many funnels and integrations you need." },
-      { q: "Do you handle SMS compliance?", a: "I set up opt in language, opt out handling and A2P registration guidance so your messaging follows carrier and local rules." },
+      { q: "How fast can our system go live?", a: "A core setup with pipeline, forms, booking and follow ups usually goes live within 1 to 2 weeks, depending on how many funnels and integrations you need." },
+      { q: "Do you handle SMS compliance?", a: "We set up opt in language, opt out handling and A2P registration guidance so your messaging follows carrier and local rules." },
     ],
     proof: [
       { label: "Local SEO management tool", url: "https://local-seo.growminion.ca/" },
@@ -437,11 +437,11 @@ export const services: Service[] = [
     badge: "SaaS Development",
     headline: "SaaS Development That Takes Your Idea From MVP to Launch",
     intro:
-      "I help build real SaaS products at GrowMinion, including a local SEO management platform, an AI content tool and an HR management system. I bring the same approach to your idea: ship a focused MVP quickly, then grow it on solid foundations.",
+      "We help build real SaaS products at GrowMinion, including a local SEO management platform, an AI content tool and an HR management system. We bring the same approach to your idea: ship a focused MVP quickly, then grow it on solid foundations.",
     problem:
       "Repeated internal processes pay for expensive tools that never quite fit the workflow.",
     approach:
-      "I scope the smallest useful product, then build it in code with auth, dashboards and APIs, the same way the Growminion products were built.",
+      "We scope the smallest useful product, then build it in code with auth, dashboards and APIs, the same way the Growminion products were built.",
     offers: [
       {
         title: "MVP Planning",
@@ -491,12 +491,12 @@ export const services: Service[] = [
     tools: ["TypeScript", "React", "Node.js", "Express", "SQL", "REST API"],
     idealFor: ["Founders with a validated idea", "Agencies productizing their service", "Teams replacing spreadsheets with software", "Startups needing a technical partner"],
     faqs: [
-      { q: "Have you built SaaS products before?", a: "Yes. I have helped build three live SaaS tools at GrowMinion, covering local SEO management, content and copywriting, and HR management." },
+      { q: "Have you built SaaS products before?", a: "Yes. We have helped build three live SaaS tools at GrowMinion, covering local SEO management, content and copywriting, and HR management." },
       { q: "How long does an MVP take?", a: "Most focused MVPs take 4 to 10 weeks, depending on scope and integrations. You see working demos every week, so there are no long silent stretches." },
       { q: "Who owns the code?", a: "You do. Full source code, infrastructure access and documentation are handed over at launch." },
-      { q: "Can you add AI features to my product?", a: "Yes. I integrate language models for generation, summarizing, search and analysis, with cost controls and review steps built in." },
-      { q: "What tech stack do you use?", a: "Mostly Next.js, React, Node.js, MongoDB or PostgreSQL, Stripe and cloud hosting on Vercel or AWS. I choose based on your product, not habit." },
-      { q: "Can you work with my existing team or codebase?", a: "Yes. I can join as a technical partner, take over a stalled build or add features to an existing product after a short code review." },
+      { q: "Can you add AI features to our product?", a: "Yes. We integrate language models for generation, summarizing, search and analysis, with cost controls and review steps built in." },
+      { q: "What tech stack do you use?", a: "Mostly Next.js, React, Node.js, MongoDB or PostgreSQL, Stripe and cloud hosting on Vercel or AWS. We choose based on your product, not habit." },
+      { q: "Can you work with our existing team or codebase?", a: "Yes. We can join as a technical partner, take over a stalled build or add features to an existing product after a short code review." },
     ],
     proof: [
       { label: "Local SEO management tool", url: "https://local-seo.growminion.ca/" },

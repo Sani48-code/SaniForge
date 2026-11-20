@@ -24,7 +24,7 @@ export default function AuthorBio() {
         </div>
         <p className="mt-2 text-sm leading-relaxed text-slate-600">
           {linkifyGrowMinion(
-            "Founder of SaniForge and a full-stack developer on the GrowMinion core team. I build fast websites, SEO content that ranks and n8n automations for US law firms and local businesses."
+            "Founder of SaniForge and a full-stack developer on the GrowMinion core team. SaniForge builds fast websites, SEO content that ranks and n8n automations for US law firms and local businesses."
           )}
         </p>
       </div>

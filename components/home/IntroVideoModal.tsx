@@ -43,9 +43,9 @@ export default function IntroVideoModal({ open, onClose }: { open: boolean; onCl
               <div className="flex items-center justify-between border-b border-slate-100 pb-4">
                 <div>
                   <h2 id="intro-video-title" className="text-lg font-bold text-slate-900">
-                    Meet Abdul Kaiyum Sani
+                    Meet the Founder of SaniForge
                   </h2>
-                  <p className="text-xs text-slate-500 mt-0.5">n8n Developer, Full-Stack Dev &amp; Growth Engineer</p>
+                  <p className="text-xs text-slate-500 mt-0.5">Abdul Kaiyum Sani, Founder</p>
                 </div>
                 <button
                   type="button"

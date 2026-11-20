@@ -107,7 +107,7 @@ export default function ContactForm() {
           value={form.message}
           onChange={(e) => setForm({ ...form, message: e.target.value })}
           className="w-full resize-none rounded-xl border border-navy-border bg-navy-panel/60 px-4 py-3 text-ink placeholder:text-ink-faint focus:border-gold/50 focus:outline-none"
-          placeholder="Tell me a bit about your project..."
+          placeholder="Tell us a bit about your project..."
         />
         {errors.message && <p className="mt-1.5 text-xs text-red-400">{errors.message}</p>}
       </div>

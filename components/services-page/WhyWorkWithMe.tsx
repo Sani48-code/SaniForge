@@ -53,14 +53,14 @@ export default function WhyWorkWithMe() {
       <div className="container-px relative mx-auto grid max-w-[1240px] gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
         <Reveal className="lg:sticky lg:top-28 lg:self-start">
           <p className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-sv-goldtext">
-            <span className="h-0.5 w-6 rounded bg-jn-gold" /> Why work with me
+            <span className="h-0.5 w-6 rounded bg-jn-gold" /> Why work with us
           </p>
           <h2 className="mt-4 font-display text-4xl font-extrabold leading-[1.08] tracking-tight text-sv-navy sm:text-5xl xl:text-6xl">
             More Than Execution. A{" "}
             <span className="text-sv-blue">Problem-Solving</span> Mindset.
           </h2>
           <p className="mt-6 max-w-md text-lg leading-relaxed text-jn-body">
-            I look beyond the immediate task to understand the problem, the system behind
+            We look beyond the immediate task to understand the problem, the system behind
             it, and the solution that makes the most sense.
           </p>
         </Reveal>
@@ -70,28 +70,28 @@ export default function WhyWorkWithMe() {
             {
               n: "01",
               title: "Engineering Mindset",
-              body: (<>I approach projects by understanding <span className={hl}>how the pieces fit together</span>, identifying underlying problems, and choosing <span className={hb}>practical technical solutions</span>.</>),
+              body: (<>We approach projects by understanding <span className={hl}>how the pieces fit together</span>, identifying underlying problems, and choosing <span className={hb}>practical technical solutions</span>.</>),
               kind: "mindset" as const,
               offset: "",
             },
             {
               n: "02",
               title: "Business-First Thinking",
-              body: (<>I connect technical implementation, content, and automation with the <span className={hl}>actual objectives of the business</span>.</>),
+              body: (<>We connect technical implementation, content, and automation with the <span className={hl}>actual objectives of the business</span>.</>),
               kind: "business" as const,
               offset: "lg:ml-10",
             },
             {
               n: "03",
               title: "End-to-End Understanding",
-              body: (<>I consider the <span className={hb}>complete solution</span>, from the user interface and application logic to <span className={hl}>databases, APIs, integrations, and delivery</span>.</>),
+              body: (<>We consider the <span className={hb}>complete solution</span>, from the user interface and application logic to <span className={hl}>databases, APIs, integrations, and delivery</span>.</>),
               kind: "end" as const,
               offset: "",
             },
             {
               n: "04",
               title: "Practical Automation",
-              body: (<>I look for <span className={hl}>repetitive processes</span> and opportunities to <span className={hb}>simplify workflows</span> through thoughtful automation.</>),
+              body: (<>We look for <span className={hl}>repetitive processes</span> and opportunities to <span className={hb}>simplify workflows</span> through thoughtful automation.</>),
               kind: "auto" as const,
               offset: "lg:ml-10",
             },

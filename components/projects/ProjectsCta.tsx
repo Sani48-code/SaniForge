@@ -26,7 +26,7 @@ export default function ProjectsCta() {
                 href={site.mailtoLink}
                 className="inline-flex items-center justify-center rounded-lg border-2 border-white/60 px-7 py-3.5 text-base font-semibold text-white transition hover:border-pf-yellow hover:text-pf-yellow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
-                Contact Me
+                Contact Us
               </a>
             </div>
           </div>

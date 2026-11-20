@@ -20,7 +20,7 @@ export default function ServicePanels() {
     <section id="services" className="scroll-mt-24 bg-white py-20 sm:py-28">
       <div className="container-px mx-auto max-w-[1240px]">
         <Heading
-          eyebrow="Services I Offer"
+          eyebrow="Services We Offer"
           title="From Ideas to Working Solutions."
           text="Choose the expertise that fits your business goals. Every service is designed around a clear problem, a practical solution, and a useful outcome."
         />
@@ -41,7 +41,7 @@ export default function ServicePanels() {
                   </div>
                   <h3 className="mt-6 font-display text-2xl font-extrabold leading-tight text-sv-navy">{s.label}</h3>
                   <p className="mt-2.5 text-base leading-relaxed text-jn-body">{s.description}</p>
-                  <p className="mt-5 text-xs font-bold uppercase tracking-wider text-sv-navy">What I can deliver</p>
+                  <p className="mt-5 text-xs font-bold uppercase tracking-wider text-sv-navy">What we can deliver</p>
                   <ul className="mt-2 space-y-1.5">
                     {s.offers.slice(0, 3).map((o) => (
                       <li key={o.title} className="flex items-start gap-2 text-sm text-jn-body">

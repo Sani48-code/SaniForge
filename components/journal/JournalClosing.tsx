@@ -8,7 +8,7 @@ export function ApproachSection() {
       <span aria-hidden="true" className="absolute -left-10 top-10 h-40 w-40 rounded-full bg-white/60" />
       <div className="container-px relative mx-auto max-w-3xl text-center">
         <Reveal>
-          <p className="text-xs font-bold uppercase tracking-[0.22em] text-violet-700">About my approach</p>
+          <p className="text-xs font-bold uppercase tracking-[0.22em] text-violet-700">About our approach</p>
           <h2 className="mt-3 font-display text-3xl font-extrabold text-sv-navy sm:text-5xl text-balance">
             Built in Practice. Shared with Purpose.
           </h2>

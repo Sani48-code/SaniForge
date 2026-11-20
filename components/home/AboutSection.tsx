@@ -26,7 +26,7 @@ export default function AboutSection() {
             <div className="flex items-center gap-3">
               <span className="h-px w-10 bg-[#0B1A3D]" />
               <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-[#0B1A3D]">
-                About Me
+                Our Founder
               </p>
             </div>
             <h2 className="mt-5 font-display text-4xl font-medium leading-tight text-[#0B1A3D] sm:text-5xl lg:text-6xl text-balance">
@@ -41,11 +41,11 @@ export default function AboutSection() {
           <FadeIn delay={0.1}>
             <p className="mt-6 max-w-xl text-base font-medium leading-relaxed text-[#1B2338] sm:text-lg [&_a]:!text-[#0B1A3D] [&_a]:!decoration-[#0B1A3D]/60">
               {linkifyGrowMinion(
-                "I'm Abdul Kaiyum Sani, a full-stack developer, n8n developer and growth engineer on the core team at GrowMinion. I'm also a CSE student, so the fundamentals are solid: data structures, databases, networking and system design."
+                "SaniForge was founded by Abdul Kaiyum Sani, a full-stack developer, n8n developer and growth engineer on the core team at GrowMinion. He's also a CSE student, so the fundamentals are solid: data structures, databases, networking and system design."
               )}
             </p>
             <p className="mt-4 max-w-xl text-base font-medium leading-relaxed text-[#1B2338] sm:text-lg [&_a]:!text-[#0B1A3D] [&_a]:!decoration-[#0B1A3D]/60">
-              Beyond the classroom, I ship client websites, n8n automations and AI-powered SaaS products for businesses across the US. As a growth engineer, I tie every build to a number you care about: rankings, leads or booked calls.
+              Today, SaniForge ships client websites, n8n automations and AI-powered SaaS products for businesses across the US. As growth engineers, we tie every build to a number you care about: rankings, leads or booked calls.
             </p>
           </FadeIn>
 
@@ -65,7 +65,7 @@ export default function AboutSection() {
                     </>
                   );
                   const cls = "flex items-center gap-3 rounded-2xl border border-navy-border bg-navy-panel/70 py-3 pl-3 pr-5 transition-colors hover:border-gold/40";
-                  // Role chips link to the matching "hire me" page.
+                  // Role chips link to the matching "hire us" page.
                   return h.href ? (
                     <Link href={h.href} className={cls}>
                       {chip}

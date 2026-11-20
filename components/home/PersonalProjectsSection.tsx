@@ -15,11 +15,11 @@ export default function PersonalProjectsSection() {
           <h2 className="font-display text-5xl font-medium leading-tight text-ink sm:text-6xl text-balance">
             Things{" "}
             <span className="bg-gradient-to-r from-gold-light to-blue-accent bg-clip-text text-transparent">
-              I&apos;ve Built on My Own
+              We&apos;ve Built on Our Own
             </span>
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-ink-muted sm:text-xl">
-            A few independent projects I designed and developed end to end,
+            A few independent projects we designed and developed end to end,
             outside of client work.
           </p>
         </FadeIn>

@@ -1,5 +1,5 @@
 /**
- * Content for the personal "hire me" landing pages: /n8n-developer, /full-stack-developer, /growth-engineer.
+ * Content for the personal "hire us" landing pages: /n8n-developer, /full-stack-developer, /growth-engineer.
  *
  * Keyword map (avoid cannibalization):
  * - These pages target role keywords: "n8n developer", "hire n8n developer", "full stack developer",
@@ -18,7 +18,7 @@ export type KeywordPage = {
   label: string;
   seo: { title: string; description: string };
   hero: { eyebrow: string; h1: string; intro: string[]; proof: { value: string; label: string }[] };
-  /** Main "what I do" block */
+  /** Main "what we do" block */
   what: { title: string; intro?: string; items: { title: string; text: string; href?: string; linkText?: string }[] };
   /** One focused narrative section (niche or explainer) */
   focus: { title: string; paragraphs: string[]; links?: { href: string; text: string }[] };
@@ -38,14 +38,14 @@ export const keywordPages: Record<KeywordSlug, KeywordPage> = {
     seo: {
       title: "n8n Developer for Law Firms & Local Businesses",
       description:
-        "Hire an n8n developer for lead routing, CRM automation and GoHighLevel integrations. Abdul Kaiyum Sani builds n8n workflows for US law firms and agencies.",
+        "Hire an n8n developer for lead routing, CRM automation and GoHighLevel integrations. SaniForge builds n8n workflows for US law firms and agencies.",
     },
     hero: {
       eyebrow: "Hire an n8n developer",
       h1: "n8n Developer for Law Firms, Agencies and Local Businesses",
       intro: [
-        "I'm Abdul Kaiyum Sani, an n8n developer and automation engineer on the GrowMinion core team. I build n8n workflows that capture a lead the moment it arrives, route it to the right person, update your CRM and send a useful reply, so no enquiry waits in an inbox overnight.",
-        "Most of my automation work is for law firms, agencies and local service businesses in the US, where a slow reply usually means the lead calls the next firm on the list.",
+        "SaniForge is an n8n development and automation company, founded by Abdul Kaiyum Sani of the GrowMinion core team. We build n8n workflows that capture a lead the moment it arrives, route it to the right person, update your CRM and send a useful reply, so no enquiry waits in an inbox overnight.",
+        "Most of our automation work is for law firms, agencies and local service businesses in the US, where a slow reply usually means the lead calls the next firm on the list.",
       ],
       proof: [
         { value: "89", label: "legal articles published in 24 hours by an n8n pipeline" },
@@ -54,7 +54,7 @@ export const keywordPages: Record<KeywordSlug, KeywordPage> = {
       ],
     },
     what: {
-      title: "What I build as your n8n developer",
+      title: "What we build as your n8n developer",
       intro: "Each workflow is built for one job, tested with real data and documented so your team can run it.",
       items: [
         {
@@ -67,7 +67,7 @@ export const keywordPages: Record<KeywordSlug, KeywordPage> = {
         },
         {
           title: "GoHighLevel integrations",
-          text: "For teams that run on GoHighLevel, I connect GHL to your website, forms and n8n so pipelines, tags and follow-up sequences fire from real data.",
+          text: "For teams that run on GoHighLevel, we connect GHL to your website, forms and n8n so pipelines, tags and follow-up sequences fire from real data.",
           href: "/services/lead-generation-ghl",
           linkText: "GoHighLevel lead generation setup",
         },
@@ -89,7 +89,7 @@ export const keywordPages: Record<KeywordSlug, KeywordPage> = {
       title: "An n8n developer for law firms",
       paragraphs: [
         "Law firms have two problems that automation fixes well: intake that depends on someone checking an inbox, and content that never gets written because the only people who can write it are busy with billable work.",
-        "For an intellectual property and personal injury firm, I built an AI content system on an n8n workflow. Topics and keywords moved from a whiteboard into a content queue, and the workflow researched, outlined and drafted each article with a prompt template tuned for legal content, including disclaimers and a firm-appropriate tone. It published 89 articles in 24 hours with a 98% success rate.",
+        "For an intellectual property and personal injury firm, we built an AI content system on an n8n workflow. Topics and keywords moved from a whiteboard into a content queue, and the workflow researched, outlined and drafted each article with a prompt template tuned for legal content, including disclaimers and a firm-appropriate tone. It published 89 articles in 24 hours with a 98% success rate.",
         "The same thinking applies to intake. Every consultation request gets an instant acknowledgment, lands in the right practice-area pipeline and alerts the right attorney or paralegal, so a potential client hears back in minutes instead of the next morning.",
       ],
       links: [
@@ -98,18 +98,18 @@ export const keywordPages: Record<KeywordSlug, KeywordPage> = {
       ],
     },
     process: {
-      title: "How I work",
+      title: "How we work",
       steps: [
-        { title: "Audit the manual work", text: "You show me where the time goes. I map every step, tool and hand-off, and where leads or data get lost." },
-        { title: "Design the workflow", text: "I draw the trigger, the steps and the exceptions, agree them with you and decide how errors are handled before building anything." },
+        { title: "Audit the manual work", text: "You show us where the time goes. We map every step, tool and hand-off, and where leads or data get lost." },
+        { title: "Design the workflow", text: "We draw the trigger, the steps and the exceptions, agree them with you and decide how errors are handled before building anything." },
         { title: "Build and test with real data", text: "Workflows are built in a safe environment and tested with real submissions before they are switched on." },
         { title: "Document and hand over", text: "You get a short written guide and a recorded walkthrough, so your team can run and adjust the workflow." },
       ],
       note: "Simple workflows take a few days. Multi-step systems with several integrations usually take 1 to 3 weeks, including testing and documentation.",
     },
     tech: {
-      title: "Tools I use",
-      text: "When a pre-built node is not enough, I write custom code nodes and call APIs directly. That comes from my full-stack development work, which also means I can fix the form or website that feeds the workflow.",
+      title: "Tools we use",
+      text: "When a pre-built node is not enough, we write custom code nodes and call APIs directly. That comes from our full-stack development work, which also means we can fix the form or website that feeds the workflow.",
       tools: ["n8n (Cloud or self-hosted)", "Webhooks", "GoHighLevel", "OpenAI API", "Claude", "Google Sheets", "Gmail", "Slack", "WordPress REST API", "Node.js", "JavaScript"],
     },
     caseStudies: {
@@ -126,16 +126,16 @@ export const keywordPages: Record<KeywordSlug, KeywordPage> = {
         a: "n8n is more flexible, supports custom code and can be self-hosted, which keeps costs low at higher volumes and your data under your control. Zapier or Make are fine for simple two-step automations. An n8n developer helps most when routing rules, your CRM and follow-up logic need to work together.",
       },
       {
-        q: "Can you work with my existing CRM and tools?",
+        q: "Can you work with our existing CRM and tools?",
         a: "If a tool has an API or a webhook, it can almost always be connected. If it has neither, we look for an export, an email trigger or another workaround.",
       },
       {
-        q: "Do I need to host n8n myself?",
-        a: "Not necessarily. I can use n8n Cloud or set up a self-hosted instance on a small server, and I will recommend the option that fits your volume and budget.",
+        q: "Do we need to host n8n ourselves?",
+        a: "Not necessarily. We can use n8n Cloud or set up a self-hosted instance on a small server, and we will recommend the option that fits your volume and budget.",
       },
       {
         q: "What happens if a workflow breaks?",
-        a: "Every workflow includes error handling, retries and alerts. I also offer a monitoring plan where I watch runs and fix issues before they affect your business.",
+        a: "Every workflow includes error handling, retries and alerts. We also offer a monitoring plan where we watch runs and fix issues before they affect your business.",
       },
       {
         q: "How long does an n8n project take?",
@@ -145,7 +145,7 @@ export const keywordPages: Record<KeywordSlug, KeywordPage> = {
     related: [
       { href: "/services/n8n-automation", text: "n8n automation services: what is included" },
       { href: "/services/lead-generation-ghl", text: "GoHighLevel lead generation setup" },
-      { href: "/blog/automate-repetitive-business-tasks-with-n8n", text: "How I use n8n to automate repetitive business tasks" },
+      { href: "/blog/automate-repetitive-business-tasks-with-n8n", text: "How we use n8n to automate repetitive business tasks" },
       { href: "/blog/build-lead-capture-automation-under-an-hour", text: "Build a lead capture automation in under an hour" },
       { href: "/blog/capture-website-leads-with-n8n-webhook", text: "n8n webhook tutorial: capture website leads step by step" },
       { href: "/blog/n8n-vs-zapier-vs-make-lead-routing", text: "n8n vs Zapier vs Make: which tool fits your lead routing" },
@@ -153,7 +153,7 @@ export const keywordPages: Record<KeywordSlug, KeywordPage> = {
     ],
     cta: {
       title: "Stop losing leads to a slow inbox",
-      text: "Book a free 30-minute audit. I will look at how enquiries reach you today and tell you the first workflow I would build.",
+      text: "Book a free 30-minute audit. We will look at how enquiries reach you today and tell you the first workflow we would build.",
     },
   },
 
@@ -169,8 +169,8 @@ export const keywordPages: Record<KeywordSlug, KeywordPage> = {
       eyebrow: "Full-stack dev",
       h1: "Full-Stack Developer for Fast Websites, Web Apps and SaaS",
       intro: [
-        "I'm Abdul Kaiyum Sani, a full-stack developer working with the MERN stack, TypeScript and Next.js. I build the whole product myself: the interface your visitors use, the API behind it and the database that stores it, so nothing falls into the gap between a front-end and a back-end contractor.",
-        "I'm also a CSE student, so the fundamentals are solid: data structures, databases, networking and system design. On the GrowMinion core team I have helped build three SaaS products in code, and for clients I build business websites that load fast, rank and turn visitors into enquiries.",
+        "SaniForge is a full-stack development company working with the MERN stack, TypeScript and Next.js. We build the whole product ourselves: the interface your visitors use, the API behind it and the database that stores it, so nothing falls into the gap between a front-end and a back-end contractor.",
+        "Our founder, Abdul Kaiyum Sani, is a CSE student, so the fundamentals are solid: data structures, databases, networking and system design. On the GrowMinion core team he has helped build three SaaS products in code, and for clients we build business websites that load fast, rank and turn visitors into enquiries.",
       ],
       proof: [
         { value: "3x", label: "lead form submissions in 90 days after a rebuild" },
@@ -179,7 +179,7 @@ export const keywordPages: Record<KeywordSlug, KeywordPage> = {
       ],
     },
     what: {
-      title: "What I build as a full-stack dev",
+      title: "What we build as a full-stack dev",
       items: [
         {
           title: "Business websites",
@@ -193,7 +193,7 @@ export const keywordPages: Record<KeywordSlug, KeywordPage> = {
         },
         {
           title: "SaaS products",
-          text: "From MVP to launch: authentication, billing, dashboards and APIs. At GrowMinion I helped build a GeoGrid rank tracker, an AI content engine and an HR platform.",
+          text: "From MVP to launch: authentication, billing, dashboards and APIs. At GrowMinion we helped build a GeoGrid rank tracker, an AI content engine and an HR platform.",
           href: "/services/saas-development",
           linkText: "SaaS development service",
         },
@@ -213,12 +213,12 @@ export const keywordPages: Record<KeywordSlug, KeywordPage> = {
       title: "Performance and SEO are part of the build",
       paragraphs: [
         "A beautiful site that takes six seconds to load on a phone loses the visitor before the form is visible. Google's Core Web Vitals set the bar: Largest Contentful Paint under 2.5 seconds, Interaction to Next Paint under 200 milliseconds and Cumulative Layout Shift under 0.1.",
-        "I build with server rendering, optimized images, minimal JavaScript, clean URLs, metadata and structured data from day one, so pages are easy for Google to crawl and fast for people to use.",
-        "For a local restoration company, I rebuilt the site mobile first, added a click-to-call button and a one-field service request form, and set up conversion tracking through Google Tag Manager and Google Analytics. Mobile load time dropped from over 6 seconds to under 2, and lead form submissions tripled within 90 days.",
+        "We build with server rendering, optimized images, minimal JavaScript, clean URLs, metadata and structured data from day one, so pages are easy for Google to crawl and fast for people to use.",
+        "For a local restoration company, we rebuilt the site mobile first, added a click-to-call button and a one-field service request form, and set up conversion tracking through Google Tag Manager and Google Analytics. Mobile load time dropped from over 6 seconds to under 2, and lead form submissions tripled within 90 days.",
       ],
       links: [
         { href: "/case-studies/local-service-website-redesign", text: "Read the local service redesign case study" },
-        { href: "/blog/why-i-audit-every-websites-core-web-vitals", text: "Why I audit every website's Core Web Vitals" },
+        { href: "/blog/why-i-audit-every-websites-core-web-vitals", text: "Why we audit every website's Core Web Vitals" },
       ],
     },
     process: {
@@ -233,7 +233,7 @@ export const keywordPages: Record<KeywordSlug, KeywordPage> = {
     },
     tech: {
       title: "Tech stack",
-      text: "I choose the stack from the product, not from habit. Most builds use Next.js and React on the front end, Node.js on the back end and a hosted database, deployed on Vercel.",
+      text: "We choose the stack from the product, not from habit. Most builds use Next.js and React on the front end, Node.js on the back end and a hosted database, deployed on Vercel.",
       tools: ["React", "Next.js", "TypeScript", "JavaScript", "Node.js", "Express", "MongoDB", "PostgreSQL / SQL", "Tailwind CSS", "REST APIs", "Stripe", "Vercel", "GitHub"],
     },
     caseStudies: {
@@ -250,20 +250,20 @@ export const keywordPages: Record<KeywordSlug, KeywordPage> = {
         a: "A focused business site usually takes 2 to 4 weeks. Web apps with accounts, dashboards and integrations take longer, and you get a clear timeline after scoping.",
       },
       {
-        q: "Will my site be good for SEO?",
-        a: "Yes. I build with server rendering, structured data, clean URLs and fast load times, so pages are easy for Google to crawl and rank. On-page copy and SEO can be handled in the same project.",
+        q: "Will our site be good for SEO?",
+        a: "Yes. We build with server rendering, structured data, clean URLs and fast load times, so pages are easy for Google to crawl and rank. On-page copy and SEO can be handled in the same project.",
       },
       {
         q: "Do you build in WordPress?",
-        a: "My focus is custom Next.js and full-stack builds. I can still connect your site to WordPress as a headless content source if your team wants to keep editing there.",
+        a: "Our focus is custom Next.js and full-stack builds. We can still connect your site to WordPress as a headless content source if your team wants to keep editing there.",
       },
       {
         q: "Who owns the code and the hosting?",
-        a: "You do. I hand over the full source code, set up hosting under your own account and document how everything works.",
+        a: "You do. We hand over the full source code, set up hosting under your own account and document how everything works.",
       },
       {
         q: "Do you offer support after launch?",
-        a: "Yes. I offer a short free bug-fix window after launch and optional monthly maintenance for updates, monitoring and small improvements.",
+        a: "Yes. We offer a short free bug-fix window after launch and optional monthly maintenance for updates, monitoring and small improvements.",
       },
     ],
     related: [
@@ -275,7 +275,7 @@ export const keywordPages: Record<KeywordSlug, KeywordPage> = {
     ],
     cta: {
       title: "Need a site that loads fast and brings in leads?",
-      text: "Book a free 30-minute audit. I will check your current site's speed, structure and lead forms and tell you what I would fix first.",
+      text: "Book a free 30-minute audit. We will check your current site's speed, structure and lead forms and tell you what we would fix first.",
     },
   },
 
@@ -285,14 +285,14 @@ export const keywordPages: Record<KeywordSlug, KeywordPage> = {
     seo: {
       title: "Growth Engineer for Law Firms & Local Businesses",
       description:
-        "What a growth engineer does, and how Abdul Kaiyum Sani combines SEO content, n8n automation and conversion-focused websites to get US businesses more calls.",
+        "What a growth engineer does, and how SaniForge combines SEO content, n8n automation and conversion-focused websites to get US businesses more calls.",
     },
     hero: {
       eyebrow: "Growth engineer",
       h1: "Growth Engineer for SEO, Automation and Conversion",
       intro: [
-        "A growth engineer works on the whole path from a search result to a signed client, with the technical skills to change any part of it. I'm Abdul Kaiyum Sani, and that is the job I do for law firms and local businesses across the US.",
-        "I write the content that brings in the right visitors, build the pages that turn them into enquiries and automate the follow-up so none of them go cold. Because one person owns all three, nothing gets lost between a writer, a developer and an automation contractor.",
+        "A growth engineer works on the whole path from a search result to a signed client, with the technical skills to change any part of it. That is the job SaniForge does for law firms and local businesses across the US.",
+        "We write the content that brings in the right visitors, build the pages that turn them into enquiries and automate the follow-up so none of them go cold. Because one team owns all three, nothing gets lost between a writer, a developer and an automation contractor.",
       ],
       proof: [
         { value: "480 → 2,100", label: "organic visits a month for a law firm" },
@@ -321,7 +321,7 @@ export const keywordPages: Record<KeywordSlug, KeywordPage> = {
           title: "Automation that protects every lead",
           text: "Instant replies, routing and reminders, so interest does not decay while a lead waits. One pipeline cut first response from 6.5 hours to under 2 minutes and lifted lead-to-meeting conversion from 11% to 19%.",
           href: "/n8n-developer",
-          linkText: "How I work as an n8n developer",
+          linkText: "How we work as an n8n developer",
         },
         {
           title: "Measurement you can act on",
@@ -346,14 +346,14 @@ export const keywordPages: Record<KeywordSlug, KeywordPage> = {
       steps: [
         { title: "Audit the funnel", text: "A free 30-minute audit of your site speed, your top service pages and what happens after someone submits a form." },
         { title: "Fix the biggest leak first", text: "We agree the one change that should move booked calls the most, whether that is a page, a form or a reply time." },
-        { title: "Build, write and automate", text: "I make the change across the stack: content, code and workflow, with tracking in place before launch." },
+        { title: "Build, write and automate", text: "We make the change across the stack: content, code and workflow, with tracking in place before launch." },
         { title: "Measure and iterate", text: "We review rankings, enquiries and response times, then pick the next leak to fix." },
       ],
       note: "SEO content usually shows early movement in 2 to 4 months and compounds after 6. Automation and conversion fixes start working as soon as they go live.",
     },
     tech: {
-      title: "Tools I use",
-      text: "The tools change with the problem. These are the ones I use most for content, conversion and automation work.",
+      title: "Tools we use",
+      text: "The tools change with the problem. These are the ones we use most for content, conversion and automation work.",
       tools: ["Ahrefs", "SurferSEO", "Google Analytics", "Google Tag Manager", "n8n", "GoHighLevel", "Next.js", "WordPress", "OpenAI API", "Claude"],
     },
     caseStudies: {
@@ -371,15 +371,15 @@ export const keywordPages: Record<KeywordSlug, KeywordPage> = {
       },
       {
         q: "Is this only for law firms?",
-        a: "No. Most of my work is for law firms, home service companies and real estate teams, and I also work with agencies and SaaS companies. The approach is the same: find where leads drop out and fix it.",
+        a: "No. Most of our work is for law firms, home service companies and real estate teams, and we also work with agencies and SaaS companies. The approach is the same: find where leads drop out and fix it.",
       },
       {
-        q: "How soon will I see results?",
+        q: "How soon will we see results?",
         a: "Automation and conversion fixes start working as soon as they go live. SEO content takes longer: for a newer site, expect early movement in 2 to 4 months and compounding results after 6 months.",
       },
       {
         q: "What does the free audit cover?",
-        a: "A 30-minute call where we look at your site speed, your most important service pages and how enquiries are handled after someone submits a form. You leave with the first thing I would fix, whether or not we work together.",
+        a: "A 30-minute call where we look at your site speed, your most important service pages and how enquiries are handled after someone submits a form. You leave with the first thing we would fix, whether or not we work together.",
       },
     ],
     related: [
@@ -391,7 +391,7 @@ export const keywordPages: Record<KeywordSlug, KeywordPage> = {
     ],
     cta: {
       title: "Find the leak in your lead flow",
-      text: "Book a free 30-minute audit. I will look at your traffic, your top pages and your follow-up and tell you the first fix worth making.",
+      text: "Book a free 30-minute audit. We will look at your traffic, your top pages and your follow-up and tell you the first fix worth making.",
     },
   },
 };

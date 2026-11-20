@@ -19,7 +19,7 @@ export default function ServicesHero() {
             Web Development · Automation · Digital Solutions
           </p>
           <h1 className="mt-6 font-display text-5xl font-extrabold leading-[1.05] tracking-tight text-sv-navy sm:text-6xl xl:text-[4.25rem]">
-            I Build{" "}
+            We Build{" "}
             <span className="relative whitespace-nowrap text-sv-blue">
               Digital Solutions
               <span aria-hidden="true" className="absolute -bottom-1 left-0 -z-10 h-3 w-full rounded bg-jn-gold/50" />
@@ -28,7 +28,7 @@ export default function ServicesHero() {
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-jn-body">
             From websites and SaaS platforms to automation workflows and SEO-driven
-            content, I help businesses solve practical problems with thoughtful
+            content, we help businesses solve practical problems with thoughtful
             engineering and reliable digital solutions.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -42,7 +42,7 @@ export default function ServicesHero() {
               href="/projects"
               className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-sv-navy bg-white px-7 py-4 text-base font-semibold text-sv-navy transition hover:-translate-y-0.5 hover:border-jn-gold hover:bg-jn-pale focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-jn-gold"
             >
-              Explore My Work <ArrowRight size={17} aria-hidden="true" />
+              Explore Our Work <ArrowRight size={17} aria-hidden="true" />
             </Link>
           </div>
           <ul className="mt-9 flex flex-wrap gap-x-7 gap-y-3">

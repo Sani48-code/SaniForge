@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { site } from "@/lib/data/site";
 import { buildMetadata } from "@/lib/seo";
 import JsonLd from "@/components/seo/JsonLd";
-import { websiteSchema, organizationSchema, profilePageSchema } from "@/lib/schema";
+import { websiteSchema, homePageSchema } from "@/lib/schema";
 import Hero from "@/components/home/Hero";
 import AboutSection from "@/components/home/AboutSection";
 import ExperienceSection from "@/components/home/ExperienceSection";
@@ -16,7 +16,7 @@ export const metadata: Metadata = buildMetadata({
   absoluteTitle: true,
   description: site.description,
   path: "/",
-  type: "profile",
+  type: "website",
   // app/opengraph-image.tsx provides the share image for this route.
   image: null,
 });
@@ -24,8 +24,8 @@ export const metadata: Metadata = buildMetadata({
 export default function HomePage() {
   return (
     <>
-      {/* WebSite + Organization drive the site name and logo Google shows; server-rendered. */}
-      <JsonLd data={[websiteSchema(), organizationSchema(), profilePageSchema()]} />
+      {/* WebSite drives the site name; the company entity (logo) comes from the root layout. */}
+      <JsonLd data={[websiteSchema(), homePageSchema()]} />
       <Hero />
       <AboutSection />
       <ExperienceSection />

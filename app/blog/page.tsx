@@ -18,7 +18,7 @@ export const revalidate = 300;
 export const metadata: Metadata = buildMetadata({
   title: "Blog: Web Dev, n8n Automation and SEO Lessons",
   description:
-    "Notes from building websites, SaaS tools, automation workflows and SEO systems. Lessons, technical decisions and practical solutions from Abdul Kaiyum Sani.",
+    "Notes from building websites, SaaS tools, automation workflows and SEO systems. Lessons, technical decisions and practical solutions from the SaniForge team.",
   path: "/blog",
   socialTitle: "The SaniForge Journal",
   socialDescription:

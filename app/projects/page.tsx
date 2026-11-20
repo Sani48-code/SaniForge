@@ -17,7 +17,7 @@ import { site } from "@/lib/data/site";
 export const metadata: Metadata = buildMetadata({
   title: "Projects & Case Studies: SaaS, Web Apps, Content",
   description:
-    "Selected work by Abdul Kaiyum Sani: SaaS products built with Growminion, web app concepts and content samples for med spa, real estate and insurance.",
+    "Selected work by SaniForge: SaaS products built with Growminion, web app concepts and content samples for med spa, real estate and insurance.",
   path: "/projects",
 });
 

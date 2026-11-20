@@ -14,7 +14,7 @@ const blocks: {
 }[] = [
   {
     title: "Engineering Decisions",
-    text: "Why I choose certain frameworks and how I weigh speed, maintainability and trade-offs.",
+    text: "Why we choose certain frameworks and how we weigh speed, maintainability and trade-offs.",
     icon: Cog,
     categories: ["Web Development", "SaaS & Systems", "Engineering Lessons"],
     bg: "bg-sv-soft",
@@ -22,7 +22,7 @@ const blocks: {
   },
   {
     title: "Automation Experiments",
-    text: "Workflows I build to remove repetitive work, and what I learn from running them.",
+    text: "Workflows we build to remove repetitive work, and what we learn from running them.",
     icon: Workflow,
     categories: ["Automation"],
     bg: "bg-sv-mint",
@@ -30,7 +30,7 @@ const blocks: {
   },
   {
     title: "SEO & Content Learnings",
-    text: "What I have learned about writing content that is built to rank and to convert.",
+    text: "What we have learned about writing content that is built to rank and to convert.",
     icon: Search,
     categories: ["SEO & Content"],
     bg: "bg-jn-pale",

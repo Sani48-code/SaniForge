@@ -11,7 +11,7 @@ function Mark({ yes }: { yes: boolean }) {
 
 export default function ComparisonTable({ compare }: { compare: Service["compare"] }) {
   const rows = [
-    { name: "SaniForge", note: "Specialist who does it end to end", values: compare.me, highlight: true },
+    { name: "SaniForge", note: "Specialist team that does it end to end", values: compare.me, highlight: true },
     { name: "In-house hire", note: "Higher cost, slower to start", values: compare.inHouse },
     { name: "Cheap freelancers", note: "Low price, inconsistent quality", values: compare.cheap },
     { name: "AI tools alone", note: "Fast, but generic and unreviewed", values: compare.ai },

@@ -9,8 +9,8 @@ export default function IndustriesGrid() {
       <div className="container-px mx-auto max-w-[1240px]">
         <SectionHead
           eyebrow="Industries"
-          title="Industries I Work With"
-          text="Each card shows a common business challenge. The label tells you whether it is backed by a project on this page or is part of my broader service scope."
+          title="Industries We Work With"
+          text="Each card shows a common business challenge. The label tells you whether it is backed by a project on this page or is part of our broader service scope."
         />
         <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {industries.map((ind, i) => {
@@ -42,7 +42,7 @@ export default function IndustriesGrid() {
                   {ind.challenge}
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-pf-slate">
-                  <span className="font-semibold text-pf-navy">How I help: </span>
+                  <span className="font-semibold text-pf-navy">How we help: </span>
                   {ind.help}
                 </p>
                 </div>

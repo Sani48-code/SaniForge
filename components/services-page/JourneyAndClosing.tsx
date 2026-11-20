@@ -11,7 +11,7 @@ const journey = [
     n: "01",
     label: "The beginning",
     title: "Copywriting and understanding how businesses communicate",
-    text: "I started at Growminion as a freelance copywriter, creating research-backed SEO content for local businesses.",
+    text: "Our founder started at Growminion as a freelance copywriter, creating research-backed SEO content for local businesses.",
     image: "/images/experience/joined-as-freelancer.png",
     alt: "Starting as a freelance copywriter at Growminion",
   },
@@ -19,7 +19,7 @@ const journey = [
     n: "02",
     label: "The transition",
     title: "Applying engineering thinking to practical problems",
-    text: "I kept finding ways to automate repetitive workflows, optimize pipelines, and build tools. That mindset stood out.",
+    text: "He kept finding ways to automate repetitive workflows, optimize pipelines, and build tools. That mindset stood out.",
     image: "/images/experience/showed-engineer-mindset.png",
     alt: "Showing an engineering and automation mindset",
   },
@@ -27,7 +27,7 @@ const journey = [
     n: "03",
     label: "The growth",
     title: "Taking on software engineering responsibilities",
-    text: "Growminion promoted me to Web and Automation Engineer, where I build full-stack websites, SEO systems, and automation pipelines.",
+    text: "Growminion promoted him to Web and Automation Engineer, where he builds full-stack websites, SEO systems, and automation pipelines.",
     image: "/images/experience/promoted-to-engineer.png",
     alt: "Promoted to Web and Automation Engineer at Growminion",
   },
@@ -48,10 +48,10 @@ export function JourneySection() {
             <span className="rounded bg-jn-gold/50 px-2">Solutions.</span>
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-jn-body">
-            I joined Growminion as a copywriter. As my engineering mindset and technical
-            skills became clear, I moved into engineering and development work. Knowing
+            Our founder joined Growminion as a copywriter. As his engineering mindset and technical
+            skills became clear, he moved into engineering and development work. Knowing
             both the communication side and the technical side of digital products is
-            what lets me connect the two.
+            what lets us connect the two.
           </p>
         </Reveal>
 
@@ -90,7 +90,7 @@ export function ProjectsBanner() {
         <Reveal>
           <div className="grid items-center gap-8 rounded-3xl bg-gradient-to-r from-sv-soft to-sv-lavender p-8 sm:p-12 lg:grid-cols-[1fr_1.1fr]">
             <div>
-              <h2 className="font-display text-3xl font-extrabold text-sv-navy sm:text-4xl">Want to See What I Build?</h2>
+              <h2 className="font-display text-3xl font-extrabold text-sv-navy sm:text-4xl">Want to See What We Build?</h2>
               <p className="mt-3 text-base leading-relaxed text-jn-body sm:text-lg">
                 Explore selected projects, products, and practical implementations.
               </p>
@@ -120,11 +120,11 @@ export function ProjectsBanner() {
 
 /* ---------- FAQ ---------- */
 export const servicesFaqs = [
-  { q: "What types of projects do you work on?", a: "I work on websites and web applications, SaaS products, automation workflows with n8n, GoHighLevel lead systems, and SEO-focused content such as copywriting and blog writing. You can see examples on the Projects page." },
+  { q: "What types of projects do you work on?", a: "We work on websites and web applications, SaaS products, automation workflows with n8n, GoHighLevel lead systems, and SEO-focused content such as copywriting and blog writing. You can see examples on the Projects page." },
   { q: "How does the project process work?", a: "It follows five steps: understand the problem, plan the approach, build, test and refine, then deliver and look at sensible improvements. You will always know what stage the work is in." },
-  { q: "How do we decide the right solution for my business?", a: "We start with your goals and the problem behind them rather than a specific tool. After a short conversation I will recommend the smallest useful starting point and explain why." },
-  { q: "Can you work on an existing website or application?", a: "In most cases yes. I can review what you have, improve it, add features or connect it to other tools. If a rebuild would serve you better, I will say so honestly." },
-  { q: "How can I get started?", a: "Book a call or send a short message about what you need. We will talk through the problem and the options, and I will follow up with a clear recommendation." },
+  { q: "How do we decide the right solution for our business?", a: "We start with your goals and the problem behind them rather than a specific tool. After a short conversation we will recommend the smallest useful starting point and explain why." },
+  { q: "Can you work on an existing website or application?", a: "In most cases yes. We can review what you have, improve it, add features or connect it to other tools. If a rebuild would serve you better, we will say so honestly." },
+  { q: "How can we get started?", a: "Book a call or send a short message about what you need. We will talk through the problem and the options, and we will follow up with a clear recommendation." },
 ];
 
 export function ServicesFaq() {
@@ -173,7 +173,7 @@ export function ServicesCta() {
                 href="/projects"
                 className="inline-flex items-center gap-2 rounded-xl border-2 border-sv-navy bg-white px-8 py-4 text-lg font-semibold text-sv-navy transition hover:-translate-y-0.5 hover:border-jn-gold hover:bg-jn-pale focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-jn-gold"
               >
-                Explore My Work
+                Explore Our Work
               </Link>
             </div>
           </div>

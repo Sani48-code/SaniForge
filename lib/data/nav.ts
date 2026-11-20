@@ -12,7 +12,7 @@ export const navItems: NavItem[] = [
   { label: "About", href: "/about" },
 ];
 
-/** Personal "hire me" landing pages (see lib/data/keyword-pages.ts). */
+/** Personal "hire us" landing pages (see lib/data/keyword-pages.ts). */
 export const hireLinks: NavItem[] = [
   { label: "n8n Developer", href: "/n8n-developer" },
   { label: "Full-Stack Developer", href: "/full-stack-developer" },

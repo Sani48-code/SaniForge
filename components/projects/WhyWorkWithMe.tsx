@@ -10,7 +10,7 @@ export default function WhyWorkWithMe() {
     <section className="bg-pf-gray py-20 sm:py-28">
       <div className="container-px mx-auto max-w-[1240px]">
         <SectionHead
-          eyebrow="Why Work With Me"
+          eyebrow="Why Work With Us"
           title="Thoughtful Solutions. Clear Communication. Practical Results."
         />
         <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">

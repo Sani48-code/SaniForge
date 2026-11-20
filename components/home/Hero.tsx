@@ -223,28 +223,24 @@ export default function Hero() {
             <div className="flex items-center gap-2">
               <span className="text-xl sm:text-2xl animate-bounce" aria-hidden="true">👋</span>
               <p className="text-xs sm:text-sm font-medium text-slate-500">
-                Hi, I&apos;m{" "}
+                Hi, we&apos;re{" "}
                 <span className="block text-base sm:text-lg font-bold tracking-tight text-slate-900">
-                  Abdul Kaiyum Sani<span className="sr-only">:</span>
+                  SaniForge<span className="sr-only">:</span>
                 </span>
                 <span className="block text-[11px] sm:text-xs font-semibold text-blue-700">
-                  n8n Developer · Full-Stack Dev · Growth Engineer
+                  Web Development · SEO Content · n8n Automation
                 </span>
               </p>
             </div>
 
             {/* Main Headline */}
             <h1 className="mt-5 font-display text-[32px] sm:text-5xl lg:text-[50px] xl:text-[54px] font-extrabold tracking-tight text-slate-900 leading-[1.12] text-balance">
-              I Build Websites &amp; <span className="text-[#F59E0B]">Automations</span> That Turn Visitors Into Booked Calls
+              We Build Websites &amp; <span className="text-[#F59E0B]">Automations</span> That Turn Visitors Into Booked Calls
             </h1>
 
             {/* Subtitle */}
             <p className="mt-5 max-w-xl text-base sm:text-lg leading-relaxed text-slate-600 font-normal">
-              Welcome to <strong className="font-semibold text-slate-800">SaniForge</strong>, my portfolio. I&apos;m a full-stack developer and growth engineer at{" "}
-              <a href={site.growminionUrl} target="_blank" rel="noopener noreferrer" className="font-semibold text-slate-800 underline decoration-slate-300 underline-offset-4 hover:decoration-blue-500">
-                GrowMinion
-              </a>
-              . I build fast websites, write SEO content that ranks, and automate lead follow-up with n8n, so
+              <strong className="font-semibold text-slate-800">SaniForge</strong> is a web development and automation company. We build fast websites, write SEO content that ranks, and automate lead follow-up with n8n, so
               law firms and local businesses across the US get more calls with less busywork.
             </p>
 
@@ -360,11 +356,11 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* 8. Dominant Portrait Cutout of Abdul Kaiyum Sani (Layer z-20) */}
+            {/* 8. Dominant Portrait Cutout of the founder (Layer z-20) */}
             <div className="relative z-20 flex items-end justify-center lg:justify-end overflow-visible">
               <Image
                 src="/images/heo-main.png"
-                alt="Abdul Kaiyum Sani, n8n developer and full-stack dev"
+                alt="Abdul Kaiyum Sani, founder of SaniForge"
                 width={680}
                 height={884}
                 priority
@@ -397,10 +393,10 @@ export default function Hero() {
               <div className="flex items-center justify-between border-b border-slate-100 pb-4">
                 <div>
                   <h3 className="text-lg font-bold text-slate-900">
-                    Meet Abdul Kaiyum Sani
+                    Meet the Founder of SaniForge
                   </h3>
                   <p className="text-xs text-slate-500 mt-0.5">
-                    n8n Developer, Full-Stack Dev &amp; Growth Engineer
+                    Abdul Kaiyum Sani, Founder
                   </p>
                 </div>
                 <button

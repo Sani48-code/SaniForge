@@ -11,9 +11,9 @@ export default function SkillsOverview() {
     <section id="skills" className="scroll-mt-24 bg-gradient-to-br from-[#0B3B3D] via-[#0D4A4C] to-[#082B2E] py-24 sm:py-32">
       <div className="container-px mx-auto max-w-content">
         <SectionHeading
-          eyebrow="What I Do"
+          eyebrow="What We Do"
           title="Three skills, one system"
-          description="Most agencies hand your project between three vendors. I build the site, write the content, and automate what's left, all under one roof."
+          description="Most agencies hand your project between three vendors. We build the site, write the content, and automate what's left, all under one roof."
         />
 
         <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">

@@ -23,7 +23,7 @@ export default function WorkSection() {
         </div>
       </section>
 
-      {/* Client Industries / Businesses I've Worked With Section (Light & Colorful) */}
+      {/* Client Industries / Businesses We've Worked With Section (Light & Colorful) */}
       <section
         id="client-industries"
         className="relative overflow-hidden bg-gradient-to-b from-[#F8FAFC] via-[#FFFFFF] to-[#F1F5F9] py-24 sm:py-28 border-t border-slate-200"
@@ -37,7 +37,7 @@ export default function WorkSection() {
             Client Industries
           </div>
           <h2 className="mt-4 font-display text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 text-balance">
-            Businesses I&apos;ve Worked With
+            Businesses We&apos;ve Worked With
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-base sm:text-lg text-slate-600 leading-relaxed text-balance font-normal">
             Over 20+ businesses across the US, grouped by industry. Client names kept private, case studies available on request.

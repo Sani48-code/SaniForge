@@ -1,5 +1,5 @@
 ---
-title: "Speed Matters: Why I Audit Every Website's Core Web Vitals"
+title: "Speed Matters: Why We Audit Every Website's Core Web Vitals"
 slug: "why-i-audit-every-websites-core-web-vitals"
 excerpt: "Core Web Vitals sound technical, but they measure something simple: does the page feel fast to a real person. Here's what they mean and how to actually improve them."
 category: "Web Development"
@@ -13,7 +13,7 @@ lesson: "Find out which of the three metrics is actually failing instead of assu
 seoDescription: "A plain-language explanation of Core Web Vitals, why they matter for SEO and user experience, and practical steps to improve LCP, INP, and CLS on any website."
 ---
 
-Core Web Vitals sound like an internal Google metric nobody outside a developer needs to think about. In practice, they measure something every visitor to your site experiences directly: does the page feel fast, does it respond when I tap something, and does it hold still while I'm trying to read it. That's why I run a Core Web Vitals audit on every website I take on, new build or existing site, before deciding what actually needs fixing.
+Core Web Vitals sound like an internal Google metric nobody outside a developer needs to think about. In practice, they measure something every visitor to your site experiences directly: does the page feel fast, does it respond when I tap something, and does it hold still while I'm trying to read it. That's why we run a Core Web Vitals audit on every website we take on, new build or existing site, before deciding what actually needs fixing.
 
 ## What Core Web Vitals Actually Measure
 
@@ -21,7 +21,7 @@ There are three metrics Google treats as core to the user experience, and each o
 
 - **Largest Contentful Paint (LCP)** measures how long it takes for the main content of a page, usually a hero image or headline, to become visible. This is the "how long am I staring at a blank screen" metric.
 - **Interaction to Next Paint (INP)** measures how quickly the page responds when someone actually interacts with it, tapping a button, opening a menu. This is the "why isn't anything happening when I tap this" metric.
-- **Cumulative Layout Shift (CLS)** measures how much the page's content unexpectedly moves around while it loads, the classic experience of trying to tap a button right as an ad or image loads above it and shifts everything down. This is the "why did I just tap the wrong thing" metric.
+- **Cumulative Layout Shift (CLS)** measures how much the page's content unexpectedly moves around while it loads, the classic experience of trying to tap a button right as an ad or image loads above it and shifts everything down. This is the "why did we just tap the wrong thing" metric.
 
 Good scores, roughly: LCP under 2.5 seconds, INP under 200 milliseconds, and CLS under 0.1. None of these numbers matter in isolation. They matter because each one maps directly to a moment where a real visitor either stays engaged or gets frustrated and leaves.
 
@@ -35,9 +35,9 @@ Even setting rankings aside entirely, the user experience impact stands on its o
 
 ## What Actually Causes Poor Scores
 
-In the audits I run, the same handful of causes show up again and again:
+In the audits we run, the same handful of causes show up again and again:
 
-- **Unoptimized hero images**: a multi-megabyte image serving at full resolution on a phone screen is one of the single biggest LCP killers I see.
+- **Unoptimized hero images**: a multi-megabyte image serving at full resolution on a phone screen is one of the single biggest LCP killers we see.
 - **Render-blocking scripts**: third-party marketing, chat, or analytics scripts loaded before the main content, delaying everything behind them.
 - **Excessive plugins or widgets**: particularly on page-builder platforms, each adding their own JavaScript that has to load and execute before the page becomes fully interactive.
 - **Images or ads without reserved space**: causing the page to jump as they load in, the most common cause of a poor CLS score.

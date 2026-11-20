@@ -58,7 +58,7 @@ export async function generateMetadata({
   // /projects/[slug] renders the same page, so both URLs point search engines to /case-studies/<slug>.
   return buildMetadata({
     title: `${study.title} | Case Study`,
-    description: `${study.tagline}. A detailed ${study.service} case study by ${site.founder}.`,
+    description: `${study.tagline}. A detailed ${study.service} case study by SaniForge.`,
     path: `/case-studies/${study.slug}`,
     socialTitle: `${study.title}: Case Study | ${site.name}`,
     socialDescription: study.tagline,

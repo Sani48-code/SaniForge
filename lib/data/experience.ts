@@ -18,7 +18,7 @@ export const experience: ExperienceItem[] = [
     org: "SaniForge",
     period: "2023 to Present",
     description:
-      "Personal practice covering web development, SEO copywriting, and automation for businesses across the US.",
+      "Web development, SEO copywriting and automation company serving businesses across the US.",
   },
   {
     role: "Started with SEO Copywriting",
@@ -31,9 +31,9 @@ export const experience: ExperienceItem[] = [
 
 export const aboutBio = {
   paragraphs: [
-    "I'm the founder of SaniForge and also a core team member at GrowMinion, a digital growth agency, working as a Web and Automation Engineer helping run the technical side of client work for businesses across the US.",
-    "At GrowMinion, I've helped build three AI-powered SaaS products: CraftMinion, an AI content engine for local SEO; RankDominator, a local GeoGrid SEO rank-tracking dashboard; and GrowForge, an AI-powered legal SEO content system.",
-    "Outside of product work, I've written and published dozens of SEO blogs, service pages, and landing pages for clients, many of which now rank on page one of Google.",
+    "Abdul Kaiyum Sani founded SaniForge and is also a core team member at GrowMinion, a digital growth agency, working as a Web and Automation Engineer helping run the technical side of client work for businesses across the US.",
+    "At GrowMinion, he has helped build three AI-powered SaaS products: CraftMinion, an AI content engine for local SEO; RankDominator, a local GeoGrid SEO rank-tracking dashboard; and GrowForge, an AI-powered legal SEO content system.",
+    "Outside of product work, SaniForge has written and published dozens of SEO blogs, service pages, and landing pages for clients, many of which now rank on page one of Google.",
     "What ties it together is full-stack capability: MERN stack development, SEO content strategy, and n8n workflow automation combined into one system, instead of three separate vendors.",
   ],
   closing:

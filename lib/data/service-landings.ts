@@ -57,12 +57,12 @@ const LEAD_GEN_2026: ProofItem = {
 };
 
 const productProof = (title: string, text: string, img: string, alt: string, href: string): ProofItem => ({
-  title, text, tag: "Product I helped build", href, external: true, image: { src: img, alt, w: 1672, h: 941 },
+  title, text, tag: "Product we helped build", href, external: true, image: { src: img, alt, w: 1672, h: 941 },
 });
 
 const generalVetting = (what: string): string[] => [
-  `Hiring for ${what} is risky when you cannot tell who actually does the work. Everything on my services is done by me, personally. I do not hand projects to unvetted subcontractors or pass them to junior staff.`,
-  "I review my own work before it reaches you, and I explain my decisions in plain language so you can judge them. If something is outside what I do well, I will say so and suggest a better option.",
+  `Hiring for ${what} is risky when you cannot tell who actually does the work. Everything on our services is done by the SaniForge team, led by our founder. We do not hand projects to unvetted subcontractors or pass them to junior staff.`,
+  "We review our own work before it reaches you, and we explain our decisions in plain language so you can judge them. If something is outside what we do well, we will say so and suggest a better option.",
 ];
 
 const generalClosing = (what: string) => ({
@@ -82,7 +82,7 @@ export const landings: Record<ServiceSlug, ServiceLanding> = {
       titleLead: "Copywriting That Turns Visitors Into",
       titleAccent: "Booked Calls",
       titleTail: "",
-      pain: "Most business websites describe what the company does and then stop. Visitors read, nod and leave. I write clear, specific copy that explains your offer, answers the doubts buyers have and points to a single next step.",
+      pain: "Most business websites describe what the company does and then stop. Visitors read, nod and leave. We write clear, specific copy that explains your offer, answers the doubts buyers have and points to a single next step.",
       proofs: ["SEO copywriting since 2023", "Content shipped for 20+ businesses", "Keyword research behind every page", "Written to match your voice and offer"],
     },
     images: {
@@ -90,23 +90,23 @@ export const landings: Record<ServiceSlug, ServiceLanding> = {
       side: photo("copy-side", "A woman working on a laptop at a bright desk with flowers", 951),
     },
     usps: [
-      { title: "Buyer-first research", text: "I start with your customers' words, your competitors' pages and the searches people actually make, not with a blank page." },
+      { title: "Buyer-first research", text: "We start with your customers' words, your competitors' pages and the searches people actually make, not with a blank page." },
       { title: "One page, one action", text: "Each page has a single job and a single next step, so visitors are never unsure what to do." },
       { title: "SEO built in", text: "Keywords, headings, titles and meta descriptions are planned with the copy, so pages can rank as well as convert." },
-      { title: "A writer who understands the build", text: "I build websites too, so the copy fits the layout and can be placed straight into your site." },
+      { title: "A writer who understands the build", text: "We build websites too, so the copy fits the layout and can be placed straight into your site." },
     ],
     trust: {
       title: "A Writing Partner, Not a Word Factory",
-      text: "I work with founders and business owners directly. I learn how you win customers, then write copy that sounds like you on your best day. Because I also work with automation and web development, I can connect the message to the forms, funnels and pages that carry it.",
+      text: "We work with founders and business owners directly. We learn how you win customers, then write copy that sounds like you on your best day. Because we also work with automation and web development, we can connect the message to the forms, funnels and pages that carry it.",
     },
     steps: [
-      { title: "Discovery and research", text: "You share your offer, customers and goals. I study your market, reviews and competitors, and note the gaps your copy can fill." },
-      { title: "Message and structure", text: "I agree the main message and page structure with you before writing, so nobody wastes time on the wrong direction." },
-      { title: "Draft, edit and deliver", text: "You get a draft with headline options and notes on why choices were made. We edit together, and I deliver it ready to publish." },
+      { title: "Discovery and research", text: "You share your offer, customers and goals. We study your market, reviews and competitors, and note the gaps your copy can fill." },
+      { title: "Message and structure", text: "We agree the main message and page structure with you before writing, so nobody wastes time on the wrong direction." },
+      { title: "Draft, edit and deliver", text: "You get a draft with headline options and notes on why choices were made. We edit together, and we deliver it ready to publish." },
     ],
     tools: [
       { category: "Research and strategy", tools: "Ahrefs, Surfer SEO, Notion", benefit: "Keyword and competitor facts behind every page" },
-      { category: "Drafting and editing", tools: "ChatGPT, Claude, Grammarly", benefit: "Faster research and cleaner drafts, always reviewed by me" },
+      { category: "Drafting and editing", tools: "ChatGPT, Claude, Grammarly", benefit: "Faster research and cleaner drafts, always reviewed by us" },
       { category: "Delivery", tools: "Google Docs, Markdown, MDX", benefit: "Copy you can paste straight into your site" },
       { category: "Placement", tools: "WordPress, Next.js", benefit: "Copy that fits the layout it will live in" },
     ],
@@ -117,7 +117,7 @@ export const landings: Record<ServiceSlug, ServiceLanding> = {
       { factor: "Communication", cheap: "Unclear, slow replies", agency: "Layers of meetings", me: "Direct, with the person writing" },
       { factor: "Main goal", cheap: "Finish the word count", agency: "Fill the retainer", me: "Pages that give visitors a clear next step" },
     ],
-    proofTitle: "Writing I Have Done",
+    proofTitle: "Writing We Have Done",
     proofText: "Read full documents written for different industries.",
     proof: [MEDSPA, REALESTATE, INSURANCE],
     profiles: ["Service businesses that rely on their website for enquiries", "Founders launching or relaunching an offer", "Agencies that need a reliable copy partner", "Teams with traffic but few enquiries"],
@@ -151,11 +151,11 @@ export const landings: Record<ServiceSlug, ServiceLanding> = {
     steps: bw.process.steps,
     tools: [
       { category: "Research and strategy", tools: "Ahrefs, Surfer SEO, Google Search Console", benefit: "Topics chosen from real search data" },
-      { category: "Writing and editing", tools: "ChatGPT, Claude, Grammarly", benefit: "Faster research and clean drafts, reviewed by me" },
+      { category: "Writing and editing", tools: "ChatGPT, Claude, Grammarly", benefit: "Faster research and clean drafts, reviewed by us" },
       { category: "Planning and delivery", tools: "Notion, Google Docs, Markdown, MDX", benefit: "Briefs and drafts your team can use right away" },
       { category: "Publishing", tools: "WordPress, Next.js", benefit: "Formatted for your CMS, with metadata ready" },
     ],
-    vetting: { title: "Technical Writing You Can Trust", paras: [bw.trust.text, "Every draft is researched, written and checked by me. I do not outsource to freelancer pools, and I flag anything that needs a subject expert's review."] },
+    vetting: { title: "Technical Writing You Can Trust", paras: [bw.trust.text, "Every draft is researched, written and checked by me. We do not outsource to freelancer pools, and we flag anything that needs a subject expert's review."] },
     compare: [
       { factor: "Strategic depth", cheap: "Writes what you ask, nothing more", agency: "Fixed content packages", me: "Topics chosen from buyer intent and gaps" },
       { factor: "Technical accuracy", cheap: "No technical background", agency: "General account managers", me: "Hands-on engineering experience" },
@@ -182,7 +182,7 @@ export const landings: Record<ServiceSlug, ServiceLanding> = {
       titleLead: "Websites and Web Apps That Are Fast, Clear and",
       titleAccent: "Built to Grow",
       titleTail: "",
-      pain: "Slow template sites and spreadsheet-and-email processes cost businesses time and customers. I build the whole thing, from the interface to the API and database, so it works well today and stays easy to change tomorrow.",
+      pain: "Slow template sites and spreadsheet-and-email processes cost businesses time and customers. We build the whole thing, from the interface to the API and database, so it works well today and stays easy to change tomorrow.",
       proofs: ["Real products built with the Growminion team", "One full-stack dev: frontend, backend and database", "Mobile first, structured for SEO", "Code you own, with clear handover"],
     },
     images: {
@@ -190,19 +190,19 @@ export const landings: Record<ServiceSlug, ServiceLanding> = {
       side: photo("web-side", "Code on a dark editor screen", 753),
     },
     usps: [
-      { title: "Business-first scoping", text: "I start from what the site or app must achieve, then decide features, so you do not pay for things you do not need." },
+      { title: "Business-first scoping", text: "We start from what the site or app must achieve, then decide features, so you do not pay for things you do not need." },
       { title: "End-to-end skills", text: "Interface, API logic and database design are handled together, which avoids gaps between separate specialists." },
       { title: "Modern, maintainable code", text: "React, TypeScript, Node.js and Tailwind, written to be readable by the next developer." },
       { title: "Built to be found and to convert", text: "Clean structure, metadata and fast loading are part of the build, not an afterthought." },
     ],
     trust: {
       title: "A Developer Who Understands the Business Side",
-      text: "I came into engineering through content and SEO work, so I think about leads, rankings and usability, not only code. I work directly with owners and teams, explain trade-offs in plain language and hand over something your people can actually use.",
+      text: "We came into engineering through content and SEO work, so we think about leads, rankings and usability, not only code. We work directly with owners and teams, explain trade-offs in plain language and hand over something your people can actually use.",
     },
     steps: [
-      { title: "Scope and plan", text: "We define pages, features and success measures. I review any existing site or system and agree the approach before building." },
-      { title: "Design and build", text: "I design the interface and build it in steps, sharing a live preview so you can react early." },
-      { title: "Test, launch and hand over", text: "I test across devices, tune performance, deploy and document how everything works." },
+      { title: "Scope and plan", text: "We define pages, features and success measures. We review any existing site or system and agree the approach before building." },
+      { title: "Design and build", text: "We design the interface and build it in steps, sharing a live preview so you can react early." },
+      { title: "Test, launch and hand over", text: "We test across devices, tune performance, deploy and document how everything works." },
     ],
     tools: [
       { category: "Frontend", tools: "HTML, CSS, Tailwind CSS, JavaScript, TypeScript, React, Next.js", benefit: "Fast, responsive, maintainable interfaces" },
@@ -246,7 +246,7 @@ export const landings: Record<ServiceSlug, ServiceLanding> = {
       titleLead: "n8n Automation That Gives Your Team Their",
       titleAccent: "Hours Back",
       titleTail: "",
-      pain: "Teams lose hours every week to copy-paste work: moving leads between tools, forwarding forms, building reports by hand. I build reliable n8n workflows that do this for you, and tell you when something needs a person.",
+      pain: "Teams lose hours every week to copy-paste work: moving leads between tools, forwarding forms, building reports by hand. We build reliable n8n workflows that do this for you, and tell you when something needs a person.",
       proofs: ["n8n developer and automation engineer at Growminion", "Lead capture, CRM and content pipelines built", "Workflows with error handling and alerts", "Documented so your team can maintain them"],
     },
     images: {
@@ -254,19 +254,19 @@ export const landings: Record<ServiceSlug, ServiceLanding> = {
       side: photo("n8n-side", "A futuristic interface on a computer screen", 933),
     },
     usps: [
-      { title: "Process before tools", text: "I map the manual steps first. A broken process automated is still broken, so we fix the flow before building it." },
-      { title: "Hands-on engineering", text: "I write custom code nodes and API calls when a pre-built integration is not enough." },
+      { title: "Process before tools", text: "We map the manual steps first. A broken process automated is still broken, so we fix the flow before building it." },
+      { title: "Hands-on engineering", text: "We write custom code nodes and API calls when a pre-built integration is not enough." },
       { title: "Reliable by design", text: "Retries, logs and alerts are built in, so workflows do not fail silently." },
-      { title: "AI where it helps", text: "I use language models for sorting, summarising and drafting, with a human review step where accuracy matters." },
+      { title: "AI where it helps", text: "We use language models for sorting, summarising and drafting, with a human review step where accuracy matters." },
     ],
     trust: {
       title: "A Builder Who Works With Your Team",
-      text: "I work as an integrated partner, not a ticket taker. I sit with the people who do the task today, learn the exceptions and build the workflow around how the business really runs. You get documentation and a walkthrough so you are never locked in.",
+      text: "We work as an integrated partner, not a ticket taker. We sit with the people who do the task today, learn the exceptions and build the workflow around how the business really runs. You get documentation and a walkthrough so you are never locked in.",
     },
     steps: [
-      { title: "Audit the manual work", text: "You show me the tasks that eat time. I map the steps, the tools involved and where mistakes happen." },
-      { title: "Design the workflow", text: "I draw the trigger, steps and exceptions, agree them with you and choose how errors are handled." },
-      { title: "Build, test and document", text: "I build in a safe environment, test with real data, then deploy with a short guide and walkthrough." },
+      { title: "Audit the manual work", text: "You show us the tasks that eat time. We map the steps, the tools involved and where mistakes happen." },
+      { title: "Design the workflow", text: "We draw the trigger, steps and exceptions, agree them with you and choose how errors are handled." },
+      { title: "Build, test and document", text: "We build in a safe environment, test with real data, then deploy with a short guide and walkthrough." },
     ],
     tools: [
       { category: "Orchestration", tools: "n8n, webhooks", benefit: "Flexible workflows that react to events" },
@@ -284,7 +284,7 @@ export const landings: Record<ServiceSlug, ServiceLanding> = {
     proofTitle: "Related Reading and Work",
     proofText: "Real articles and a product that automates a content workflow.",
     proof: [
-      { title: "How I use n8n to automate repetitive business tasks", tag: "Article", text: "Four real workflows and how to start.", href: "/blog/automate-repetitive-business-tasks-with-n8n", image: { src: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=70", alt: "A close-up of a circuit board", w: 900, h: 600 } },
+      { title: "How we use n8n to automate repetitive business tasks", tag: "Article", text: "Four real workflows and how to start.", href: "/blog/automate-repetitive-business-tasks-with-n8n", image: { src: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=70", alt: "A close-up of a circuit board", w: 900, h: 600 } },
       LEAD_GEN_2026,
       productProof("AI content engine", "A tool that writes location pages and publishes to WordPress.", "/images/projects/saas-content.png", "An AI content engine platform", "https://seo.growminion.ca/"),
     ],
@@ -310,7 +310,7 @@ export const landings: Record<ServiceSlug, ServiceLanding> = {
       titleLead: "A GoHighLevel Lead System That Follows Up",
       titleAccent: "Before Competitors Do",
       titleTail: "",
-      pain: "Most leads are lost because nobody replies fast enough or follows up consistently. I set up GoHighLevel so every enquiry gets a quick response, lands in the right pipeline stage and is nurtured until it books or buys.",
+      pain: "Most leads are lost because nobody replies fast enough or follows up consistently. We set up GoHighLevel so every enquiry gets a quick response, lands in the right pipeline stage and is nurtured until it books or buys.",
       proofs: ["Growth engineer: copy, setup and automation in one", "Follow-up messages written for you", "Connects with your website, forms and n8n", "Clear pipelines your team can follow"],
     },
     images: {
@@ -319,34 +319,34 @@ export const landings: Record<ServiceSlug, ServiceLanding> = {
     },
     usps: [
       { title: "Speed to lead", text: "Instant replies and missed-call text back so interested people are not left waiting." },
-      { title: "Messages that sound human", text: "As a copywriter, I write the SMS and email sequences myself, so they read like a person, not a template." },
+      { title: "Messages that sound human", text: "As copywriters, we write the SMS and email sequences ourselves, so they read like a person, not a template." },
       { title: "A pipeline your team understands", text: "Clear stages, tags and tasks mean everyone knows what happens next with every lead." },
-      { title: "Connected to the rest of your stack", text: "I link GHL to your website, forms and n8n workflows so data does not get stuck." },
+      { title: "Connected to the rest of your stack", text: "We link GHL to your website, forms and n8n workflows so data does not get stuck." },
     ],
     trust: {
       title: "One Person for Copy, Setup and Automation",
-      text: "Lead systems break down at the handoffs: between the ad, the page, the message and the CRM. I handle the copy, the configuration and the automation together, so those handoffs are designed rather than patched.",
+      text: "Lead systems break down at the handoffs: between the ad, the page, the message and the CRM. We handle the copy, the configuration and the automation together, so those handoffs are designed rather than patched.",
     },
     steps: [
       { title: "Map the customer journey", text: "We trace how a lead moves from first click to paid job, and where they drop out today." },
-      { title: "Set up and write", text: "I configure pipelines, forms, calendars and integrations, and write the messages for each stage." },
-      { title: "Test and refine", text: "I test the full flow with real scenarios, then adjust messaging and timing with you." },
+      { title: "Set up and write", text: "We configure pipelines, forms, calendars and integrations, and write the messages for each stage." },
+      { title: "Test and refine", text: "We test the full flow with real scenarios, then adjust messaging and timing with you." },
     ],
     tools: [
       { category: "CRM and funnels", tools: "GoHighLevel", benefit: "Pipelines, forms, calendars and messaging in one place" },
       { category: "Automation", tools: "n8n, webhooks", benefit: "Custom logic beyond built-in workflows" },
       { category: "Data", tools: "Google Sheets, Gmail, Slack", benefit: "Reports and alerts in the tools you already use" },
-      { category: "Copy", tools: "ChatGPT, Claude, Grammarly", benefit: "Drafts reviewed and polished by me" },
+      { category: "Copy", tools: "ChatGPT, Claude, Grammarly", benefit: "Drafts reviewed and polished by us" },
     ],
     vetting: { title: "Set Up by the Person Who Writes the Messages", paras: generalVetting("lead generation setup") },
     compare: [
       { factor: "Strategy", cheap: "Copied snapshot, no planning", agency: "Standard onboarding", me: "Built from your actual customer journey" },
-      { factor: "Message quality", cheap: "Generic templates", agency: "Outsourced copy", me: "Written by me for your business" },
+      { factor: "Message quality", cheap: "Generic templates", agency: "Outsourced copy", me: "Written by us for your business" },
       { factor: "Integration", cheap: "Stops at GHL", agency: "Add-on fees", me: "Connected to your site and n8n workflows" },
       { factor: "Main goal", cheap: "Finish setup", agency: "Upsell tools", me: "Faster, more consistent follow-up" },
     ],
     proofTitle: "Related Reading",
-    proofText: "Articles that show how I think about lead capture and follow-up.",
+    proofText: "Articles that show how we think about lead capture and follow-up.",
     proof: [
       { title: "Building a lead capture automation in under an hour", tag: "Article", text: "A simple form to notification workflow.", href: "/blog/build-lead-capture-automation-under-an-hour", image: { src: "https://images.unsplash.com/photo-1524635962361-d7f8ae9c79b1?auto=format&fit=crop&w=900&q=70", alt: "A dark code editor interface", w: 900, h: 600 } },
       { title: "How to write service pages that convert", tag: "Article", text: "The page structure that moves visitors to act.", href: "/blog/how-to-write-service-pages-that-convert", image: { src: "https://images.unsplash.com/photo-1643148636630-0b0fb138fc74?auto=format&fit=crop&w=900&q=70", alt: "A hand writing in a notebook", w: 900, h: 600 } },
@@ -374,7 +374,7 @@ export const landings: Record<ServiceSlug, ServiceLanding> = {
       titleLead: "Turn a Repeated Process Into a Working",
       titleAccent: "SaaS Product",
       titleTail: "",
-      pain: "Paying for tools that never quite fit your workflow gets expensive as you grow. I help businesses and founders build custom products in code: a focused first version, then solid foundations to grow on.",
+      pain: "Paying for tools that never quite fit your workflow gets expensive as you grow. We help businesses and founders build custom products in code: a focused first version, then solid foundations to grow on.",
       proofs: ["Helped build 3 SaaS products at Growminion", "TypeScript, React, Node.js and SQL", "Frontend, backend and database in one team", "Code and documentation handed to you"],
     },
     images: {
@@ -383,18 +383,18 @@ export const landings: Record<ServiceSlug, ServiceLanding> = {
     },
     usps: [
       { title: "Smallest useful version first", text: "We cut the idea down to what proves value, so you launch sooner and learn from real use." },
-      { title: "Built by someone who has shipped products", text: "I helped build a rank tracker, an AI content engine and an HR platform, in code, from interface to database." },
+      { title: "Built by a team that has shipped products", text: "We helped build a rank tracker, an AI content engine and an HR platform, in code, from interface to database." },
       { title: "Modern, maintainable architecture", text: "Clean APIs, role-based access and a SQL database designed to grow without rewrites." },
       { title: "Ownership stays with you", text: "You get the code, access and documentation, with no lock-in." },
     ],
     trust: {
       title: "A Technical Partner, Not Just a Contractor",
-      text: "I work with founders and operators as a product-minded engineer. I ask why before I build, flag risks early and keep the scope honest, so the product you launch is one people will actually use.",
+      text: "We work with founders and operators as product-minded engineers. We ask why before we build, flag risks early and keep the scope honest, so the product you launch is one people will actually use.",
     },
     steps: [
       { title: "Define and prioritise", text: "We agree on the user, the problem and the first version, and write down what is in and out of scope." },
-      { title: "Design and build", text: "I design the data model and interface, then build in short steps with working demos along the way." },
-      { title: "Launch and iterate", text: "I deploy, hand over the code and docs, and we decide the next release from real feedback." },
+      { title: "Design and build", text: "We design the data model and interface, then build in short steps with working demos along the way." },
+      { title: "Launch and iterate", text: "We deploy, hand over the code and docs, and we decide the next release from real feedback." },
     ],
     tools: [
       { category: "Frontend", tools: "HTML, CSS, Tailwind CSS, JavaScript, TypeScript, React", benefit: "Responsive, maintainable interfaces" },
@@ -409,7 +409,7 @@ export const landings: Record<ServiceSlug, ServiceLanding> = {
       { factor: "Communication", cheap: "Inconsistent", agency: "Layers of project managers", me: "Direct, with the engineer" },
       { factor: "Main goal", cheap: "Deliver features", agency: "Maximise hours", me: "A product people use and you control" },
     ],
-    proofTitle: "SaaS Products I Helped Build",
+    proofTitle: "SaaS Products We Helped Build",
     proofText: "Real, live products. See the Projects page for full case studies.",
     proof: [
       productProof("Local rank tracker (GeoGrid)", "Block-by-block local ranking tracker for agencies.", "/images/projects/saas-local-seo.png", "Local rank tracker dashboard", "https://local-seo.growminion.ca/"),
@@ -434,7 +434,7 @@ export function getLanding(slug: string) {
 
 export const sharedConsult = [
   { title: "A short technical conversation", text: "We talk through what you have now and where the gaps are." },
-  { title: "A practical plan", text: "I outline quick wins and the larger priorities, in a sensible order." },
+  { title: "A practical plan", text: "We outline quick wins and the larger priorities, in a sensible order." },
   { title: "Clear scope and options", text: "You get a clear recommendation and scope before any work starts." },
 ];
 

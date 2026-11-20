@@ -1,7 +1,7 @@
 import { getCaseStudyBySlug } from "@/lib/mdx";
 import { renderOgCard, OG_SIZE, OG_CONTENT_TYPE } from "@/lib/og";
 
-export const alt = "Case study by Abdul Kaiyum Sani";
+export const alt = "Case study by SaniForge";
 export const size = OG_SIZE;
 export const contentType = OG_CONTENT_TYPE;
 

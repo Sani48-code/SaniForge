@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { buildMetadata } from "@/lib/seo";
 import JsonLd from "@/components/seo/JsonLd";
-import { breadcrumbSchema, ORGANIZATION_ID, PERSON_ID, WEBSITE_ID } from "@/lib/schema";
+import { breadcrumbSchema, personSchema, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/schema";
 import { SITE_URL, SITE_NAME, AUTHOR_NAME, SOCIAL_LINKS, absoluteUrl } from "@/lib/site";
 import { experience, aboutBio } from "@/lib/data/experience";
 import { services } from "@/lib/data/services";
@@ -12,9 +12,9 @@ import { site } from "@/lib/data/site";
 const PATH = "/about";
 
 export const metadata: Metadata = buildMetadata({
-  title: "About SaniForge: The Studio of Abdul Kaiyum Sani",
+  title: "About SaniForge: Web Development & Automation Company",
   description:
-    "SaniForge is the web development, SEO content and n8n automation practice of Abdul Kaiyum Sani, founded in 2023. Who runs it, what it does and how to work with it.",
+    "SaniForge is a web development, SEO content and n8n automation company founded in 2023. What we do, who leads the company and how to work with us.",
   path: PATH,
   type: "profile",
   absoluteTitle: true,
@@ -30,21 +30,12 @@ function aboutPageSchema() {
     inLanguage: "en",
     isPartOf: { "@id": WEBSITE_ID },
     about: { "@id": ORGANIZATION_ID },
-    mainEntity: {
-      "@type": "Organization",
-      "@id": ORGANIZATION_ID,
-      name: SITE_NAME,
-      alternateName: ["Sani Forge"],
-      url: `${SITE_URL}/`,
-      foundingDate: "2023",
-      founder: { "@id": PERSON_ID, name: AUTHOR_NAME },
-      sameAs: Object.values(SOCIAL_LINKS),
-    },
+    mainEntity: { "@id": ORGANIZATION_ID },
   };
 }
 
 const facts = [
-  { label: "Name", value: "SaniForge (also written Sani Forge)" },
+  { label: "Company", value: "SaniForge (also written Sani Forge)" },
   { label: "Website", value: "saniforge.space" },
   { label: "Founded", value: "2023" },
   { label: "Founder", value: AUTHOR_NAME },
@@ -55,7 +46,7 @@ const facts = [
 export default function AboutPage() {
   return (
     <div data-light-page className="bg-white font-sans text-sv-navy">
-      <JsonLd data={[aboutPageSchema(), breadcrumbSchema([{ name: "About", path: PATH }])]} />
+      <JsonLd data={[aboutPageSchema(), personSchema(), breadcrumbSchema([{ name: "About", path: PATH }])]} />
 
       <section className="bg-gradient-to-br from-white via-sv-soft to-jn-pale/70 py-14 sm:py-20">
         <div className="container-px mx-auto grid max-w-[1100px] items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
@@ -65,8 +56,8 @@ export default function AboutPage() {
               About SaniForge
             </h1>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-jn-body">
-              SaniForge is the one-person studio of {AUTHOR_NAME}. Since 2023 it has built fast websites, SEO content and
-              n8n automations for businesses in the US, with one person owning the whole system instead of three separate vendors.
+              SaniForge is a web development, SEO content and n8n automation company. Since 2023 we have built fast websites, SEO content and
+              n8n automations for businesses in the US, with one team owning the whole system instead of three separate vendors.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
@@ -99,7 +90,7 @@ export default function AboutPage() {
       <section className="py-14 sm:py-16">
         <div className="container-px mx-auto grid max-w-[1100px] gap-12 lg:grid-cols-[1.3fr_0.7fr]">
           <div className="space-y-5 text-base leading-relaxed text-jn-body sm:text-lg">
-            <h2 className="font-display text-2xl font-bold text-sv-navy sm:text-3xl">Who is behind SaniForge?</h2>
+            <h2 className="font-display text-2xl font-bold text-sv-navy sm:text-3xl">Meet our founder</h2>
             {aboutBio.paragraphs.map((p) => (
               <p key={p}>{p}</p>
             ))}

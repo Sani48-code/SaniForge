@@ -73,7 +73,7 @@ export default function ContactSection() {
               </span>
               <div>
                 <p className="text-base font-medium text-ink">Email</p>
-                <p className="text-sm text-ink-muted">Send me an email</p>
+                <p className="text-sm text-ink-muted">Send us an email</p>
               </div>
             </a>
             <a
@@ -87,7 +87,7 @@ export default function ContactSection() {
               </span>
               <div>
                 <p className="text-base font-medium text-ink">GrowMinion</p>
-                <p className="text-sm text-ink-muted">The agency I work with</p>
+                <p className="text-sm text-ink-muted">The agency we work with</p>
               </div>
             </a>
             <a
@@ -101,7 +101,7 @@ export default function ContactSection() {
               </span>
               <div>
                 <p className="text-base font-medium text-ink">LinkedIn</p>
-                <p className="text-sm text-ink-muted">Connect with me</p>
+                <p className="text-sm text-ink-muted">Connect with us</p>
               </div>
             </a>
             <a
@@ -124,7 +124,7 @@ export default function ContactSection() {
         <FadeIn delay={0.1} className="rounded-2xl border border-navy-border bg-navy-panel/40 p-8 sm:p-10">
           <h3 className="font-display text-3xl text-ink">Send a message</h3>
           <p className="mt-2 text-base text-ink-muted">
-            I&apos;ll get back to you within a business day.
+            We&apos;ll get back to you within a business day.
           </p>
           <div className="mt-8">
             <ContactForm />

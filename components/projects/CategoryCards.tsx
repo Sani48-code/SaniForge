@@ -15,7 +15,7 @@ export default function CategoryCards() {
     <section className="bg-pf-gray py-20 sm:py-24" aria-labelledby="categories-title">
       <div className="container-px mx-auto max-w-[1240px]">
         <SectionHead
-          title="A Look at What I Build"
+          title="A Look at What We Build"
           text="Different challenges. Thoughtful solutions. Practical digital experiences."
         />
         <h2 id="categories-title" className="sr-only">Work categories</h2>

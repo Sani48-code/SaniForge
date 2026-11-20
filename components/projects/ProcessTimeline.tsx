@@ -9,7 +9,7 @@ export default function ProcessTimeline() {
   return (
     <section className="bg-pf-gray py-20 sm:py-28">
       <div className="container-px mx-auto max-w-[1240px]">
-        <SectionHead eyebrow="Process" title="How I Turn Problems Into Solutions" />
+        <SectionHead eyebrow="Process" title="How We Turn Problems Into Solutions" />
         <ol className="relative mt-14 grid gap-10 md:grid-cols-4 md:gap-6">
           <span
             aria-hidden="true"

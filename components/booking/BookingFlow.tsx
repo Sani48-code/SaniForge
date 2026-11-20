@@ -245,7 +245,7 @@ export default function BookingFlow() {
       </div>
 
       <Field id="projectDetails" label="Project details" error={errors.projectDetails}>
-        <textarea id="projectDetails" name="projectDetails" rows={5} maxLength={3000} required value={form.projectDetails} onChange={(e) => set("projectDetails", e.target.value)} aria-invalid={!!errors.projectDetails} aria-describedby={errors.projectDetails ? "projectDetails-error" : undefined} className={`${inputClass} resize-y`} placeholder="What are you trying to achieve? Any timeline or existing tools I should know about?" />
+        <textarea id="projectDetails" name="projectDetails" rows={5} maxLength={3000} required value={form.projectDetails} onChange={(e) => set("projectDetails", e.target.value)} aria-invalid={!!errors.projectDetails} aria-describedby={errors.projectDetails ? "projectDetails-error" : undefined} className={`${inputClass} resize-y`} placeholder="What are you trying to achieve? Any timeline or existing tools we should know about?" />
       </Field>
 
       {/* Honeypot: hidden from people and assistive tech; bots tend to fill it. */}

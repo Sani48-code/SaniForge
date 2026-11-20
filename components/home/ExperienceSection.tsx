@@ -65,7 +65,7 @@ const roles: Role[] = [
     org: "Started with SEO Copywriting",
     title: "Freelance Copywriter at GrowMinion",
     description:
-      "My journey began at GrowMinion as a freelance copywriter, writing keyword-researched, high-converting service pages for law firms, home service companies, and real estate businesses.",
+      "Our founder's journey began at GrowMinion as a freelance copywriter, writing keyword-researched, high-converting service pages for law firms, home service companies, and real estate businesses.",
     tags: ["Law Firms", "Home Services", "Real Estate"],
     dateImage: "/images/experience/timeline-writing.jpg",
     dateImageAlt: "Content research, copywriting and editorial drafting",
@@ -82,7 +82,7 @@ const turningPointSteps = [
     step: "01",
     title: "Joined as a Freelance Copywriter",
     subtitle: "Research & Content Creation",
-    text: "I started at GrowMinion as a freelance copywriter, creating research-backed SEO content for local businesses.",
+    text: "Our founder started at GrowMinion as a freelance copywriter, creating research-backed SEO content for local businesses.",
     image: "/images/experience/joined-as-freelancer.png",
     alt: "Abdul Kaiyum Sani starting as freelance copywriter at GrowMinion",
     badgeColor: "bg-blue-500/15 text-blue-300 border-blue-500/30",
@@ -91,7 +91,7 @@ const turningPointSteps = [
     step: "02",
     title: "Showed an Engineering Mindset",
     subtitle: "Automations & Code Exploration",
-    text: "I kept finding ways to automate repetitive workflows, optimize pipelines, and build tools. This mindset stood out.",
+    text: "He kept finding ways to automate repetitive workflows, optimize pipelines, and build tools. This mindset stood out.",
     image: "/images/experience/showed-engineer-mindset.png",
     alt: "Demonstrating software engineering and automation mindset",
     badgeColor: "bg-amber-500/15 text-amber-300 border-amber-500/30",
@@ -100,7 +100,7 @@ const turningPointSteps = [
     step: "03",
     title: "Got Promoted to Engineer",
     subtitle: "Core Team & Systems Builder",
-    text: "GrowMinion promoted me to Web/Automation Engineer, where I now build full-stack websites, scalable SEO systems, and automation pipelines.",
+    text: "GrowMinion promoted him to Web/Automation Engineer, where he now builds full-stack websites, scalable SEO systems, and automation pipelines.",
     image: "/images/experience/promoted-to-engineer.png",
     alt: "Promoted to Web and Automation Engineer at GrowMinion",
     badgeColor: "bg-emerald-500/15 text-emerald-300 border-emerald-500/30",
@@ -162,10 +162,10 @@ export default function ExperienceSection() {
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-blue-300/80 bg-white/80 px-4 py-1.5 font-mono text-xs uppercase tracking-[0.2em] text-blue-700 shadow-sm backdrop-blur-md">
               <Sparkles className="h-3.5 w-3.5 text-amber-500 animate-pulse" />
-              <span>Career Journey</span>
+              <span>Founder&apos;s Journey</span>
             </div>
             <h2 className="mt-5 font-display text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
-              How I{" "}
+              How we{" "}
               <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent italic">
                 got here
               </span>
@@ -298,7 +298,7 @@ export default function ExperienceSection() {
                 <span>The Turning Point</span>
               </div>
               <h3 className="mt-3 font-display text-3xl font-extrabold text-slate-900 sm:text-4xl lg:text-5xl tracking-tight">
-                How I ended up at GrowMinion
+                How our founder ended up at GrowMinion
               </h3>
               <p className="mt-2 text-sm sm:text-base text-slate-600 max-w-2xl font-normal leading-relaxed">
                 A photographic timeline of evolution — from writing high-converting SEO copy to architecting automations and scaling engineering systems.
@@ -360,7 +360,7 @@ export default function ExperienceSection() {
                   From a freelance copywriter to an engineer.
                 </h5>
                 <p className="text-xs sm:text-sm text-slate-600">
-                  All because I cared about the bigger picture, solved architectural bottlenecks, and automated repetitive workflows.
+                  All because he cared about the bigger picture, solved architectural bottlenecks, and automated repetitive workflows.
                 </p>
               </div>
             </div>
@@ -369,7 +369,7 @@ export default function ExperienceSection() {
               href="#contact"
               className="shrink-0 inline-flex items-center gap-2 rounded-xl bg-slate-900 px-5 py-3 text-xs sm:text-sm font-bold text-white shadow-lg shadow-slate-900/20 transition-all hover:bg-blue-600"
             >
-              <span>Build With Me</span>
+              <span>Build With Us</span>
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>
@@ -386,9 +386,9 @@ export default function ExperienceSection() {
                 One person, three disciplines
               </h3>
               <p className="mt-4 text-base leading-relaxed text-slate-300">
-                Most projects need a developer, a copywriter, and someone to automate the busywork in between. I combine
+                Most projects need a developer, a copywriter, and someone to automate the busywork in between. We combine
                 all three, which means zero handoff friction, faster shipping velocity, and a system that actually talks to itself: the
-                content pipeline, the web application, and the automation workflows all built by the same craftsman.
+                content pipeline, the web application, and the automation workflows all built by the same team.
               </p>
             </div>
 

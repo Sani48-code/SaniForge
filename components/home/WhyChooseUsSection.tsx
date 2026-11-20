@@ -60,7 +60,7 @@ const usps = [
   {
     icon: MessageSquare,
     title: "Direct access",
-    text: "You talk to me, not an account manager, and I reply within a business day.",
+    text: "You talk to us, not an account manager, and we reply within a business day.",
     tone: "fuchsia",
   },
 ] as const;
@@ -141,7 +141,7 @@ export default function WhyChooseUsSection() {
             Why businesses <span className="text-[#FF2EB9]">choose SaniForge</span>
           </h2>
           <p className="mt-4 max-w-2xl text-sm sm:text-base leading-relaxed text-purple-100/90">
-            Six reasons law firms, local businesses and agencies hire me, each backed by work you can check.
+            Six reasons law firms, local businesses and agencies hire us, each backed by work you can check.
           </p>
         </FadeIn>
 

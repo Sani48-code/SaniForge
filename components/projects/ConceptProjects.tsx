@@ -11,7 +11,7 @@ export default function ConceptProjects() {
         <SectionHead
           eyebrow="Web Applications"
           title="Designing Solutions for Everyday Problems"
-          text="Web applications and websites I designed and built, each one solving a practical problem for a different industry."
+          text="Web applications and websites we designed and built, each one solving a practical problem for a different industry."
         />
         <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2">
           {conceptProjects.map((p, i) => (

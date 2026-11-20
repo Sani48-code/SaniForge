@@ -1,7 +1,7 @@
 import { readFile } from "fs/promises";
 import path from "path";
 import { ImageResponse } from "next/og";
-import { AUTHOR_NAME, SITE_NAME, SITE_URL } from "@/lib/site";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 /** Shared renderer for generated Open Graph images (app/**\/opengraph-image.tsx). */
 
@@ -150,7 +150,7 @@ export async function renderOgCard({ eyebrow, title, subtitle, stats, portrait }
             <div style={{ display: "flex", alignItems: "center", fontSize: 24, color: "#E2E8F0" }}>
               <div style={{ fontFamily: "Jakarta", fontWeight: 800, color: "#FFFFFF" }}>{SITE_NAME}</div>
               <div style={{ margin: "0 14px", color: "#64748B" }}>·</div>
-              <div style={{ fontWeight: 600 }}>{AUTHOR_NAME}</div>
+              <div style={{ fontWeight: 600 }}>Web &amp; Automation</div>
               <div style={{ margin: "0 14px", color: "#64748B" }}>·</div>
               <div style={{ color: "#94A3B8" }}>{host}</div>
             </div>

@@ -24,9 +24,9 @@ export default function SaaSProducts() {
       <div className="container-px mx-auto max-w-content">
         <SectionHeading
           eyebrow={linkifyGrowMinion("Built at GrowMinion")}
-          title="SaaS products I've helped build"
+          title="SaaS products we've helped build"
           description={linkifyGrowMinion(
-            "As a Web/Automation Engineer on the GrowMinion team, I've helped design, build, and ship three AI-driven products that power client work at scale."
+            "Through our founder's role on the GrowMinion team, we've helped design, build, and ship three AI-driven products that power client work at scale."
           )}
         />
 

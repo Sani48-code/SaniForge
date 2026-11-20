@@ -3,7 +3,7 @@ import { Search, Map, Hammer, FlaskConical, Rocket, PenLine, Workflow, Code2, Se
 import Reveal from "@/components/projects/Reveal";
 import Heading from "./Heading";
 
-/* ---------- How I work ---------- */
+/* ---------- How we work ---------- */
 const steps = [
   { icon: Search, title: "Understand", text: "Understand the business, the problem, the users, and the desired outcome." },
   { icon: Map, title: "Plan", text: "Choose an appropriate approach, define the scope, and identify the important requirements." },
@@ -16,7 +16,7 @@ export function ProcessFive() {
   return (
     <section className="bg-white py-20 sm:py-28">
       <div className="container-px mx-auto max-w-[1240px]">
-        <Heading eyebrow="How I work" title="A Clear Process. Thoughtful Execution." />
+        <Heading eyebrow="How we work" title="A Clear Process. Thoughtful Execution." />
         <ol className="relative mt-14 grid gap-9 md:grid-cols-5 md:gap-5">
           <span aria-hidden="true" className="absolute left-[21px] top-2 h-[calc(100%-1rem)] w-0.5 bg-jn-gold/60 md:left-[10%] md:right-[10%] md:top-[21px] md:h-0.5 md:w-auto" />
           {steps.map((s, i) => (
@@ -92,7 +92,7 @@ export function TechCapabilities() {
         <Heading
           eyebrow="Technical capabilities"
           title="The Technology Behind the Solutions."
-          text="The right tools matter less than choosing them for the problem. These are the ones I use to deliver practical, maintainable work."
+          text="The right tools matter less than choosing them for the problem. These are the ones we use to deliver practical, maintainable work."
         />
         <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2">
           {groups.map((g, i) => (

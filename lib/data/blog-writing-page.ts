@@ -16,7 +16,7 @@ export const bw = {
     eyebrow: "SEO Blog Writing Service",
     h1: "SEO Blog Writing That Brings In Buyers, Not Just Traffic",
     lead:
-      "Pageviews that bounce do not pay your bills. I plan and write blog content around the searches people make when they are comparing options and ready to act, then structure every article so Google and AI search tools can understand it.",
+      "Pageviews that bounce do not pay your bills. We plan and write blog content around the searches people make when they are comparing options and ready to act, then structure every article so Google and AI search tools can understand it.",
     points: [
       "SEO copywriting since 2023, with content shipped for 20+ businesses",
       "Written by an engineer, so technical topics are accurate",
@@ -27,12 +27,12 @@ export const bw = {
   usps: [
     {
       title: "Bottom-of-funnel focus",
-      text: "I go after comparison, alternative and how-to-do-it queries, where the searcher already has a problem and a budget in mind.",
+      text: "We go after comparison, alternative and how-to-do-it queries, where the searcher already has a problem and a budget in mind.",
       icon: "target",
     },
     {
       title: "Technical depth",
-      text: "I build websites, APIs and automation workflows, so I can write about them without a lot of hand-holding or vague summaries.",
+      text: "We build websites, APIs and automation workflows, so we can write about them without a lot of hand-holding or vague summaries.",
       icon: "code",
     },
     {
@@ -49,10 +49,10 @@ export const bw = {
   about: {
     title: "Search Content, Planned Like a System",
     paragraphs: [
-      "I started with SEO copywriting in 2023, writing keyword-researched service pages and articles for law firms, home service companies and real estate businesses. Since then I have written content for more than 20 businesses across legal, real estate, healthcare, home services and finance.",
-      "I now work as a web and automation engineer at Growminion, which changes how I write. I understand how websites are built, how data moves between tools and where a business actually loses time, so technical content comes from real knowledge rather than rewritten search results.",
+      "We started with SEO copywriting in 2023, writing keyword-researched service pages and articles for law firms, home service companies and real estate businesses. Since then we have written content for more than 20 businesses across legal, real estate, healthcare, home services and finance.",
+      "We now work as a web and automation engineer at Growminion, which changes how we write. We understand how websites are built, how data moves between tools and where a business actually loses time, so technical content comes from real knowledge rather than rewritten search results.",
     ],
-    cta: "See my services and projects",
+    cta: "See our services and projects",
   },
   process: {
     title: "A Simple Way to Get Content Published",
@@ -60,7 +60,7 @@ export const bw = {
     steps: [
       {
         title: "Intent and gap audit",
-        text: "You share your market and your site. I study the search results, the questions buyers ask and what competitors miss, then give you a prioritised list of topics worth writing.",
+        text: "You share your market and your site. We study the search results, the questions buyers ask and what competitors miss, then give you a prioritised list of topics worth writing.",
       },
       {
         title: "Editorial roadmap",
@@ -68,12 +68,12 @@ export const bw = {
       },
       {
         title: "Writing and delivery",
-        text: "I deliver publication-ready Markdown, MDX or a Google Doc with the title tag, meta description, heading structure and internal link suggestions included. You review it and publish.",
+        text: "We deliver publication-ready Markdown, MDX or a Google Doc with the title tag, meta description, heading structure and internal link suggestions included. You review it and publish.",
       },
     ],
   },
   services: {
-    title: "What I Write",
+    title: "What We Write",
     text: "Pick one format or combine them. Each one has a clear job in the buyer's journey.",
     items: [
       {
@@ -94,7 +94,7 @@ export const bw = {
       },
       {
         title: "Content refreshes",
-        text: "I audit posts that already rank, remove what is not working, update outdated facts, tighten internal links and rewrite weak calls to action.",
+        text: "We audit posts that already rank, remove what is not working, update outdated facts, tighten internal links and rewrite weak calls to action.",
       },
       {
         title: "Conversion-minded formatting",
@@ -105,17 +105,17 @@ export const bw = {
   trust: {
     title: "Written by Someone Who Builds the Things You Write About",
     text:
-      "Putting technical content in front of buyers is high stakes, and generic writing shows. I write from hands-on experience with web applications, APIs, databases and n8n automation, so the content holds up when developers, founders and product people read it.",
+      "Putting technical content in front of buyers is high stakes, and generic writing shows. We write from hands-on experience with web applications, APIs, databases and n8n automation, so the content holds up when developers, founders and product people read it.",
     points: [
       "Real engineering work on SaaS products at Growminion",
       "Comfortable with MERN stack topics, REST APIs and workflow automation",
-      "Every draft is researched, written and checked by me",
+      "Every draft is researched, written and checked by us",
     ],
   },
   why: {
     title: "Why Intent-Driven Blog Writing",
     items: [
-      { title: "Technical fluency", text: "I write for operators and engineers with accurate terms and real context, not surface-level explanations." },
+      { title: "Technical fluency", text: "We write for operators and engineers with accurate terms and real context, not surface-level explanations." },
       { title: "Fits your product or service", text: "Each article presents your strengths as the logical answer to a specific problem, with examples where they help." },
       { title: "Clear quality standards", text: "We agree on tone, accuracy and positioning before writing begins, and revision rounds are settled up front." },
       { title: "Built for modern search", text: "Structure and entities that work for Google and for AI answer tools." },
@@ -126,7 +126,7 @@ export const bw = {
   /** Honest replacement for testimonials and invented results: real, linkable work samples. */
   samples: {
     title: "Real Writing Samples",
-    text: "Read full documents I have written for different industries.",
+    text: "Read full documents we have written for different industries.",
     items: [
       {
         title: "Med spa content",
@@ -152,7 +152,7 @@ export const bw = {
     ],
   },
   startingPoints: {
-    title: "Common Starting Points, and What I Do About Them",
+    title: "Common Starting Points, and What We Do About Them",
     text: "These are typical situations, not client case results.",
     items: [
       { problem: "Posts rank on page two or lower for broad terms and nobody clicks through to an offer.", fix: "Re-map the content to narrower, higher-intent queries and rewrite the calls to action." },
@@ -170,15 +170,15 @@ export const bw = {
     ],
   },
   faqs: [
-    { q: "What blog writing services do you offer?", a: "I write comparison and alternative guides, technical pillar pages, tutorials, AI search ready content and content refreshes, and I plan the keywords and structure behind them." },
-    { q: "How do you find topics that attract buyers and not just readers?", a: "I look for intent signals such as alternative and comparison searches, implementation questions and pricing or problem-focused phrases. These suggest the searcher is dealing with a real business problem." },
-    { q: "Can you write about web development, APIs and automation?", a: "Yes. I build web applications and n8n automation workflows, so I can write about topics such as Next.js, REST APIs, databases and CRM workflows from experience." },
-    { q: "Do I need to give you outlines?", a: "No. I can handle research, planning and drafting from start to finish, or write from briefs your team already has. It is your choice." },
-    { q: "What do I receive with each article?", a: "A publication-ready draft in Markdown, MDX or Google Docs, with a title tag, meta description, heading structure, internal link suggestions and call-to-action copy." },
-    { q: "How long before articles show results?", a: "Search rankings usually take weeks or months to settle, and results depend on your site and competition, so I do not promise rankings. Meanwhile, the articles can be shared by your sales team, used in emails and added to onboarding." },
+    { q: "What blog writing services do you offer?", a: "We write comparison and alternative guides, technical pillar pages, tutorials, AI search ready content and content refreshes, and we plan the keywords and structure behind them." },
+    { q: "How do you find topics that attract buyers and not just readers?", a: "We look for intent signals such as alternative and comparison searches, implementation questions and pricing or problem-focused phrases. These suggest the searcher is dealing with a real business problem." },
+    { q: "Can you write about web development, APIs and automation?", a: "Yes. We build web applications and n8n automation workflows, so we can write about topics such as Next.js, REST APIs, databases and CRM workflows from experience." },
+    { q: "Do we need to give you outlines?", a: "No. We can handle research, planning and drafting from start to finish, or write from briefs your team already has. It is your choice." },
+    { q: "What do we receive with each article?", a: "A publication-ready draft in Markdown, MDX or Google Docs, with a title tag, meta description, heading structure, internal link suggestions and call-to-action copy." },
+    { q: "How long before articles show results?", a: "Search rankings usually take weeks or months to settle, and results depend on your site and competition, so we do not promise rankings. Meanwhile, the articles can be shared by your sales team, used in emails and added to onboarding." },
   ],
   finalCta: {
     title: "Ready to Turn Search Intent Into Real Enquiries?",
-    text: "Tell me about your product or service and the buyers you want to reach. I will suggest a practical content plan.",
+    text: "Tell us about your product or service and the buyers you want to reach. We will suggest a practical content plan.",
   },
 };

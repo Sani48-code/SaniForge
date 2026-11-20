@@ -28,7 +28,7 @@ export default function ProjectsHero() {
             From Business Challenges to Digital Solutions<span className="text-pf-yellow">.</span>
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-pf-slate">
-            I design and build SaaS tools, automation systems, SEO platforms, and
+            We design and build SaaS tools, automation systems, SEO platforms, and
             workflow solutions that help businesses work smarter and grow faster.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -36,7 +36,7 @@ export default function ProjectsHero() {
               href="#saas"
               className="inline-flex items-center justify-center gap-3 rounded-lg bg-pf-navy px-8 py-4 text-base font-semibold text-white transition hover:bg-[#0b1f33] hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pf-yellow"
             >
-              Explore My Work <ArrowRight size={18} />
+              Explore Our Work <ArrowRight size={18} />
             </a>
             <Link
               href={site.bookCallLink}
@@ -78,7 +78,7 @@ export default function ProjectsHero() {
       {/* Skills band: sits below the hero, never over the image */}
       <div className="border-y border-pf-navy bg-pf-navy">
         <div className="container-px mx-auto flex max-w-[1240px] flex-wrap items-center justify-center gap-x-4 gap-y-2 py-4 sm:gap-x-6">
-          <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-pf-yellow">What I do</span>
+          <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-pf-yellow">What we do</span>
           <span aria-hidden="true" className="hidden h-4 w-px bg-white/25 sm:block" />
           {skills.map((t, i) => (
             <span key={t} className="inline-flex items-center gap-4 text-sm font-semibold text-white sm:gap-6">

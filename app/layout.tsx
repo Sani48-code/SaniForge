@@ -7,7 +7,7 @@ import MotionProvider from "@/components/motion/MotionProvider";
 import { site } from "@/lib/data/site";
 import { IS_INDEXABLE } from "@/lib/site";
 import JsonLd from "@/components/seo/JsonLd";
-import { personSchema, professionalServiceSchema } from "@/lib/schema";
+import { organizationSchema } from "@/lib/schema";
 import { GoogleTagManager, GoogleTagManagerNoScript } from "@/components/analytics/GoogleTagManager";
 
 const display = Plus_Jakarta_Sans({
@@ -43,9 +43,10 @@ export const metadata: Metadata = {
   },
   description: site.description,
   applicationName: site.name,
-  authors: [{ name: site.founder, url: site.url }],
-  creator: site.founder,
-  keywords: ["n8n developer", "full stack dev", "full-stack developer", "growth engineer", "n8n automation", "GoHighLevel", "SEO copywriting"],
+  authors: [{ name: site.name, url: site.url }],
+  creator: site.name,
+  publisher: site.name,
+  keywords: ["SaniForge", "web development company", "n8n automation", "n8n developer", "full-stack development", "GoHighLevel", "SEO copywriting"],
   // Preview deployments are never indexed (see lib/site.ts and next.config.mjs).
   robots: IS_INDEXABLE
     ? {
@@ -86,8 +87,8 @@ export default function RootLayout({
         {/* Tracking runs on the production deployment only, so previews don't pollute analytics. */}
         {IS_INDEXABLE && <GoogleTagManagerNoScript />}
         {IS_INDEXABLE && <GoogleTagManager />}
-        {/* WebSite and Organization are rendered on the homepage only (app/page.tsx). */}
-        <JsonLd data={[personSchema(), professionalServiceSchema()]} />
+        {/* The company entity on every page; WebSite on the homepage only (app/page.tsx). The founder (Person) is on /about. */}
+        <JsonLd data={organizationSchema()} />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-slate-900 focus:shadow-lg"

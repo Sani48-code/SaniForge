@@ -9,7 +9,7 @@ import { site } from "@/lib/data/site";
 export const metadata: Metadata = buildMetadata({
   title: "Book a Free 30-Minute Call",
   description:
-    "Book a free 30-minute call with Abdul Kaiyum Sani to discuss your website, SEO content or n8n automation goals and the best way to move forward.",
+    "Book a free 30-minute call with SaniForge to discuss your website, SEO content or n8n automation goals and the best way to move forward.",
   path: "/book-a-call",
   socialTitle: "Book a Discovery Call | SaniForge",
   socialDescription: "A 30-minute call to discuss your goals, requirements and next steps.",
@@ -17,8 +17,8 @@ export const metadata: Metadata = buildMetadata({
 
 const expectations = [
   { icon: Target, text: "We clarify your goals and what success looks like." },
-  { icon: MessagesSquare, text: "You walk me through your requirements, tools and timeline." },
-  { icon: CheckCircle2, text: "I recommend a clear next step, with no obligation." },
+  { icon: MessagesSquare, text: "You walk us through your requirements, tools and timeline." },
+  { icon: CheckCircle2, text: "We recommend a clear next step, with no obligation." },
 ];
 
 export default function BookACallPage() {
@@ -54,7 +54,7 @@ export default function BookACallPage() {
               <p className="text-sm text-sv-slate">
                 Prefer to write instead?{" "}
                 <a href={site.mailtoLink} className="font-semibold text-sv-blue underline underline-offset-2">
-                  Email me
+                  Email us
                 </a>{" "}
                 or{" "}
                 <a href={site.whatsappLink} target="_blank" rel="noopener noreferrer" className="font-semibold text-sv-blue underline underline-offset-2">

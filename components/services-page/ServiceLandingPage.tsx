@@ -34,11 +34,11 @@ function Cta({ label = "Book a Call" }: { label?: string }) {
 }
 
 const roleLinks: Partial<Record<ServiceSlug, { lead: string; href: string; text: string }>> = {
-  "n8n-automation": { lead: "Want to hire an n8n developer directly?", href: "/n8n-developer", text: "How I work as an n8n developer for law firms and local businesses" },
-  "lead-generation-ghl": { lead: "Need custom routing beyond GoHighLevel?", href: "/n8n-developer", text: "See my n8n developer work for lead routing and CRM automation" },
+  "n8n-automation": { lead: "Want to hire an n8n developer directly?", href: "/n8n-developer", text: "How we work as an n8n developer for law firms and local businesses" },
+  "lead-generation-ghl": { lead: "Need custom routing beyond GoHighLevel?", href: "/n8n-developer", text: "See our n8n developer work for lead routing and CRM automation" },
   "web-development": { lead: "Hiring for the whole stack?", href: "/full-stack-developer", text: "Work with a full-stack developer: stack, process and results" },
   "saas-development": { lead: "Building a product end to end?", href: "/full-stack-developer", text: "Work with a full-stack developer who has shipped SaaS" },
-  copywriting: { lead: "Copy is one part of the funnel.", href: "/growth-engineer", text: "How I work as a growth engineer across content, conversion and automation" },
+  copywriting: { lead: "Copy is one part of the funnel.", href: "/growth-engineer", text: "How we work as a growth engineer across content, conversion and automation" },
   "blog-writing": { lead: "Content works best with the rest of the funnel.", href: "/growth-engineer", text: "See how a growth engineer connects SEO content to booked calls" },
 };
 
@@ -103,7 +103,7 @@ export default function ServiceLandingPage({
                 href={site.mailtoLink}
                 className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-sv-navy bg-white px-6 py-4 text-base font-semibold text-sv-navy transition hover:-translate-y-0.5 hover:border-jn-gold hover:bg-jn-pale focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-jn-gold"
               >
-                <Mail size={17} aria-hidden="true" /> Email Me
+                <Mail size={17} aria-hidden="true" /> Email Us
               </a>
             </div>
           </Reveal>
@@ -115,7 +115,7 @@ export default function ServiceLandingPage({
         </div>
       </section>
 
-      {/* Role page link: service pages target service keywords; the role pages target "hire me" keywords. */}
+      {/* Role page link: service pages target service keywords; the role pages target "hire us" keywords. */}
       {roleLink && (
         <div className="border-y border-sv-border bg-sv-palegold/60">
           <p className="container-px mx-auto max-w-[1240px] py-4 text-center text-sm text-sv-navy sm:text-base">
@@ -130,7 +130,7 @@ export default function ServiceLandingPage({
       {/* 2. USPs */}
       <section className="bg-white py-20 sm:py-24">
         <div className="container-px mx-auto max-w-[1240px]">
-          <Heading eyebrow="Why work with me" title="Four Reasons This Works" />
+          <Heading eyebrow="Why work with us" title="Four Reasons This Works" />
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {landing.usps.map((u, i) => {
               const Icon = uspIcons[i];
@@ -189,7 +189,7 @@ export default function ServiceLandingPage({
       {/* 5. Offers */}
       <section className="bg-sv-soft py-20 sm:py-28">
         <div className="container-px mx-auto max-w-[1240px]">
-          <Heading eyebrow="What you get" title={`What I Offer in ${label}`} text="Use one offer on its own or combine them. Each has a clear job." />
+          <Heading eyebrow="What you get" title={`What We Offer in ${label}`} text="Use one offer on its own or combine them. Each has a clear job." />
           <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {offers.map((o, i) => (
               <Reveal key={o.title} delay={(i % 3) * 0.06}>
@@ -217,7 +217,7 @@ export default function ServiceLandingPage({
       {/* 6. Tools */}
       <section className="bg-white py-20 sm:py-24">
         <div className="container-px mx-auto max-w-[1240px]">
-          <Heading eyebrow="Tools" title="Tools and Technical Stack" text="The tools I use for this service and what each one is for." />
+          <Heading eyebrow="Tools" title="Tools and Technical Stack" text="The tools we use for this service and what each one is for." />
           <Reveal>
             <div className="mt-12 overflow-x-auto rounded-2xl border border-sv-border">
               <table className="w-full min-w-[640px] text-left text-sm">
@@ -263,7 +263,7 @@ export default function ServiceLandingPage({
       {/* 8. Comparison */}
       <section className="bg-white py-20 sm:py-24">
         <div className="container-px mx-auto max-w-[1240px]">
-          <Heading eyebrow="Compare" title={`Why Choose Me for ${label}`} />
+          <Heading eyebrow="Compare" title={`Why Choose Us for ${label}`} />
           <Reveal>
             <div className="mt-12 overflow-x-auto rounded-2xl border border-sv-border">
               <table className="w-full min-w-[720px] text-left text-sm">
@@ -347,12 +347,12 @@ export default function ServiceLandingPage({
           </Reveal>
           <Reveal delay={0.08}>
             <h2 className="font-display text-3xl font-extrabold text-sv-navy sm:text-4xl">Common Starting Points</h2>
-            <p className="mt-2 text-sm text-jn-body">Typical situations and what I do about them. These are not client case results.</p>
+            <p className="mt-2 text-sm text-jn-body">Typical situations and what we do about them. These are not client case results.</p>
             <ul className="mt-6 space-y-3">
               {landing.startingPoints.map((s) => (
                 <li key={s.problem} className="rounded-xl bg-jn-pale/70 p-4">
                   <p className="text-base font-semibold text-sv-navy">{s.problem}</p>
-                  <p className="mt-1 text-sm text-jn-body"><span className="font-bold text-emerald-700">What I do: </span>{s.fix}</p>
+                  <p className="mt-1 text-sm text-jn-body"><span className="font-bold text-emerald-700">What we do: </span>{s.fix}</p>
                 </li>
               ))}
             </ul>
@@ -390,7 +390,7 @@ export default function ServiceLandingPage({
       {/* 13. Consultation */}
       <section className="bg-jn-alt py-20 sm:py-24">
         <div className="container-px mx-auto max-w-[1240px]">
-          <Heading eyebrow="First call" title="What to Expect on a Strategy Call" text="A short, no-pressure call to see whether I am the right fit." />
+          <Heading eyebrow="First call" title="What to Expect on a Strategy Call" text="A short, no-pressure call to see whether we are the right fit." />
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {sharedConsult.map((c, i) => (
               <Reveal key={c.title} delay={i * 0.07}>
@@ -416,7 +416,7 @@ export default function ServiceLandingPage({
               <p className="relative mx-auto mt-4 max-w-xl text-lg text-jn-body">{landing.closing.text}</p>
               <div className="relative mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Cta />
-                <a href={site.mailtoLink} className="text-base font-semibold text-sv-navy underline decoration-jn-gold decoration-2 underline-offset-4 hover:text-sv-blue">Email Me</a>
+                <a href={site.mailtoLink} className="text-base font-semibold text-sv-navy underline decoration-jn-gold decoration-2 underline-offset-4 hover:text-sv-blue">Email Us</a>
               </div>
             </div>
           </Reveal>

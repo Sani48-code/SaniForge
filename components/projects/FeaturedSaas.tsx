@@ -107,7 +107,7 @@ function FeaturedCard({ p, flip }: { p: FeaturedProject; flip: boolean }) {
         </p>
         <div className="grid gap-4 md:grid-cols-3">
           <CaseBlock icon={Flag} label="Business challenge">{p.challenge}</CaseBlock>
-          <CaseBlock icon={UserCog} label="My role">{p.role}</CaseBlock>
+          <CaseBlock icon={UserCog} label="Our role">{p.role}</CaseBlock>
           <CaseBlock icon={TrendingUp} label="Outcome">{p.outcome}</CaseBlock>
         </div>
         <div className="mt-4 grid gap-4 md:grid-cols-3">
@@ -127,7 +127,7 @@ export default function FeaturedSaas() {
         <SectionHead
           eyebrow="Featured"
           title="Real Products. Real Business Workflows."
-          text="Three SaaS products I helped build with the Growminion team, each one coded from scratch for real agency workflows."
+          text="Three SaaS products we helped build with the Growminion team, each one coded from scratch for real agency workflows."
         />
         <Reveal>
           <div className="mt-12 rounded-2xl border border-pf-border bg-pf-gray p-6 sm:p-8">

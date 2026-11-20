@@ -27,7 +27,7 @@ export default function JournalHero({ latest }: { latest?: PostSummary }) {
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-jn-body">
             Notes from building websites, SaaS tools, automation workflows, and SEO
-            systems. I share the lessons, technical decisions, mistakes, and practical
+            systems. We share the lessons, technical decisions, mistakes, and practical
             solutions that come from actually doing the work.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -41,7 +41,7 @@ export default function JournalHero({ latest }: { latest?: PostSummary }) {
               href="/#about"
               className="inline-flex items-center justify-center rounded-xl border-2 border-sv-navy bg-white px-7 py-4 text-base font-semibold text-sv-navy transition hover:-translate-y-0.5 hover:border-jn-gold hover:bg-jn-pale focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-jn-gold"
             >
-              My Building Journey
+              Our Building Journey
             </Link>
           </div>
           <ul className="mt-9 flex flex-wrap gap-x-7 gap-y-3">

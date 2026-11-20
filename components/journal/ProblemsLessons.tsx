@@ -17,10 +17,10 @@ export default function ProblemsLessons({ posts }: { posts: PostSummary[] }) {
             <span className="h-0.5 w-8 rounded bg-emerald-500" /> From the field
           </p>
           <h2 className="mt-3 font-display text-3xl font-extrabold text-sv-navy sm:text-4xl lg:text-5xl text-balance">
-            Problems I&apos;ve Solved. Lessons I&apos;ve Learned.
+            Problems We&apos;ve Solved. Lessons We&apos;ve Learned.
           </h2>
           <p className="mt-4 text-lg text-jn-body">
-            Not just what works, but why it works, what went wrong, and what I learned along the way.
+            Not just what works, but why it works, what went wrong, and what we learned along the way.
           </p>
         </Reveal>
 
@@ -45,7 +45,7 @@ export default function ProblemsLessons({ posts }: { posts: PostSummary[] }) {
                   </div>
                   {p.approach && (
                     <div>
-                      <dt className="text-xs font-bold uppercase tracking-wider text-sv-navy">My approach</dt>
+                      <dt className="text-xs font-bold uppercase tracking-wider text-sv-navy">Our approach</dt>
                       <dd>{p.approach}</dd>
                     </div>
                   )}
