@@ -27,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     page("/blog", newest(latestPost, staticUpdated), "weekly", 0.7),
     ...posts.map((post) => page(`/blog/${post.slug}`, new Date(post.updated ?? post.date), "monthly", 0.7)),
     page("/projects", staticUpdated, "monthly", 0.6),
+    page("/case-studies", staticUpdated, "monthly", 0.7),
     // Only the canonical /case-studies URL is listed; /projects/<slug> renders the same page.
     ...getAllCaseStudies().map((study) =>
       page(`/case-studies/${study.slug}`, new Date(study.updated ?? STATIC_CONTENT_UPDATED), "yearly", 0.6),

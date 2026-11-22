@@ -165,13 +165,13 @@ export default async function CaseStudyPage({
       keywords: [study.service, ...study.industries],
     }),
     breadcrumbSchema([
-      { name: "Projects", path: "/projects" },
+      { name: "Case Studies", path: "/case-studies" },
       { name: study.title, path },
     ]),
   ];
 
   return (
-    <div className="min-h-screen overflow-x-clip bg-white text-[#0F172A] selection:bg-amber-100">
+    <div className="min-h-screen overflow-x-clip bg-white bg-[radial-gradient(#E4E4E4_1.2px,transparent_1.2px)] [background-size:22px_22px] text-[#0F172A] selection:bg-amber-100">
       <JsonLd data={jsonLd} />
 
       {/* ============ HERO ============ */}
@@ -664,8 +664,8 @@ export default async function CaseStudyPage({
           <section className="mx-auto max-w-content px-4 pb-20 pt-20 sm:px-6 print:hidden">
             <div className="mb-8 flex items-end justify-between">
               <h2 className="font-display text-2xl font-extrabold sm:text-3xl">More Case Studies</h2>
-              <Link href="/projects" className="hidden items-center gap-1 text-sm font-bold text-[#0B63E5] hover:text-[#0951bd] sm:inline-flex">
-                View all projects <ArrowUpRight size={14} />
+              <Link href="/case-studies" className="hidden items-center gap-1 text-sm font-bold text-[#0B63E5] hover:text-[#0951bd] sm:inline-flex">
+                View all case studies <ArrowUpRight size={14} />
               </Link>
             </div>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
