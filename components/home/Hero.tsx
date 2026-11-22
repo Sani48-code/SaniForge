@@ -219,22 +219,8 @@ export default function Hero() {
         <div className="grid grid-cols-1 items-end gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16 xl:gap-24">
           {/* ================= LEFT COLUMN ================= */}
           <div className="relative z-10 flex flex-col pt-2 pb-16 lg:pb-24 lg:pr-4 xl:-ml-6">
-            {/* Eyebrow: name and roles (reads as one sentence for screen readers and search) */}
-            <div className="flex items-center gap-2">
-              <span className="text-xl sm:text-2xl animate-bounce" aria-hidden="true">👋</span>
-              <p className="text-xs sm:text-sm font-medium text-slate-500">
-                Hi, we&apos;re{" "}
-                <span className="block text-base sm:text-lg font-bold tracking-tight text-slate-900">
-                  SaniForge<span className="sr-only">:</span>
-                </span>
-                <span className="block text-[11px] sm:text-xs font-semibold text-blue-700">
-                  Web Development · SEO Content · n8n Automation
-                </span>
-              </p>
-            </div>
-
             {/* Main Headline */}
-            <h1 className="mt-5 font-display text-[32px] sm:text-5xl lg:text-[50px] xl:text-[54px] font-extrabold tracking-tight text-slate-900 leading-[1.12] text-balance">
+            <h1 className="font-display text-[32px] sm:text-5xl lg:text-[50px] xl:text-[54px] font-extrabold tracking-tight text-slate-900 leading-[1.12] text-balance">
               We Build Websites &amp; <span className="text-[#F59E0B]">Automations</span> That Turn Visitors Into Booked Calls
             </h1>
 
