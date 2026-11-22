@@ -41,9 +41,9 @@ export function NewsletterCard() {
       <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#0B63E5]">
         <Mail size={14} /> Systems Growth Playbook
       </div>
-      <h5 className="mt-2 font-display text-base font-bold text-[#0F172A]">
+      <h2 className="mt-2 font-display text-base font-bold text-[#0F172A]">
         Get Bi-Weekly Case Studies &amp; Playbooks
-      </h5>
+      </h2>
       <p className="mt-1.5 text-xs leading-relaxed text-slate-600">
         No fluff. Real system architectures, SEO frameworks, and automation workflows delivered to your inbox.
       </p>

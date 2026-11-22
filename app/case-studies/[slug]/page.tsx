@@ -323,7 +323,7 @@ export default async function CaseStudyPage({
                     01
                   </span>
                   <div>
-                    <h5 className="font-bold text-sm text-[#0F172A]">Discovery &amp; Process Mapping</h5>
+                    <h3 className="font-bold text-sm text-[#0F172A]">Discovery &amp; Process Mapping</h3>
                     <p className="mt-1 text-xs text-slate-600 leading-relaxed">
                       Audited every handoff, documented edge cases, and isolated the highest-friction bottlenecks.
                     </p>
@@ -335,7 +335,7 @@ export default async function CaseStudyPage({
                     02
                   </span>
                   <div>
-                    <h5 className="font-bold text-sm text-[#0F172A]">Architecture &amp; System Automation</h5>
+                    <h3 className="font-bold text-sm text-[#0F172A]">Architecture &amp; System Automation</h3>
                     <p className="mt-1 text-xs text-slate-600 leading-relaxed">
                       Implemented custom n8n pipelines and optimized web architecture with automated schema validation.
                     </p>
@@ -347,7 +347,7 @@ export default async function CaseStudyPage({
                     03
                   </span>
                   <div>
-                    <h5 className="font-bold text-sm text-[#0F172A]">Testing &amp; Live Rollout</h5>
+                    <h3 className="font-bold text-sm text-[#0F172A]">Testing &amp; Live Rollout</h3>
                     <p className="mt-1 text-xs text-slate-600 leading-relaxed">
                       Ran parallel test batches alongside the manual team until reaching 98%+ automated accuracy before cutover.
                     </p>
@@ -430,9 +430,9 @@ export default async function CaseStudyPage({
               <div className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-[#0B63E5]">
                 <BookmarkCheck size={16} /> Key Takeaways
               </div>
-              <h4 className="mt-2 font-display text-2xl font-extrabold text-[#0F172A]">
+              <h3 className="mt-2 font-display text-2xl font-extrabold text-[#0F172A]">
                 Strategic Lessons For Founders &amp; Operators
-              </h4>
+              </h3>
               <ul className="mt-5 space-y-3.5">
                 <li className="flex items-start gap-3 text-base text-slate-800">
                   <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-[#0B63E5]" />
@@ -475,9 +475,9 @@ export default async function CaseStudyPage({
             <div className="lg:sticky lg:top-28 space-y-6">
               {/* Case Study Info Metadata Card */}
               <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs">
-                <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-slate-500">
+                <h2 className="font-mono text-xs font-bold uppercase tracking-wider text-slate-500">
                   Project Snapshot
-                </h4>
+                </h2>
                 <div className="mt-4 space-y-3.5 text-sm">
                   <div className="flex justify-between border-b border-slate-100 pb-2.5">
                     <span className="text-slate-500">Client</span>
@@ -525,9 +525,9 @@ export default async function CaseStudyPage({
                     />
                   </div>
                   <div>
-                    <h5 className="font-display font-bold text-[#0F172A] text-base">
+                    <p className="font-display font-bold text-[#0F172A] text-base">
                       {site.founder}
-                    </h5>
+                    </p>
                     <p className="text-xs text-slate-500">Web Developer &amp; Systems Engineer</p>
                   </div>
                 </div>
