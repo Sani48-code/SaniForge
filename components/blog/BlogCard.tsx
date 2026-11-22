@@ -40,13 +40,6 @@ export default function BlogCard({
               sizes={sizes}
               className="object-cover transition-transform duration-500 group-hover:scale-105"
             />
-            <span
-              className={`absolute left-4 top-4 rounded-full border px-3 py-1 font-mono text-xs font-semibold uppercase tracking-wider shadow-xs backdrop-blur-sm ${
-                categoryBadgeLight[post.category] || "bg-white/95 text-slate-800 border-slate-200"
-              }`}
-            >
-              {post.category}
-            </span>
           </div>
           <div className="flex flex-1 flex-col p-6">
             <h3 className="font-display text-xl font-bold leading-snug text-slate-900 group-hover:text-blue-600 transition-colors">
@@ -87,9 +80,6 @@ export default function BlogCard({
             className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/75 via-navy-deep/15 to-transparent" />
-          <span className="absolute left-4 top-4 rounded-full border border-gold/30 bg-navy-deep/80 px-3 py-1 font-mono text-xs uppercase tracking-wider text-gold-light backdrop-blur-sm shadow-xs">
-            {post.category}
-          </span>
         </div>
         <div className="p-6">
           <h3 className="font-display text-xl leading-snug text-ink group-hover:text-gold-light transition-colors">

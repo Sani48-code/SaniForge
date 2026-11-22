@@ -15,12 +15,6 @@ export const metadata: Metadata = buildMetadata({
   path: "/case-studies",
 });
 
-const CATEGORY_CHIP: Record<string, string> = {
-  Automation: "border-blue-300/60 text-blue-200",
-  Copywriting: "border-amber-300/60 text-amber-200",
-  "Web Development": "border-emerald-300/60 text-emerald-200",
-};
-
 export default function CaseStudiesPage() {
   const studies = getAllCaseStudies();
   const jsonLd = [
@@ -48,8 +42,7 @@ export default function CaseStudiesPage() {
         <div aria-hidden="true" className="absolute inset-0 opacity-[0.07] [background-image:linear-gradient(#fff_1px,transparent_1px),linear-gradient(90deg,#fff_1px,transparent_1px)] [background-size:44px_44px] [mask-image:radial-gradient(ellipse_at_center,#000_30%,transparent_75%)]" />
         <div className="relative mx-auto grid max-w-content grid-cols-1 items-center gap-12 px-4 pb-20 pt-14 sm:px-6 sm:pt-20 lg:grid-cols-[1.2fr_1fr]">
           <div>
-            <span className="rounded-full bg-[#F59E0B] px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-[#0F172A]">Case Studies</span>
-            <h1 className="mt-5 font-display text-[34px] font-extrabold leading-[1.1] tracking-tight text-balance sm:text-6xl">
+            <h1 className=" font-display text-[34px] font-extrabold leading-[1.1] tracking-tight text-balance sm:text-6xl">
               Real Projects. <span className="text-[#F59E0B]">Real Numbers.</span>
             </h1>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg">
@@ -108,12 +101,10 @@ export default function CaseStudiesPage() {
                     }`}
                   />
                   <div className="relative flex h-full flex-col">
-                    <div className="flex flex-wrap gap-2">
-                      <span className={`rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-wider ${CATEGORY_CHIP[study.category] ?? "border-white/30 text-white"}`}>
-                        {study.category}
-                      </span>
-                      <span className="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[11px] text-slate-300">{study.industries[0]}</span>
-                    </div>
+                    <p className="text-sm font-semibold text-[#F59E0B]">
+                      {study.category}
+                      <span className="font-normal text-slate-400"> · {study.industries[0]}</span>
+                    </p>
                     <div className="mt-8 bg-gradient-to-b from-amber-100 via-[#FBBF24] to-[#B45309] bg-clip-text font-display text-6xl font-extrabold leading-none text-transparent sm:text-7xl">
                       {stat.value}
                     </div>
@@ -151,7 +142,7 @@ export default function CaseStudiesPage() {
 
         {/* ============ CTA ============ */}
         <section className="mt-20 rounded-[30px] bg-[#0F172A] px-6 py-14 text-center text-white sm:px-12">
-          <div className="text-xs font-semibold tracking-[0.22em] text-[#F59E0B]">YOUR TURN</div>
+          <div className="text-sm font-semibold text-[#F59E0B]">Your turn</div>
           <h2 className="mx-auto mt-4 max-w-3xl font-display text-3xl font-extrabold leading-tight sm:text-4xl">
             Your business could be the next case study.
           </h2>

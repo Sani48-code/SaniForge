@@ -37,9 +37,6 @@ export default function PersonalProjectsSection() {
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/70 via-navy-deep/10 to-transparent" />
-                  <span className="absolute left-4 top-4 rounded-full border border-gold/30 bg-navy-deep/90 px-3 py-1 font-mono text-xs uppercase tracking-wider text-gold-light backdrop-blur-sm">
-                    {project.category}
-                  </span>
                 </div>
                 <div className="p-6">
                   <h3 className="font-display text-xl text-ink sm:text-2xl">{project.title}</h3>

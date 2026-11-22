@@ -22,7 +22,7 @@ export default function Navbar() {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/85 text-slate-900 backdrop-blur-md transition-colors">
+    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white text-slate-900 shadow-[0_1px_12px_rgba(15,23,42,0.06)] transition-colors">
       <div className="container-px mx-auto flex h-[72px] max-w-[1240px] items-center justify-between">
         {/* Brand Logo matching screenshot */}
         <Link href="/" onClick={handleHomeClick} className="flex shrink-0 items-center gap-2.5">

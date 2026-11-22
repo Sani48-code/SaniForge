@@ -12,7 +12,6 @@ import {
   ArrowUpRight,
   Calendar,
   Clock,
-  Sparkles,
   User,
   ChevronRight,
   CheckCircle2,
@@ -246,19 +245,9 @@ export default async function BlogPostPage({
       <header className="relative bg-gradient-to-b from-slate-50 via-white to-white border-b border-slate-100 py-12 sm:py-20">
         <div className="container-px mx-auto max-w-content">
           <FadeIn>
-            {/* Category Pill */}
+            {/* Category */}
             <div className="flex flex-wrap items-center gap-2">
-              <span
-                className={`inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1 font-mono text-xs uppercase tracking-wider font-semibold ${
-                  categoryBadgeStyles[post.category] || "bg-slate-100 text-slate-800 border-slate-200"
-                }`}
-              >
-                <Sparkles size={12} />
-                {post.category}
-              </span>
-              <span className="rounded-full border border-slate-200 bg-white px-3 py-1 font-mono text-xs text-slate-600 shadow-2xs">
-                Editorial Article
-              </span>
+              <span className="text-sm font-semibold text-blue-700">{post.category}</span>
             </div>
 
             {/* Post Title & Excerpt */}
@@ -393,9 +382,7 @@ export default async function BlogPostPage({
 
             {/* High-Converting Bottom Strategy Call Banner */}
             <div className="mt-16 rounded-3xl border border-blue-200/90 bg-gradient-to-br from-blue-50/70 via-indigo-50/40 to-white p-8 sm:p-12 text-center shadow-lg shadow-blue-500/5">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-blue-100 px-3 py-1 font-mono text-xs uppercase tracking-wider font-semibold text-blue-800">
-                <Sparkles size={12} /> Work With SaniForge
-              </span>
+              <span className="text-sm font-semibold text-blue-700">Work with SaniForge</span>
               <h3 className="mt-4 font-display text-3xl sm:text-4xl font-bold text-slate-900 text-balance">
                 Need help applying this to your business?
               </h3>

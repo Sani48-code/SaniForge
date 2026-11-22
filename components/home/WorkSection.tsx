@@ -33,9 +33,7 @@ export default function WorkSection() {
         <div className="pointer-events-none absolute -bottom-32 right-10 h-[380px] w-[450px] rounded-full bg-indigo-200/35 blur-[130px]" />
 
         <div className="container-px mx-auto max-w-content relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 font-mono text-xs uppercase tracking-[0.2em] font-bold text-blue-700 shadow-xs">
-            Client Industries
-          </div>
+          <div className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-700">Client Industries</div>
           <h2 className="mt-4 font-display text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 text-balance">
             Businesses We&apos;ve Worked With
           </h2>

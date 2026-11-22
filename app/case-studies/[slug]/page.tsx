@@ -17,7 +17,6 @@ import {
   Layers,
   Quote,
   ShieldCheck,
-  Sparkles,
   Target,
   TrendingUp,
   Wrench,
@@ -134,14 +133,11 @@ function SectionTitle({
 }) {
   return (
     <div className={center ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
-      <div
-        className={`inline-flex items-center gap-2 rounded-full px-1 py-1 pr-3.5 text-xs font-bold uppercase tracking-[0.14em] ${
-          dark ? "bg-white/10 text-slate-200" : "bg-white text-slate-600 ring-1 ring-slate-200"
-        }`}
-      >
-        <span className="grid h-6 min-w-6 place-items-center rounded-full bg-[#0F172A] px-1.5 text-[11px] text-[#F59E0B]">{n}</span>
+      <p className={`text-sm font-semibold ${dark ? "text-slate-300" : "text-slate-500"}`}>
+        <span className={dark ? "text-[#F59E0B]" : "text-[#0B63E5]"}>{n}</span>
+        <span className="mx-2 text-slate-300">/</span>
         {eyebrow}
-      </div>
+      </p>
       <h2 className={`mt-4 font-display text-3xl font-extrabold leading-tight tracking-tight sm:text-[40px] ${dark ? "text-white" : "text-[#0F172A]"}`}>
         {title}
       </h2>
@@ -224,14 +220,10 @@ export default async function CaseStudyPage({
             <Link href="/case-studies" className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-400 transition-colors hover:text-white">
               ← All case studies
             </Link>
-            <div className="mt-5 flex flex-wrap gap-2">
-              <span className="rounded-full bg-[#F59E0B] px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-[#0F172A]">{study.category}</span>
-              {study.industries.slice(0, 2).map((ind) => (
-                <span key={ind} className="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[11px] font-medium text-slate-300">
-                  {ind}
-                </span>
-              ))}
-            </div>
+            <p className="mt-5 text-sm font-semibold text-[#F59E0B]">
+              {study.category}
+              <span className="font-normal text-slate-400"> · {study.industries.slice(0, 2).join(" · ")}</span>
+            </p>
             <h1 className="mt-5 font-display text-[32px] font-extrabold leading-[1.12] tracking-tight text-balance sm:text-5xl">
               {story ? <Highlighted text={story.headline} /> : study.title}
             </h1>
@@ -254,9 +246,7 @@ export default async function CaseStudyPage({
           <div className="relative">
             <div aria-hidden="true" className="absolute -inset-4 rounded-[36px] bg-gradient-to-br from-[#F59E0B]/30 via-transparent to-[#0B63E5]/30 blur-2xl" />
             <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.04] p-7 backdrop-blur-sm sm:p-9">
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-300">
-                <Sparkles size={14} className="text-[#F59E0B]" /> The headline result
-              </div>
+              <div className="text-sm font-medium text-slate-300">The headline result</div>
               <div className="mt-4 bg-gradient-to-br from-amber-100 via-[#FBBF24] to-[#D97706] bg-clip-text font-display text-7xl font-extrabold leading-none text-transparent sm:text-8xl">
                 {stat.value}
               </div>
@@ -375,8 +365,8 @@ export default async function CaseStudyPage({
                         {r.after}
                       </div>
                       <span
-                        className={`col-span-2 justify-self-start rounded-full px-3 py-1 text-xs font-bold md:col-span-1 md:justify-self-end ${
-                          r.strong ? "bg-[#0F172A] text-[#F59E0B]" : "bg-slate-100 text-slate-700"
+                        className={`col-span-2 justify-self-start text-sm font-bold md:col-span-1 md:justify-self-end ${
+                          r.strong ? "text-emerald-600" : "text-slate-600"
                         }`}
                       >
                         {r.change}
@@ -450,7 +440,7 @@ export default async function CaseStudyPage({
                 {story.shift.branches.map((b, i) => (
                   <div key={b.title} className={`relative overflow-hidden rounded-3xl bg-white p-6 ring-1 ring-slate-200`}>
                     <span aria-hidden="true" className={`absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r ${PILLAR_STYLES[i % 4].bar}`} />
-                    <div className="text-xs font-bold uppercase tracking-[0.14em] text-slate-400">Pillar {i + 1}</div>
+                    <div className="text-sm text-slate-400">Pillar {i + 1}</div>
                     <h3 className="mt-1 text-xl font-extrabold">{b.title}</h3>
                     <ul className={`mt-4 space-y-2 rounded-2xl p-4 ${PILLAR_STYLES[i % 4].tint}`}>
                       {b.items.map((it) => (
@@ -464,11 +454,11 @@ export default async function CaseStudyPage({
                 ))}
               </div>
               <div className="mt-6 flex flex-wrap items-center gap-2 rounded-2xl bg-[#0F172A] px-5 py-4 text-sm text-white">
-                <span className="mr-1 text-xs font-bold uppercase tracking-[0.14em] text-[#F59E0B]">The formula</span>
+                <span className="mr-1 font-semibold text-[#F59E0B]">The formula:</span>
                 {story.shift.formula.map((f, i) => (
                   <span key={f} className="flex items-center gap-2">
                     {i > 0 && <span className="text-slate-500">+</span>}
-                    <span className="rounded-full bg-white/10 px-3 py-1 font-semibold">{f}</span>
+                    <span className="font-semibold">{f}</span>
                   </span>
                 ))}
                 <span className="text-slate-500">=</span>
@@ -496,7 +486,7 @@ export default async function CaseStudyPage({
                       <div className="flex-1 rounded-2xl bg-white p-5 ring-1 ring-slate-200 sm:p-6">
                         <div className="flex flex-wrap items-center gap-2">
                           <h3 className="text-lg font-bold">{s.title}</h3>
-                          <span className="rounded-full bg-blue-50 px-2.5 py-0.5 text-xs font-semibold text-[#0B63E5]">{s.short}</span>
+                          <span className="text-sm text-slate-400">· {s.short}</span>
                         </div>
                         <p className="mt-2 text-[15px] leading-relaxed text-slate-600">{s.body}</p>
                       </div>
@@ -565,7 +555,7 @@ export default async function CaseStudyPage({
                     <div key={m.label} className="rounded-2xl bg-white p-4 ring-1 ring-slate-200">
                       <div className="flex flex-wrap items-center justify-between gap-2">
                         <span className="font-bold">{m.label}</span>
-                        <span className="rounded-full bg-[#0F172A] px-2.5 py-0.5 text-xs font-bold text-[#F59E0B]">{m.badge}</span>
+                        <span className="text-sm font-bold text-[#0B63E5]">{m.badge}</span>
                       </div>
                       <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{m.text}</p>
                     </div>
@@ -655,7 +645,7 @@ export default async function CaseStudyPage({
             <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(500px_260px_at_100%_100%,rgba(245,158,11,0.25),transparent_70%),radial-gradient(500px_260px_at_0%_0%,rgba(11,99,229,0.3),transparent_70%)]" />
             <div className="relative grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.2fr_1fr]">
               <div>
-                <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#F59E0B]">Your turn</div>
+                <div className="text-sm font-semibold text-[#F59E0B]">Your turn</div>
                 <h2 className="mt-3 font-display text-3xl font-extrabold leading-tight sm:text-4xl">{cta.headline}</h2>
                 <p className="mt-4 max-w-xl text-slate-300">{cta.text}</p>
                 <div className="mt-7 flex flex-wrap items-center gap-3">
@@ -705,9 +695,6 @@ export default async function CaseStudyPage({
                       sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#0F172A]">
-                      {item.category}
-                    </span>
                   </div>
                   <div className="p-6">
                     <h3 className="font-display text-xl font-bold transition-colors group-hover:text-[#0B63E5]">{item.title}</h3>

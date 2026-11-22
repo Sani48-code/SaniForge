@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, Calendar, ExternalLink, Sparkles, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Calendar, ExternalLink, CheckCircle2 } from "lucide-react";
 import FadeIn from "@/components/motion/FadeIn";
 import { site } from "@/lib/data/site";
 
@@ -160,10 +160,7 @@ export default function ExperienceSection() {
         {/* ================= HEADING ================= */}
         <FadeIn className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-blue-300/80 bg-white/80 px-4 py-1.5 font-mono text-xs uppercase tracking-[0.2em] text-blue-700 shadow-sm backdrop-blur-md">
-              <Sparkles className="h-3.5 w-3.5 text-amber-500 animate-pulse" />
-              <span>Founder&apos;s Journey</span>
-            </div>
+            <div className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-700">Founder&apos;s Journey</div>
             <h2 className="mt-5 font-display text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
               How we{" "}
               <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent italic">
@@ -293,10 +290,7 @@ export default function ExperienceSection() {
         <FadeIn className="mt-20 overflow-hidden rounded-3xl border border-white/90 bg-gradient-to-b from-white/95 via-[#F8FAFF]/95 to-white/95 p-6 sm:p-10 lg:p-12 shadow-[0_25px_60px_-15px_rgba(79,70,229,0.12)] text-slate-900">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3.5 py-1 font-mono text-[11px] uppercase tracking-[0.2em] text-blue-700 shadow-sm">
-                <Sparkles className="h-3.5 w-3.5 text-amber-500" />
-                <span>The Turning Point</span>
-              </div>
+              <div className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-700">The Turning Point</div>
               <h3 className="mt-3 font-display text-3xl font-extrabold text-slate-900 sm:text-4xl lg:text-5xl tracking-tight">
                 How our founder ended up at GrowMinion
               </h3>
@@ -379,9 +373,7 @@ export default function ExperienceSection() {
         <FadeIn className="mt-14 overflow-hidden rounded-3xl border border-slate-800 bg-gradient-to-br from-slate-900/90 via-[#0A1020] to-slate-950 p-6 sm:p-10 shadow-2xl">
           <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[1.1fr_1fr]">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-blue-300">
-                Full Synergy
-              </div>
+              <div className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-300">Full Synergy</div>
               <h3 className="mt-3 font-display text-3xl font-extrabold text-white sm:text-4xl">
                 One person, three disciplines
               </h3>

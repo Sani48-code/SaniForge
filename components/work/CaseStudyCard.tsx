@@ -29,9 +29,6 @@ export default function CaseStudyCard({
             className="object-cover group-hover:scale-105 transition-transform duration-500"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/70 via-navy-deep/10 to-transparent" />
-          <span className="absolute left-5 top-5 rounded-full border border-gold/30 bg-navy-deep/90 px-3 py-1 font-mono text-xs uppercase tracking-wider text-gold-light backdrop-blur-sm shadow-xs">
-            {study.category}
-          </span>
         </div>
         <div className="p-8">
           <h3 className="font-display text-3xl text-ink group-hover:text-gold-light transition-colors">
