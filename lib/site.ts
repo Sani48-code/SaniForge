@@ -15,7 +15,15 @@ export const SITE_NAME = "SaniForge";
 export const AUTHOR_NAME = "Abdul Kaiyum Sani";
 export const AUTHOR_ROLE = "n8n Developer, Full-Stack Developer & Growth Engineer";
 
+/** SaniForge company pages: shown on the site and used for the business/organization schema. */
 export const SOCIAL_LINKS = {
+  linkedin: "https://www.linkedin.com/company/144167556/",
+  github: "https://github.com/Sani48-code",
+  facebook: "https://www.facebook.com/1458740427321157",
+} as const;
+
+/** Abdul Kaiyum Sani's personal profiles: used for the Person schema's sameAs. */
+export const PERSONAL_LINKS = {
   linkedin: "https://www.linkedin.com/in/sani48",
   github: "https://github.com/Sani48-code",
   facebook: "https://www.facebook.com/abdulkaiyum.sani.50",

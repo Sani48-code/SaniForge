@@ -4,7 +4,7 @@
  *
  * Rules: only facts already published on the site. No Review or AggregateRating markup.
  */
-import { SITE_URL, SITE_NAME, AUTHOR_NAME, AUTHOR_ROLE, SOCIAL_LINKS, STATIC_CONTENT_UPDATED, absoluteUrl, toSchemaDateTime } from "@/lib/site";
+import { SITE_URL, SITE_NAME, AUTHOR_NAME, AUTHOR_ROLE, SOCIAL_LINKS, PERSONAL_LINKS, STATIC_CONTENT_UPDATED, absoluteUrl, toSchemaDateTime } from "@/lib/site";
 import { services } from "@/lib/data/services";
 
 export const PERSON_ID = `${SITE_URL}/#person`;
@@ -37,7 +37,7 @@ export function personSchema(): Json {
     url: SITE_URL,
     image: absoluteUrl("/images/portrait-suit-1.png"),
     email: "contact.sani@proton.me",
-    sameAs: Object.values(SOCIAL_LINKS),
+    sameAs: Object.values(PERSONAL_LINKS),
     worksFor: [
       { "@id": BUSINESS_ID },
       { "@type": "Organization", name: "GrowMinion", url: "https://growminion.com/" },
