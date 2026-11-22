@@ -69,7 +69,7 @@ export default function MobileMenu() {
     "flex min-h-[52px] items-center justify-between rounded-xl px-4 font-display text-lg font-bold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-600";
 
   const panel = (
-    <div className="fixed inset-0 z-[100] md:hidden" role="dialog" aria-modal="true" aria-label="Site menu">
+    <div className="fixed inset-0 z-[100] lg:hidden" role="dialog" aria-modal="true" aria-label="Site menu">
       <button
         type="button"
         aria-label="Close menu"
@@ -184,7 +184,7 @@ export default function MobileMenu() {
   );
 
   return (
-    <div className="md:hidden">
+    <div className="lg:hidden">
       <button
         ref={buttonRef}
         type="button"

@@ -39,68 +39,49 @@ export default function CaseStudiesPage() {
   ];
 
   return (
-    <div className="min-h-screen overflow-x-clip bg-white bg-[radial-gradient(#E4E4E4_1.2px,transparent_1.2px)] [background-size:22px_22px] text-[#0F172A]">
+    <div className="min-h-screen overflow-x-clip bg-[#F7F8FB] text-[#0F172A]">
       <JsonLd data={jsonLd} />
 
       {/* ============ HERO ============ */}
-      <header className="relative overflow-hidden rounded-b-[40px] bg-[#070B14] bg-[radial-gradient(1100px_480px_at_85%_-10%,rgba(245,158,11,0.13),transparent_60%),radial-gradient(700px_400px_at_0%_0%,rgba(11,99,229,0.18),transparent_60%)] px-4 pb-52 pt-14 text-center text-white sm:pt-20">
-        <div aria-hidden="true" className="pointer-events-none absolute -right-32 -top-20 h-[520px] w-[520px] rounded-full border border-white/5 shadow-[0_0_0_60px_rgba(255,255,255,0.015)]" />
-        <div className="relative mx-auto max-w-4xl">
-          <span className="rounded-full border border-[#F59E0B]/60 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-[#F59E0B]">
-            Case Studies
-          </span>
-          <h1 className="mt-6 font-display text-[32px] font-extrabold leading-[1.15] tracking-tight text-balance sm:text-5xl">
-            Real Projects. <span className="text-[#F59E0B]">Real Numbers.</span> No Fluff.
-          </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
-            How we built websites, SEO content and automation systems for law firms, local businesses and SaaS teams, and exactly what changed after.
-          </p>
-          <dl className="mx-auto mt-10 grid max-w-3xl grid-cols-1 gap-5 sm:grid-cols-3">
-            {[
-              ["Projects", `${studies.length} detailed case studies`],
-              ["Services", "Web, SEO content, automation"],
-              ["Built by", site.name],
-            ].map(([k, v]) => (
-              <div key={k}>
-                <dt className="text-sm font-semibold text-white">{k}</dt>
-                <dd className="mt-1 text-sm text-slate-400">{v}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </header>
-
-      {/* Overlapping highlight card */}
-      <div className="relative z-10 mx-auto -mt-40 max-w-5xl px-4">
-        <div className="relative overflow-hidden rounded-[28px] border border-[#F59E0B]/20 bg-[#030509] px-6 py-10 text-center text-white shadow-[0_30px_80px_rgba(2,6,23,0.35)] sm:px-10 sm:py-12">
-          <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(420px_240px_at_100%_35%,rgba(245,158,11,0.45),transparent_70%),radial-gradient(420px_220px_at_0%_100%,rgba(245,158,11,0.28),transparent_70%)]" />
-          <svg aria-hidden="true" viewBox="0 0 1000 400" preserveAspectRatio="none" className="pointer-events-none absolute inset-0 h-full w-full">
-            <path d="M0 290 C160 220 300 210 470 265 S780 320 900 220 S980 90 1000 70" fill="none" stroke="#F59E0B" strokeWidth="8" opacity=".35" style={{ filter: "blur(6px)" }} />
-            <path d="M0 290 C160 220 300 210 470 265 S780 320 900 220 S980 90 1000 70" fill="none" stroke="#FBBF24" strokeWidth="2.5" />
-          </svg>
+      <header className="relative overflow-hidden bg-[#070B14] text-white">
+        <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(900px_420px_at_90%_0%,rgba(245,158,11,0.16),transparent_60%),radial-gradient(800px_480px_at_0%_100%,rgba(11,99,229,0.25),transparent_60%)]" />
+        <div aria-hidden="true" className="absolute inset-0 opacity-[0.07] [background-image:linear-gradient(#fff_1px,transparent_1px),linear-gradient(90deg,#fff_1px,transparent_1px)] [background-size:44px_44px] [mask-image:radial-gradient(ellipse_at_center,#000_30%,transparent_75%)]" />
+        <div className="relative mx-auto grid max-w-content grid-cols-1 items-center gap-12 px-4 pb-20 pt-14 sm:px-6 sm:pt-20 lg:grid-cols-[1.2fr_1fr]">
+          <div>
+            <span className="rounded-full bg-[#F59E0B] px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-[#0F172A]">Case Studies</span>
+            <h1 className="mt-5 font-display text-[34px] font-extrabold leading-[1.1] tracking-tight text-balance sm:text-6xl">
+              Real Projects. <span className="text-[#F59E0B]">Real Numbers.</span>
+            </h1>
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg">
+              How we built websites, SEO content and automation systems for law firms, local businesses and SaaS teams, and exactly what changed after.
+            </p>
+            <a href="#all-case-studies" className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-white underline decoration-[#F59E0B] decoration-2 underline-offset-4">
+              Browse all {studies.length} case studies <ArrowRight size={15} />
+            </a>
+          </div>
           <div className="relative">
-            <div className="text-sm font-medium tracking-[0.2em] text-slate-300">INSIDE THE WORK</div>
-            <div className="mt-6 grid grid-cols-2 gap-6 sm:grid-cols-4">
+            <div aria-hidden="true" className="absolute -inset-4 rounded-[36px] bg-gradient-to-br from-[#F59E0B]/30 via-transparent to-[#0B63E5]/30 blur-2xl" />
+            <div className="relative grid grid-cols-2 gap-3 rounded-[28px] border border-white/10 bg-white/[0.04] p-4 backdrop-blur-sm sm:p-5">
               {[
                 ["89", "Articles published in month one"],
-                ["#1-3", "Google rankings for law firm pages"],
+                ["#1-3", "Google rankings for a law firm"],
                 ["3x", "Lead forms in 90 days"],
                 ["<2 min", "Lead response time"],
               ].map(([v, l]) => (
-                <div key={l}>
-                  <div className="bg-gradient-to-b from-amber-100 via-[#FBBF24] to-[#B45309] bg-clip-text font-display text-4xl font-extrabold text-transparent sm:text-5xl">{v}</div>
-                  <div className="mt-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#FBBF24]">{l}</div>
+                <div key={l} className="rounded-2xl bg-white/5 p-5">
+                  <div className="bg-gradient-to-br from-amber-100 via-[#FBBF24] to-[#D97706] bg-clip-text font-display text-3xl font-extrabold text-transparent sm:text-4xl">{v}</div>
+                  <div className="mt-2 text-xs leading-snug text-slate-300">{l}</div>
                 </div>
               ))}
             </div>
           </div>
         </div>
-      </div>
+      </header>
 
       {/* ============ CASE STUDY CARDS ============ */}
-      <main className="mx-auto max-w-content px-4 pb-20 pt-16 sm:px-6">
+      <main id="all-case-studies" className="mx-auto max-w-content scroll-mt-24 px-4 pb-20 pt-16 sm:px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="font-display text-3xl font-extrabold tracking-tight sm:text-4xl">All Case Studies</h2>
+          <h2 className="font-display text-3xl font-extrabold tracking-tight sm:text-4xl">Pick a Story, See the Results</h2>
           <p className="mt-4 text-base leading-relaxed text-slate-600 sm:text-lg">
             Each one walks through the starting point, what we changed, the problems we solved and the measured result.
           </p>
@@ -170,7 +151,7 @@ export default function CaseStudiesPage() {
 
         {/* ============ CTA ============ */}
         <section className="mt-20 rounded-[30px] bg-[#0F172A] px-6 py-14 text-center text-white sm:px-12">
-          <div className="text-xs font-semibold tracking-[0.22em] text-[#F59E0B]">START WITH {site.name.toUpperCase()}</div>
+          <div className="text-xs font-semibold tracking-[0.22em] text-[#F59E0B]">YOUR TURN</div>
           <h2 className="mx-auto mt-4 max-w-3xl font-display text-3xl font-extrabold leading-tight sm:text-4xl">
             Your business could be the next case study.
           </h2>
