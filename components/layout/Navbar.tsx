@@ -7,6 +7,8 @@ import { Linkedin, Phone, ArrowRight, ChevronDown } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { navItems } from "@/lib/data/nav";
 import { services } from "@/lib/data/services";
+import { industries } from "@/lib/data/who-we-help";
+import { industryIcons } from "@/components/who-we-help/icons";
 import { site } from "@/lib/data/site";
 import MobileMenu from "./MobileMenu";
 import { cn } from "@/lib/utils";
@@ -57,6 +59,55 @@ export default function Navbar() {
               </Link>
             );
           })}
+
+          {/* Who We Help dropdown */}
+          <div className="group/who relative">
+            <Link
+              href="/who-we-help"
+              className={cn(
+                "inline-flex items-center gap-1 whitespace-nowrap rounded-full px-3.5 py-2 text-[13.5px] font-semibold transition-all duration-200 xl:px-4",
+                pathname.startsWith("/who-we-help")
+                  ? "bg-white text-[#0B63E5] shadow-sm ring-1 ring-slate-200"
+                  : "text-slate-600 hover:bg-white/70 hover:text-slate-900"
+              )}
+            >
+              Who We Help
+              <ChevronDown size={14} className="transition-transform group-hover/who:rotate-180 group-focus-within/who:rotate-180" />
+            </Link>
+            <div className="invisible absolute left-1/2 top-full z-50 w-80 -translate-x-1/2 pt-4 opacity-0 transition-all group-hover/who:visible group-hover/who:opacity-100 group-focus-within/who:visible group-focus-within/who:opacity-100">
+              <div className="rounded-2xl border border-slate-200 bg-white p-2 shadow-2xl ring-1 ring-slate-900/5">
+                <Link
+                  href="/who-we-help"
+                  className="mb-1 flex items-center gap-2 rounded-xl px-3 py-2 text-xs font-bold uppercase tracking-wider text-blue-600 transition-colors hover:bg-blue-50"
+                >
+                  Who We Help →
+                </Link>
+                <div className="my-1 border-t border-slate-100" />
+                {industries.map((ind) => {
+                  const Icon = industryIcons[ind.icon];
+                  const isActive = pathname === `/who-we-help/${ind.slug}`;
+                  return (
+                    <Link
+                      key={ind.slug}
+                      href={`/who-we-help/${ind.slug}`}
+                      className={cn(
+                        "flex items-start gap-3 rounded-xl px-3 py-2.5 transition-colors",
+                        isActive ? "bg-blue-50 text-blue-700" : "text-slate-700 hover:bg-slate-50 hover:text-slate-900"
+                      )}
+                    >
+                      <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-amber-300 to-orange-500 text-white">
+                        <Icon size={15} />
+                      </span>
+                      <span>
+                        <span className="block text-sm font-semibold leading-tight">{ind.name}</span>
+                        <span className="mt-0.5 block text-xs leading-snug text-slate-500 line-clamp-1">{ind.menuLine}</span>
+                      </span>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
 
           {/* Services dropdown */}
           <div className="group relative">
@@ -118,7 +169,7 @@ export default function Navbar() {
 
         {/* Right Actions: GitHub, Facebook, LinkedIn, Book a Call */}
         <div className="hidden items-center gap-2.5 lg:flex">
-          <div className="flex items-center gap-0.5 rounded-full border border-slate-200 bg-white px-1 py-0.5 shadow-sm">
+          <div className="hidden items-center gap-0.5 rounded-full border border-slate-200 bg-white px-1 py-0.5 shadow-sm xl:flex">
           {/* GitHub Icon */}
           <a
             href={site.github}

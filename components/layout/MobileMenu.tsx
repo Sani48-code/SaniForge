@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { ArrowRight, ChevronDown, Linkedin, Mail, Menu, Phone, X } from "lucide-react";
 import { navItems } from "@/lib/data/nav";
 import { services } from "@/lib/data/services";
+import { industries } from "@/lib/data/who-we-help";
 import { site } from "@/lib/data/site";
 import { cn } from "@/lib/utils";
 
@@ -15,6 +16,7 @@ const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1
 export default function MobileMenu() {
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [whoOpen, setWhoOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -107,6 +109,46 @@ export default function MobileMenu() {
               </Link>
             );
           })}
+
+          <div>
+            <button
+              type="button"
+              onClick={() => setWhoOpen((v) => !v)}
+              aria-expanded={whoOpen}
+              aria-controls="mobile-who"
+              className={cn(
+                linkBase,
+                "w-full",
+                pathname.startsWith("/who-we-help") ? "bg-blue-50 text-blue-700" : "text-slate-800 hover:bg-slate-50"
+              )}
+            >
+              Who We Help
+              <ChevronDown size={20} aria-hidden="true" className={cn("transition-transform", whoOpen && "rotate-180")} />
+            </button>
+            {whoOpen && (
+              <ul id="mobile-who" className="mb-1 ml-4 mt-1 space-y-0.5 border-l-2 border-amber-300 pl-3">
+                <li>
+                  <Link href="/who-we-help" className="flex min-h-[44px] items-center rounded-lg px-3 text-base font-semibold text-slate-800 hover:bg-slate-50">
+                    All industries
+                  </Link>
+                </li>
+                {industries.map((ind) => (
+                  <li key={ind.slug}>
+                    <Link
+                      href={`/who-we-help/${ind.slug}`}
+                      aria-current={pathname === `/who-we-help/${ind.slug}` ? "page" : undefined}
+                      className={cn(
+                        "flex min-h-[44px] items-center rounded-lg px-3 text-base font-medium hover:bg-slate-50",
+                        pathname === `/who-we-help/${ind.slug}` ? "text-blue-700" : "text-slate-600"
+                      )}
+                    >
+                      {ind.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
 
           <div>
             <button

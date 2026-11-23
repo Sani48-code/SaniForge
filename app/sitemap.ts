@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getAllPosts, getAllCaseStudies } from "@/lib/mdx";
 import { services } from "@/lib/data/services";
+import { industries } from "@/lib/data/who-we-help";
 import { keywordPageList } from "@/lib/data/keyword-pages";
 import { SITE_URL, STATIC_CONTENT_UPDATED } from "@/lib/site";
 
@@ -24,6 +25,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     page("/about", new Date("2026-11-16"), "monthly", 0.8),
     page("/services", staticUpdated, "monthly", 0.8),
     ...services.map((s) => page(`/services/${s.slug}`, staticUpdated, "monthly", 0.8)),
+    page("/who-we-help", staticUpdated, "monthly", 0.8),
+    ...industries.map((i) => page(`/who-we-help/${i.slug}`, staticUpdated, "monthly", 0.8)),
     page("/blog", newest(latestPost, staticUpdated), "weekly", 0.7),
     ...posts.map((post) => page(`/blog/${post.slug}`, new Date(post.updated ?? post.date), "monthly", 0.7)),
     page("/projects", staticUpdated, "monthly", 0.6),

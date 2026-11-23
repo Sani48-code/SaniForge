@@ -27,6 +27,7 @@ export const footerLinks = {
     { label: "Services", href: "/services" },
     { label: "Projects", href: "/projects" },
     { label: "Case Studies", href: "/case-studies" },
+    { label: "Who We Help", href: "/who-we-help" },
     { label: "Blog", href: "/blog" },
     { label: "Book a Call", href: "/book-a-call" },
   ] as NavItem[],
