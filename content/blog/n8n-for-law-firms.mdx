@@ -1,0 +1,119 @@
+---
+title: "n8n for Law Firms: 5 Workflows for Intake, Follow-Up and Content"
+slug: "n8n-for-law-firms"
+excerpt: "Five n8n workflows that take admin work off a law firm's plate, from consultation intake to content publishing, plus the confidentiality checks to build in from day one."
+category: "Automation"
+date: "2026-11-24"
+image: "/images/blog/n8n-for-law-firms.webp"
+imageAlt: "Law office desk at night with scales of justice and a laptop showing an n8n automation workflow"
+seoTitle: "n8n for Law Firms: 5 Automations for Intake and Content"
+seoDescription: "Five n8n workflows for law firms: intake routing, fast follow-up, content publishing, reviews and reporting, with the ABA confidentiality checks built in."
+tags: ["n8n", "law firms", "automation", "lead generation", "legal marketing"]
+keywords: ["n8n for law firms", "law firm automation n8n", "law firm client intake automation", "self-hosted n8n law firm", "n8n legal workflows"]
+problem: "Law firms lose prospective clients and attorney hours to manual intake, slow follow-up and content that never gets written."
+approach: "Five n8n workflows that move the admin work into a system, with human review and confidentiality controls built in."
+---
+
+Most law firms do not have a lead problem. They have a handoff problem. A prospective client fills in a form at 9 p.m., it lands in a shared inbox, and by the time someone calls back the next afternoon, they have already booked a consultation with another firm.
+
+We build n8n systems for law firms, and the same five workflows come up again and again. This post walks through each one, what it does, how it is wired, and the confidentiality rules to respect while you build it. Two of these come straight from our own client work: an [AI content pipeline that published 89 articles in its first month](/case-studies/ai-legal-content-automation) for an IP and personal injury firm, and [service pages that reached Google's top three](/case-studies/law-firm-service-pages) for a multi-practice firm.
+
+## Key Takeaways
+
+- **Start with intake.** Routing every enquiry to the right attorney in seconds is the fastest win and the easiest to measure.
+- **Follow-up is where firms lose clients.** An automated reply plus a timed escalation stops leads from going cold overnight.
+- **Automation can produce content, but a lawyer approves it.** Our content pipeline drafts and formats; a person at the firm signs off before anything goes live.
+- **Confidentiality comes first.** ABA Model Rule 1.6 and Formal Opinions 477R and 512 all point the same way: know where client data goes, and protect it.
+- **Self-hosted n8n keeps the data inside your own infrastructure**, which makes the confidentiality conversation much simpler.
+
+## Why n8n Fits Law Firms
+
+Three things make n8n a good match for legal work.
+
+**You can host it yourself.** n8n's Community Edition runs on a server the firm controls, so intake details never have to pass through a third-party automation platform. For a profession built on confidentiality, that matters more than any feature list.
+
+**It bills per workflow run, not per step.** A proper intake flow has a lot of steps: validate, check for duplicates, route, log, alert, reply, wait, escalate. On per-step pricing that adds up quickly. We compared the billing models in detail in [n8n vs Zapier vs Make for lead routing](/blog/n8n-vs-zapier-vs-make-lead-routing).
+
+**It handles real logic.** Practice-area routing, office hours, conflict flags and retries all need branching and error handling. n8n's Switch nodes, Code nodes and error workflows cover that without workarounds.
+
+## Workflow 1: Consultation Intake and Routing
+
+**The problem:** enquiries arrive from the website, a chat widget, a call-tracking tool and the occasional directory listing. Someone has to read each one, decide which attorney should see it and copy it into the system of record.
+
+**The workflow:**
+
+1. A **Webhook node** receives every form submission. Our [n8n webhook tutorial](/blog/capture-website-leads-with-n8n-webhook) shows that first step in full.
+2. A validation step drops spam and incomplete entries.
+3. A **Switch node** routes by practice area, location and urgency, for example sending personal injury enquiries to one intake coordinator and trademark questions to another.
+4. The lead is logged in your CRM or practice-management tool through its API, with the source page and timestamp attached.
+5. The right person gets a short alert with a link to the record.
+6. The prospective client gets an immediate acknowledgment that says when they will hear back.
+
+**What to leave out:** the automatic reply should never give legal advice or imply that an attorney-client relationship exists. Keep it to logistics: we received your message, here is when we will call, here is a link to book a time.
+
+## Workflow 2: Fast Follow-Up and Reminders
+
+**The problem:** a lead that waits overnight often goes to whichever firm answered first. Busy days make this worse, not better.
+
+**The workflow:** after the intake flow logs the lead, a **Wait node** pauses for a set time, say 30 minutes during office hours. The workflow then checks whether anyone has marked the lead as contacted. If not, it escalates to a backup person. Once a consultation is booked, the same workflow sends reminders the day before and an hour before, which cuts no-shows without anyone chasing.
+
+We built this exact pattern for a growing sales team in our [lead automation pipeline case study](/case-studies/lead-automation-pipeline): first response dropped from 6.5 hours to under 2 minutes. That client was not a law firm, but the mechanics are the same, and the speed matters even more when a prospective client is comparing several firms.
+
+## Workflow 3: Content Production With Attorney Sign-Off
+
+**The problem:** educational content brings in clients researching their legal question, but the only people who can write it accurately are attorneys and paralegals, and every article competes with billable work.
+
+**The workflow we built:** for an IP and personal injury firm, topics and keywords moved from a whiteboard into a content queue. The n8n pipeline researches each topic, builds an outline, drafts with a legal prompt template, formats the article, matches an image and stages it as a WordPress draft. A person at the firm reviews and approves every draft before it goes live.
+
+The result was [89 articles published in the first month](/case-studies/ai-legal-content-automation) with a 98% draft-to-publish success rate. The firm kept control of what gets written and in what tone; the system took over the hours of formatting and uploading nobody had time for.
+
+Content only works if it lands on pages that convert. Pair it with strong practice-area pages; our guide to [writing service pages that convert](/blog/how-to-write-service-pages-that-convert) covers the structure we used for the law firm that reached the top three.
+
+## Workflow 4: Review and Referral Requests After a Matter Closes
+
+**The problem:** satisfied clients rarely leave reviews unless someone asks at the right moment, and nobody remembers to ask.
+
+**The workflow:** when a matter's status changes to closed in your system, n8n waits a set number of days and sends a short, personal email asking for feedback, with a link to your review profile. If the client replies with a concern, it goes to a partner instead.
+
+**Check first:** rules on soliciting and publishing testimonials differ between jurisdictions. Confirm what your state bar allows before switching this on, and only contact clients who have agreed to hear from you.
+
+## Workflow 5: A Weekly Report for the Partners
+
+**The problem:** partners want to know whether marketing is working, but pulling numbers from four tools is nobody's job.
+
+**The workflow:** every Monday morning, a **Schedule Trigger** pulls new leads by source, average first-response time, consultations booked and cases signed from your CRM, then posts a short summary to email or Slack. It takes a few hours to build and removes a recurring task forever. More importantly, it makes slow response times visible before they cost the firm a client.
+
+## The Confidentiality Checklist
+
+Automation touches client information, so build these in from the start. This is a practical checklist, not legal advice; confirm the details with your own ethics counsel or state bar.
+
+- **Know the rules.** ABA Model Rule 1.6 requires lawyers to protect information relating to a representation, including reasonable efforts against inadvertent or unauthorized disclosure. Formal Opinion 477R (2017) applied this to electronic communication, and [Formal Opinion 512](https://www.americanbar.org/groups/business_law/resources/business-law-today/2024-october/aba-ethics-opinion-generative-ai-offers-useful-framework/), issued on July 29, 2024, applies it to generative AI tools.
+- **Self-host where you can.** Running n8n on infrastructure the firm controls keeps intake data out of a third-party automation platform.
+- **Be careful with AI steps.** Only send client data to an AI provider whose terms you have reviewed, and keep confidential details out of prompts where the task does not need them.
+- **Keep a human in the loop.** Attorneys stay responsible for all work product. Any AI-drafted content or client message should be reviewed before it goes out.
+- **Use least-privilege credentials.** Give each workflow access only to the systems and fields it needs, and store credentials in n8n's credential manager, not in nodes.
+- **Log and alert.** An error workflow that notifies you when a run fails means a changed API key cannot silently drop enquiries for a week.
+
+## Where to Start
+
+If you build only one of these, build intake routing with a follow-up escalation. It is quick to set up, it touches every new enquiry, and the result is easy to measure: how long a prospective client waits for a reply.
+
+From there, add reminders, then reporting, then content. Each workflow reuses the same foundations, so the second one takes far less time than the first.
+
+## Frequently Asked Questions
+
+### Is n8n safe for law firms to use with client data?
+
+It can be, if it is set up with confidentiality in mind. Self-hosting keeps the data on infrastructure the firm controls, and the checklist above covers credentials, AI steps, review and logging. The firm remains responsible for meeting its own ethics obligations.
+
+### Can n8n connect to our practice-management software?
+
+If the software has an API or supports webhooks, n8n can usually connect to it through its HTTP Request node, even without a ready-made integration. Where there is no API, an email trigger or a scheduled export is often a workable fallback.
+
+### Do we need an n8n developer, or can our staff build this?
+
+Simple flows are approachable for a technical staff member. Intake routing with conflict flags, escalations, AI steps and error handling is where an experienced builder saves time and prevents silent failures.
+
+## Want These Workflows Built for Your Firm?
+
+We build intake, follow-up and content systems for law firms, with human review and confidentiality controls in place from the start. See how we work [with law firms](/who-we-help/law-firms), what is included in our [n8n automation services](/services/n8n-automation), or [hire an n8n developer](/n8n-developer) for a specific workflow. The quickest way to find your biggest win is a [free 30-minute call](/book-a-call).

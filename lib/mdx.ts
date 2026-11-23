@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import { toSchemaDateTime } from "@/lib/site";
 import GithubSlugger from "github-slugger";
 
 const BLOG_DIR = path.join(process.cwd(), "content/blog");
@@ -164,7 +165,8 @@ function cleanMarkdownBody(content: string): string {
 function isPublic(data: Partial<BlogFrontmatter>): boolean {
   if (!data.title || !data.slug || !data.date) return false;
   if (data.status === "draft") return false;
-  const time = new Date(data.date).getTime();
+  // A bare YYYY-MM-DD date means midnight in the site's timezone (Asia/Dhaka), not UTC.
+  const time = new Date(toSchemaDateTime(String(data.date))).getTime();
   if (Number.isNaN(time)) return false;
   return time <= Date.now();
 }

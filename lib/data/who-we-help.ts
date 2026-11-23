@@ -25,6 +25,8 @@ export type Industry = {
   solutions: { title: string; text: string; service: string; serviceLabel: string }[];
   builds: string[];
   caseStudies: string[];
+  /** Optional in-depth guide from the blog for this industry. */
+  guide?: { href: string; title: string; text: string };
   proofNote: string;
   faqs: { q: string; a: string }[];
 };
@@ -59,6 +61,11 @@ export const industries: Industry[] = [
     ],
     builds: ["Law firm websites", "Practice-area pages", "Attorney bio pages", "Legal blog content", "Intake forms and CRM", "Review and follow-up automation"],
     caseStudies: ["law-firm-service-pages", "ai-legal-content-automation"],
+    guide: {
+      href: "/blog/n8n-for-law-firms",
+      title: "n8n for Law Firms: 5 Workflows for Intake, Follow-Up and Content",
+      text: "The intake, follow-up, content, review and reporting workflows we build for firms, plus the confidentiality checks to include.",
+    },
     proofNote: "Trusted by firms like Substance Law and Maana Law.",
     faqs: [
       { q: "Do you write content that is accurate for legal topics?", a: "Yes. Drafts are built from the firm's own answers and sources, include the right disclaimers, and an attorney approves every page before it goes live." },

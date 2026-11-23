@@ -149,6 +149,7 @@ export const keywordPages: Record<KeywordSlug, KeywordPage> = {
       { href: "/blog/build-lead-capture-automation-under-an-hour", text: "Build a lead capture automation in under an hour" },
       { href: "/blog/capture-website-leads-with-n8n-webhook", text: "n8n webhook tutorial: capture website leads step by step" },
       { href: "/blog/n8n-vs-zapier-vs-make-lead-routing", text: "n8n vs Zapier vs Make: which tool fits your lead routing" },
+      { href: "/blog/n8n-for-law-firms", text: "n8n for law firms: intake, follow-up and content workflows" },
       { href: "/full-stack-developer", text: "Full-stack development for the website behind the workflow" },
     ],
     cta: {

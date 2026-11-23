@@ -183,6 +183,21 @@ export default async function IndustryPage({ params }: { params: Params | Promis
                 );
               })}
             </ul>
+            {ind.guide && (
+              <Link
+                href={ind.guide.href}
+                className="group mt-5 flex flex-col gap-4 rounded-3xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-sky-300/50 sm:flex-row sm:items-center sm:justify-between sm:p-8"
+              >
+                <span>
+                  <span className="text-xs font-semibold uppercase tracking-[0.18em] text-sky-300">Read the guide</span>
+                  <span className="mt-2 block font-display text-xl font-bold">{ind.guide.title}</span>
+                  <span className="mt-1 block text-sm text-white/60">{ind.guide.text}</span>
+                </span>
+                <span className="inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold text-sky-300">
+                  Read the guide <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+                </span>
+              </Link>
+            )}
           </div>
         </section>
       )}
