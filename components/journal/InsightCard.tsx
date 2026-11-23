@@ -19,12 +19,12 @@ export default function InsightCard({
   return (
     <article
       className={`group relative flex h-full overflow-hidden rounded-2xl border border-sv-border bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:border-sv-blue/40 hover:shadow-xl focus-within:border-sv-blue ${
-        wide ? "flex-col md:flex-row" : "flex-col"
+        wide ? "flex-col md:flex-row md:items-center" : "flex-col"
       }`}
     >
       <div
         className={`relative w-full shrink-0 overflow-hidden bg-sv-soft ${
-          wide ? "aspect-[16/10] md:aspect-auto md:w-[42%] md:min-h-[260px]" : large ? "aspect-[16/9]" : "aspect-[16/10]"
+          wide ? "aspect-video md:w-[54%] md:self-center md:rounded-2xl md:m-5 md:mr-0" : "aspect-video"
         }`}
       >
         <InsightCover
@@ -41,7 +41,7 @@ export default function InsightCard({
         </span>
         <h3
           className={`mt-3 font-display font-extrabold leading-snug text-sv-navy ${
-            large ? "text-2xl sm:text-3xl" : wide ? "text-2xl" : "text-xl"
+            large ? "text-2xl sm:text-3xl" : wide ? "text-2xl sm:text-3xl" : "text-xl"
           }`}
         >
           <Link

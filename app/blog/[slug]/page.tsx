@@ -242,24 +242,25 @@ export default async function BlogPostPage({
       </nav>
 
       {/* Main Hero Header */}
-      <header className="relative bg-gradient-to-b from-slate-50 via-white to-white border-b border-slate-100 py-12 sm:py-20">
-        <div className="container-px mx-auto max-w-content">
+      <header className="relative overflow-hidden border-b border-slate-100 bg-gradient-to-b from-[#EEF4FF] via-white to-white py-12 sm:py-20">
+        <div aria-hidden className="pointer-events-none absolute left-1/2 top-0 h-72 w-[48rem] -translate-x-1/2 rounded-full bg-blue-200/30 blur-3xl" />
+        <div className="container-px relative mx-auto max-w-[1080px] text-center">
           <FadeIn>
             {/* Category */}
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="text-sm font-semibold text-blue-700">{post.category}</span>
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              <span className="rounded-full bg-blue-50 px-3 py-1 text-sm font-semibold text-blue-700 ring-1 ring-blue-100">{post.category}</span>
             </div>
 
             {/* Post Title & Excerpt */}
-            <h1 className="mt-6 font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.14] text-balance">
+            <h1 className="mx-auto mt-6 max-w-4xl font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.12] text-balance">
               {post.title}
             </h1>
-            <p className="mt-5 max-w-4xl text-xl sm:text-2xl font-normal leading-relaxed text-slate-600">
+            <p className="mx-auto mt-5 max-w-3xl text-lg sm:text-xl font-normal leading-relaxed text-slate-600">
               {post.excerpt}
             </p>
 
             {/* Quick Metadata Info Strip */}
-            <div className="mt-10 grid grid-cols-2 gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-xs sm:grid-cols-4 sm:p-6">
+            <div className="mx-auto mt-10 grid max-w-4xl grid-cols-2 gap-4 rounded-2xl border border-slate-200 bg-white p-5 text-left shadow-xs sm:grid-cols-4 sm:p-6">
               <div className="border-r border-slate-100 pr-4 last:border-0">
                 <div className="flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-slate-500">
                   <User size={13} className="text-blue-600" /> Author
@@ -304,13 +305,13 @@ export default async function BlogPostPage({
             </div>
 
             {/* Featured Hero Visual */}
-            <div className="relative mt-10 aspect-[16/9] w-full overflow-hidden rounded-3xl border border-slate-200/90 shadow-xl shadow-slate-200/60">
+            <div className="relative mx-auto mt-10 aspect-[16/9] w-full overflow-hidden rounded-3xl border border-slate-200/90 shadow-2xl shadow-slate-300/50">
               <Image
                 src={post.image}
                 alt={post.imageAlt ?? post.title}
                 fill
                 priority
-                sizes="(max-width: 1280px) 100vw, 1280px"
+                sizes="(max-width: 1080px) 100vw, 1080px"
                 className="object-cover"
               />
             </div>
@@ -319,10 +320,17 @@ export default async function BlogPostPage({
       </header>
 
       {/* Main Article Body & Sidebar */}
-      <main className="container-px mx-auto max-w-content py-12 sm:py-16">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_320px] xl:grid-cols-[1fr_360px]">
-          {/* Main Article Column */}
-          <article className="max-w-3xl">
+      <main className="container-px mx-auto max-w-[1320px] py-12 sm:py-16">
+        <div className="grid grid-cols-1 justify-center gap-10 lg:grid-cols-[220px_minmax(0,720px)] xl:grid-cols-[230px_minmax(0,720px)_260px] xl:gap-14">
+          {/* Left: table of contents */}
+          <aside className="hidden lg:block" aria-label="Table of contents">
+            <div className="sticky top-36">
+              <TableOfContents headings={headings} />
+            </div>
+          </aside>
+
+          {/* Center: the article */}
+          <article className="mx-auto w-full min-w-0 max-w-[720px]">
             {(post.problem || post.approach || post.outcome) && (
               <aside aria-label="Problem, approach and outcome" className="mb-10 rounded-2xl border border-slate-200 bg-slate-50 p-6">
                 <dl className="space-y-3 text-base text-slate-700">
@@ -409,14 +417,9 @@ export default async function BlogPostPage({
             <AuthorBio />
           </article>
 
-          {/* Sticky Sidebar */}
-          <aside className="space-y-6">
-            <div className="lg:sticky lg:top-36 space-y-6">
-              {/* Table of Contents (mobile gets the collapsible version above the article) */}
-              <div className="hidden lg:block">
-                <TableOfContents headings={headings} />
-              </div>
-
+          {/* Right: author and share (wide screens) */}
+          <aside className="hidden xl:block">
+            <div className="sticky top-36 space-y-6">
               {/* Author Quick Card */}
               <div className="rounded-2xl border border-slate-200 bg-slate-50/70 p-6 shadow-xs">
                 <div className="flex items-center gap-3">

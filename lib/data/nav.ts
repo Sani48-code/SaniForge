@@ -5,12 +5,16 @@ export type NavItem = {
   href: string;
 };
 
+/** Plain top-level links. The logo links home, so there is no "Home" item. */
 export const navItems: NavItem[] = [
-  { label: "Home", href: "/" },
-  { label: "Projects", href: "/projects" },
-  { label: "Case Studies", href: "/case-studies" },
   { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
+];
+
+/** The "Work" dropdown merges the two portfolio pages. */
+export const workLinks: (NavItem & { description: string })[] = [
+  { label: "Case Studies", href: "/case-studies", description: "Real projects with before and after numbers" },
+  { label: "Projects", href: "/projects", description: "SaaS products, web apps and writing samples" },
 ];
 
 /** Personal "hire us" landing pages (see lib/data/keyword-pages.ts). */

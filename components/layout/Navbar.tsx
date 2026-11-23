@@ -3,9 +3,10 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Linkedin, Phone, ArrowRight, ChevronDown } from "lucide-react";
+import { Linkedin, Phone, ArrowRight, ChevronDown, Trophy, FolderKanban } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { navItems } from "@/lib/data/nav";
+import { navItems, workLinks } from "@/lib/data/nav";
+import ServiceIcon from "@/components/services/ServiceIcon";
 import { services } from "@/lib/data/services";
 import { industries } from "@/lib/data/who-we-help";
 import { industryIcons } from "@/components/who-we-help/icons";
@@ -13,8 +14,16 @@ import { site } from "@/lib/data/site";
 import MobileMenu from "./MobileMenu";
 import { cn } from "@/lib/utils";
 
+const pill = (active: boolean) =>
+  cn(
+    "relative inline-flex items-center gap-1 whitespace-nowrap rounded-full px-4 py-2 text-[14px] font-semibold transition-all duration-200",
+    active ? "bg-white text-[#0B63E5] shadow-sm ring-1 ring-slate-200" : "text-slate-600 hover:bg-white/70 hover:text-slate-900"
+  );
+
 export default function Navbar() {
   const pathname = usePathname();
+  const servicesActive = pathname.startsWith("/services") || pathname.startsWith("/who-we-help");
+  const workActive = workLinks.some((w) => pathname.startsWith(w.href));
 
   function handleHomeClick(e: React.MouseEvent<HTMLAnchorElement>) {
     if (pathname === "/") {
@@ -26,145 +35,112 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white text-slate-900 shadow-[0_1px_12px_rgba(15,23,42,0.06)] transition-colors">
       <div className="container-px mx-auto flex h-[72px] max-w-[1240px] items-center justify-between">
-        {/* Brand Logo matching screenshot */}
-        <Link href="/" onClick={handleHomeClick} className="flex shrink-0 items-center gap-2.5">
+        {/* Logo is the home link */}
+        <Link href="/" onClick={handleHomeClick} aria-label="SaniForge home" className="flex shrink-0 items-center gap-2.5">
           <Image src="/images/saniforge-logo-full.png" alt="SaniForge" width={900} height={256} priority className="h-11 w-auto" />
         </Link>
 
-        {/* Center Nav Links: a pill bar, the active page sits on a raised white pill */}
+        {/* Center nav: Services and Work open dropdowns; the logo is the link home. */}
         <nav aria-label="Main" className="hidden items-center gap-1 rounded-full border border-slate-200/90 bg-slate-100/80 p-1 shadow-inner shadow-slate-200/60 lg:flex">
-          {navItems.map((item) => {
-            const active =
-              item.href === "/"
-                ? pathname === "/"
-                : item.href.startsWith("/#")
-                ? false
-                : pathname.startsWith(item.href);
+          {/* Services mega menu: services + industries */}
+          <div className="group/svc relative">
+            <Link href="/services" className={pill(servicesActive)}>
+              Services
+              <ChevronDown size={14} className="transition-transform group-hover/svc:rotate-180 group-focus-within/svc:rotate-180" />
+            </Link>
+            <div className="invisible absolute left-1/2 top-full z-50 w-[640px] -translate-x-1/2 pt-4 opacity-0 transition-all group-hover/svc:visible group-hover/svc:opacity-100 group-focus-within/svc:visible group-focus-within/svc:opacity-100">
+              <div className="grid grid-cols-[1.25fr_1fr] gap-2 rounded-2xl border border-slate-200 bg-white p-3 shadow-2xl ring-1 ring-slate-900/5">
+                <div>
+                  <Link href="/services" className="mb-1 flex items-center justify-between rounded-xl px-3 py-2 text-xs font-bold uppercase tracking-wider text-blue-600 hover:bg-blue-50">
+                    What we do <ArrowRight size={13} />
+                  </Link>
+                  {services.map((s) => {
+                    const on = pathname === `/services/${s.slug}`;
+                    return (
+                      <Link
+                        key={s.slug}
+                        href={`/services/${s.slug}`}
+                        className={cn("flex items-start gap-3 rounded-xl px-3 py-2.5 transition-colors", on ? "bg-blue-50 text-blue-700" : "text-slate-700 hover:bg-slate-50 hover:text-slate-900")}
+                      >
+                        <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+                          <ServiceIcon name={s.icon} size={16} />
+                        </span>
+                        <span>
+                          <span className="block text-sm font-semibold leading-tight">{s.label}</span>
+                          <span className="mt-0.5 text-xs leading-snug text-slate-500 line-clamp-1">{s.description}</span>
+                        </span>
+                      </Link>
+                    );
+                  })}
+                </div>
+                <div className="rounded-xl bg-slate-50 p-2">
+                  <Link href="/who-we-help" className="mb-1 flex items-center justify-between rounded-xl px-3 py-2 text-xs font-bold uppercase tracking-wider text-amber-700 hover:bg-amber-50">
+                    Who we help <ArrowRight size={13} />
+                  </Link>
+                  {industries.map((ind) => {
+                    const Icon = industryIcons[ind.icon];
+                    const on = pathname === `/who-we-help/${ind.slug}`;
+                    return (
+                      <Link
+                        key={ind.slug}
+                        href={`/who-we-help/${ind.slug}`}
+                        className={cn("flex items-start gap-3 rounded-xl px-3 py-2.5 transition-colors", on ? "bg-white text-blue-700" : "text-slate-700 hover:bg-white hover:text-slate-900")}
+                      >
+                        <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-amber-300 to-orange-500 text-white">
+                          <Icon size={15} />
+                        </span>
+                        <span>
+                          <span className="block text-sm font-semibold leading-tight">{ind.name}</span>
+                          <span className="mt-0.5 text-xs leading-snug text-slate-500 line-clamp-2">{ind.menuLine}</span>
+                        </span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
 
+          {/* Work: Case Studies + Projects */}
+          <div className="group/work relative">
+            <Link href="/case-studies" className={pill(workActive)}>
+              Work
+              <ChevronDown size={14} className="transition-transform group-hover/work:rotate-180 group-focus-within/work:rotate-180" />
+            </Link>
+            <div className="invisible absolute left-1/2 top-full z-50 w-80 -translate-x-1/2 pt-4 opacity-0 transition-all group-hover/work:visible group-hover/work:opacity-100 group-focus-within/work:visible group-focus-within/work:opacity-100">
+              <div className="rounded-2xl border border-slate-200 bg-white p-2 shadow-2xl ring-1 ring-slate-900/5">
+                {workLinks.map((w, i) => {
+                  const Icon = i === 0 ? Trophy : FolderKanban;
+                  const on = pathname.startsWith(w.href);
+                  return (
+                    <Link
+                      key={w.href}
+                      href={w.href}
+                      className={cn("flex items-start gap-3 rounded-xl px-3 py-3 transition-colors", on ? "bg-blue-50 text-blue-700" : "text-slate-700 hover:bg-slate-50 hover:text-slate-900")}
+                    >
+                      <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-violet-500 text-white">
+                        <Icon size={15} />
+                      </span>
+                      <span>
+                        <span className="block text-sm font-semibold leading-tight">{w.label}</span>
+                        <span className="mt-0.5 block text-xs leading-snug text-slate-500">{w.description}</span>
+                      </span>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          {navItems.map((item) => {
+            const active = pathname.startsWith(item.href);
             return (
-              <Link
-                key={item.label}
-                href={item.href}
-                onClick={item.href === "/" ? handleHomeClick : undefined}
-                aria-current={active ? "page" : undefined}
-                className={cn(
-                  "relative whitespace-nowrap rounded-full px-3.5 py-2 text-[13.5px] font-semibold transition-all duration-200 xl:px-4",
-                  active
-                    ? "bg-white text-[#0B63E5] shadow-sm ring-1 ring-slate-200"
-                    : "text-slate-600 hover:bg-white/70 hover:text-slate-900"
-                )}
-              >
+              <Link key={item.href} href={item.href} aria-current={active ? "page" : undefined} className={pill(active)}>
                 {item.label}
                 {active && <span className="absolute left-1/2 top-1 h-1 w-1 -translate-x-1/2 rounded-full bg-[#F59E0B]" aria-hidden="true" />}
               </Link>
             );
           })}
-
-          {/* Who We Help dropdown */}
-          <div className="group/who relative">
-            <Link
-              href="/who-we-help"
-              className={cn(
-                "inline-flex items-center gap-1 whitespace-nowrap rounded-full px-3.5 py-2 text-[13.5px] font-semibold transition-all duration-200 xl:px-4",
-                pathname.startsWith("/who-we-help")
-                  ? "bg-white text-[#0B63E5] shadow-sm ring-1 ring-slate-200"
-                  : "text-slate-600 hover:bg-white/70 hover:text-slate-900"
-              )}
-            >
-              Who We Help
-              <ChevronDown size={14} className="transition-transform group-hover/who:rotate-180 group-focus-within/who:rotate-180" />
-            </Link>
-            <div className="invisible absolute left-1/2 top-full z-50 w-80 -translate-x-1/2 pt-4 opacity-0 transition-all group-hover/who:visible group-hover/who:opacity-100 group-focus-within/who:visible group-focus-within/who:opacity-100">
-              <div className="rounded-2xl border border-slate-200 bg-white p-2 shadow-2xl ring-1 ring-slate-900/5">
-                <Link
-                  href="/who-we-help"
-                  className="mb-1 flex items-center gap-2 rounded-xl px-3 py-2 text-xs font-bold uppercase tracking-wider text-blue-600 transition-colors hover:bg-blue-50"
-                >
-                  Who We Help →
-                </Link>
-                <div className="my-1 border-t border-slate-100" />
-                {industries.map((ind) => {
-                  const Icon = industryIcons[ind.icon];
-                  const isActive = pathname === `/who-we-help/${ind.slug}`;
-                  return (
-                    <Link
-                      key={ind.slug}
-                      href={`/who-we-help/${ind.slug}`}
-                      className={cn(
-                        "flex items-start gap-3 rounded-xl px-3 py-2.5 transition-colors",
-                        isActive ? "bg-blue-50 text-blue-700" : "text-slate-700 hover:bg-slate-50 hover:text-slate-900"
-                      )}
-                    >
-                      <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-amber-300 to-orange-500 text-white">
-                        <Icon size={15} />
-                      </span>
-                      <span>
-                        <span className="block text-sm font-semibold leading-tight">{ind.name}</span>
-                        <span className="mt-0.5 block text-xs leading-snug text-slate-500 line-clamp-1">{ind.menuLine}</span>
-                      </span>
-                    </Link>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-
-          {/* Services dropdown */}
-          <div className="group relative">
-            <Link
-              href="/services"
-              className={cn(
-                "inline-flex items-center gap-1 whitespace-nowrap rounded-full px-3.5 py-2 text-[13.5px] font-semibold transition-all duration-200 xl:px-4",
-                pathname.startsWith("/services")
-                  ? "bg-white text-[#0B63E5] shadow-sm ring-1 ring-slate-200"
-                  : "text-slate-600 hover:bg-white/70 hover:text-slate-900"
-              )}
-            >
-              Services
-              <ChevronDown size={14} className="transition-transform group-hover:rotate-180 group-focus-within:rotate-180" />
-            </Link>
-            <div className="invisible absolute left-1/2 top-full z-50 w-80 -translate-x-1/2 pt-4 opacity-0 transition-all group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-              <div className="rounded-2xl border border-slate-200 bg-white p-2 shadow-2xl ring-1 ring-slate-900/5">
-                {/* All services link at top */}
-                <Link
-                  href="/services"
-                  className="mb-1 flex items-center gap-2 rounded-xl px-3 py-2 text-xs font-bold uppercase tracking-wider text-blue-600 transition-colors hover:bg-blue-50"
-                >
-                  All Services →
-                </Link>
-                <div className="my-1 border-t border-slate-100" />
-                {services.map((s) => {
-                  const icons: Record<string, React.ReactNode> = {
-                    pen: <span className="text-base">✍️</span>,
-                    file: <span className="text-base">📝</span>,
-                    code: <span className="text-base">💻</span>,
-                    workflow: <span className="text-base">⚙️</span>,
-                    target: <span className="text-base">🎯</span>,
-                    layers: <span className="text-base">🚀</span>,
-                  };
-                  const isActive = pathname === `/services/${s.slug}`;
-                  return (
-                    <Link
-                      key={s.slug}
-                      href={`/services/${s.slug}`}
-                      className={cn(
-                        "flex items-start gap-3 rounded-xl px-3 py-2.5 transition-colors",
-                        isActive
-                          ? "bg-blue-50 text-blue-700"
-                          : "text-slate-700 hover:bg-slate-50 hover:text-slate-900"
-                      )}
-                    >
-                      <span className="mt-0.5 flex-shrink-0 leading-none">{icons[s.icon]}</span>
-                      <span>
-                        <span className="block text-sm font-semibold leading-tight">{s.label}</span>
-                        <span className="mt-0.5 block text-xs text-slate-500 leading-snug line-clamp-1">{s.description}</span>
-                      </span>
-                    </Link>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
         </nav>
 
         {/* Right Actions: GitHub, Facebook, LinkedIn, Book a Call */}

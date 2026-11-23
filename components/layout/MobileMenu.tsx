@@ -5,7 +5,7 @@ import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowRight, ChevronDown, Linkedin, Mail, Menu, Phone, X } from "lucide-react";
-import { navItems } from "@/lib/data/nav";
+import { navItems, workLinks } from "@/lib/data/nav";
 import { services } from "@/lib/data/services";
 import { industries } from "@/lib/data/who-we-help";
 import { site } from "@/lib/data/site";
@@ -16,7 +16,7 @@ const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1
 export default function MobileMenu() {
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
-  const [whoOpen, setWhoOpen] = useState(false);
+  const [workOpen, setWorkOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -67,6 +67,15 @@ export default function MobileMenu() {
     };
   }, [open, close]);
 
+  const servicesActive = pathname.startsWith("/services") || pathname.startsWith("/who-we-help");
+  const workActive = workLinks.some((w) => pathname.startsWith(w.href));
+  const subLink = (active: boolean, strong = false) =>
+    cn(
+      "flex min-h-[44px] items-center rounded-lg px-3 text-base hover:bg-slate-50",
+      strong ? "font-semibold" : "font-medium",
+      active ? "text-blue-700" : strong ? "text-slate-800" : "text-slate-600"
+    );
+
   const linkBase =
     "flex min-h-[52px] items-center justify-between rounded-xl px-4 font-display text-lg font-bold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-600";
 
@@ -96,103 +105,82 @@ export default function MobileMenu() {
         </div>
 
         <nav aria-label="Mobile" className="flex flex-col gap-1 px-3 py-4">
-          {navItems.map((item) => {
-            const active = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
-            return (
-              <Link
-                key={item.label}
-                href={item.href}
-                aria-current={active ? "page" : undefined}
-                className={cn(linkBase, active ? "bg-blue-50 text-blue-700" : "text-slate-800 hover:bg-slate-50")}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
-
-          <div>
-            <button
-              type="button"
-              onClick={() => setWhoOpen((v) => !v)}
-              aria-expanded={whoOpen}
-              aria-controls="mobile-who"
-              className={cn(
-                linkBase,
-                "w-full",
-                pathname.startsWith("/who-we-help") ? "bg-blue-50 text-blue-700" : "text-slate-800 hover:bg-slate-50"
-              )}
-            >
-              Who We Help
-              <ChevronDown size={20} aria-hidden="true" className={cn("transition-transform", whoOpen && "rotate-180")} />
-            </button>
-            {whoOpen && (
-              <ul id="mobile-who" className="mb-1 ml-4 mt-1 space-y-0.5 border-l-2 border-amber-300 pl-3">
-                <li>
-                  <Link href="/who-we-help" className="flex min-h-[44px] items-center rounded-lg px-3 text-base font-semibold text-slate-800 hover:bg-slate-50">
-                    All industries
-                  </Link>
-                </li>
-                {industries.map((ind) => (
-                  <li key={ind.slug}>
-                    <Link
-                      href={`/who-we-help/${ind.slug}`}
-                      aria-current={pathname === `/who-we-help/${ind.slug}` ? "page" : undefined}
-                      className={cn(
-                        "flex min-h-[44px] items-center rounded-lg px-3 text-base font-medium hover:bg-slate-50",
-                        pathname === `/who-we-help/${ind.slug}` ? "text-blue-700" : "text-slate-600"
-                      )}
-                    >
-                      {ind.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-
           <div>
             <button
               type="button"
               onClick={() => setServicesOpen((v) => !v)}
               aria-expanded={servicesOpen}
               aria-controls="mobile-services"
-              className={cn(
-                linkBase,
-                "w-full",
-                pathname.startsWith("/services") ? "bg-blue-50 text-blue-700" : "text-slate-800 hover:bg-slate-50"
-              )}
+              className={cn(linkBase, "w-full", servicesActive ? "bg-blue-50 text-blue-700" : "text-slate-800 hover:bg-slate-50")}
             >
               Services
-              <ChevronDown
-                size={20}
-                aria-hidden="true"
-                className={cn("transition-transform", servicesOpen && "rotate-180")}
-              />
+              <ChevronDown size={20} aria-hidden="true" className={cn("transition-transform", servicesOpen && "rotate-180")} />
             </button>
             {servicesOpen && (
-              <ul id="mobile-services" className="mb-1 ml-4 mt-1 space-y-0.5 border-l-2 border-amber-300 pl-3">
-                <li>
-                  <Link href="/services" className="flex min-h-[44px] items-center rounded-lg px-3 text-base font-semibold text-slate-800 hover:bg-slate-50">
-                    All services
-                  </Link>
-                </li>
-                {services.map((s) => (
-                  <li key={s.slug}>
-                    <Link
-                      href={`/services/${s.slug}`}
-                      aria-current={pathname === `/services/${s.slug}` ? "page" : undefined}
-                      className={cn(
-                        "flex min-h-[44px] items-center rounded-lg px-3 text-base font-medium hover:bg-slate-50",
-                        pathname === `/services/${s.slug}` ? "text-blue-700" : "text-slate-600"
-                      )}
-                    >
-                      {s.label}
+              <div id="mobile-services" className="mb-1 ml-4 mt-1 space-y-3 border-l-2 border-amber-300 pl-3">
+                <ul className="space-y-0.5">
+                  <li>
+                    <Link href="/services" className={subLink(pathname === "/services", true)}>All services</Link>
+                  </li>
+                  {services.map((s) => (
+                    <li key={s.slug}>
+                      <Link href={`/services/${s.slug}`} aria-current={pathname === `/services/${s.slug}` ? "page" : undefined} className={subLink(pathname === `/services/${s.slug}`)}>
+                        {s.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <div>
+                  <p className="px-3 pb-1 text-xs font-bold uppercase tracking-wider text-amber-700">Who we help</p>
+                  <ul className="space-y-0.5">
+                    <li>
+                      <Link href="/who-we-help" className={subLink(pathname === "/who-we-help", true)}>All industries</Link>
+                    </li>
+                    {industries.map((ind) => (
+                      <li key={ind.slug}>
+                        <Link href={`/who-we-help/${ind.slug}`} aria-current={pathname === `/who-we-help/${ind.slug}` ? "page" : undefined} className={subLink(pathname === `/who-we-help/${ind.slug}`)}>
+                          {ind.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            )}
+          </div>
+
+          <div>
+            <button
+              type="button"
+              onClick={() => setWorkOpen((v) => !v)}
+              aria-expanded={workOpen}
+              aria-controls="mobile-work"
+              className={cn(linkBase, "w-full", workActive ? "bg-blue-50 text-blue-700" : "text-slate-800 hover:bg-slate-50")}
+            >
+              Work
+              <ChevronDown size={20} aria-hidden="true" className={cn("transition-transform", workOpen && "rotate-180")} />
+            </button>
+            {workOpen && (
+              <ul id="mobile-work" className="mb-1 ml-4 mt-1 space-y-0.5 border-l-2 border-amber-300 pl-3">
+                {workLinks.map((w) => (
+                  <li key={w.href}>
+                    <Link href={w.href} aria-current={pathname.startsWith(w.href) ? "page" : undefined} className={subLink(pathname.startsWith(w.href), true)}>
+                      {w.label}
                     </Link>
                   </li>
                 ))}
               </ul>
             )}
           </div>
+
+          {navItems.map((item) => {
+            const active = pathname.startsWith(item.href);
+            return (
+              <Link key={item.href} href={item.href} aria-current={active ? "page" : undefined} className={cn(linkBase, active ? "bg-blue-50 text-blue-700" : "text-slate-800 hover:bg-slate-50")}>
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="mt-auto space-y-4 px-4 pt-2">

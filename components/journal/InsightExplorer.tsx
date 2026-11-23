@@ -8,14 +8,11 @@ import { BLOG_CATEGORIES } from "@/lib/blog-categories";
 import type { PostSummary } from "@/lib/mdx";
 
 const ALL = "All Insights";
-const PAGE_SIZE = 9;
+const PAGE_SIZE = 10;
 
-/** Magazine rhythm repeated every 9 posts: large, standard x4, wide, standard x3. */
-function layoutFor(index: number, total: number): { variant: CardVariant; span: string } {
-  if (total === 1) return { variant: "wide", span: "lg:col-span-3 md:col-span-2" };
-  const i = index % PAGE_SIZE;
-  if (i === 0) return { variant: "large", span: "md:col-span-2" };
-  if (i === 5) return { variant: "wide", span: "md:col-span-2 lg:col-span-3" };
+/** The newest post leads as a full-width card (image beside text); the rest sit in an even three-column grid. */
+function layoutFor(index: number): { variant: CardVariant; span: string } {
+  if (index === 0) return { variant: "wide", span: "md:col-span-2 lg:col-span-3" };
   return { variant: "standard", span: "" };
 }
 
@@ -105,7 +102,7 @@ export default function InsightExplorer({ posts }: { posts: PostSummary[] }) {
           ) : (
             <ul className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
               {shown.map((post, i) => {
-                const { variant, span } = layoutFor(i, filtered.length);
+                const { variant, span } = layoutFor(i);
                 return (
                   <li key={post.slug} className={span}>
                     <InsightCard post={post} variant={variant} />

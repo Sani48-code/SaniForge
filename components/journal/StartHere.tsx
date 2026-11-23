@@ -19,8 +19,8 @@ export default function StartHere({ post }: { post: PostSummary }) {
         </Reveal>
 
         <Reveal delay={0.08}>
-          <article className="group relative mt-10 grid items-center gap-0 lg:grid-cols-[1.35fr_1fr]">
-            <div className="relative aspect-[16/10] overflow-hidden rounded-3xl border border-sv-border bg-white shadow-2xl shadow-amber-900/10 lg:aspect-[4/3]">
+          <article className="group relative mt-10 grid items-center gap-8 overflow-hidden rounded-[32px] border border-sv-border bg-white p-4 shadow-2xl shadow-amber-900/10 sm:p-5 lg:grid-cols-[1.3fr_1fr] lg:gap-10">
+            <div className="relative aspect-video overflow-hidden rounded-3xl bg-sv-soft">
               <InsightCover
                 src={post.image}
                 alt={`Cover image for ${post.title}`}
@@ -30,7 +30,7 @@ export default function StartHere({ post }: { post: PostSummary }) {
                 className="transition-transform duration-700 group-hover:scale-105"
               />
             </div>
-            <div className="relative z-10 -mt-10 rounded-3xl border border-sv-border bg-white p-7 shadow-xl sm:p-10 lg:-ml-16 lg:mt-0">
+            <div className="px-3 pb-4 sm:px-4 lg:px-0 lg:pr-8">
               <span className={`rounded-full px-3 py-1 text-xs font-bold ${categoryStyle(post.category)}`}>
                 {post.category}
               </span>
