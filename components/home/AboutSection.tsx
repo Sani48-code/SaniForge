@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Code2, GraduationCap, Briefcase, Workflow, Search } from "lucide-react";
 import FadeIn from "@/components/motion/FadeIn";
-import { linkifyGrowMinion } from "@/lib/linkify-growminion";
+import { GrowMinionLink, linkifyGrowMinion } from "@/lib/linkify-growminion";
 
 const highlights = [
   { icon: Code2, title: "Full-Stack Dev", sub: "MERN Stack", tone: "from-blue-accent to-blue-soft", href: "/full-stack-developer" },
@@ -101,7 +101,7 @@ export default function AboutSection() {
               <p className="text-sm font-semibold text-ink">Software Engineer</p>
               <p className="mt-0.5 flex items-center gap-1.5 text-xs text-ink-muted">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                GrowMinion Core Team
+                <GrowMinionLink /> Core Team
               </p>
             </div>
           </div>

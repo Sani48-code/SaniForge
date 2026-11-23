@@ -167,11 +167,15 @@ const trustedItems: TrustedItem[] = [
 function TrustedLogos() {
   return (
     <>
-      {trustedItems.map((t) => (
-        <div
+      {trustedItems.map((t) => {
+        const isGrowMinion = t.name === "Growminion";
+        const Tag = isGrowMinion ? "a" : "div";
+        return (
+        <Tag
           key={t.name}
           title={t.name}
-          className="flex shrink-0 items-center gap-2 text-sm font-bold text-slate-500 transition-colors hover:text-slate-800 sm:text-base"
+          {...(isGrowMinion ? { href: site.growminionUrl, target: "_blank", rel: "noopener noreferrer" } : {})}
+          className={`flex shrink-0 items-center gap-2 text-sm font-bold transition-colors sm:text-base ${isGrowMinion ? "text-slate-800 hover:text-slate-950" : "text-slate-500 hover:text-slate-800"}`}
         >
           {t.kind === "logo" ? (
             <>
@@ -194,8 +198,9 @@ function TrustedLogos() {
               <span className="whitespace-nowrap">{t.name}</span>
             </>
           )}
-        </div>
-      ))}
+        </Tag>
+        );
+      })}
     </>
   );
 }

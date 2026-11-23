@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ArrowRight, Calendar, ExternalLink, CheckCircle2 } from "lucide-react";
 import FadeIn from "@/components/motion/FadeIn";
 import { site } from "@/lib/data/site";
+import { GrowMinionLink, linkifyGrowMinion } from "@/lib/linkify-growminion";
 
 type Role = {
   period: string;
@@ -246,13 +247,13 @@ export default function ExperienceSection() {
                           </h3>
                         </div>
                         <p className="text-sm sm:text-base font-bold text-blue-700">
-                          {r.title}
+                          {linkifyGrowMinion(r.title)}
                         </p>
                       </div>
                     </div>
 
                     <p className="mt-3 text-sm sm:text-base leading-relaxed text-slate-600 font-normal">
-                      {r.description}
+                      {linkifyGrowMinion(r.description)}
                     </p>
 
                     {/* Skill tags */}
@@ -292,7 +293,7 @@ export default function ExperienceSection() {
             <div>
               <div className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-700">The Turning Point</div>
               <h3 className="mt-3 font-display text-3xl font-extrabold text-slate-900 sm:text-4xl lg:text-5xl tracking-tight">
-                How our founder ended up at GrowMinion
+                How our founder ended up at <GrowMinionLink />
               </h3>
               <p className="mt-2 text-sm sm:text-base text-slate-600 max-w-2xl font-normal leading-relaxed">
                 A photographic timeline of evolution — from writing high-converting SEO copy to architecting automations and scaling engineering systems.
@@ -304,7 +305,7 @@ export default function ExperienceSection() {
               <Image src="/images/growminion-mark.png" alt="GrowMinion brand" width={40} height={40} className="h-10 w-10 rounded-xl object-contain border border-slate-100 shadow-sm" />
               <div>
                 <p className="text-xs text-slate-500 font-medium">Company</p>
-                <p className="text-sm font-bold text-slate-900">GrowMinion</p>
+                <p className="text-sm font-bold text-slate-900"><GrowMinionLink /></p>
               </div>
             </div>
           </div>
@@ -336,7 +337,7 @@ export default function ExperienceSection() {
                     {step.title}
                   </h4>
                   <p className="mt-2.5 text-sm sm:text-base leading-relaxed text-slate-600 font-normal">
-                    {step.text}
+                    {linkifyGrowMinion(step.text)}
                   </p>
                 </div>
               </div>

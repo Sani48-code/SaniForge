@@ -1,4 +1,5 @@
 import Reveal from "@/components/projects/Reveal";
+import { linkifyGrowMinion } from "@/lib/linkify-growminion";
 
 export default function Heading({
   eyebrow,
@@ -21,7 +22,7 @@ export default function Heading({
       <h2 className="font-display text-3xl font-extrabold leading-tight tracking-tight text-sv-navy sm:text-4xl lg:text-5xl text-balance">
         {title}
       </h2>
-      {text && <p className="mt-4 text-base leading-relaxed text-sv-slate sm:text-lg">{text}</p>}
+      {text && <p className="mt-4 text-base leading-relaxed text-sv-slate sm:text-lg">{linkifyGrowMinion(text)}</p>}
     </Reveal>
   );
 }

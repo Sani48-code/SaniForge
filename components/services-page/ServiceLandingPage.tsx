@@ -9,6 +9,7 @@ import FaqLight from "./FaqLight";
 import { PipelineExample, SearchConsoleExample } from "./ExampleVisuals";
 import { sharedConsult, type LandingImage, type ServiceLanding } from "@/lib/data/service-landings";
 import { site } from "@/lib/data/site";
+import { linkifyGrowMinion } from "@/lib/linkify-growminion";
 import type { ServiceSlug } from "@/lib/data/services";
 
 type Offer = { title: string; text: string; points?: string[] };
@@ -89,11 +90,11 @@ export default function ServiceLandingPage({
               </span>
               {hero.titleTail}
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-jn-body">{hero.pain}</p>
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-jn-body">{linkifyGrowMinion(hero.pain)}</p>
             <ul className="mt-6 space-y-2.5">
               {hero.proofs.map((p) => (
                 <li key={p} className="flex items-start gap-2.5 text-base text-sv-navy">
-                  <Check size={18} className="mt-0.5 shrink-0 text-sv-blue" aria-hidden="true" /> {p}
+                  <Check size={18} className="mt-0.5 shrink-0 text-sv-blue" aria-hidden="true" /> {linkifyGrowMinion(p)}
                 </li>
               ))}
             </ul>
@@ -141,7 +142,7 @@ export default function ServiceLandingPage({
                       <Icon size={21} strokeWidth={1.7} aria-hidden="true" />
                     </span>
                     <h3 className="mt-4 font-display text-lg font-extrabold text-sv-navy">{u.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-jn-body">{u.text}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-jn-body">{linkifyGrowMinion(u.text)}</p>
                   </div>
                 </Reveal>
               );
@@ -161,7 +162,7 @@ export default function ServiceLandingPage({
           </Reveal>
           <Reveal delay={0.08}>
             <h2 className="font-display text-3xl font-extrabold leading-tight text-sv-navy sm:text-4xl text-balance">{landing.trust.title}</h2>
-            <p className="mt-4 text-base leading-relaxed text-jn-body sm:text-lg">{landing.trust.text}</p>
+            <p className="mt-4 text-base leading-relaxed text-jn-body sm:text-lg">{linkifyGrowMinion(landing.trust.text)}</p>
             <Link href="/services" className="mt-6 inline-flex items-center gap-2 text-base font-semibold text-sv-blue underline decoration-jn-gold decoration-2 underline-offset-4 hover:text-blue-800">
               See all services <ArrowUpRight size={16} aria-hidden="true" />
             </Link>
@@ -178,7 +179,7 @@ export default function ServiceLandingPage({
               <Reveal as="li" key={s.title} delay={i * 0.08} className="h-full list-none rounded-3xl border border-sv-border bg-sv-soft p-7">
                   <span className="font-display text-5xl font-extrabold text-sv-blue">{String(i + 1).padStart(2, "0")}</span>
                   <h3 className="mt-2 font-display text-xl font-extrabold text-sv-navy">{s.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-jn-body sm:text-base">{s.text}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-jn-body sm:text-base">{linkifyGrowMinion(s.text)}</p>
               </Reveal>
             ))}
           </ol>
@@ -196,12 +197,12 @@ export default function ServiceLandingPage({
                 <article className={`flex h-full flex-col rounded-2xl border border-sv-border p-7 transition duration-300 hover:-translate-y-1 hover:shadow-lg ${offerBg[i % offerBg.length]}`}>
                   <span className="font-mono text-sm font-bold text-sv-goldtext">{String(i + 1).padStart(2, "0")}</span>
                   <h3 className="mt-2 font-display text-xl font-extrabold text-sv-navy">{o.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-jn-body sm:text-base">{o.text}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-jn-body sm:text-base">{linkifyGrowMinion(o.text)}</p>
                   {o.points && o.points.length > 0 && (
                     <ul className="mt-4 space-y-1.5">
                       {o.points.map((p) => (
                         <li key={p} className="flex items-start gap-2 text-sm text-sv-navy">
-                          <Check size={15} className="mt-0.5 shrink-0 text-sv-blue" aria-hidden="true" /> {p}
+                          <Check size={15} className="mt-0.5 shrink-0 text-sv-blue" aria-hidden="true" /> {linkifyGrowMinion(p)}
                         </li>
                       ))}
                     </ul>
@@ -253,7 +254,7 @@ export default function ServiceLandingPage({
             </span>
             <h2 className="mt-5 font-display text-3xl font-extrabold leading-tight text-sv-navy sm:text-4xl text-balance">{landing.vetting.title}</h2>
             {landing.vetting.paras.map((p) => (
-              <p key={p} className="mt-4 text-base leading-relaxed text-jn-body sm:text-lg">{p}</p>
+              <p key={p} className="mt-4 text-base leading-relaxed text-jn-body sm:text-lg">{linkifyGrowMinion(p)}</p>
             ))}
             <div className="mt-8"><Cta /></div>
           </Reveal>
@@ -280,9 +281,9 @@ export default function ServiceLandingPage({
                   {landing.compare.map((r) => (
                     <tr key={r.factor} className="border-t border-sv-border">
                       <th scope="row" className="px-5 py-4 font-semibold text-sv-navy">{r.factor}</th>
-                      <td className="px-5 py-4 text-jn-body">{r.cheap}</td>
-                      <td className="px-5 py-4 text-jn-body">{r.agency}</td>
-                      <td className="bg-jn-pale/70 px-5 py-4 font-semibold text-sv-navy">{r.me}</td>
+                      <td className="px-5 py-4 text-jn-body">{linkifyGrowMinion(r.cheap)}</td>
+                      <td className="px-5 py-4 text-jn-body">{linkifyGrowMinion(r.agency)}</td>
+                      <td className="bg-jn-pale/70 px-5 py-4 font-semibold text-sv-navy">{linkifyGrowMinion(r.me)}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -340,7 +341,7 @@ export default function ServiceLandingPage({
             <ul className="mt-6 space-y-3">
               {landing.profiles.map((p) => (
                 <li key={p} className="flex items-start gap-3 rounded-xl bg-sv-soft p-4 text-base text-sv-navy">
-                  <Check size={18} className="mt-0.5 shrink-0 text-sv-blue" aria-hidden="true" /> {p}
+                  <Check size={18} className="mt-0.5 shrink-0 text-sv-blue" aria-hidden="true" /> {linkifyGrowMinion(p)}
                 </li>
               ))}
             </ul>
@@ -352,7 +353,7 @@ export default function ServiceLandingPage({
               {landing.startingPoints.map((s) => (
                 <li key={s.problem} className="rounded-xl bg-jn-pale/70 p-4">
                   <p className="text-base font-semibold text-sv-navy">{s.problem}</p>
-                  <p className="mt-1 text-sm text-jn-body"><span className="font-bold text-emerald-700">What we do: </span>{s.fix}</p>
+                  <p className="mt-1 text-sm text-jn-body"><span className="font-bold text-emerald-700">What we do: </span>{linkifyGrowMinion(s.fix)}</p>
                 </li>
               ))}
             </ul>
@@ -397,7 +398,7 @@ export default function ServiceLandingPage({
                 <div className="h-full rounded-2xl bg-white p-7 shadow-sm ring-1 ring-sv-border">
                   <span className="font-display text-4xl font-extrabold text-sv-blue">{String(i + 1).padStart(2, "0")}</span>
                   <h3 className="mt-2 font-display text-lg font-extrabold text-sv-navy">{c.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-jn-body">{c.text}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-jn-body">{linkifyGrowMinion(c.text)}</p>
                 </div>
               </Reveal>
             ))}
@@ -413,7 +414,7 @@ export default function ServiceLandingPage({
             <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-jn-pale via-white to-sv-soft px-6 py-16 text-center shadow-lg ring-1 ring-sv-border sm:px-12">
               <span aria-hidden="true" className="absolute -left-10 -top-10 h-40 w-40 rounded-full bg-jn-gold/30" />
               <h2 className="relative mx-auto max-w-2xl font-display text-3xl font-extrabold text-sv-navy sm:text-5xl text-balance">{landing.closing.title}</h2>
-              <p className="relative mx-auto mt-4 max-w-xl text-lg text-jn-body">{landing.closing.text}</p>
+              <p className="relative mx-auto mt-4 max-w-xl text-lg text-jn-body">{linkifyGrowMinion(landing.closing.text)}</p>
               <div className="relative mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Cta />
                 <a href={site.mailtoLink} className="text-base font-semibold text-sv-navy underline decoration-jn-gold decoration-2 underline-offset-4 hover:text-sv-blue">Email Us</a>

@@ -170,3 +170,19 @@ html {
     scroll-behavior: auto;
   }
 }
+
+/* Inline GrowMinion mention: bold, inherits text colour, brand-yellow underline that fills on hover */
+.gm-link {
+  font-weight: 700;
+  color: inherit;
+  text-decoration-line: underline;
+  text-decoration-color: #f5d90a;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  border-radius: 3px;
+  transition: background-color 0.2s ease, text-decoration-color 0.2s ease;
+}
+.gm-link:hover {
+  background-color: rgba(245, 217, 10, 0.22);
+  text-decoration-color: #e0c400;
+}

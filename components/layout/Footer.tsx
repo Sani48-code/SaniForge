@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import { Facebook, Linkedin, Mail, MessageCircle } from "lucide-react";
+import { ArrowUpRight, Facebook, Linkedin, Mail, MessageCircle } from "lucide-react";
 import { footerLinks } from "@/lib/data/nav";
 import { site } from "@/lib/data/site";
 
@@ -135,9 +135,27 @@ export default function Footer() {
             href={site.growminionUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-navy-border px-4 py-1.5 font-mono text-sm text-ink-muted transition-colors hover:border-gold/40 hover:text-gold-light"
+            aria-label="SaniForge is part of GrowMinion (opens growminion.com)"
+            className="group inline-flex items-center gap-4 rounded-2xl border border-white/10 bg-[#0B0F17] py-2.5 pl-5 pr-4 shadow-[0_8px_30px_-12px_rgba(245,217,10,0.35)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#F5D90A]/60 hover:shadow-[0_12px_36px_-10px_rgba(245,217,10,0.55)]"
           >
-            Part of GrowMinion
+            <span className="font-mono text-[11px] uppercase leading-tight tracking-[0.18em] text-white/60">
+              Proud
+              <br />
+              part of
+            </span>
+            <span aria-hidden className="h-8 w-px bg-white/15" />
+            <Image
+              src="/images/growminion-logo.png"
+              alt="GrowMinion"
+              width={884}
+              height={273}
+              className="h-8 w-auto"
+            />
+            <ArrowUpRight
+              size={16}
+              aria-hidden
+              className="text-white/50 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[#F5D90A]"
+            />
           </a>
         </div>
       </div>

@@ -8,6 +8,7 @@ import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { getCaseStudyBySlug } from "@/lib/mdx";
 import { site } from "@/lib/data/site";
 import type { KeywordPage, KeywordSlug } from "@/lib/data/keyword-pages";
+import { linkifyGrowMinion } from "@/lib/linkify-growminion";
 
 const portraits: Record<KeywordSlug, { src: string; alt: string }> = {
   "n8n-developer": { src: "/images/portrait-office.png", alt: "Abdul Kaiyum Sani, n8n developer, at his desk with a laptop" },
@@ -59,7 +60,7 @@ export default function KeywordLandingPage({ page }: { page: KeywordPage }) {
             </h1>
             {page.hero.intro.map((p) => (
               <p key={p.slice(0, 24)} className="mt-5 max-w-2xl text-base leading-relaxed text-sv-slate sm:text-lg">
-                {p}
+                {linkifyGrowMinion(p)}
               </p>
             ))}
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -106,7 +107,7 @@ export default function KeywordLandingPage({ page }: { page: KeywordPage }) {
             {page.what.items.map((item, i) => (
               <Reveal as="li" key={item.title} delay={i * 0.05} className="flex h-full flex-col rounded-2xl border border-sv-border bg-sv-soft/60 p-6">
                 <h3 className="font-display text-lg font-extrabold text-sv-navy">{item.title}</h3>
-                <p className="mt-2 text-[15px] leading-relaxed text-jn-body">{item.text}</p>
+                <p className="mt-2 text-[15px] leading-relaxed text-jn-body">{linkifyGrowMinion(item.text)}</p>
                 {item.href && (
                   <Link href={item.href} className="mt-auto inline-flex items-center gap-1.5 pt-4 text-sm font-semibold text-sv-blue hover:underline">
                     {item.linkText} <ArrowRight size={14} aria-hidden="true" />
@@ -124,7 +125,7 @@ export default function KeywordLandingPage({ page }: { page: KeywordPage }) {
           <h2 className="font-display text-3xl font-extrabold leading-tight text-sv-navy sm:text-4xl text-balance">{page.focus.title}</h2>
           {page.focus.paragraphs.map((p) => (
             <p key={p.slice(0, 24)} className="mt-5 text-base leading-relaxed text-jn-body sm:text-lg">
-              {p}
+              {linkifyGrowMinion(p)}
             </p>
           ))}
           {page.focus.links && (
@@ -185,7 +186,7 @@ export default function KeywordLandingPage({ page }: { page: KeywordPage }) {
                   </span>
                   <div>
                     <h3 className="font-display text-lg font-extrabold text-sv-navy">{step.title}</h3>
-                    <p className="mt-1 text-[15px] leading-relaxed text-jn-body">{step.text}</p>
+                    <p className="mt-1 text-[15px] leading-relaxed text-jn-body">{linkifyGrowMinion(step.text)}</p>
                   </div>
                 </li>
               ))}
@@ -194,7 +195,7 @@ export default function KeywordLandingPage({ page }: { page: KeywordPage }) {
           </div>
           <div>
             <h2 className="font-display text-3xl font-extrabold leading-tight text-sv-navy sm:text-4xl">{page.tech.title}</h2>
-            <p className="mt-5 text-base leading-relaxed text-jn-body">{page.tech.text}</p>
+            <p className="mt-5 text-base leading-relaxed text-jn-body">{linkifyGrowMinion(page.tech.text)}</p>
             <ul className="mt-6 flex flex-wrap gap-2.5">
               {page.tech.tools.map((t) => (
                 <li key={t} className="inline-flex items-center gap-1.5 rounded-full border border-sv-border bg-white px-3.5 py-1.5 text-sm font-medium text-sv-navy">
@@ -214,7 +215,7 @@ export default function KeywordLandingPage({ page }: { page: KeywordPage }) {
             {page.faqs.map((f) => (
               <div key={f.q} className="rounded-2xl border border-sv-border bg-white px-6 py-5">
                 <h3 className="font-display text-lg font-semibold text-sv-navy">{f.q}</h3>
-                <p className="mt-2 text-base leading-relaxed text-sv-slate">{f.a}</p>
+                <p className="mt-2 text-base leading-relaxed text-sv-slate">{linkifyGrowMinion(f.a)}</p>
               </div>
             ))}
           </div>
@@ -226,7 +227,7 @@ export default function KeywordLandingPage({ page }: { page: KeywordPage }) {
         <div className="container-px mx-auto grid max-w-[1240px] gap-12 lg:grid-cols-2">
           <div>
             <h2 className="font-display text-3xl font-extrabold leading-tight sm:text-4xl">{page.cta.title}</h2>
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">{page.cta.text}</p>
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">{linkifyGrowMinion(page.cta.text)}</p>
             <BookCta className="mt-8 bg-white !text-sv-navy hover:!bg-jn-pale" />
           </div>
           <div>

@@ -8,7 +8,7 @@ export default function SectionHead({
 }: {
   eyebrow?: string;
   title: string;
-  text?: string;
+  text?: React.ReactNode;
   align?: "center" | "left";
 }) {
   return (

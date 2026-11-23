@@ -4,6 +4,7 @@ import { ArrowRight, Phone } from "lucide-react";
 import Reveal from "@/components/projects/Reveal";
 import FaqLight from "./FaqLight";
 import { site } from "@/lib/data/site";
+import { GrowMinionLink, linkifyGrowMinion } from "@/lib/linkify-growminion";
 
 /* ---------- Journey ---------- */
 const journey = [
@@ -48,7 +49,7 @@ export function JourneySection() {
             <span className="rounded bg-jn-gold/50 px-2">Solutions.</span>
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-jn-body">
-            Our founder joined Growminion as a copywriter. As his engineering mindset and technical
+            Our founder joined <GrowMinionLink>Growminion</GrowMinionLink> as a copywriter. As his engineering mindset and technical
             skills became clear, he moved into engineering and development work. Knowing
             both the communication side and the technical side of digital products is
             what lets us connect the two.
@@ -66,7 +67,7 @@ export function JourneySection() {
                     {j.n} · {j.label}
                   </p>
                   <h3 className="mt-2 font-display text-xl font-extrabold leading-snug text-sv-navy">{j.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-jn-body">{j.text}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-jn-body">{linkifyGrowMinion(j.text)}</p>
                 </div>
             </Reveal>
           ))}

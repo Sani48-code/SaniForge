@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import FadeIn from "@/components/motion/FadeIn";
 import { site } from "@/lib/data/site";
+import { linkifyGrowMinion } from "@/lib/linkify-growminion";
 
 /**
  * "Why businesses choose SaniForge". All text is visible in the DOM (no click-to-flip),
@@ -192,7 +193,7 @@ export default function WhyChooseUsSection() {
             {trustPoints.map((t) => (
               <li key={t} className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs sm:text-sm font-semibold text-purple-50">
                 <CheckCircle2 className="h-4 w-4 text-emerald-300" aria-hidden="true" />
-                {t}
+                {linkifyGrowMinion(t)}
               </li>
             ))}
           </ul>

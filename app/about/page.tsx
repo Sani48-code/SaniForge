@@ -8,6 +8,7 @@ import { SITE_URL, SITE_NAME, AUTHOR_NAME, SOCIAL_LINKS, absoluteUrl } from "@/l
 import { experience, aboutBio } from "@/lib/data/experience";
 import { services } from "@/lib/data/services";
 import { site } from "@/lib/data/site";
+import { linkifyGrowMinion } from "@/lib/linkify-growminion";
 
 const PATH = "/about";
 
@@ -92,9 +93,9 @@ export default function AboutPage() {
           <div className="space-y-5 text-base leading-relaxed text-jn-body sm:text-lg">
             <h2 className="font-display text-2xl font-bold text-sv-navy sm:text-3xl">Meet our founder</h2>
             {aboutBio.paragraphs.map((p) => (
-              <p key={p}>{p}</p>
+              <p key={p}>{linkifyGrowMinion(p)}</p>
             ))}
-            <p className="font-semibold text-sv-navy">{aboutBio.closing}</p>
+            <p className="font-semibold text-sv-navy">{linkifyGrowMinion(aboutBio.closing)}</p>
 
             <h2 className="pt-6 font-display text-2xl font-bold text-sv-navy sm:text-3xl">What SaniForge does</h2>
             <ul className="grid gap-3 sm:grid-cols-2">

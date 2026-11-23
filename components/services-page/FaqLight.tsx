@@ -1,3 +1,4 @@
+import { linkifyGrowMinion } from "@/lib/linkify-growminion";
 import { Plus } from "lucide-react";
 
 export default function FaqLight({ faqs }: { faqs: { q: string; a: string }[] }) {
@@ -13,7 +14,7 @@ export default function FaqLight({ faqs }: { faqs: { q: string; a: string }[] })
             {f.q}
             <Plus size={20} aria-hidden="true" className="shrink-0 text-sv-goldtext transition-transform group-open:rotate-45" />
           </summary>
-          <p className="mt-3 text-base leading-relaxed text-sv-slate">{f.a}</p>
+          <p className="mt-3 text-base leading-relaxed text-sv-slate">{linkifyGrowMinion(f.a)}</p>
         </details>
       ))}
     </div>

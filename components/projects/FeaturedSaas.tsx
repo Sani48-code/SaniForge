@@ -4,6 +4,7 @@ import Reveal from "./Reveal";
 import SectionHead from "./SectionHead";
 import StackChips from "./StackChips";
 import { buildBenefits, featuredProjects, productStack, type FeaturedProject } from "@/lib/data/projects-page";
+import { linkifyGrowMinion } from "@/lib/linkify-growminion";
 
 const benefitIcons = { wallet: Wallet, wrench: Wrench, sparkles: Sparkles, key: KeyRound };
 
@@ -35,7 +36,7 @@ function Bullets({ items }: { items: string[] }) {
       {items.map((i) => (
         <li key={i} className="flex gap-2.5">
           <span className="mt-2 h-1 w-3 shrink-0 rounded bg-pf-yellow" />
-          {i}
+          <span>{linkifyGrowMinion(i)}</span>
         </li>
       ))}
     </ul>
@@ -73,7 +74,7 @@ function FeaturedCard({ p, flip }: { p: FeaturedProject; flip: boolean }) {
               {p.category}
             </span>
             <h3 className="mt-4 font-display text-2xl font-bold sm:text-3xl">{p.title}</h3>
-            <p className="mt-2 text-sm italic text-white/70">{p.context}</p>
+            <p className="mt-2 text-sm italic text-white/70">{linkifyGrowMinion(p.context)}</p>
             <div className="mt-5 h-px w-12 bg-pf-yellow" />
             <h4 className="mt-5 text-xs font-semibold uppercase tracking-wider text-pf-yellow">Overview</h4>
             <p className="mt-2 text-base leading-relaxed text-white/85">{p.overview}</p>
@@ -107,8 +108,8 @@ function FeaturedCard({ p, flip }: { p: FeaturedProject; flip: boolean }) {
         </p>
         <div className="grid gap-4 md:grid-cols-3">
           <CaseBlock icon={Flag} label="Business challenge">{p.challenge}</CaseBlock>
-          <CaseBlock icon={UserCog} label="Our role">{p.role}</CaseBlock>
-          <CaseBlock icon={TrendingUp} label="Outcome">{p.outcome}</CaseBlock>
+          <CaseBlock icon={UserCog} label="Our role">{linkifyGrowMinion(p.role)}</CaseBlock>
+          <CaseBlock icon={TrendingUp} label="Outcome">{linkifyGrowMinion(p.outcome)}</CaseBlock>
         </div>
         <div className="mt-4 grid gap-4 md:grid-cols-3">
           <CaseBlock icon={ListChecks} label="Solution and features"><Bullets items={p.solution} /></CaseBlock>
@@ -127,7 +128,7 @@ export default function FeaturedSaas() {
         <SectionHead
           eyebrow="Featured"
           title="Real Products. Real Business Workflows."
-          text="Three SaaS products we helped build with the Growminion team, each one coded from scratch for real agency workflows."
+          text={linkifyGrowMinion("Three SaaS products we helped build with the Growminion team, each one coded from scratch for real agency workflows.")}
         />
         <Reveal>
           <div className="mt-12 rounded-2xl border border-pf-border bg-pf-gray p-6 sm:p-8">
