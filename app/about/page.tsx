@@ -219,14 +219,14 @@ export default function AboutPage() {
 
       {/* ================= HERO ================= */}
       <section className="relative overflow-hidden lg:min-h-[720px]">
-        <div className="relative aspect-[16/10] w-full lg:absolute lg:inset-y-0 lg:left-0 lg:aspect-auto lg:w-[54%] xl:w-[52%] 2xl:w-[50%]">
+        <div className="relative aspect-[16/10] w-full lg:absolute lg:inset-y-0 lg:left-0 lg:aspect-auto lg:w-[54%] xl:w-[56%] 2xl:w-[60%]">
           <Image
             src="/images/about-hero-founder.jpg"
             alt={`${AUTHOR_NAME}, founder of SaniForge, reviewing a project on a tablet`}
             fill
             priority
             sizes="(min-width: 1024px) 56vw, 100vw"
-            className="object-cover object-[22%_center] lg:object-[26%_center] 2xl:object-[40%_center]"
+            className="object-cover object-[22%_center] lg:object-[26%_center] 2xl:object-[12%_center]"
           />
           <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-[#070B1A] via-[#070B1A]/10 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:from-60% lg:via-[#070B1A]/60 lg:to-[#070B1A]" />
           <div aria-hidden className="absolute inset-x-0 bottom-0 hidden h-40 bg-gradient-to-t from-[#070B1A] to-transparent lg:block" />
