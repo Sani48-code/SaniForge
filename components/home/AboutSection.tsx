@@ -41,7 +41,7 @@ export default function AboutSection() {
           <FadeIn delay={0.1}>
             <p className="mt-6 max-w-xl text-base font-medium leading-relaxed text-[#1B2338] sm:text-lg [&_a]:!text-[#0B1A3D] [&_a]:!decoration-[#0B1A3D]/60">
               {linkifyGrowMinion(
-                "SaniForge was founded by Abdul Kaiyum Sani, a full-stack developer, n8n developer and growth engineer on the core team at GrowMinion. He's also a CSE student, so the fundamentals are solid: data structures, databases, networking and system design."
+                "SaniForge was founded by Abdul Kaiyum Sani, a full-stack developer, n8n developer and growth engineer, and a core team member at GrowMinion. He's also a CSE student, so the fundamentals are solid: data structures, databases, networking and system design."
               )}
             </p>
             <p className="mt-4 max-w-xl text-base font-medium leading-relaxed text-[#1B2338] sm:text-lg [&_a]:!text-[#0B1A3D] [&_a]:!decoration-[#0B1A3D]/60">
@@ -101,7 +101,7 @@ export default function AboutSection() {
               <p className="text-sm font-semibold text-ink">Software Engineer</p>
               <p className="mt-0.5 flex items-center gap-1.5 text-xs text-ink-muted">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                <GrowMinionLink /> Core Team
+                <GrowMinionLink /> Core Team Member
               </p>
             </div>
           </div>

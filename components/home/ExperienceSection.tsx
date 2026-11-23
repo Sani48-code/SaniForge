@@ -100,7 +100,7 @@ const turningPointSteps = [
   {
     step: "03",
     title: "Got Promoted to Engineer",
-    subtitle: "Core Team & Systems Builder",
+    subtitle: "Core Team Member & Systems Builder",
     text: "GrowMinion promoted him to Web/Automation Engineer, where he now builds full-stack websites, scalable SEO systems, and automation pipelines.",
     image: "/images/experience/promoted-to-engineer.png",
     alt: "Promoted to Web and Automation Engineer at GrowMinion",

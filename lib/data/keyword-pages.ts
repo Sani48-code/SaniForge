@@ -44,7 +44,7 @@ export const keywordPages: Record<KeywordSlug, KeywordPage> = {
       eyebrow: "Hire an n8n developer",
       h1: "n8n Developer for Law Firms, Agencies and Local Businesses",
       intro: [
-        "SaniForge is an n8n development and automation company, founded by Abdul Kaiyum Sani of the GrowMinion core team. We build n8n workflows that capture a lead the moment it arrives, route it to the right person, update your CRM and send a useful reply, so no enquiry waits in an inbox overnight.",
+        "SaniForge is an n8n development and automation company, founded by Abdul Kaiyum Sani, a GrowMinion core team member. We build n8n workflows that capture a lead the moment it arrives, route it to the right person, update your CRM and send a useful reply, so no enquiry waits in an inbox overnight.",
         "Most of our automation work is for law firms, agencies and local service businesses in the US, where a slow reply usually means the lead calls the next firm on the list.",
       ],
       proof: [
@@ -170,7 +170,7 @@ export const keywordPages: Record<KeywordSlug, KeywordPage> = {
       h1: "Full-Stack Developer for Fast Websites, Web Apps and SaaS",
       intro: [
         "SaniForge is a full-stack development company working with the MERN stack, TypeScript and Next.js. We build the whole product ourselves: the interface your visitors use, the API behind it and the database that stores it, so nothing falls into the gap between a front-end and a back-end contractor.",
-        "Our founder, Abdul Kaiyum Sani, is a CSE student, so the fundamentals are solid: data structures, databases, networking and system design. On the GrowMinion core team he has helped build three SaaS products in code, and for clients we build business websites that load fast, rank and turn visitors into enquiries.",
+        "Our founder, Abdul Kaiyum Sani, is a CSE student, so the fundamentals are solid: data structures, databases, networking and system design. As a GrowMinion core team member he has helped build three SaaS products in code, and for clients we build business websites that load fast, rank and turn visitors into enquiries.",
       ],
       proof: [
         { value: "3x", label: "lead form submissions in 90 days after a rebuild" },

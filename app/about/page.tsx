@@ -17,7 +17,7 @@ import {
 import { buildMetadata } from "@/lib/seo";
 import JsonLd from "@/components/seo/JsonLd";
 import Reveal from "@/components/projects/Reveal";
-import { AutomationFlow, BrowserMock, GeoGrid, RankingChart, TrafficCurve } from "@/components/about-page/Visuals";
+import { RankingChart } from "@/components/about-page/Visuals";
 import { breadcrumbSchema, personSchema, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/schema";
 import { SITE_URL, SITE_NAME, AUTHOR_NAME, SOCIAL_LINKS, absoluteUrl } from "@/lib/site";
 import { site } from "@/lib/data/site";
@@ -118,9 +118,9 @@ const journey = [
     period: "2023–2024",
     periodColor: "text-violet-600",
     title: "Building SaniForge",
-    text: "Expanded into web development and business automation, and moved into engineering on the GrowMinion core team.",
+    text: "Expanded into web development and business automation, and moved into engineering as a GrowMinion core team member.",
     img: "/images/experience/promoted-to-engineer.png",
-    alt: "Promoted to engineer on the GrowMinion core team",
+    alt: "Promoted to engineer as a GrowMinion core team member",
   },
   {
     badge: "logo",
@@ -133,6 +133,85 @@ const journey = [
     alt: "Engineering SaaS and automation at SaniForge",
   },
 ];
+
+const capabilities = [
+  {
+    title: "Business Automation",
+    text: "Intelligent workflows that route every lead, update your CRM and follow up for you.",
+    tags: "n8n workflows · GoHighLevel funnels and CRM · AI steps with human review",
+    href: "/services/n8n-automation",
+    img: "/images/services/n8n-automation.png",
+    alt: "n8n automation workspace connecting forms, CRM, email and Slack",
+    badge: "Leads answered in under 2 min",
+    accent: "text-emerald-300",
+    border: "border-emerald-400/25 hover:border-emerald-400/60",
+    chip: "border border-emerald-400/40 bg-[#0B1022]/85 text-emerald-300",
+  },
+  {
+    title: "SEO & Content",
+    text: "Search-focused content and organic growth built around what buyers actually search for.",
+    tags: "Service pages · Blog content · Technical SEO",
+    href: "/services/copywriting",
+    img: "/images/projects/saas-content.png",
+    alt: "CraftMinion, the AI SEO content and strategy platform we helped build",
+    badge: "2,100 visits/mo, from 480",
+    accent: "text-amber-300",
+    border: "border-amber-400/25 hover:border-amber-400/60",
+    chip: "border border-amber-400/40 bg-[#0B1022]/85 text-amber-300",
+  },
+  {
+    title: "Web Development",
+    text: "High-performance websites and web apps, from the interface to the API and database.",
+    tags: "Next.js · Core Web Vitals · SEO-ready structure",
+    href: "/services/web-development",
+    img: "/images/projects/docappoint.png",
+    alt: "DocAppoint, a doctor appointment booking web app we built",
+    badge: "Under 2s on mobile",
+    accent: "text-sky-300",
+    border: "border-sky-400/25 hover:border-sky-400/60",
+    chip: "border border-sky-400/40 bg-[#0B1022]/85 text-sky-300",
+  },
+  {
+    title: "SaaS & Software",
+    text: "Custom platforms built around how a business works. CraftMinion, RankDominator and GrowForge were built this way.",
+    tags: "MVP to launch · Logins, billing and dashboards · AI features",
+    href: "/services/saas-development",
+    img: "/images/projects/saas-local-seo.png",
+    alt: "RankDominator local SEO command center with GeoGrid rank tracking",
+    badge: "Live product: RankDominator",
+    accent: "text-violet-300",
+    border: "border-violet-400/25 hover:border-violet-400/60",
+    chip: "border border-violet-400/40 bg-[#0B1022]/85 text-violet-300",
+  },
+];
+
+function CapabilityCard({ c, delay }: { c: (typeof capabilities)[number]; delay: number }) {
+  return (
+    <Reveal delay={delay} className="h-full">
+      <Link href={c.href} className={`group flex h-full flex-col overflow-hidden rounded-3xl border bg-[#0D1326] transition-colors ${c.border}`}>
+        <div className="relative aspect-[16/9] overflow-hidden">
+          <Image
+            src={c.img}
+            alt={c.alt}
+            fill
+            sizes="(max-width: 1024px) 100vw, 640px"
+            className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+          />
+          <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-[#0D1326] via-[#0D1326]/10 to-transparent" />
+          <span className={`absolute right-4 top-4 rounded-full px-3 py-1 text-[11px] font-semibold backdrop-blur-md ${c.chip}`}>{c.badge}</span>
+        </div>
+        <div className="flex flex-1 flex-col p-7 pt-2">
+          <h3 className={`font-display text-2xl font-bold ${c.accent}`}>{c.title}</h3>
+          <p className="mt-2 text-white/70">{c.text}</p>
+          <p className="mt-4 text-sm text-white/55">{c.tags}</p>
+          <span className={`mt-auto inline-flex items-center gap-1.5 pt-5 text-sm font-semibold ${c.accent}`}>
+            Learn more <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
+          </span>
+        </div>
+      </Link>
+    </Reveal>
+  );
+}
 
 export default function AboutPage() {
   return (
@@ -154,8 +233,8 @@ export default function AboutPage() {
           <div aria-hidden className="absolute inset-x-0 bottom-0 hidden h-40 bg-gradient-to-t from-[#070B1A] to-transparent lg:block" />
         </div>
 
-        <div className="container-px relative mx-auto max-w-[1200px] pb-10 lg:pb-12 lg:pt-14">
-          <div className="-mt-10 lg:ml-auto lg:mt-0 lg:max-w-[560px]">
+        <div className="container-px relative mx-auto max-w-[1200px] pb-10 lg:max-w-[1480px] lg:pb-12 lg:pt-14 xl:px-16">
+          <div className="-mt-10 lg:ml-auto lg:mt-0 lg:max-w-[520px] xl:max-w-[560px]">
             <p className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 py-1 pl-1 pr-3 text-xs text-white/75 backdrop-blur">
               <span className="rounded-full bg-gradient-to-r from-blue-500 to-violet-500 px-2.5 py-0.5 font-semibold text-white">About SaniForge</span>
               Digital engineering &amp; automation
@@ -281,75 +360,14 @@ export default function AboutPage() {
           </div>
 
           <div className="mt-14 grid gap-5 lg:grid-cols-[1.45fr_1fr]">
-            <Reveal className="h-full">
-              <Link href="/services/n8n-automation" className="group flex h-full flex-col overflow-hidden rounded-3xl border border-emerald-400/25 bg-[#0D1326] transition-colors hover:border-emerald-400/60">
-                <div className="relative border-b border-white/5 bg-[radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:16px_16px] p-5">
-                  <span className="absolute right-4 top-4 rounded-full bg-emerald-400/15 px-3 py-1 text-[11px] font-semibold text-emerald-300">
-                    Leads answered in under 2 min
-                  </span>
-                  <AutomationFlow />
-                </div>
-                <div className="p-7">
-                  <h3 className="font-display text-2xl font-bold text-emerald-300">Business Automation</h3>
-                  <p className="mt-2 text-white/70">Intelligent workflows that route every lead, update your CRM and follow up for you.</p>
-                  <p className="mt-4 text-sm text-white/55">n8n workflows · GoHighLevel funnels and CRM · AI steps with human review</p>
-                </div>
-              </Link>
-            </Reveal>
-
-            <Reveal delay={0.08} className="h-full">
-              <Link href="/services/copywriting" className="group flex h-full flex-col overflow-hidden rounded-3xl border border-amber-400/25 bg-[#0D1326] transition-colors hover:border-amber-400/60">
-                <div className="relative bg-gradient-to-b from-amber-400/10 to-transparent p-6">
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <p className="text-xs text-white/55">Organic visits a month</p>
-                      <p className="mt-1 font-display text-4xl font-extrabold">2,100</p>
-                    </div>
-                    <span className="rounded-full bg-amber-400/15 px-3 py-1 text-xs font-semibold text-amber-300">from 480</span>
-                  </div>
-                  <TrafficCurve />
-                  <p className="text-[11px] text-white/40">Law firm service pages. Start and end values from the case study.</p>
-                </div>
-                <div className="mt-auto p-7 pt-2">
-                  <h3 className="font-display text-2xl font-bold text-amber-300">SEO &amp; Content</h3>
-                  <p className="mt-2 text-white/70">Search-focused content and organic growth built around what buyers actually search for.</p>
-                  <p className="mt-4 text-sm text-white/55">Service pages · Blog content · Technical SEO</p>
-                </div>
-              </Link>
-            </Reveal>
+            {capabilities.slice(0, 2).map((c, i) => (
+              <CapabilityCard key={c.title} c={c} delay={i * 0.08} />
+            ))}
           </div>
-
           <div className="mt-5 grid gap-5 lg:grid-cols-[1fr_1.15fr]">
-            <Reveal className="h-full">
-              <Link href="/services/web-development" className="group flex h-full flex-col overflow-hidden rounded-3xl border border-sky-400/25 bg-[#0D1326] transition-colors hover:border-sky-400/60">
-                <div className="relative bg-gradient-to-br from-blue-600/25 to-transparent px-6 pb-6 pt-10">
-                  <span className="absolute right-4 top-4 z-10 inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-[#0B1022] px-3 py-1 text-[11px] font-semibold text-white">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" /> Under 2s on mobile
-                  </span>
-                  <BrowserMock />
-                </div>
-                <div className="p-7">
-                  <h3 className="font-display text-2xl font-bold text-sky-300">Web Development</h3>
-                  <p className="mt-2 text-white/70">High-performance websites and web apps, from the interface to the API and database.</p>
-                  <p className="mt-4 text-sm text-white/55">Next.js · Core Web Vitals · SEO-ready structure</p>
-                </div>
-              </Link>
-            </Reveal>
-
-            <Reveal delay={0.08} className="h-full">
-              <Link href="/services/saas-development" className="group flex h-full flex-col overflow-hidden rounded-3xl border border-violet-400/25 bg-[#0D1326] transition-colors hover:border-violet-400/60">
-                <div className="bg-gradient-to-br from-violet-600/20 to-transparent p-6">
-                  <GeoGrid />
-                </div>
-                <div className="p-7">
-                  <h3 className="font-display text-2xl font-bold text-violet-300">SaaS &amp; Software</h3>
-                  <p className="mt-2 text-white/70">
-                    Custom platforms built around how a business works. CraftMinion, RankDominator and GrowForge were built this way.
-                  </p>
-                  <p className="mt-4 text-sm text-white/55">MVP to launch · Logins, billing and dashboards · AI features</p>
-                </div>
-              </Link>
-            </Reveal>
+            {capabilities.slice(2).map((c, i) => (
+              <CapabilityCard key={c.title} c={c} delay={i * 0.08} />
+            ))}
           </div>
         </div>
       </section>
@@ -481,7 +499,7 @@ export default function AboutPage() {
             >
               <Image src="/images/growminion-logo.png" alt="GrowMinion" width={884} height={273} className="h-6 w-auto" />
               <span className="text-xs leading-tight">
-                <span className="block font-bold text-white">GrowMinion core team</span>
+                <span className="block font-bold text-white">GrowMinion core team member</span>
                 <span className="text-white/65">Web &amp; Automation Engineer</span>
               </span>
             </a>
@@ -501,7 +519,7 @@ export default function AboutPage() {
             </p>
             <ul className="mt-7 grid grid-cols-3 gap-3">
               <li className="rounded-xl border border-sky-400/25 bg-sky-400/5 p-4">
-                <p className="font-display text-xl font-extrabold text-sky-300">Core team</p>
+                <p className="font-display text-xl font-extrabold text-sky-300">Core member</p>
                 <p className="text-xs text-white/60">
                   at <GrowMinionLink />
                 </p>
