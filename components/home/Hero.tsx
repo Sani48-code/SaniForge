@@ -2,18 +2,14 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, type ReactNode } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import type { ReactNode } from "react";
 import {
   ArrowRight,
-  Play,
   BarChart3,
   Users,
   Filter,
   Workflow,
   Github,
-  X,
-  CalendarCheck,
 } from "lucide-react";
 import { site } from "@/lib/data/site";
 
@@ -206,8 +202,6 @@ function TrustedLogos() {
 }
 
 export default function Hero() {
-  const [videoOpen, setVideoOpen] = useState(false);
-
   return (
     <section className="relative overflow-x-clip bg-gradient-to-b from-[#F8FAFF] via-[#F1F5FD] to-[#FFFFFF] text-slate-900 pt-8 pb-0 sm:pt-14 lg:pt-8">
       {/* Background ambient radial glow accents */}
@@ -245,16 +239,12 @@ export default function Hero() {
                 <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
               </Link>
 
-              <button
-                type="button"
-                onClick={() => setVideoOpen(true)}
-                className="inline-flex items-center justify-center gap-2.5 rounded-full border border-slate-200/90 bg-white px-6 py-3.5 text-sm sm:text-base font-semibold text-slate-800 shadow-sm transition-all duration-200 hover:bg-slate-50 hover:border-slate-300 hover:shadow hover:-translate-y-0.5 active:translate-y-0"
+              <Link
+                href="/projects"
+                className="inline-flex items-center justify-center rounded-full border border-slate-200/90 bg-white px-7 py-3.5 text-sm sm:text-base font-semibold text-slate-800 shadow-sm transition-all duration-200 hover:bg-slate-50 hover:border-slate-300 hover:shadow hover:-translate-y-0.5 active:translate-y-0"
               >
-                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-blue-600 text-white shadow-sm">
-                  <Play className="h-2.5 w-2.5 fill-white ml-0.5" />
-                </span>
-                Watch Intro
-              </button>
+                See Our Work
+              </Link>
             </div>
 
             {/* Proof strip: every figure comes from a published case study (or the site's stats). */}
@@ -363,73 +353,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* ================= INTRO VIDEO MODAL ================= */}
-      <AnimatePresence>
-        {videoOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/70 p-4 backdrop-blur-sm"
-            onClick={() => setVideoOpen(false)}
-          >
-            <motion.div
-              initial={{ scale: 0.94, opacity: 0, y: 16 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.94, opacity: 0, y: 16 }}
-              transition={{ duration: 0.25 }}
-              onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-3xl overflow-hidden rounded-2xl border border-slate-100 bg-white p-6 shadow-2xl"
-            >
-              <div className="flex items-center justify-between border-b border-slate-100 pb-4">
-                <div>
-                  <h3 className="text-lg font-bold text-slate-900">
-                    Meet the Founder of SaniForge
-                  </h3>
-                  <p className="text-xs text-slate-500 mt-0.5">
-                    Abdul Kaiyum Sani, Founder
-                  </p>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setVideoOpen(false)}
-                  aria-label="Close intro video"
-                  className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-slate-600 transition-colors hover:bg-slate-200"
-                >
-                  <X className="h-4 w-4" />
-                </button>
-              </div>
-
-              <div className="mt-5 aspect-video w-full overflow-hidden rounded-xl bg-black shadow-lg ring-1 ring-slate-900/10">
-                <video
-                  src="/video/intro-main.mp4"
-                  className="h-full w-full object-contain"
-                  controls
-                  autoPlay
-                  playsInline
-                  preload="metadata"
-                  controlsList="nodownload"
-                >
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-
-              <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
-                <p className="text-xs text-slate-500">
-                  Ready to start a project? Schedule a quick discovery chat.
-                </p>
-                <a
-                  href={site.bookCallLink}
-                  className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-5 py-2.5 text-xs sm:text-sm font-semibold text-white shadow hover:bg-blue-700 transition-colors"
-                >
-                  <CalendarCheck className="h-4 w-4" />
-                  Book a Free 30-Min Call
-                </a>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </section>
   );
 }

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { buildMetadata } from "@/lib/seo";
 import JsonLd from "@/components/seo/JsonLd";
 import { breadcrumbSchema, personSchema, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/schema";
@@ -50,7 +49,7 @@ export default function AboutPage() {
       <JsonLd data={[aboutPageSchema(), personSchema(), breadcrumbSchema([{ name: "About", path: PATH }])]} />
 
       <section className="bg-gradient-to-br from-white via-sv-soft to-jn-pale/70 py-14 sm:py-20">
-        <div className="container-px mx-auto grid max-w-[1100px] items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
+        <div className="container-px mx-auto grid max-w-[1200px] items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-sv-goldtext">About</p>
             <h1 className="mt-5 font-display text-4xl font-extrabold leading-[1.1] tracking-tight text-sv-navy sm:text-5xl">
@@ -75,15 +74,24 @@ export default function AboutPage() {
               </Link>
             </div>
           </div>
-          <div className="mx-auto w-full max-w-sm">
-            <Image
-              src="/images/portrait-about.png"
-              alt={`${AUTHOR_NAME}, founder of SaniForge`}
-              width={640}
-              height={800}
-              className="h-auto w-full rounded-3xl shadow-lg ring-1 ring-sv-border"
-              priority
-            />
+          <div className="relative w-full">
+            <div aria-hidden className="pointer-events-none absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-sv-blue/15 via-transparent to-jn-gold/30 blur-2xl" />
+            <div className="relative aspect-video w-full overflow-hidden rounded-3xl bg-black shadow-xl ring-1 ring-sv-border">
+              <video
+                src="/video/intro-main.mp4"
+                className="h-full w-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+                controls
+                preload="auto"
+                controlsList="nodownload"
+                aria-label={`Intro video: ${AUTHOR_NAME}, founder of SaniForge`}
+              >
+                Your browser does not support the video tag.
+              </video>
+            </div>
           </div>
         </div>
       </section>
