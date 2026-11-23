@@ -17,7 +17,6 @@ import {
 import { buildMetadata } from "@/lib/seo";
 import JsonLd from "@/components/seo/JsonLd";
 import Reveal from "@/components/projects/Reveal";
-import { RankingChart } from "@/components/about-page/Visuals";
 import { breadcrumbSchema, personSchema, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/schema";
 import { SITE_URL, SITE_NAME, AUTHOR_NAME, SOCIAL_LINKS, absoluteUrl } from "@/lib/site";
 import { site } from "@/lib/data/site";
@@ -140,8 +139,8 @@ const capabilities = [
     text: "Intelligent workflows that route every lead, update your CRM and follow up for you.",
     tags: "n8n workflows · GoHighLevel funnels and CRM · AI steps with human review",
     href: "/services/n8n-automation",
-    img: "/images/services/n8n-automation.png",
-    alt: "n8n automation workspace connecting forms, CRM, email and Slack",
+    img: "/images/about/n8n-lead-workflow.jpg",
+    alt: "A live n8n workflow that qualifies contact form submissions with an AI text classifier and emails valid leads",
     badge: "Leads answered in under 2 min",
     accent: "text-emerald-300",
     border: "border-emerald-400/25 hover:border-emerald-400/60",
@@ -152,9 +151,9 @@ const capabilities = [
     text: "Search-focused content and organic growth built around what buyers actually search for.",
     tags: "Service pages · Blog content · Technical SEO",
     href: "/services/copywriting",
-    img: "/images/projects/saas-content.png",
-    alt: "CraftMinion, the AI SEO content and strategy platform we helped build",
-    badge: "2,100 visits/mo, from 480",
+    img: "/images/about/search-console-growth.jpg",
+    alt: "Google Search Console performance report showing clicks and impressions climbing over six months",
+    badge: "Real Search Console growth",
     accent: "text-amber-300",
     border: "border-amber-400/25 hover:border-amber-400/60",
     chip: "border border-amber-400/40 bg-[#0B1022]/85 text-amber-300",
@@ -164,8 +163,8 @@ const capabilities = [
     text: "High-performance websites and web apps, from the interface to the API and database.",
     tags: "Next.js · Core Web Vitals · SEO-ready structure",
     href: "/services/web-development",
-    img: "/images/projects/docappoint.png",
-    alt: "DocAppoint, a doctor appointment booking web app we built",
+    img: "/images/about/web-saniforge-site.jpg",
+    alt: "The SaniForge website running on a laptop",
     badge: "Under 2s on mobile",
     accent: "text-sky-300",
     border: "border-sky-400/25 hover:border-sky-400/60",
@@ -176,8 +175,8 @@ const capabilities = [
     text: "Custom platforms built around how a business works. CraftMinion, RankDominator and GrowForge were built this way.",
     tags: "MVP to launch · Logins, billing and dashboards · AI features",
     href: "/services/saas-development",
-    img: "/images/projects/saas-local-seo.png",
-    alt: "RankDominator local SEO command center with GeoGrid rank tracking",
+    img: "/images/about/geogrid-rank-map.jpg",
+    alt: "RankDominator GeoGrid scan showing number one local rankings across the service area map",
     badge: "Live product: RankDominator",
     accent: "text-violet-300",
     border: "border-violet-400/25 hover:border-violet-400/60",
@@ -189,15 +188,15 @@ function CapabilityCard({ c, delay }: { c: (typeof capabilities)[number]; delay:
   return (
     <Reveal delay={delay} className="h-full">
       <Link href={c.href} className={`group flex h-full flex-col overflow-hidden rounded-3xl border bg-[#0D1326] transition-colors ${c.border}`}>
-        <div className="relative aspect-[16/9] overflow-hidden">
+        <div className="relative h-56 overflow-hidden sm:h-64 lg:h-72">
           <Image
             src={c.img}
             alt={c.alt}
             fill
             sizes="(max-width: 1024px) 100vw, 640px"
-            className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+            className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
           />
-          <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-[#0D1326] via-[#0D1326]/10 to-transparent" />
+          <div aria-hidden className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#0D1326] to-transparent" />
           <span className={`absolute right-4 top-4 rounded-full px-3 py-1 text-[11px] font-semibold backdrop-blur-md ${c.chip}`}>{c.badge}</span>
         </div>
         <div className="flex flex-1 flex-col p-7 pt-2">
@@ -220,26 +219,26 @@ export default function AboutPage() {
 
       {/* ================= HERO ================= */}
       <section className="relative overflow-hidden lg:min-h-[720px]">
-        <div className="relative aspect-[16/10] w-full lg:absolute lg:inset-0 lg:aspect-auto">
+        <div className="relative aspect-[16/10] w-full lg:absolute lg:inset-y-0 lg:left-0 lg:aspect-auto lg:w-[54%] xl:w-[52%] 2xl:w-[50%]">
           <Image
             src="/images/about-hero-founder.jpg"
             alt={`${AUTHOR_NAME}, founder of SaniForge, reviewing a project on a tablet`}
             fill
             priority
-            sizes="100vw"
-            className="object-cover object-[30%_center]"
+            sizes="(min-width: 1024px) 56vw, 100vw"
+            className="object-cover object-[22%_center] lg:object-[26%_center] 2xl:object-[40%_center]"
           />
-          <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-[#070B1A] via-[#070B1A]/10 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-[#070B1A]/30 lg:to-[#070B1A]/90" />
+          <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-[#070B1A] via-[#070B1A]/10 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:from-60% lg:via-[#070B1A]/60 lg:to-[#070B1A]" />
           <div aria-hidden className="absolute inset-x-0 bottom-0 hidden h-40 bg-gradient-to-t from-[#070B1A] to-transparent lg:block" />
         </div>
 
-        <div className="container-px relative mx-auto max-w-[1200px] pb-10 lg:max-w-[1480px] lg:pb-12 lg:pt-14 xl:px-16">
-          <div className="-mt-10 lg:ml-auto lg:mt-0 lg:max-w-[520px] xl:max-w-[560px]">
+        <div className="container-px relative mx-auto max-w-[1200px] pb-10 lg:max-w-none lg:pb-12 lg:pl-10 lg:pr-8 lg:pt-14 xl:pr-12 2xl:pr-16">
+          <div className="-mt-10 lg:ml-auto lg:mt-0 lg:w-[40%] lg:max-w-[600px]">
             <p className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 py-1 pl-1 pr-3 text-xs text-white/75 backdrop-blur">
               <span className="rounded-full bg-gradient-to-r from-blue-500 to-violet-500 px-2.5 py-0.5 font-semibold text-white">About SaniForge</span>
               Digital engineering &amp; automation
             </p>
-            <h1 className="mt-5 font-display text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-[64px]">
+            <h1 className="mt-5 font-display text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-[52px] xl:text-[60px]">
               We Build the Technology <span className={GRADIENT_TEXT}>Behind Better Businesses.</span>
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg">
@@ -271,7 +270,7 @@ export default function AboutPage() {
             </ul>
           </div>
 
-          <div className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 backdrop-blur-md lg:mt-16 grid-cols-3 lg:grid-cols-4">
+          <div className="mt-12 grid gap-px overflow-hidden lg:mx-auto lg:max-w-[1360px] rounded-2xl border border-white/10 bg-white/10 backdrop-blur-md lg:mt-16 grid-cols-3 lg:grid-cols-4">
             <a
               href={site.growminionUrl}
               target="_blank"
@@ -410,18 +409,37 @@ export default function AboutPage() {
                 ))}
               </ul>
 
-              <div className="mt-4 grid gap-4 lg:grid-cols-[1.75fr_1fr]">
-                <div className="rounded-2xl border border-white/10 bg-[#0A0F21] p-5">
-                  <p className="mb-3 text-xs text-white/65">Average Google position for target keywords (lower is better)</p>
-                  <RankingChart />
+              <div className="mt-4 grid gap-4 lg:grid-cols-[1.1fr_1fr]">
+                <figure className="overflow-hidden rounded-2xl border border-white/10 bg-white">
+                  <Image
+                    src="/images/about/results-analytics.jpg"
+                    alt="Google Analytics reports snapshot: 2.1K users, up 337.5%, and 22 conversions, up 175%, over three months"
+                    width={788}
+                    height={350}
+                    sizes="(max-width: 1024px) 100vw, 600px"
+                    className="h-full w-full object-cover object-left-top"
+                  />
+                </figure>
+                <figure className="overflow-hidden rounded-2xl border border-white/10 bg-[#0B1022]">
+                  <Image
+                    src="/images/about/results-rankdominator.jpg"
+                    alt="RankDominator Local GeoGrid for a law firm: 92% top-3 coverage, 46 of 50 grid points"
+                    width={718}
+                    height={362}
+                    sizes="(max-width: 1024px) 100vw, 560px"
+                    className="h-full w-full object-cover object-left-top"
+                  />
+                </figure>
+              </div>
+
+              <div className="mt-4 flex flex-col items-start gap-4 rounded-2xl border border-amber-400/30 bg-gradient-to-r from-amber-400/10 to-transparent p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
+                <div className="flex items-center gap-5">
+                  <p className="font-display text-4xl font-extrabold text-amber-300 sm:text-5xl">#1–3</p>
+                  <p className="max-w-sm text-sm text-white/80">Google rankings for the firm&apos;s target terms, up from page two and three</p>
                 </div>
-                <div className="flex flex-col justify-center rounded-2xl border border-amber-400/30 bg-gradient-to-br from-amber-400/10 to-transparent p-6">
-                  <p className="font-display text-6xl font-extrabold text-amber-300">#1–3</p>
-                  <p className="mt-3 text-sm text-white/80">Google rankings for the firm&apos;s target terms, up from page two and three</p>
-                  <Link href="/case-studies/law-firm-service-pages" className="mt-5 text-sm font-semibold text-amber-300 underline underline-offset-4 hover:text-amber-200">
-                    Read the case study →
-                  </Link>
-                </div>
+                <Link href="/case-studies/law-firm-service-pages" className="shrink-0 text-sm font-semibold text-amber-300 underline underline-offset-4 hover:text-amber-200">
+                  Read the case study →
+                </Link>
               </div>
             </div>
           </Reveal>
