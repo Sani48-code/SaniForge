@@ -17,12 +17,11 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import FadeIn from "@/components/motion/FadeIn";
-import TableOfContents from "@/components/blog/TableOfContents";
 import RelatedPosts from "@/components/blog/RelatedPosts";
 import AuthorBio from "@/components/blog/AuthorBio";
 import ShareButton from "@/components/case-study/ShareButton";
 import { blogMdxComponents } from "@/components/mdx";
-import { getAllPosts, getPostBySlug, getRelatedPosts, getAdjacentPosts, extractHeadings } from "@/lib/mdx";
+import { getAllPosts, getPostBySlug, getRelatedPosts, getAdjacentPosts } from "@/lib/mdx";
 import { site } from "@/lib/data/site";
 import { buildMetadata } from "@/lib/seo";
 
@@ -182,7 +181,6 @@ export default async function BlogPostPage({
 
   if (!post) notFound();
 
-  const headings = extractHeadings(post.content);
   const related = getRelatedPosts(post);
   const { newer, older } = getAdjacentPosts(post);
   const jsonLd = [
@@ -320,17 +318,10 @@ export default async function BlogPostPage({
       </header>
 
       {/* Main Article Body & Sidebar */}
-      <main className="container-px mx-auto max-w-[1320px] py-12 sm:py-16">
-        <div className="grid grid-cols-1 justify-center gap-10 lg:grid-cols-[220px_minmax(0,720px)] xl:grid-cols-[230px_minmax(0,720px)_260px] xl:gap-14">
-          {/* Left: table of contents */}
-          <aside className="hidden lg:block" aria-label="Table of contents">
-            <div className="sticky top-36">
-              <TableOfContents headings={headings} />
-            </div>
-          </aside>
-
-          {/* Center: the article */}
-          <article className="mx-auto w-full min-w-0 max-w-[720px]">
+      <main className="container-px mx-auto max-w-[1180px] py-12 sm:py-16">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,1fr)_300px] xl:gap-16">
+          {/* The article fills the main column */}
+          <article className="w-full min-w-0">
             {(post.problem || post.approach || post.outcome) && (
               <aside aria-label="Problem, approach and outcome" className="mb-10 rounded-2xl border border-slate-200 bg-slate-50 p-6">
                 <dl className="space-y-3 text-base text-slate-700">
@@ -339,22 +330,6 @@ export default async function BlogPostPage({
                   {post.outcome && (<div><dt className="font-mono text-xs font-bold uppercase tracking-wider text-blue-700">Outcome</dt><dd>{post.outcome}</dd></div>)}
                 </dl>
               </aside>
-            )}
-            {headings.length > 2 && (
-              // On small screens the sidebar stacks below the article, so offer the contents up front.
-              <details className="group mb-10 rounded-2xl border border-slate-200 bg-slate-50/70 p-5 lg:hidden">
-                <summary className="flex cursor-pointer list-none items-center justify-between font-mono text-xs font-bold uppercase tracking-wider text-slate-600">
-                  In this article
-                  <ChevronRight size={16} className="transition-transform group-open:rotate-90" />
-                </summary>
-                <ol className="mt-4 space-y-2.5 border-l border-slate-200 pl-4 text-[15px]">
-                  {headings.map((h) => (
-                    <li key={h.id}>
-                      <a href={`#${h.id}`} className="text-slate-700 hover:text-blue-600">{h.text}</a>
-                    </li>
-                  ))}
-                </ol>
-              </details>
             )}
             <div className="blog-article-content">
               <MDXRemote
@@ -417,46 +392,32 @@ export default async function BlogPostPage({
             <AuthorBio />
           </article>
 
-          {/* Right: author and share (wide screens) */}
-          <aside className="hidden xl:block">
-            <div className="sticky top-36 space-y-6">
-              {/* Author Quick Card */}
-              <div className="rounded-2xl border border-slate-200 bg-slate-50/70 p-6 shadow-xs">
-                <div className="flex items-center gap-3">
-                  <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border border-slate-200">
-                    <Image
-                      src="/images/portrait-suit-1.png"
-                      alt={site.founder}
-                      fill
-                      className="object-cover"
-                    />
+          {/* Right: the writer */}
+          <aside className="hidden lg:block" aria-label="About the writer">
+            <div className="sticky top-36">
+              {/* Writer card */}
+              <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_20px_50px_-30px_rgba(15,23,42,0.35)]">
+                <div className="h-20 bg-gradient-to-br from-blue-600 via-indigo-600 to-violet-600" />
+                <div className="-mt-10 px-6 pb-6">
+                  <div className="relative h-20 w-20 overflow-hidden rounded-2xl border-4 border-white bg-slate-100 shadow-md">
+                    <Image src="/images/portrait-suit-1.png" alt={site.founder} fill sizes="80px" className="object-cover" />
                   </div>
-                  <div>
-                    <h5 className="font-bold text-slate-900">{site.founder}</h5>
-                    <p className="text-xs text-slate-500">n8n Developer &amp; Growth Engineer</p>
+                  <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-blue-600">Written by</p>
+                  <p className="mt-1 font-display text-xl font-extrabold text-slate-900">{site.founder}</p>
+                  <p className="text-sm text-slate-500">Founder, SaniForge</p>
+                  <p className="mt-4 text-sm leading-relaxed text-slate-600">
+                    Builds fast websites, SEO content and n8n automations for US law firms and local businesses. Core team member at GrowMinion.
+                  </p>
+                  <div className="mt-5 flex gap-2">
+                    <a href={site.socials.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-[40px] flex-1 items-center justify-center rounded-xl border border-slate-200 text-sm font-semibold text-slate-700 hover:border-blue-300 hover:text-blue-700">LinkedIn</a>
+                    <a href={site.github} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-[40px] flex-1 items-center justify-center rounded-xl border border-slate-200 text-sm font-semibold text-slate-700 hover:border-blue-300 hover:text-blue-700">GitHub</a>
                   </div>
-                </div>
-                <p className="mt-3 text-xs leading-relaxed text-slate-600">
-                  Ready to eliminate manual bottlenecks or build modern web experiences?
-                </p>
-                <a
-                  href={site.bookCallLink}
-                  className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-slate-900 py-2.5 text-xs font-semibold text-white hover:bg-slate-800 transition"
-                >
-                  Schedule 30-Min Strategy Call <ArrowUpRight size={13} />
-                </a>
-              </div>
-
-              {/* Share Box */}
-              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs">
-                <h5 className="font-mono text-xs font-bold uppercase tracking-wider text-slate-500">
-                  Share This Article
-                </h5>
-                <p className="mt-2 text-xs text-slate-500 leading-relaxed">
-                  Found this practical? Share it with team members or founders who could benefit.
-                </p>
-                <div className="mt-4">
-                  <ShareButton title={post.title} />
+                  <a
+                    href={site.bookCallLink}
+                    className="mt-3 flex min-h-[44px] w-full items-center justify-center gap-2 rounded-xl bg-slate-900 text-sm font-semibold text-white transition hover:bg-slate-800"
+                  >
+                    Book a 30-min call <ArrowUpRight size={14} />
+                  </a>
                 </div>
               </div>
             </div>
