@@ -5,6 +5,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import {
   ArrowRight,
+  ArrowUpRight,
   BarChart3,
   Users,
   Filter,
@@ -220,13 +221,14 @@ export default function Hero() {
           <div className="relative z-10 flex flex-col pt-2 pb-16 lg:pb-24 lg:pr-4 xl:-ml-6">
             {/* Main Headline */}
             <h1 className="font-display text-[32px] sm:text-5xl lg:text-[50px] xl:text-[54px] font-extrabold tracking-tight text-slate-900 leading-[1.12] text-balance">
-              We Build Websites &amp; <span className="text-[#F59E0B]">Automations</span> That Turn Visitors Into Booked Calls
+              It&apos;s Not Just About Working Harder. It&apos;s About <span className="text-[#F59E0B]">Building Smarter.</span>
             </h1>
 
             {/* Subtitle */}
             <p className="mt-5 max-w-xl text-base sm:text-lg leading-relaxed text-slate-600 font-normal">
-              <strong className="font-semibold text-slate-800">SaniForge</strong> is a web development and automation company. We build fast websites, write SEO content that ranks, and automate lead follow-up with n8n, so
-              law firms and local businesses across the US get more calls with less busywork.
+              We turn ambitious ideas into powerful digital solutions. From high-performing websites and custom SaaS platforms to SEO strategies and
+              intelligent automations powered by n8n and GoHighLevel, we build the technology that helps businesses attract customers, streamline
+              operations, and scale smarter.
             </p>
 
             {/* Dual CTAs */}
@@ -235,15 +237,15 @@ export default function Hero() {
                 href={site.bookCallLink}
                 className="group inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-7 py-3.5 text-sm sm:text-base font-semibold text-white shadow-lg shadow-blue-500/25 transition-all duration-200 hover:bg-blue-700 hover:shadow-blue-500/40 hover:-translate-y-0.5 active:translate-y-0"
               >
-                Book a Free 30-Min Audit
-                <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+                Let&apos;s Build Together
+                <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </Link>
 
               <Link
                 href="/projects"
                 className="inline-flex items-center justify-center rounded-full border border-slate-200/90 bg-white px-7 py-3.5 text-sm sm:text-base font-semibold text-slate-800 shadow-sm transition-all duration-200 hover:bg-slate-50 hover:border-slate-300 hover:shadow hover:-translate-y-0.5 active:translate-y-0"
               >
-                See Our Work
+                Explore Our Work
               </Link>
             </div>
 
